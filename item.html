@@ -9,5 +9,35 @@ title: Item
   </header>
   <body>
     {% include navBar.html %}
+        <h2>User Item and Price</h2>
+    <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="" height = "200" width = "200">  
+    <br>
+    <br>
+    <br>
+    <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="" height = "50" width = "50"> 
+    <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="" height = "50" width = "50">
+    <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="" height = "50" width = "50">
+    <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="" height = "50" width = "50"> 
+    
+    
+    <p>
+      User description about item
+    </p>
   </body>
 </html>
+<script>
+  // Example upload to Firebase Storage
+  // Create a root reference
+  var storageRef = firebase.storage().ref();
+
+  // Create a reference to 'mountains.jpg'
+  var mountainsRef = storageRef.child('mountains.jpg');
+
+  // Create a reference to 'images/mountains.jpg'
+  var mountainImagesRef = storageRef.child('images/mountains.jpg');
+
+  // While the file names are the same, the references point to different files
+  mountainsRef.name === mountainImagesRef.name            // true
+  mountainsRef.fullPath === mountainImagesRef.fullPath    // false
+  <!-- Copy and pasted from here:  https://firebase.google.com/docs/storage/web/upload-files -->
+</script>

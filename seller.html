@@ -1,0 +1,113 @@
+---
+title: Seller Info
+---
+<!DOCTYPE html>
+<html>
+
+<title>
+	Seller Information
+</title>
+<header>
+	{% include header.html %}
+	{% include fire.html %}
+	
+	<style>
+/* Popup container - can be anything you want */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+}
+
+</style>
+	
+	
+</header>
+	<body>
+		{% include navBar.html%}
+		<br>
+		<h1> Seller Name </h1>
+		<div class="row">
+		<h2> Ratings </h2>
+		<button type="button" class="btn btn-info">View Ratings</button>
+		</div>
+			
+		<!--<button type="button" class="btn btn-info">Contact Seller</button>  -->
+		
+		
+		<div class="popup" onclick="myFunction()"> 
+
+	<button type="button" class ="btn btn-info">Contact </button>
+
+  	<span class="popuptext" id="myPopup">
+	Email: xxxxxxxxxxxx 
+  	Please include posting number in email.</span>
+	</div>
+		
+		
+		<h2> Seller's Listings: </h2>
+		
+		<div class="row">
+      <div class="col-9" id="listings">
+        <div class="row">
+          <div class="card col-3" href="#">
+            <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="">
+            <div class="card-body"><h6 class="card-title">Title</h6><p class="card-text">Description</p></div>
+          </div>
+          <div class="card col-3" href="#">
+            <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="">
+            <div class="card-body"><h6 class="card-title">Title</h6><p class="card-text">Description</p></div>
+          </div>
+          <div class="card col-3" href="#">
+            <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="">
+            <div class="card-body"><h6 class="card-title">Title</h6><p class="card-text">Description</p></div>
+          </div>
+          <div class="card col-3" href="#">
+            <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="">
+            <div class="card-body"><h6 class="card-title">Title</h6><p class="card-text">Description</p></div>
+          </div>
+        </div> <!-- End 1st row-->
+        
+      </div> <!-- End listings section-->
+			
+			
+			
+<script>
+// When the user clicks on div, open the popup
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+</script>
+	</body>
+
+
+
+
+
+</html>

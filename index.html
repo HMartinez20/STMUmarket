@@ -10,62 +10,97 @@ title: StMU Marketplace
   <body>
     {% include navBar.html %}
     <br>
-    <div id="menuBar" class="col-3">
-      <button href="https://www.w3schools.com/html/">test</button>
-    </div>
-    <div class="col-9">
-      <div class="row">
-        <div class="card col" style="width: 18rem;" href="#">
-          <img src="" class="card-img-top" alt="">
-          <div class="card-body">
-            <p class="card-text">Item title goes here</p>
-          </div>
+    <div class="col-3 d-inline-block align-top">
+      <div class="btn-group-lg col" role="group">
+        <button id="catergories" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</button>
+        <div class="dropdown-menu" aria-labelledby="catergories" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(15px, 78px, 0px);">
+          <button class="btn btn-dark" id="booksBtn" onclick="genListings('books');">Books</button>
+          <button class="btn btn-dark" id="clothingBtn" onclick="genListings('clothing');">Clothing</button>
+          <button class="btn btn-dark" id="furnitureBtn" onclick="genListings('furniture');">Furniture</button>
         </div>
-        <div class="card col" style="width: 18rem;" href="#">
-          <img src="" class="card-img-top" alt="">
-          <div class="card-body">
-            <p class="card-text">Item title goes here</p>
-          </div>
-        </div>
-        <div class="card col" style="width: 18rem;" href="#">
-          <img src="" class="card-img-top" alt="">
-          <div class="card-body">
-            <p class="card-text">Item title goes here</p>
-          </div>
-        </div>
-        <div class="card col" style="width: 18rem;" href="#">
-          <img src="" class="card-img-top" alt="">
-          <div class="card-body">
-            <p class="card-text">Item title goes here</p>
-          </div>
-        </div>
+        <span class="badge badge-primary">Books</span>
       </div>
-      <div class="row">
-        <div class="card col" style="width: 18rem;" href="#">
-          <img src="" class="card-img-top" alt="">
-          <div class="card-body">
-            <p class="card-text">Item title goes here</p>
-          </div>
-        </div>
-        <div class="card col" style="width: 18rem;" href="#">
-          <img src="" class="card-img-top" alt="">
-          <div class="card-body">
-            <p class="card-text">Item title goes here</p>
-          </div>
-        </div>
-        <div class="card col" style="width: 18rem;" href="#">
-          <img src="" class="card-img-top" alt="">
-          <div class="card-body">
-            <p class="card-text">Item title goes here</p>
-          </div>
-        </div>
-        <div class="card col" style="width: 18rem;" href="#">
-          <img src="" class="card-img-top" alt="">
-          <div class="card-body">
-            <p class="card-text">Item title goes here</p>
-          </div>
+      <br>
+      <div id="filters">
+        <h5>Filters</h5>
+        <div class="pl-4">
+          <button type="button" class="btn btn-link d-block text-decoration-none">
+            <i class="fas fa-angle-up"></i> Price
+          </button>
+          <select>
+            <option value="lowest">Lowest</option>
+            <option value="highest">Hightes</option>
+          </select>
+          <button type="button" class="btn btn-link d-block text-decoration-none">
+            <i class="fas fa-angle-up"></i> Date
+          </button>
+          <button type="button" class="btn btn-link d-block text-decoration-none">
+            <i class="fas fa-angle-up"></i> Reviews
+          </button>
         </div>
       </div>
     </div>
+    <div class="col-9 d-inline-block card-deck" id="listings">
+      <div class="row">
+        <div class="card col-3" href="#">
+          <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="">
+          <div class="card-body"><h6 class="card-title">Title</h6><p class="card-text">Description</p></div>
+        </div>
+        <div class="card col-3" href="#">
+          <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="">
+          <div class="card-body"><h6 class="card-title">Title</h6><p class="card-text">Description</p></div>
+        </div>
+        <div class="card col-3" href="#">
+          <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="">
+          <div class="card-body"><h6 class="card-title">Title</h6><p class="card-text">Description</p></div>
+        </div>
+        <div class="card col-3" href="#">
+          <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="">
+          <div class="card-body"><h6 class="card-title">Title</h6><p class="card-text">Description</p></div>
+        </div>
+      </div> <!-- End 1st row-->
+      <div class="row">
+        <div class="card col-3" href="#">
+          <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="">
+          <div class="card-body"><h6 class="card-title">Title</h6><p class="card-text">Description</p></div>
+        </div>
+        <div class="card col-3" href="#">
+          <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="">
+          <div class="card-body"><h6 class="card-title">Title</h6><p class="card-text">Description</p></div>
+        </div>
+        <div class="card col-3" href="#">
+          <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="">
+          <div class="card-body"><h6 class="card-title">Title</h6><p class="card-text">Description</p></div>
+        </div>
+        <div class="card col-3" href="#">
+          <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="">
+          <div class="card-body"><h6 class="card-title">Title</h6><p class="card-text">Description</p></div>
+        </div>
+      </div> <!-- End 2nd row-->
+      <div class="row">
+        <div class="card col-3" href="#">
+          <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="">
+          <div class="card-body"><h6 class="card-title">Title</h6><p class="card-text">Description</p></div>
+        </div>
+        <div class="card col-3" href="#">
+          <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="">
+          <div class="card-body"><h6 class="card-title">Title</h6><p class="card-text">Description</p></div>
+        </div>
+        <div class="card col-3" href="#">
+          <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="">
+          <div class="card-body"><h6 class="card-title">Title</h6><p class="card-text">Description</p></div>
+        </div>
+        <div class="card col-3" href="#">
+          <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="">
+          <div class="card-body"><h6 class="card-title">Title</h6><p class="card-text">Description</p></div>
+        </div>
+      </div> <!-- End 3rd row-->
+    </div> <!-- End listings section-->
   </body>
 </html>
+<script id="genListings" src="search.js" data-search="generic"></script>
+<script>
+  function genListings(search){
+    console.log(search);
+  }
+</script>
