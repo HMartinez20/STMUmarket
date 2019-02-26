@@ -52,14 +52,20 @@ title: Seller Info
 		{% include navBar.html%}
 		<br>
 		<h1> Seller Name </h1>
-		<div class="row">
+		
 		<h2> Ratings </h2>
 		<button type="button" class="btn btn-info">View Ratings</button>
-		</div>
 			
+		<button class = "btn btn-primary" id="btnPopover" title="Popover Title"
+			data-content="Popover content. Popover content. Popover content"
+			data-toggle="popover">
+			Popover Example
+		</button>
+	
+		
 		<!--<button type="button" class="btn btn-info">Contact Seller</button>  -->
 		
-		
+		<!--
 		<div class="popup" onclick="myFunction()"> 
 
 	<button type="button" class ="btn btn-info">Contact </button>
@@ -69,7 +75,7 @@ title: Seller Info
   	Please include posting number in email.</span>
 	</div>
 		
-		
+	-->	
 		<h2> Seller's Listings: </h2>
 		
 		<div class="row">
@@ -95,15 +101,26 @@ title: Seller Info
         
       </div> <!-- End listings section-->
 			
+
 			
-			
+<script src=https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('#btnPopover').popover();
+			      });
+</script>
+									      
+<!--			
 <script>
 // When the user clicks on div, open the popup
 function myFunction() {
   var popup = document.getElementById("myPopup");
   popup.classList.toggle("show");
 }
-</script>
+</script> 
+-->
 	</body>
 
 
