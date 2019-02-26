@@ -11,6 +11,9 @@ title: Account Info
       var password = document.getElementById("pass");
 
       function whatever(){
+         var email = document.getElementById("email");
+      var password = document.getElementById("pass");
+
         firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
   // Handle Errors here.
   var errorCode = error.code;
