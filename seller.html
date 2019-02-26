@@ -56,10 +56,11 @@ title: Seller Info
 		<h2> Ratings </h2>
 		<button type="button" class="btn btn-info">View Ratings</button>
 			
-		<button class = "btn btn-primary" id="btnPopover" title="Popover Title"
-			data-content="Popover content. Popover content. Popover content"
+		<button class = "btn btn-primary" id="btnPopover" title="Seller Contact Information:"
+			data-content="Email: xxxxxxxxx@mail.stmarytx.edu"
 			data-toggle="popover">
-			Popover Example
+			
+			Contact Seller
 		</button>
 	
 		
@@ -103,11 +104,14 @@ title: Seller Info
 			
 
 			
-<script src=https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
-</script>
+
 									      
 
-
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('#btnPopover').popover();
+			      });
+</script>
 									      
 <!--			
 <script>
