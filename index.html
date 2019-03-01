@@ -18,18 +18,17 @@ title: StMU Marketplace
           <button class="btn btn-dark" id="clothingBtn" onclick="genListings('clothing');">Clothing</button>
           <button class="btn btn-dark" id="furnitureBtn" onclick="genListings('furniture');">Furniture</button>
         </div>
+        <span class="badge badge-primary">Books</span>
       </div>
       <br>
       <div id="filters">
         <h5>Filters</h5>
         <div class="pl-4">
-          <button type="button" class="btn btn-link d-block text-decoration-none">
-            <i class="fas fa-angle-up"></i> Price
-          </button>
-          <select>
-            <option value="lowest">Lowest</option>
-            <option value="highest">Hightes</option>
-          </select>
+          <button id="price" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Prices</button>
+          <div class="dropdown-menu" aria-labelledby="prices" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(15px, 78px, 0px);">
+            <button class="btn btn-dark" id="booksBtn" onclick="genListings('books');">Lowest</button>
+            <button class="btn btn-dark" id="furnitureBtn" onclick="genListings('furniture');">Highest</button>
+          </div>
           <button type="button" class="btn btn-link d-block text-decoration-none">
             <i class="fas fa-angle-up"></i> Date
           </button>

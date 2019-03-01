@@ -6,6 +6,23 @@ title: Account Info
   <header>
     {% include header.html %} <!-- Jekyll Liquid command -->
     {% include fire.html %}
+    <script>
+     
+
+      function whatever(){
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("pass").value;
+        console.log(email);
+        console.log(password);
+
+        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        });
+      }
+    
+    </script>
   </header>
   <body>
   {% include navBar.html %}
@@ -15,10 +32,10 @@ title: Account Info
       <hr>
 
       <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
+      <input type="text" placeholder="Enter Email" name="email" required  id="email" >
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" placeholder="Enter Password" name="psw" id="pass" >
 
       <label for="psw-repeat"><b>Repeat Password</b></label>
       <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
@@ -31,8 +48,11 @@ title: Account Info
 
       <div class="clearfix">
         <button type="button" class="cancelbtn">Cancel</button>
-        <button type="submit" class="signupbtn">Sign Up</button>
+        <button type="submit" class="signupbtn"   onclick="whatever()"     >Sign Up</button>
       </div>
     </div>
   </body>
 </html> 
+<script>
+  console.log("test");
+  </script>

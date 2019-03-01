@@ -1,65 +1,36 @@
 ---
-title: Seller Info
+title: Seller 
 ---
 <!DOCTYPE html>
 <html>
-
-<title>
-	Seller Information
-</title>
-<header>
-	{% include header.html %}
-	{% include fire.html %}
-	
-	<style>
-/* Popup container - can be anything you want */
-.popup {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* The actual popup */
-.popup .popuptext {
-  visibility: hidden;
-  width: 160px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -80px;
-}
-
-/* Toggle this class - hide and show the popup */
-.popup .show {
-  visibility: visible;
-}
-
-</style>
-	
-	
-</header>
+	<title>
+		Seller Information
+	</title>
+	<header>
+		{% include header.html %}
+		{% include fire.html %}
+	</header>
 	<body>
 		{% include navBar.html%}
 		<br>
 		<h1> Seller Name </h1>
-		<div class="row">
+		
 		<h2> Ratings </h2>
-		<button type="button" class="btn btn-info">View Ratings</button>
-		</div>
+		<button type="button" class="btn btn-dark">View Ratings</button>
 			
+		<!-- This Button triggers a popup that gives user contact info-->
+		<button class = "btn btn-dark" id="btnPopover" title="Seller Contact Information:"
+			data-content="Email: xxxxxxxxx@mail.stmarytx.eduthirdwdfadccadc Second Line"
+			data-trigger="focus"
+			data-toggle="popover">
+			
+			Contact Seller
+		</button>
+	
+		
 		<!--<button type="button" class="btn btn-info">Contact Seller</button>  -->
 		
-		
+		<!--
 		<div class="popup" onclick="myFunction()"> 
 
 	<button type="button" class ="btn btn-info">Contact </button>
@@ -69,7 +40,7 @@ title: Seller Info
   	Please include posting number in email.</span>
 	</div>
 		
-		
+	-->	
 		<h2> Seller's Listings: </h2>
 		
 		<div class="row">
@@ -95,19 +66,16 @@ title: Seller Info
         
       </div> <!-- End listings section-->
 			
+
 			
-			
-<script>
-// When the user clicks on div, open the popup
-function myFunction() {
-  var popup = document.getElementById("myPopup");
-  popup.classList.toggle("show");
-}
-</script>
+
+									  
+									      
 	</body>
-
-
-
-
-
 </html>
+
+	
+<script type="text/javascript">
+	$(document).ready(function () 
+		{ $('#btnPopover').popover(); });
+</script>
