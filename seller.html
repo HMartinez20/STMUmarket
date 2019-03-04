@@ -49,6 +49,8 @@ title: Seller
 	
 		<h2> Seller's Listings: </h2>
 		
+		<div id="scrolling-wrapper"></div>
+		
 		<div class="row">
       <div class="col-9" id="listings">
         <div class="row">
@@ -80,8 +82,24 @@ title: Seller
 	</body>
 </html>
 
-
+<!--Script to toggle popover-->
 <script >
 	$(document).ready(function () 
 		{ $("[data-toggle=popover]").popover(); });
 </script>
+	
+<script>
+	$(document).ready( function()
+		{
+			var count = 4;
+		
+			var html = "";
+			
+			for(i=1;i<=count;i++){
+				hmtl+= "<div class='card'> card " + i + "</div>";
+				html+= "<br>";
+			}
+			$("#scrolling-wrapper").html(html);
+		});
+</script>
+	
