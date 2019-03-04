@@ -99,16 +99,20 @@ title: Seller
 			var html = "";
 			
 			for(i=1;i<=count;i++){
-				html+= "<div class='card'> card " + i;
-				html+= ""+ "</div>";
+				html+= "<div class='card'> card ";
+				html+= "<img src='{{site.baseurl}}/Empty.jpg' class='card-img-top mt-3' style='background-color: grey;'" 
+				html+= "alt=''>"
+				html+= "<div class='card-body'><h6 class='card-title'>Title</h6><p class='card-text'>"
+				html+= "Description </p></div>"
+				html+= " </div>";
 				html+= "<br>";
 			}
 			$("#scrolling-wrapper").html(html);
 		});
 </script>
-	
+	<!--
 	<div class="card col-3" href="#">
             <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="">
             <div class="card-body"><h6 class="card-title">Title</h6><p class="card-text">Description</p></div>
           </div>
-	
+	->
