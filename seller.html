@@ -19,7 +19,7 @@ title: Seller
 		<h2> Current Average Rating: X.X <br>
 		     Last Rating: X.X</h2>
 		<!-- This Button triggers a popup that gives seller rating info  -->
-		<button class = "btn btn-warning" id="btnPopover22" title="Seller Rating"
+		<button class = "btn btn-warning" id="btnPopover" title="Seller Rating"
 			data-html="true"
 			data-content="Average Rating: X.X <br> Last Rating: X"
 			data-trigger="focus" 
@@ -29,7 +29,7 @@ title: Seller
 		<br><br>
 		
 		<!-- This Button triggers a popup that gives seller contact info-->
-		<button class = "btn btn-primary" id="btnPopover" title="Seller Contact Information"
+		<button class = "btn btn-primary" id="btnPopover2" title="Seller Contact Information"
 			data-html="true"
 			data-content="Email @ xxxxxxxxx@mail.stmarytx.edu <br>
 				      Please include STMU Marketplace and posting # in Subject line"
@@ -81,12 +81,9 @@ title: Seller
 	</body>
 </html>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="tether.js"></script>
-    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
 
 <script >
-	$(function () 
-		{ $("[data-toggle''popover'").popover(); });
+	$(document).ready(function () 
+		{ $(#btnPopover).popover(); });
 </script>
 
