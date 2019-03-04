@@ -27,7 +27,7 @@ title: Seller
 		<br><br>
 		
 		<!-- This Button triggers a popup that gives seller contact info-->
-		<button class = "btn btn-warning" id="btnPopover" title="Seller Contact Information:"
+		<button class = "btn btn-warning" id="btnPopover2" title="Seller Contact Information:"
 			data-html="true"
 			data-content="Email @ xxxxxxxxx@mail.stmarytx.edu <br>
 				      Please include STMU Marketplace and posting # in Subject line"
@@ -37,13 +37,14 @@ title: Seller
 		</button>
 		<br><br>
 		
+		<!-- Card that displays short seller biography/information -->
 		<div class="card bg-light mb-3" style = "max-width: 50rem;">
 			<div class="card-header"> Seller Bio </div>
 			<div class="card-body">
 				Hello. I am a Junior at St Mary's.
 			</div>
 		</div>
-		
+		<br><br>
 	
 		<h2> Seller's Listings: </h2>
 		
@@ -81,5 +82,5 @@ title: Seller
 	
 <script type="text/javascript">
 	$(document).ready(function () 
-		{ $('#btnPopover').popover(toggle); });
+		{ $('#btnPopover').popover(); });
 </script>
