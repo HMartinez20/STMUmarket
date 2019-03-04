@@ -48,12 +48,10 @@ title: Seller
 		<br><br>
 	
 		<h2> Seller's Listings: </h2>
-		
-		
 		<div id="scrolling-wrapper"></div>
 	
 		
-		<div class="row">
+	
       <div class="col-9" id="listings">
         <div class="row">
           <div class="card col-3" href="#">
@@ -72,7 +70,6 @@ title: Seller
             <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="">
             <div class="card-body"><h6 class="card-title">Title</h6><p class="card-text">Description</p></div>
           </div>
-        </div> <!-- End 1st row-->
         
       </div> <!-- End listings section-->
 			
@@ -91,11 +88,11 @@ title: Seller
 </script>
 
 	
+<!--Script to create and display Cards containing information for Seller's postings-->	
 <script>
 	$(document).ready( function()
 		{
 			var count = 4;
-		
 			var html = "";
 			
 			for(i=1;i<=count;i++){
@@ -110,9 +107,4 @@ title: Seller
 			$("#scrolling-wrapper").html(html);
 		});
 </script>
-	<!--
-	<div class="card col-3" href="#">
-            <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="">
-            <div class="card-body"><h6 class="card-title">Title</h6><p class="card-text">Description</p></div>
-          </div>
-	->
+	
