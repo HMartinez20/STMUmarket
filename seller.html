@@ -16,7 +16,15 @@ title: Seller
 		
 		<h1> Seller Name </h1>
 			
-		
+		<!-- This Button triggers a popup that gives seller rating info  -->
+		<button class = "btn btn-warning" id="btnPopover" title="Seller Ratings:"
+			data-html="true"
+			data-content="Average Rating: X.X <br> Last Rating: X"
+			data-trigger="focus" 
+			data-toggle="popover">
+				View Ratings
+		</button>
+		<br><br>
 		
 		<!-- This Button triggers a popup that gives seller contact info-->
 		<button class = "btn btn-warning" id="btnPopover" title="Seller Contact Information:"
@@ -26,16 +34,6 @@ title: Seller
 			data-trigger="focus" 
 			data-toggle="popover">
 				Contact Seller
-		</button>
-		<br><br>
-		
-		<!-- This Button triggers a popup that gives seller rating info  -->
-		<button class = "btn btn-warning" id="btnPopover" title="Seller Ratings:"
-			data-html="true"
-			data-content="Average Rating: X.X <br> Last Rating: X"
-			data-trigger="focus" 
-			data-toggle="popover">
-				View Ratings
 		</button>
 		<br><br>
 		
@@ -83,5 +81,5 @@ title: Seller
 	
 <script type="text/javascript">
 	$(document).ready(function () 
-		{ $('#btnPopover').popover(); });
+		{ $('#btnPopover').popover(toggle); });
 </script>
