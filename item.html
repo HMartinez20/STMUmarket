@@ -29,21 +29,55 @@ title: Item
 	<IMG STYLE="position:absolute; TOP:525px; LEFT:10px; WIDTH:125px; HEIGHT:125px" src="{{site.baseurl}}/Empty.jpg" hspace="20">
 	<IMG STYLE="position:absolute; TOP:700px; LEFT:10px; WIDTH:125px; HEIGHT:125px" src="{{site.baseurl}}/Empty.jpg" hspace="20">
     
-	<button class="btn btn-dark" style="position:absolute; top:350px; left:800px; id="btnPopover" 
-		title="" data-content="Email: xxxxxxxxx@mail.stmarytx.eduthirdwdfadccadc Second Line" 
-		data-trigger="focus" data-toggle="popover" data-original-title="Seller Contact Information:">
-		Contact Seller
-	</button>
-    
-	<button type="button" style="position:absolute; top:400px; left:800px; class="btn btn-dark">View Ratings</button>
-	<div class="popover fade show bs-popover-left" role="tooltip" id="popover641116" style="position: absolute;
-		transform: translate3d(5px, 421px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="left">
-		</div>
+			
+		<!-- This Button triggers a popup that gives seller rating info  -->
+		<button class = "btn btn-warning" id="ratingPopover" title="Seller Rating"
+			data-html="true"
+			data-content="Average Rating: X.X <br> Last Rating: X"
+			data-placement="bottom"
+			data-trigger="focus" 
+			data-toggle="popover">
+				View Ratings
+		</button>
+	
+		<!-- This Button triggers a popup that gives seller contact info-->
+		<button class = "btn btn-primary" id="contactPopover" title="Seller Contact Information"
+			data-html="true"
+			data-content="To contact, email xxxxxxxxx@mail.stmarytx.edu <br>
+				      and include STMUM and posting number as email subject"
+			data-placement="bottom"
+			data-trigger="focus" 
+			data-toggle="popover">
+				Contact Seller
+		</button>
+		
 	<DIV style="position: absolute; top:350px; left:950px; width:200px; height:25px">PRICE</DIV>
 		
 	<div class="absolute">This is the user description of item;</div>
   </body>
 </html>
+		<!--Script to toggle popover-->
+<script >
+	$(document).ready(function () 
+		{ $("[data-toggle=popover]").popover(); });
+</script>
+
+	
+<script>
+	$(document).ready( function()
+		{
+			var count = 4;
+		
+			var html = "";
+			
+			for(i=1;i<=count;i++){
+				html+= "<div class='card'> card " + i;
+				html+= ""+ "</div>";
+				html+= "<br>";
+			}
+			$("#scrolling-wrapper").html(html);
+		});
+</script>
 <script>
   // Example upload to Firebase Storage
   // Create a root reference
