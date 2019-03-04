@@ -1,4 +1,4 @@
-l---
+---
 title: Account Login
 ---
 <!DOCTYPE html>
@@ -11,8 +11,7 @@ title: Account Login
       function whatever(){
         var email = document.getElementById("email").value;
         var password = document.getElementById("pass").value;
-        console.log(email);
-        console.log(password);
+      
        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
    console.log(error.code);
    console.log(error.message);
@@ -24,7 +23,7 @@ title: Account Login
   <body>
   {% include navBar.html %}
   <br>
-  <h1>Sign Up</h1>
+  <h1>Sign In</h1>
       <p>Please sign in here with your email and password.</p>
       <hr>
 
@@ -33,10 +32,11 @@ title: Account Login
 
       <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" id="pass" >
-      <div class="clearfix">
+     
+    <div class="clearfix">
         <button type="button" class="cancelbtn">Cancel</button>
         <button type="submit" class="signinbtn"   onclick="whatever()"     >Sign in</button>
       </div>
-    </div>
+    
   </body>
 </html> 
