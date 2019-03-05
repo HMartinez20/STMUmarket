@@ -45,9 +45,11 @@ title: Seller
 			</div>
 		</div>
 		<br>
-	
-		<h2> Seller's Listings: </h2>
-		<div id="sellerListings"></div>
+		
+		<div class="container">
+			<h2> Seller's Listings: </h2>
+			<div id="sellerListings"></div>
+		</div>
 									  
 									      
 	</body>
@@ -76,7 +78,6 @@ title: Seller
 		var rowCount = 2;
 		var html = "";
 		
-		html+= "<div class='container'>"
 		for (i=0;i<rowCount;i++){
 			html+= "<div class='row' >"
 			for(j=0;j<count;j++){
@@ -90,7 +91,6 @@ title: Seller
 			}
 			html+= "</div>"
 		}
-		html+= "</div>"
 		$("#sellerListings").html(html);
 		});
 </script>
