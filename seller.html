@@ -12,8 +12,8 @@ title: Seller
 	</header>
 	<body>
 		{% include navBar.html%}
-		<br><br>
 		
+		<div id="sellerName" ></div>
 		<h1> Seller Name </h1>
 			
 		<!-- This Button triggers a popup that gives seller rating info  -->
@@ -60,6 +60,14 @@ title: Seller
 		{ $("[data-toggle=popover]").popover(); });
 </script>
 
+<script>
+	$(document).ready( function()	  
+	{
+		var html = "<h1> Seller One <h1>"	
+		$("#sellerName").html(html);
+	});
+</script>
+
 	
 <!--Script to create and display Cards containing information for Seller's postings-->	
 <script>
@@ -69,7 +77,7 @@ title: Seller
 			var html = "";
 			
 			for(i=1;i<=count;i++){
-				html+= "<div class='card col-3'> card ";
+				html+= "<div class='card col-3'>";
 				html+= "<img src='{{site.baseurl}}/Empty.jpg' class='card-img-top mt-3' style='background-color: grey;'" 
 				html+= "alt=''>"
 				html+= "<div class='card-body'><h6 class='card-title'>Title</h6><p class='card-text'>"
