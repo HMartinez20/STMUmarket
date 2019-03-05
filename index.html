@@ -18,7 +18,9 @@ title: StMU Marketplace
           <button class="btn btn-dark" id="clothingBtn" onclick="genListings('clothing');">Clothing</button>
           <button class="btn btn-dark" id="furnitureBtn" onclick="genListings('furniture');">Furniture</button>
         </div>
-        <span class="badge badge-primary">Books</span>
+        <span class="badge badge-primary" id="booksBadge" hidden>Books</span>
+	<span class="badge badge-primary" id="clothingBadge" hidden>Books</span>
+	<span class="badge badge-primary" id="furnitureBadge" hidden>Books</span>
       </div>
       <br>
       <div id="filters">
@@ -101,13 +103,9 @@ title: StMU Marketplace
   
   function genListings(search){
     console.log(search + "Btn");
-    var pill = document.getElementById(search+"Btn");
-    if(pill.hasAttribute("hidden")){
-		  pill.removeAttribute("hidden");
-	  }
-	  else{
-		  pill.setAttribute("hidden","");
-	  }
+    var badge = document.getElementById(search+"Badge");
+    if(badge.hasAttribute("hidden")){ badge.removeAttribute("hidden"); }
+    else{ badge.setAttribute("hidden",""); }
   }
 
 </script>
