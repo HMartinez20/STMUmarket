@@ -15,7 +15,6 @@ title: Account Login
        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
    console.log(error.code);
    console.log(error.message);
-         return;
 });
       }
     
@@ -37,7 +36,9 @@ title: Account Login
     <div class="clearfix">
         <button type="button" class="cancelbtn">Cancel</button>
         <button type="submit" class="signinbtn"   onclick="whatever();window.location='https://hmartinez20.github.io/STMUmarket/index.html'"    >Sign in</button>
-      </div>
+        <br>
+        <a href="https://hmartinez20.github.io/STMUmarket/signup.html"> Don't have an account? Click Here</a>
+    </div>
     
   </body>
 </html> 
