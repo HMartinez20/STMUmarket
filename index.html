@@ -98,7 +98,16 @@ title: StMU Marketplace
 </html>
 <script id="genListings" src="search.js" data-search="generic"></script>
 <script>
+  
   function genListings(search){
-    console.log(search);
+    console.log(search + "Btn");
+    var pill = document.getElementById(search+"Btn");
+    if(pill.hasAttribute("hidden")){
+		  pill.removeAttribute("hidden");
+	  }
+	  else{
+		  pill.setAttribute("hidden","");
+	  }
   }
+
 </script>
