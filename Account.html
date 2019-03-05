@@ -7,56 +7,50 @@ title: Account Page
     {% include header.html %}
     {% include fire.html %}
   </header>
-	
-<body>
-{% include navBar.html%}
-<body style="background-color: #FFFFFF">
 
-<table width="1300" height="1350" align="center" border="0">
-<tr height = "500" border="1">
-	<td height ="300" width="250" align="center" colspan="2"> 
-        <img src="picture.jpg"  style="width:300px;height:300px;border:0;" align="center"> 
-     </td> 
+	<body>
+		{% include navBar.html%}
 
-     <td height ="300" colspan="2" width="200" align="left">
-     <div class="card">
-  
-  <h1>User Name</h1>
-  <p class="title">First Name</p>
-  <p>Last Name</p>
-  <a href="#"><i class="fa fa-dribbble"></i></a> 
-  <a href="#"><i class="fa fa-twitter"></i></a> 
-  <a href="#"><i class="fa fa-linkedin"></i></a> 
-  <a href="#"><i class="fa fa-facebook"></i></a> 
-  <p><button>Edit Info</button></p>
-</div>
+		<table width="1300" height="1350" align="center" border="0">
+			<tr height = "500" border="1">
+				<td height ="300" width="250" align="center" colspan="2"> 
+					<img src="picture.jpg"  style="width:300px;height:300px;border:0;" align="center"> 
+			 </td> 
+			 <!--<td height ="300" colspan="2" width="200" align="left">-->
 
-<tr height="100"> 
-    <td colspan="4" align="center" border="0" width ="1500"> 
-    <ul>
-  <li><a class="active" href="#home">My Profile</a></li>
-  <li><a href="products.html">Items Purchased</a></li>
-  <li><a href="gallery.html">Items Listed</a></li>
-  <li><a href="about.html">Ratings</a></li>
-  </ul>
-  </td>
-   </tr>
-<tr>
-	<td colspan="4" border="1" align="center" height="200" width="400"> 
-     
-      
-  <h2> Average User Rating</h2>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star"></span>
-<span class="fa fa-star"></span>
+				<div class="card">
+					<h1>User Name</h1>
+					<p class="title">First Name</p>
+					<p>Last Name</p>
+					<a href="#"><i class="fa fa-dribbble"></i></a> 
+					<a href="#"><i class="fa fa-twitter"></i></a> 
+					<a href="#"><i class="fa fa-linkedin"></i></a> 
+					<a href="#"><i class="fa fa-facebook"></i></a> 
+					<p><button>Edit Info</button></p>
+				</div>
 
-</td>
-</tr> 
-</body>
+			<tr height="100"> 
+				<td colspan="4" align="center" border="0" width ="1500"> 
+					<ul>
+						<li><a class="active" href="#home">My Profile</a></li>
+						<li><a href="products.html">Items Purchased</a></li>
+						<li><a href="gallery.html">Items Listed</a></li>
+						<li><a href="about.html">Ratings</a></li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4" border="1" align="center" height="200" width="400">
+					<h2> Average User Rating</h2>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star"></span>
+					<span class="fa fa-star"></span>
+				</td>
+			</tr> 
+	</body>
 </html>
-
 <style>
 	ul {
 	    list-style-type: none;
@@ -278,4 +272,5 @@ title: Account Page
 
 	.checked {
 	  color: orange;
+	}
 </style>
