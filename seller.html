@@ -3,9 +3,7 @@ title: Seller
 ---
 <!DOCTYPE html>
 <html>
-	<title>
-		Seller Information
-	</title>
+	<title> Seller Information </title>
 	<header>
 		{% include header.html %}
 		{% include fire.html %}
@@ -49,7 +47,7 @@ title: Seller
 		<br>
 	
 		<h2> Seller's Listings: </h2>
-		<div id="scrolling-wrapper"></div>
+		<div id="sellerListings"></div>
 									  
 									      
 	</body>
@@ -61,6 +59,7 @@ title: Seller
 		{ $("[data-toggle=popover]").popover(); });
 </script>
 
+<!-- Get and display seller's name -->
 <script>
 	$(document).ready( function()	  
 	{
@@ -72,28 +71,26 @@ title: Seller
 	
 <!--Script to create and display Cards containing information for Seller's postings-->	
 <script>
-	$(document).ready( function()
-		{
-			var count = 3;
-			var rowCount = 2;
-			var html = "";
+	$(document).ready( function(){
+		var count = 3;
+		var rowCount = 2;
+		var html = "";
 			
-			for (i=0;i<rowCount;i++){
-				html+= "<div class='row' >"
-				for(j=0;j<count;j++){
-					html+= "<div class='card col-3' >";
-					html+= "<img src='{{site.baseurl}}/Empty.jpg' class='card-img-top mt-3' style='background-color: grey;'" 
-					html+= "alt=''>"
-					html+= "<div class='card-body'><h6 class='card-title'>Title</h6><p class='card-text'>"
-					html+= "Description </p></div>"
-					html+= " </div>";
-					
-					html+= "<br>";
-				}
-				html+= "</div>"
+		for (i=0;i<rowCount;i++){
+			html+= "<div class='row' >"
+			for(j=0;j<count;j++){
+				html+= "<div class='card col-3' >";
+				html+= "<img src='{{site.baseurl}}/Empty.jpg' class='card-img-top mt-3' style='background-color: grey;'" 
+				html+= "alt=''>"
+				html+= "<div class='card-body'><h6 class='card-title'>Title</h6><p class='card-text'>"
+				html+= "Description </p></div>"
+				html+= " </div>";
+				html+= "<br>";
 			}
+			html+= "</div>"
+		}
 		
-			$("#scrolling-wrapper").html(html);
+		$("#sellerListings").html(html);
 		});
 </script>
 	
