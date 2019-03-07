@@ -22,6 +22,10 @@ title: Account Page
 				<p><button>Edit Info</button></p> -->
 			</div>
 		</div> 
+		<div id="fileSubmit">
+     <input type="file" value="upload" id="file-select"/>
+      <button id="file-upload" class="btn btn-info" onclick="handleFileSelect();">Upload Image</button>
+   </div>
 		<table width="1300" height="1350" align="center" border="0">
 			<tr height = "500" border="1">
 				<td height ="300" width="250" align="center" colspan="2"> 
@@ -52,3 +56,31 @@ title: Account Page
 			</tr> 
 	</body>
 </html>
+<script>
+	 const storage = firebase.storage(); // Reference to storage service
+      
+		var fileButton = document.getElementById("file-upload");
+		//var fileSelect = document.getElementById("file-select");
+		function handleFileSelect(){
+			 // Get file
+			 var file = document.getElementById("file-select").files[0];
+
+			 // Create storage ref
+			 const storageRef = storage.ref('posts/'+file.name);  // Reference to WHERE the image will be stored
+
+			 // Upload File
+			 var task = storageRef.put(file);
+
+			 //Upload progress
+			 task.on('state_changed',
+					function progress(snapshot){
+					},
+					function error(err){
+						 alert(err);
+					},
+					function complete(){
+						 alert("Uploaded!");
+					}
+			 );
+		}
+</script>
