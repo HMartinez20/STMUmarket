@@ -1,13 +1,12 @@
-<!-- JS used for seller.html -->
+/* JS used for seller.html */
 
-<!--Script to toggle popover-->
-<script >
+/* Script to toggle popover */
+
 	$(document).ready(function () 
 		{ $("[data-toggle=popover]").popover(); });
-</script>
 
-<!-- Get and display seller's name -->
-<script>
+
+/* Get and display seller's name */
 	var sellerID = "seller";
 	$(document).ready( function() {
 		db.collection("users").doc(sellerID).get()
@@ -27,11 +26,9 @@
 		});	
 		
 	});
-</script>
 
 	
-<!--Script to create and display Cards containing information for Seller's postings-->	
-<script>
+/* Script to create and display Cards containing information for Seller's postings */	
 	$(document).ready( function(){
 		var count = 4;
 		var rowCount = 2;
@@ -52,10 +49,8 @@
 		}
 		$("#sellerListings").html(html);
 		});
-</script>
 
-<!-- Function to access seller information, currently testing -->
-<script>
+/* Function to access seller information, currently testing */
 	$("#setinfo").click(function(){
 		db.collection("users").doc("seller").set({
     			email: "srodriguezgome@mail.stmarytx.edu",
@@ -71,11 +66,9 @@
 		});
 	});
 
-</script>
 
 
-<!-- Testing data retrieval IGNORE-->
-<script>
+/* Testing data retrieval IGNORE */
 	$("#getinfo").click(function(){
 		db.collection("users").doc("seller").set({
     			email: "srodriguezgome@mail.stmarytx.edu",
@@ -90,4 +83,4 @@
 		});
 	});
 
-</script>
+
