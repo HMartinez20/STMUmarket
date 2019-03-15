@@ -8,15 +8,18 @@
 
 <!-- Get and display seller's name -->
 <script>
-	var docRef = db.collection("users").doc("seller");
+	
 	
 	
 	
 	$(document).ready( function()	  
 	{
 		
-		docRef.get().then(function(doc) {
+		db.collection("users").doc("seller").get().then(function(doc) {
     		if (doc.exists) {
+			var data = doc.data();
+			
+			var name = data.username;
         		console.log("Document data:", doc.data());
     		} else {
         		// doc.data() will be undefined in this case
@@ -27,7 +30,7 @@
 		});
 		
 		
-		var html = "<h1> Seller One <h1>"	
+		var html = "<h1> " + name + " <h1>"	
 		$("#sellerName").html(html);
 		
 		
