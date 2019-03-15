@@ -59,7 +59,8 @@
 	$("#setinfo").click(function(){
 		db.collection("users").doc("seller").set({
     			email: "srodriguezgome@mail.stmarytx.edu",
-			name: "Salvador",
+			first: "Salvador",
+			last: "Rodriguez",
 			username: "srodriguezgome"
 		})
 		.then(function() {
