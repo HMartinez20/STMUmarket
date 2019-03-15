@@ -107,17 +107,13 @@ title: Seller
 		$("#sellerListings").html(html);
 		});
 </script>
-
+<!-- Function to access seller information, currently testing -->
 <script>
-	var rootRef = firebase.database().ref().child("seller");
-	
 	$("#setinfo").click(function(){
-		
-		
 		db.collection("users").doc("seller").set({
-    			name: "Los Angeles",
-    			state: "CA",
-    			country: "USA"
+    			email: "srodriguezgome@mail.stmarytx.edu",
+			name: "Salvador",
+			username: "srodriguezgome"
 		})
 		.then(function() {
     			console.log("Document successfully written!");
@@ -125,13 +121,6 @@ title: Seller
 		.catch(function(error) {
     			console.error("Error writing document: ", error);
 		});
-		/*
-		rootRef.set({
-			email: "srodriguezgome@mail.stmarytx.edu",
-			name: "Salvador",
-			username: "srodriguezgome"
-		}); 
-		*/
 	});
 
 </script>
