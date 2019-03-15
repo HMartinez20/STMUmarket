@@ -114,7 +114,7 @@ title: Seller
 	$("#setinfo").click(function(){
 		
 		
-		rootRef.collection("users").doc("seller").set({
+		db.collection("users").doc("seller").set({
     			name: "Los Angeles",
     			state: "CA",
     			country: "USA"
