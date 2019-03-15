@@ -112,11 +112,26 @@ title: Seller
 	var rootRef = firebase.database().ref().child("seller");
 	
 	$("#setinfo").click(function(){
+		
+		
+		rootRef.collection("users").doc("seller").set({
+    			name: "Los Angeles",
+    			state: "CA",
+    			country: "USA"
+		})
+		.then(function() {
+    			console.log("Document successfully written!");
+		})
+		.catch(function(error) {
+    			console.error("Error writing document: ", error);
+		});
+		/*
 		rootRef.set({
 			email: "srodriguezgome@mail.stmarytx.edu",
 			name: "Salvador",
 			username: "srodriguezgome"
-		});
+		}); 
+		*/
 	});
 
 </script>
