@@ -8,37 +8,22 @@
 
 <!-- Get and display seller's name -->
 <script>
-	
-	
-	
-	
-	$(document).ready( function()	  
-	{
-		
-		db.collection("users").doc("seller").get().then(function(doc) {
-    		if (doc.exists) {
-			var data = doc.data();
-			
-			var name = data.username;
-        		console.log("Document data:", name);
-			
-			var html = "<h1> "
-			html += name
-			html+= " 10:29 </h1>"
-			console.log("works?:", html);
-			$("#sellerName").html(html);
-			
-    		} else {
+	$(document).ready( function() {
+		db.collection("users").doc("seller").get()
+		.then(function(doc) {
+    			if (doc.exists) {
+				var data = doc.data();
+				var html = "<h1> " + data.username + " </h1>";
+				
+				$("#sellerName").html(html);
+	    		} else {
         		// doc.data() will be undefined in this case
         		console.log("No such document!");
-   		 }
-		}).catch(function(error) {
+   		 	 }
+		})
+		.catch(function(error) {
    		 	console.log("Error getting document:", error);
-		});
-		
-		
-		
-		
+		});	
 		
 	});
 </script>
