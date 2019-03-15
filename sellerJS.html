@@ -10,7 +10,12 @@
 <script>
 	var docRef = db.collection("users").doc("seller");
 	
-	docRef.get().then(function(doc) {
+	
+	
+	$(document).ready( function()	  
+	{
+		
+		docRef.get().then(function(doc) {
     		if (doc.exists) {
         		console.log("Document data:", doc.data());
     		} else {
@@ -20,9 +25,8 @@
 		}).catch(function(error) {
    		 	console.log("Error getting document:", error);
 		});
-	
-	$(document).ready( function()	  
-	{
+		
+		
 		var html = "<h1> Seller One <h1>"	
 		$("#sellerName").html(html);
 		
