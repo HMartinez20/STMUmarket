@@ -19,7 +19,7 @@
     		if (doc.exists) {
 			var data = doc.data();
 			
-			var name = data.username.toString();
+			var name = data.username;
         		console.log("Document data:", doc.data());
     		} else {
         		// doc.data() will be undefined in this case
@@ -32,7 +32,7 @@
 		
 		var html = "<h1> "
 		html += name
-		html+= " </h1>"	
+		html+= " Hello </h1>"	
 		$("#sellerName").html(html);
 		
 		
