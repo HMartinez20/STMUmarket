@@ -21,6 +21,13 @@
 			
 			var name = data.username;
         		console.log("Document data:", name);
+			
+			var html = "<h1> "
+			html += name
+			html+= " 10:29 </h1>"
+			console.log("works?:", html);
+			$("#sellerName").html(html);
+			
     		} else {
         		// doc.data() will be undefined in this case
         		console.log("No such document!");
@@ -30,11 +37,7 @@
 		});
 		
 		
-		var html = "<h1> "
-		html += name
-		html+= " Hello </h1>"
-		console.log("works?:", html);
-		$("#sellerName").html(html);
+		
 		
 		
 	});
