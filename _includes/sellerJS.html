@@ -19,7 +19,7 @@
     		if (doc.exists) {
 			var data = doc.data();
 			
-			var name = data.username;
+			var name = data.username.toString();
         		console.log("Document data:", doc.data());
     		} else {
         		// doc.data() will be undefined in this case
