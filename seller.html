@@ -43,7 +43,7 @@ title: Seller
 			
 		<!-- Testing for database -->
 
-		<button type="sumbit" class = "btn btn-dark" id="setSeller" onclick="sellertest()">
+		<button type="sumbit" class = "btn btn-dark" id="setinfo" onclick="sellertest()">
 				Set Seller	
 		</button>
 		<br><br>
@@ -109,19 +109,15 @@ title: Seller
 </script>
 
 <script>
-	function sellertest(){
-		database.collection("users").doc("seller").set({
+	var rootRef = firebase.database().ref().child("seller");
+	
+	$("#setinfo").click(function(){
+		rootRef.set({
 			email: "srodriguezgome@mail.stmarytx.edu",
 			name: "Salvador",
 			username: "srodriguezgome"
-		})
-	
-		.then(function() {
-			console.log("Document successfully written!");
-		})
-		.catch(function(error) {
-			console.error("Error writing document: ", error);
 		});
-	}
+	});
+
 </script>
 	
