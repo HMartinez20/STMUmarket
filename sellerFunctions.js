@@ -1,9 +1,20 @@
 /* JS used for seller.html */
 
-/* Script to toggle popover */
+$(document).ready(function () 
+		{ $('#popover1').popover(); });
 
+$(document).ready(function () 
+		{ $('#popover2').popover(); });
+
+
+/* Script to toggle popover */
+/*
 	$(document).ready(function () 
 		{ $("[data-toggle=popover]").popover(); });
+*/
+
+
+
 
 
 /* Get and display seller's name */
