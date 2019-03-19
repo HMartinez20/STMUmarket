@@ -101,15 +101,15 @@ title: StMU Marketplace
 </html>
 <script id="genListings" src="search.js" data-search="generic"></script>
 <script>
-  window.onload(){
-	  firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    alert('signed in');
-  } else {
-    alert(' not signed in');
-  }
-});
-  }
+	$( document ).ready(function() {
+  	firebase.auth().onAuthStateChanged(function(user) {
+  		if (user) {
+    		alert('signed in');
+  		} else {
+    		alert(' not signed in');
+  		}
+		});
+	});
   function genListings(search){
     console.log(search + "Btn");
     var badge = document.getElementById(search+"Badge");
