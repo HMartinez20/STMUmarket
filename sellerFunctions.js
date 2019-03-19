@@ -26,7 +26,7 @@ db.collection("users").doc(sellerID).get()
    		 	console.log("Error getting document:", error);
 		});	
 	
-	
+	console.log(email);
 	 $('#popover2').popover(
 	{
 	content: "To contact, send email to " + email + " \n and include STMUM and posting number as email subject"
