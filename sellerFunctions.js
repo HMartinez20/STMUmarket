@@ -27,7 +27,7 @@ db.collection("users").doc(sellerID).get()
 		});	
 });
 
-
+console.log(email);
 $('#popover1').popover(); 
 
  $('#popover2').popover(
