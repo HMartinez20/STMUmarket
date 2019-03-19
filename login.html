@@ -18,7 +18,13 @@ title: Account Login
   if (errorCode === 'auth/wrong-password') {
     alert('Wrong password.');
   } 
-  if (!errorCode) {
+      if (errorCode === 'auth/user-not-found') {
+    alert('user-not-found.');
+  }    
+         if (errorCode === 'auth/invalid-email ') {
+    alert('invalid-email.');
+  }         
+  else{
     alert('Login succesful.');
   }
   console.log(error);
