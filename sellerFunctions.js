@@ -1,5 +1,5 @@
 /* JS used for seller.html */
-var email = "hello number 2";
+var email;
 
 /* Get and display seller's name */
 	var sellerID = "seller";
@@ -71,7 +71,6 @@ $(document).ready(function ()
     			if (doc.exists) {
 				var data = doc.data();
 				var html = "<h1> " + data.username + " </h1>";
-				var email = data.email
 				
 				$("#sellerName").html(html);
 	    		} else {
