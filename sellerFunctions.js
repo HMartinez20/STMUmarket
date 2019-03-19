@@ -97,7 +97,7 @@ $("#sellerName").html(html);
     			email: "srodriguezgome@mail.stmarytx.edu",
 			first: "Salvador",
 			last: "Rodriguez",
-			username: "srodriguezgome"
+			username: "srodriguezgome",
 			bio: "Hello. I am a Junior at St Mary's."
 		})
 		.then(function() {
