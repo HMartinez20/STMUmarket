@@ -11,7 +11,7 @@ var username;
 	
 db.collection("users").doc(sellerID).get()
 	.then(function(doc) {
-    		if (doc.exists) {
+		if (doc.exists) {
 			var data = doc.data();
 			email = data.email;
 			firstName = data.first;
@@ -20,10 +20,12 @@ db.collection("users").doc(sellerID).get()
 			console.log(email);	
 			
 			$('#popover2').popover(
-	{
-	content: "To contact, send email to " + email + " \n and include STMUM and posting number as email subject"
-	}
-);
+				{
+				content: "To contact, send email to " + email + " \n and include STMUM and posting number as email subject"
+				}				
+			);
+			var html = "<h1> " + username + " </h1>";
+			$("#sellerName").html(html);	
 			
 	    	} else {
         	// doc.data() will be undefined in this case
@@ -72,11 +74,12 @@ $('#popover1').popover();
 		$("#sellerListings").html(html);
 
 
-/* Get and display seller's name */
+/* Get and display seller's name 
 $( document ).ready(function() {
 var html = "<h1> " + username + " </h1>";
 $("#sellerName").html(html);
 });
+*/
 
 
 /*
