@@ -26,14 +26,14 @@ title: Account Login
   if (errorCode === 'auth/wrong-password') {
     alert('Wrong password.');
   } 
-      if (errorCode === 'auth/user-not-found') {
+      else if (errorCode === 'auth/user-not-found') {
     alert('user-not-found.');
   }    
-         if (errorCode === 'auth/invalid-email') {
+         else if (errorCode === 'auth/invalid-email') {
     alert('invalid-email.');
   }         
   else{
-   // alert('Login succesful.');
+   alert('Login succesful.');
   }
   console.log(error);
    //alert('error.');
