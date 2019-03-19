@@ -1,15 +1,22 @@
 /* JS used for seller.html */
-var email = "hello";
+var email;
+var firstName;
+var lastName;
+var username;
 
 /* Get and display seller's name */
 	var sellerID = "seller"; 
-
+/*	load seller data	*/
+$(document).ready( function() {
+	
 db.collection("users").doc(sellerID).get()
 	.then(function(doc) {
     		if (doc.exists) {
 			var data = doc.data();
-			var html = "<h1> " + data.username + " </h1>";
 			email = data.email;
+			firstName = data.first;
+			lastName = data.last;
+			username = data.username;
 			console.log(email);
 			
 			$('#popover2').popover(
@@ -24,6 +31,7 @@ db.collection("users").doc(sellerID).get()
 		}).catch(function(error) {
    		 	console.log("Error getting document:", error);
 		});	
+});
 
 
 $('#popover1').popover(); 
