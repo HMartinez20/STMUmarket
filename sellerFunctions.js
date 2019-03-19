@@ -10,6 +10,12 @@ db.collection("users").doc(sellerID).get()
 			var html = "<h1> " + data.username + " </h1>";
 			email = data.email;
 			console.log(email);
+			
+			$('#popover2').popover(
+			{
+				content: "To contact, send email to" + email + "and include STMUM and posting number as email subject"
+			}
+		);
 	    	} else {
         	// doc.data() will be undefined in this case
         	console.log("No such document!");
@@ -22,13 +28,14 @@ db.collection("users").doc(sellerID).get()
 
 $(document).ready(function () 
 		{ $('#popover1').popover(); });
-
+/*
 $(document).ready(function () 
 		{ $('#popover2').popover(
 			{
 				content: "To contact, send email to" + email + "and include STMUM and posting number as email subject"
 			}
 		); });
+		*/
 
 
 /* Script to toggle popover */
