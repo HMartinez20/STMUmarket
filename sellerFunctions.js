@@ -73,6 +73,12 @@ $('#popover1').popover();
 
 
 /* Get and display seller's name */
+var html = "<h1> " + username + " </h1>";
+$("#sellerName").html(html);
+
+
+
+/*
 	var sellerID = "seller";
 		db.collection("users").doc(sellerID).get()
 		.then(function(doc) {
@@ -90,7 +96,7 @@ $('#popover1').popover();
 		.catch(function(error) {
    		 	console.log("Error getting document:", error);
 		});	
-
+*/
 
 /* Function to access seller information, currently testing */
 	$("#setinfo").click(function(){
