@@ -1,9 +1,4 @@
 /* JS used for seller.html */
-var email;
-var firstName;
-var lastName;
-var username;
-
 /* Get and display seller's name */
 	var sellerID = "seller"; 
 /*	load seller data	*/
@@ -13,10 +8,11 @@ db.collection("users").doc(sellerID).get()
 	.then(function(doc) {
 		if (doc.exists) {
 			var data = doc.data();
-			email = data.email;
-			firstName = data.first;
-			lastName = data.last;
-			username = data.username;
+			var email = data.email;
+			var firstName = data.first;
+			var lastName = data.last;
+			var username = data.username;
+			var bio = data.bio;
 			console.log(email);	
 			
 			$('#popover2').popover(
@@ -37,12 +33,9 @@ db.collection("users").doc(sellerID).get()
 	
 	console.log(email);
 	 
-
+/* popover for Ratings   */
 console.log(email);
 $('#popover1').popover(); 
-
-
-	
 
 
 /* Script to toggle popover */
@@ -50,10 +43,6 @@ $('#popover1').popover();
 	$(document).ready(function () 
 		{ $("[data-toggle=popover]").popover(); });
 */
-
-
-
-	
 		var count = 4;
 		var rowCount = 2;
 		var html = "";
@@ -109,6 +98,7 @@ $("#sellerName").html(html);
 			first: "Salvador",
 			last: "Rodriguez",
 			username: "srodriguezgome"
+			bio: "Hello. I am a Junior at St Mary's."
 		})
 		.then(function() {
     			console.log("Document successfully written!");
