@@ -1,23 +1,20 @@
 /* JS used for seller.html */
-var email = "hello"
+var email = "hello number 2"
 
 /* Get and display seller's name */
 	var sellerID = "seller";
 	/* $(document).ready( function() {  */
-		db.collection("users").doc(sellerID).get()
-		.then(function(doc) {
-    			if (doc.exists) {
-				var data = doc.data();
-				var html = "<h1> " + data.username + " </h1>";
-				email = data.email
-				
-				$("#sellerName").html(html);
-	    		} else {
-        		// doc.data() will be undefined in this case
-        		console.log("No such document!");
-   		 	 }
-		})
-		.catch(function(error) {
+db.collection("users").doc(sellerID).get()
+	.then(function(doc) {
+    		if (doc.exists) {
+			var data = doc.data();
+			var html = "<h1> " + data.username + " </h1>";
+			email = data.email
+	    	} else {
+        	// doc.data() will be undefined in this case
+        	console.log("No such document!");
+   		 }
+		}).catch(function(error) {
    		 	console.log("Error getting document:", error);
 		});	
 		
