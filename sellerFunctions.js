@@ -78,6 +78,7 @@ $('#popover1').popover();
 		db.collection("users").doc(sellerID).get()
 		.then(function(doc) {
     			if (doc.exists) {
+				console.log("getting username");
 				var data = doc.data();
 				var html = "<h1> " + data.username + " </h1>";
 				
