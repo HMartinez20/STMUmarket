@@ -17,11 +17,12 @@ title: Account Login
   var errorMessage = error.message;
   if (errorCode === 'auth/wrong-password') {
     alert('Wrong password.');
-  } else {
+  } 
+  if (!errorCode) {
     alert('Login succesful.');
   }
   console.log(error);
-   alert('error.');
+   //alert('error.');
          
 });
        // alert('Login succesful.');
