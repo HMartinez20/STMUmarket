@@ -21,7 +21,9 @@ db.collection("users").doc(sellerID).get()
 				}				
 			);
 			var html = "<h1> " + username + " </h1>";
-			$("#sellerName").html(html);	
+			$("#sellerName").html(html);
+			
+			$('#popover1').popover(); 
 			
 	    	} else {
         	// doc.data() will be undefined in this case
@@ -35,7 +37,7 @@ db.collection("users").doc(sellerID).get()
 	 
 /* popover for Ratings   */
 console.log(email);
-$('#popover1').popover(); 
+
 
 
 /* Script to toggle popover */
