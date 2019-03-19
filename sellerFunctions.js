@@ -74,7 +74,7 @@ $('#popover1').popover();
 
 /* Get and display seller's name */
 var html = "<h1> " + username + " </h1>";
-$("#sellerName").html(html);
+("#sellerName").html(html);
 
 
 
