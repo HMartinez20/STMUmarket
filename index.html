@@ -31,9 +31,10 @@ title: StMU Marketplace
             <button class="btn btn-dark" id="booksBtn" onclick="genListings('books');">Lowest</button>
             <button class="btn btn-dark" id="furnitureBtn" onclick="genListings('furniture');">Highest</button>
           </div>
-          <button type="button" class="btn btn-link d-block text-decoration-none">
-            <i class="fas fa-angle-up"></i> Date
-          </button>
+          <button id="date" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Date</button>
+          <div class="dropdown-menu" aria-labelledby="date" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(15px, 78px, 0px);">
+            <button class="btn btn-dark" id="booksBtn" onclick="genListings('books');">Oldest</button>
+            <button class="btn btn-dark" id="furnitureBtn" onclick="genListings('furniture');">Newest</button>
           <button type="button" class="btn btn-link d-block text-decoration-none">
             <i class="fas fa-angle-up"></i> Reviews
           </button>
