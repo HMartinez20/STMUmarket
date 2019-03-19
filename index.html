@@ -106,9 +106,9 @@ title: StMU Marketplace
 	$( document ).ready(function() {
   	firebase.auth().onAuthStateChanged(function(user) {
   		if (user) {
-    		alert('signed in');
+    		console.log('signed in');
   		} else {
-    		alert(' not signed in');
+    		console.log(' not signed in');
   		}
 		});
 	});
