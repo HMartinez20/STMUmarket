@@ -18,6 +18,13 @@ db.collection("users").doc(sellerID).get()
 			lastName = data.last;
 			username = data.username;
 			console.log(email);	
+			
+			$('#popover2').popover(
+	{
+	content: "To contact, send email to " + email + " \n and include STMUM and posting number as email subject"
+	}
+);
+			
 	    	} else {
         	// doc.data() will be undefined in this case
         	console.log("No such document!");
@@ -27,11 +34,7 @@ db.collection("users").doc(sellerID).get()
 		});	
 	
 	console.log(email);
-	 $('#popover2').popover(
-	{
-	content: "To contact, send email to " + email + " \n and include STMUM and posting number as email subject"
-	}
-);
+	 
 });
 
 console.log(email);
