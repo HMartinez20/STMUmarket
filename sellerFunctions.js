@@ -1,5 +1,5 @@
 /* JS used for seller.html */
-var email = "hello number 2"
+var email = "hello number 2";
 
 /* Get and display seller's name */
 	var sellerID = "seller";
@@ -9,7 +9,7 @@ db.collection("users").doc(sellerID).get()
     		if (doc.exists) {
 			var data = doc.data();
 			var html = "<h1> " + data.username + " </h1>";
-			email = data.email
+			email = data.email;
 			console.log(email);
 	    	} else {
         	// doc.data() will be undefined in this case
