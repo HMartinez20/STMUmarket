@@ -26,9 +26,8 @@ db.collection("users").doc(sellerID).get()
 		
 	}); 
 
-$(document).ready(function () 
-		{ $('#popover1').popover(); });
-/*
+$('#popover1').popover(); 
+
 $(document).ready(function () 
 		{ $('#popover2').popover(
 			{
