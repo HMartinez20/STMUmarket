@@ -2,7 +2,8 @@
 var email = "hello";
 
 /* Get and display seller's name */
-	var sellerID = "seller"; $(document).ready( function() {
+	var sellerID = "seller"; 
+
 db.collection("users").doc(sellerID).get()
 	.then(function(doc) {
     		if (doc.exists) {
@@ -23,17 +24,15 @@ db.collection("users").doc(sellerID).get()
 		}).catch(function(error) {
    		 	console.log("Error getting document:", error);
 		});	
-		
-	}); 
+
 
 $('#popover1').popover(); 
 
-$(document).ready(function () 
-		{ $('#popover2').popover(
-			{
-				content: "To contact, send email to" + email + "and include STMUM and posting number as email subject"
-			}
-		); });
+ $('#popover2').popover(
+	{
+	content: "To contact, send email to " + email + " \n and include STMUM and posting number as email subject"
+	}
+);
 	
 
 
@@ -46,8 +45,6 @@ $(document).ready(function ()
 
 
 	
-/* Script to create and display Cards containing information for Seller's postings */	
-	$(document).ready( function(){
 		var count = 4;
 		var rowCount = 2;
 		var html = "";
@@ -66,11 +63,10 @@ $(document).ready(function ()
 			html+= "</div>"
 		}
 		$("#sellerListings").html(html);
-		});
+
 
 /* Get and display seller's name */
 	var sellerID = "seller";
-	$(document).ready( function() {
 		db.collection("users").doc(sellerID).get()
 		.then(function(doc) {
     			if (doc.exists) {
@@ -86,8 +82,7 @@ $(document).ready(function ()
 		.catch(function(error) {
    		 	console.log("Error getting document:", error);
 		});	
-		
-	});
+
 
 /* Function to access seller information, currently testing */
 	$("#setinfo").click(function(){
@@ -105,21 +100,5 @@ $(document).ready(function ()
 		});
 	});
 
-
-
-/* Testing data retrieval IGNORE */
-	$("#getinfo").click(function(){
-		db.collection("users").doc("seller").set({
-    			email: "srodriguezgome@mail.stmarytx.edu",
-			name: "Salvador",
-			username: "srodriguezgome"
-		})
-		.then(function() {
-    			console.log("Document successfully written!");
-		})
-		.catch(function(error) {
-    			console.error("Error writing document: ", error);
-		});
-	});
 
 
