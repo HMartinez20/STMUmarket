@@ -39,7 +39,15 @@ title: Account Login
    //alert('error.');
          
 });
-       // alert('Login succesful.');
+        
+       firebase.auth().onAuthStateChanged(function(user) {
+  		if (user) {
+    		alert('signed in');
+  		} else {
+    		alert(' not signed in');
+  		}
+		});
+	});
       }
     
     </script>
