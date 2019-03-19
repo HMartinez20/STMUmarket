@@ -10,6 +10,7 @@ db.collection("users").doc(sellerID).get()
 			var data = doc.data();
 			var html = "<h1> " + data.username + " </h1>";
 			email = data.email
+			console.log(email);
 	    	} else {
         	// doc.data() will be undefined in this case
         	console.log("No such document!");
