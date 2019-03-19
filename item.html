@@ -92,6 +92,17 @@ title: Item
 		});
 </script>
 <script>
+	 window.onload(){
+	  firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    alert('signed in');
+  } else {
+    alert(' not signed in');
+  }
+});
+  }
+	
+	
   // Example upload to Firebase Storage
   // Create a root reference
   var storageRef = firebase.storage().ref();
