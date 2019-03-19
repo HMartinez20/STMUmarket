@@ -1,5 +1,5 @@
 /* JS used for seller.html */
-
+var email = "hello"
 $(document).ready(function () 
 		{ $('#popover1').popover(); });
 
@@ -29,7 +29,7 @@ $(document).ready(function ()
     			if (doc.exists) {
 				var data = doc.data();
 				var html = "<h1> " + data.username + " </h1>";
-				var email = data.email
+				email = data.email
 				
 				$("#sellerName").html(html);
 	    		} else {
