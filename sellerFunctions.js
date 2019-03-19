@@ -25,16 +25,19 @@ db.collection("users").doc(sellerID).get()
 		}).catch(function(error) {
    		 	console.log("Error getting document:", error);
 		});	
+	
+	
+	 $('#popover2').popover(
+	{
+	content: "To contact, send email to " + email + " \n and include STMUM and posting number as email subject"
+	}
+);
 });
 
 console.log(email);
 $('#popover1').popover(); 
 
- $('#popover2').popover(
-	{
-	content: "To contact, send email to " + email + " \n and include STMUM and posting number as email subject"
-	}
-);
+
 	
 
 
