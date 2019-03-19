@@ -6,7 +6,7 @@ $(document).ready(function ()
 $(document).ready(function () 
 		{ $('#popover2').popover(
 			{
-				content: "To contact, send email to" + "and include STMUM and posting number as email subject"
+				content: "To contact, send email to" + email + "and include STMUM and posting number as email subject"
 			}
 		); });
 
