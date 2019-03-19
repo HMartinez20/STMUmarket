@@ -62,6 +62,28 @@ $(document).ready(function ()
 		$("#sellerListings").html(html);
 		});
 
+/* Get and display seller's name */
+	var sellerID = "seller";
+	$(document).ready( function() {
+		db.collection("users").doc(sellerID).get()
+		.then(function(doc) {
+    			if (doc.exists) {
+				var data = doc.data();
+				var html = "<h1> " + data.username + " </h1>";
+				var email = data.email
+				
+				$("#sellerName").html(html);
+	    		} else {
+        		// doc.data() will be undefined in this case
+        		console.log("No such document!");
+   		 	 }
+		})
+		.catch(function(error) {
+   		 	console.log("Error getting document:", error);
+		});	
+		
+	});
+
 /* Function to access seller information, currently testing */
 	$("#setinfo").click(function(){
 		db.collection("users").doc("seller").set({
