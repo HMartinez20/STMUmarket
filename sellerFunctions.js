@@ -34,7 +34,7 @@ $(document).ready(function ()
 				content: "To contact, send email to" + email + "and include STMUM and posting number as email subject"
 			}
 		); });
-		*/
+	
 
 
 /* Script to toggle popover */
