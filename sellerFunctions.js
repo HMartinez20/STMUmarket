@@ -7,7 +7,7 @@ var username;
 /* Get and display seller's name */
 	var sellerID = "seller"; 
 /*	load seller data	*/
-$(document).ready( function() {
+
 	
 db.collection("users").doc(sellerID).get()
 	.then(function(doc) {
@@ -35,7 +35,6 @@ db.collection("users").doc(sellerID).get()
 	
 	console.log(email);
 	 
-});
 
 console.log(email);
 $('#popover1').popover(); 
