@@ -1,25 +1,5 @@
 /* JS used for seller.html */
 var email = "hello"
-$(document).ready(function () 
-		{ $('#popover1').popover(); });
-
-$(document).ready(function () 
-		{ $('#popover2').popover(
-			{
-				content: "To contact, send email to" + email + "and include STMUM and posting number as email subject"
-			}
-		); });
-
-
-/* Script to toggle popover */
-/*
-	$(document).ready(function () 
-		{ $("[data-toggle=popover]").popover(); });
-*/
-
-
-
-
 
 /* Get and display seller's name */
 	var sellerID = "seller";
@@ -42,6 +22,25 @@ $(document).ready(function ()
 		});	
 		
 	});
+
+$(document).ready(function () 
+		{ $('#popover1').popover(); });
+
+$(document).ready(function () 
+		{ $('#popover2').popover(
+			{
+				content: "To contact, send email to" + email + "and include STMUM and posting number as email subject"
+			}
+		); });
+
+
+/* Script to toggle popover */
+/*
+	$(document).ready(function () 
+		{ $("[data-toggle=popover]").popover(); });
+*/
+
+
 
 	
 /* Script to create and display Cards containing information for Seller's postings */	
