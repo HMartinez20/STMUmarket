@@ -1,5 +1,5 @@
 /* JS used for seller.html */
-var email;
+var email = "hello";
 
 /* Get and display seller's name */
 	var sellerID = "seller";
