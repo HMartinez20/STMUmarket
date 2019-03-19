@@ -4,7 +4,24 @@ $(document).ready(function ()
 		{ $('#popover1').popover(); });
 
 $(document).ready(function () 
-		{ $('#popover2').popover(); });
+		{ $('#popover2').popover(
+			db.collection("users").doc(sellerID).get()
+		.then(function(doc) {
+    			if (doc.exists) {
+				var data = doc.data();
+	    		} else {
+        		// doc.data() will be undefined in this case
+        		console.log("No such document!");
+   		 	 }
+		})
+		.catch(function(error) {
+   		 	console.log("Error getting document:", error);
+		});	
+			
+			{
+				content: "To contact, send email to" + "and include STMUM and posting number as email subject"
+			}
+		); });
 
 
 /* Script to toggle popover */
