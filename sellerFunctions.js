@@ -3,7 +3,7 @@ var email = "hello"
 
 /* Get and display seller's name */
 	var sellerID = "seller";
-	$(document).ready( function() {
+	/* $(document).ready( function() {  */
 		db.collection("users").doc(sellerID).get()
 		.then(function(doc) {
     			if (doc.exists) {
@@ -21,7 +21,7 @@ var email = "hello"
    		 	console.log("Error getting document:", error);
 		});	
 		
-	});
+/*	});  */
 
 $(document).ready(function () 
 		{ $('#popover1').popover(); });
