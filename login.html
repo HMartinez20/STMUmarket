@@ -7,19 +7,11 @@ title: Account Login
     {% include header.html %} <!-- Jekyll Liquid command -->
     {% include fire.html %}
     <script>
-//       window.onload(){
-// 	  firebase.auth().onAuthStateChanged(function(user) {
-//   if (user) {
-//     alert('signed in');
-//   } else {
-//     alert(' not signed in');
-//   }
-// });
-//   }
+
       function whatever(){
         var email = document.getElementById("email").value;
         var password = document.getElementById("pass").value;
-	      bool login = false;
+	       login = false;
     
        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
   var errorCode = error.code;
@@ -34,16 +26,9 @@ title: Account Login
          else if (errorCode === 'auth/invalid-email') {
     alert('invalid-email.');
   }  
-   
-//   if(login=false)
-//   {
-//    alert('Login succesful.');
-//   }
-//   console.log(error);
-//    //alert('error.');
-//        }       
+     
 });
-      if(login=false)
+      if(login==false)
   {
    alert('Login succesful.');
   }
