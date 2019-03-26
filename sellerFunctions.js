@@ -35,7 +35,6 @@ db.collection("users").doc(sellerID).get()
 	
 	 
 /* popover for Ratings   */
-console.log(email);
 
 
 
