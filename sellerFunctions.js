@@ -3,8 +3,11 @@
 	var sellerID = "seller"; 
 /*	load seller data	*/
 
-	
-db.collection("users").doc(sellerID).get()
+
+
+db.collection('users').doc(currentUser.uid).get()
+/*
+db.collection("users").doc(sellerID).get() */
 	.then(function(doc) {
 		if (doc.exists) {
 			var data = doc.data();
@@ -12,7 +15,7 @@ db.collection("users").doc(sellerID).get()
 			var firstName = data.first;
 			var lastName = data.last;
 			var username = data.username;
-			var bio = data.bio;
+			/*  var bio = data.bio;  */
 			console.log(email);	
 			
 			$('#popover2').popover(
