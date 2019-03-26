@@ -33,7 +33,6 @@ db.collection("users").doc(sellerID).get()
    		 	console.log("Error getting document:", error);
 		});	
 	
-	console.log(email);
 	 
 /* popover for Ratings   */
 console.log(email);
@@ -95,7 +94,7 @@ $("#sellerName").html(html);
 
 /* Function to access seller information, currently testing */
 	$("#setinfo").click(function(){
-		db.collection("users").doc("samplelistings").set({
+		db.collection("sampleseller").doc("samplelistings").set({
     			email: "srodriguezgome@mail.stmarytx.edu",
 			first: "Salvador",
 			last: "Rodriguez",
