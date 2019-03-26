@@ -6,50 +6,44 @@ title: Account Login
   <header>
     {% include header.html %} <!-- Jekyll Liquid command -->
     {% include fire.html %}
-    <script>
- 		var login = true;
-      function whatever(){
-        var email = document.getElementById("email").value;
-        var password = document.getElementById("pass").value;
-	       //login = true;
-    
-       firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-  				var errorCode = error.code;
-  				var errorMessage = error.message;
-	       	login = false;
-  				if (errorCode === 'auth/wrong-password') {
-    				alert('Wrong password.');
-  				} 
-      		else if (errorCode === 'auth/user-not-found') {
-    				alert('user-not-found.');
-  				}    
-         	else if (errorCode === 'auth/invalid-email') {
-    				alert('invalid-email.');
-  				}  	
-     			console.log(login);
-				});
-//       if(login==true)
-//   {
-//    alert('Login succesful.');
-//   }
- 
-                
-//        firebase.auth().onAuthStateChanged(function(user) {
-//   		if (user) {
-//     		alert('signed in');
-//   		} else {
-//     		alert('not signed in');
-//   		}
-// 		});
 	
-      }
-    
-		function check(){
-		  if(login==true)
-  {
-   alert('Login succesful.');
-  }
-}				
+    <script>
+	var login;
+	function whatever(){
+		var email = document.getElementById("email").value;
+		var password = document.getElementById("pass").value;
+		login = true;
+		console.log("before check..."+login);
+
+		firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+			var errorCode = error.code;
+			var errorMessage = error.message;
+			login = false;
+			if (errorCode === 'auth/wrong-password') {
+				alert('Wrong password.');
+			} 
+			else if (errorCode === 'auth/user-not-found') {
+				alert('user-not-found.');
+			}    
+			else if (errorCode === 'auth/invalid-email') {
+				alert('invalid-email.');
+			}  	
+			console.log(login);
+			});
+			console.log("after check..."+login);
+			if(login){	
+				alert('Login succesful.');
+			}
+	}
+
+  /*  
+	function check(){
+		if(login==true){	
+			alert('Login succesful.');
+  	}
+	}	
+	*/
+			
 	 </script>	
   </header>
   <body>
