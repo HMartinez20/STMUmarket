@@ -12,6 +12,10 @@ else{
 	console.log("Not signed In")
 }
 
+
+var text = window.location.hash.substring(1)
+console.log(text)
+
 db.collection('users').doc(firebase.auth().currentUser.uid).get()
 /*
 db.collection("users").doc(sellerID).get() */
