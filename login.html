@@ -19,10 +19,12 @@ title: Account Login
       function whatever(){
         var email = document.getElementById("email").value;
         var password = document.getElementById("pass").value;
-     // if(error){
+	      bool login = false;
+    
        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
   var errorCode = error.code;
   var errorMessage = error.message;
+	       login = true;
   if (errorCode === 'auth/wrong-password') {
     alert('Wrong password.');
   } 
@@ -32,8 +34,9 @@ title: Account Login
          else if (errorCode === 'auth/invalid-email') {
     alert('invalid-email.');
   }  
-      // }
-  else{
+   
+  if(login=false)
+  {
    alert('Login succesful.');
   }
   console.log(error);
