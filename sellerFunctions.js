@@ -5,7 +5,7 @@
 
 
 
-db.collection('users').doc(currentUser.uid).get()
+db.collection('users').doc(firebase.auth().currentUser.uid).get()
 /*
 db.collection("users").doc(sellerID).get() */
 	.then(function(doc) {
