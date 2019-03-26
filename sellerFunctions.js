@@ -95,7 +95,7 @@ $("#sellerName").html(html);
 
 /* Function to access seller information, currently testing */
 	$("#setinfo").click(function(){
-		db.collection("users").doc("seller").set({
+		db.collection("users").doc("samplelistings").set({
     			email: "srodriguezgome@mail.stmarytx.edu",
 			first: "Salvador",
 			last: "Rodriguez",
