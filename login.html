@@ -11,12 +11,12 @@ title: Account Login
       function whatever(){
         var email = document.getElementById("email").value;
         var password = document.getElementById("pass").value;
-	       login = false;
+	       login = true;
     
        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
   var errorCode = error.code;
   var errorMessage = error.message;
-	       login = true;
+	       login = false;
   if (errorCode === 'auth/wrong-password') {
     alert('Wrong password.');
   } 
@@ -28,7 +28,7 @@ title: Account Login
   }  
      
 });
-      if(login==false)
+      if(login==true)
   {
    alert('Login succesful.');
   }
@@ -66,10 +66,7 @@ title: Account Login
         <a href="https://hmartinez20.github.io/STMUmarket/signup.html"> Don't have an account? Click Here</a>
     </div>
     
-          if(login==false)
-  {
-   alert('Login succesful.');
-  }
+        
     
     
   </body>
