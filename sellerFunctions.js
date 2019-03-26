@@ -5,6 +5,13 @@
 
 
 
+if (firebase.auth().currentUser){
+	console.log("Signed In")
+}
+else{
+	console.log("Not signed In")
+}
+
 db.collection('users').doc(firebase.auth().currentUser.uid).get()
 /*
 db.collection("users").doc(sellerID).get() */
