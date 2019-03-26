@@ -7,27 +7,27 @@ title: Account Login
     {% include header.html %} <!-- Jekyll Liquid command -->
     {% include fire.html %}
     <script>
- login = true;
+ 		var login = true;
       function whatever(){
         var email = document.getElementById("email").value;
         var password = document.getElementById("pass").value;
 	       //login = true;
     
        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-  var errorCode = error.code;
-  var errorMessage = error.message;
-	       login = false;
-  if (errorCode === 'auth/wrong-password') {
-    alert('Wrong password.');
-  } 
-      else if (errorCode === 'auth/user-not-found') {
-    alert('user-not-found.');
-  }    
-         else if (errorCode === 'auth/invalid-email') {
-    alert('invalid-email.');
-  }  
-     console.log(login);
-});
+  				var errorCode = error.code;
+  				var errorMessage = error.message;
+	       	login = false;
+  				if (errorCode === 'auth/wrong-password') {
+    				alert('Wrong password.');
+  				} 
+      		else if (errorCode === 'auth/user-not-found') {
+    				alert('user-not-found.');
+  				}    
+         	else if (errorCode === 'auth/invalid-email') {
+    				alert('invalid-email.');
+  				}  	
+     			console.log(login);
+				});
 //       if(login==true)
 //   {
 //    alert('Login succesful.');
@@ -44,8 +44,6 @@ title: Account Login
 	
       }
     
-    </script>
-	<script>
 		function check(){
 		  if(login==true)
   {
