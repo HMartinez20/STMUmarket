@@ -31,9 +31,14 @@ title: Account Login
 			console.log(login);
 			});
 			console.log("after check..."+login);
-			if(login){	
-				alert('Login succesful.');
-			}
+			
+			firebase.auth().onAuthStateChanged(user=>{ 
+  			if(user){
+    			alert("Successful!");
+  			} else{
+    			alert("Failure");
+  			}
+			});
 	}
 
   /*  
