@@ -7,11 +7,11 @@ title: Account Login
     {% include header.html %} <!-- Jekyll Liquid command -->
     {% include fire.html %}
     <script>
-
+ login = true;
       function whatever(){
         var email = document.getElementById("email").value;
         var password = document.getElementById("pass").value;
-	       login = true;
+	       //login = true;
     
        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
   var errorCode = error.code;
