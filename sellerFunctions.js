@@ -72,7 +72,7 @@ db.collection("users").doc(seller).get()
 		$("#sellerListings").html(html);
 			
 		/* pratice appending dynamic div elements */
-		var cardImage = "<img src='https://github.com/HMartinez20/STMUmarket/blob/master/Empty.jpg' class='card-img-top mt-3' style='background-color: grey;' alt=''></img>";
+		var cardImage = "<img src='Empty.jpg' class='card-img-top mt-3' style='background-color: grey;' alt=''></img>";
 		var cardBody = "<div class='card-body'><h6 class='card-title'>Title</h6><p class='card-text'>Description</p></div>";
 			
 		var iDiv = document.createElement('div');
