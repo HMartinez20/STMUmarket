@@ -45,7 +45,7 @@ db.collection("users").doc(seller).get()
 			
 			db.collection(username).get().then((snapshot) => {
 				snapshot.docs.forEach(doc => {
-					console.log(doc)
+					console.log(doc.data())
 				})
 			})
 			/* Code for loading seller's posting */
