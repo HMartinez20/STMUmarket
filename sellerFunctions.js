@@ -78,10 +78,21 @@ db.collection("users").doc(seller).get()
 			
 		document.body.appendChild(iDiv);
 		*/	
+		var cardImage = "<img src='Empty.jpg' class='card-img-top mt-3' style='background-color: grey;' alt=''></img>";
+		var cardBody = "<div class='card-body'><h6 class='card-title'>Title</h6><p class='card-text'>Description</p></div>";
 			
-		var listings = document.createElement('div');
-		var t = document.createTextNode("< div class='row' >");
-		listings.appendChild(t);
+		var listings = document.createElement("div");
+		listings.className = "container";
+		var dRow = document.createElement("div");
+		dRow.className = "row";
+		var card = document.createElement("div");
+		card.className = "card col-3";
+		card.innerHTML = cardImage + cardBody;
+		
+		drow.appendChild(card);
+		drow.appendChild(card);
+			
+		listings.appendChild(drow);
 		document.body.appendChild(listings);
 			
 						      
