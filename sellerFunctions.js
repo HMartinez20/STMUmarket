@@ -1,10 +1,7 @@
 /* JS used for seller.html */
-/* Get and display seller's name */
-	var sellerID = "seller"; 
-/*	load seller data	*/
 
 
-
+/* see if user is signed in */
 if (firebase.auth().currentUser){
 	console.log("Signed In")
 }
@@ -12,11 +9,11 @@ else{
 	console.log("Not signed In")
 }
 
-
+/* get UID from URL */
 var seller = window.location.hash.substring(1)
 console.log(seller)
 
-/* db.collection('users').doc(firebase.auth().currentUser.uid).get()  */
+/* get data from firebase */
 db.collection("users").doc(seller).get()
 	.then(function(doc) {
 		if (doc.exists) {
@@ -94,21 +91,12 @@ db.collection("users").doc(seller).get()
 			card.innerHTML = cardImage + cardBody;
 			dRow.appendChild(card);
 		}
-		/*	
-		var card2 = document.createElement("div");
-		card2.className = "card col-3";
-		card2.innerHTML = cardImage + cardBody;
-		
-		dRow.appendChild(card);
-		dRow.appendChild(card.cloneNode());
-		dRow.appendChild(card.cloneNode());
-		dRow.appendChild(card.cloneNode(true));
-		*/	
 		listings.appendChild(dRow);
 		document.body.appendChild(listings);
 			
 						      
 		/* end sample code for dynamic div */
+			
 			
 	    	} else {
         	// doc.data() will be undefined in this case
@@ -119,15 +107,7 @@ db.collection("users").doc(seller).get()
 		});	
 	
 	 
-/* popover for Ratings   */
 
-
-
-/* Script to toggle popover */
-/*
-	$(document).ready(function () 
-		{ $("[data-toggle=popover]").popover(); });
-*/
 /*
 		var count = 4;
 		var rowCount = 2;
