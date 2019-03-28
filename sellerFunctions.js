@@ -51,7 +51,8 @@ db.collection("users").doc(seller).get()
 		/* Code for loading seller's posting */
 		var count = 4;
 		var rowCount = 2;
-			
+		
+		/*
 		var card = "<div class='card col-3'>";
 		var dRow = "<div class='row' >";
 		var dcol = "<div class='col-sm'>";
@@ -73,10 +74,17 @@ db.collection("users").doc(seller).get()
 			 iDiv.innerHTML+= divEnd; 
 		}
 			
-		/* iDiv.innerHTML = card + cardImage + cardBody + divEnd; */
+	
 			
 		document.body.appendChild(iDiv);
+		*/	
 			
+		var listings = document.createElement('div);
+		var t = document.createTextNode("div class='row' >");
+		listings.appendChild(t);
+		document.body.appendChild(listings);
+			
+						      
 		/* end sample code for dynamic div */
 			
 	    	} else {
