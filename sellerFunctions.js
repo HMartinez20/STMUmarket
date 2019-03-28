@@ -13,11 +13,11 @@ else{
 }
 
 
-var text = window.location.hash.substring(1)
-console.log(text)
+var seller = window.location.hash.substring(1)
+console.log(seller)
 
 /* db.collection('users').doc(firebase.auth().currentUser.uid).get()  */
-db.collection("users").doc(text).get()
+db.collection("users").doc(seller).get()
 	.then(function(doc) {
 		if (doc.exists) {
 			var data = doc.data();
@@ -25,6 +25,7 @@ db.collection("users").doc(text).get()
 			var firstName = data.first;
 			var lastName = data.last;
 			var username = data.username;
+			var postCount = data.posts;
 			/*  var bio = data.bio;  */
 			console.log(email);	
 			
@@ -38,6 +39,26 @@ db.collection("users").doc(text).get()
 			$("#sellerName").html(html);
 			
 			$('#popover1').popover(); 
+			
+			/* Code for loading seller's posting */
+		var count = 4;
+		var rowCount = 2;
+		var html = "";
+		
+		for (i=0;i<rowCount;i++){
+			html+= "<div class='row' >"
+			for(j=0;j<postCount;j++){
+				html+= "<div class='card col-3' >";
+				html+= "<img src='{{site.baseurl}}/Empty.jpg' class='card-img-top mt-3' style='background-color: grey;'" 
+				html+= "alt=''>"
+				html+= "<div class='card-body'><h6 class='card-title'>Title</h6><p class='card-text'>"
+				html+= "Description </p></div>"
+				html+= " </div>";
+				html+= "<br>";
+			}
+			html+= "</div>"
+		}
+		$("#sellerListings").html(html);
 			
 	    	} else {
         	// doc.data() will be undefined in this case
@@ -57,6 +78,7 @@ db.collection("users").doc(text).get()
 	$(document).ready(function () 
 		{ $("[data-toggle=popover]").popover(); });
 */
+/*
 		var count = 4;
 		var rowCount = 2;
 		var html = "";
@@ -75,7 +97,7 @@ db.collection("users").doc(text).get()
 			html+= "</div>"
 		}
 		$("#sellerListings").html(html);
-
+*/
 
 /* Get and display seller's name 
 $( document ).ready(function() {
