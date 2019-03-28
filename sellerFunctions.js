@@ -94,7 +94,9 @@ db.collection("users").doc(seller).get()
 		card2.innerHTML = cardImage + cardBody;
 		
 		dRow.appendChild(card);
-		dRow.appendChild(card2);
+		dRow.appendChild(card.cloneNode());
+		dRow.appendChild(card.cloneNode());
+		dRow.appendChild(card.cloneNode());
 			
 		listings.appendChild(dRow);
 		document.body.appendChild(listings);
