@@ -56,7 +56,7 @@ db.collection("users").doc(seller).get()
 		var dRow = "<div class='row' >"
 		var divEnd = "</div>"
 		var cardImage = "<img src='Empty.jpg' class='card-img-top mt-3' style='background-color: grey;' alt=''></img>";
-		var cardBody = "<div class='card-body'><h6 class='card-title'>Title</h6><p class='card-text'>Description</p></div>";
+		var cardBody = "<div class='card-body'><h6 class='card-title'>Title</h6><p class='card-text'>Description</p>";
 			
 		var iDiv = document.createElement('div');
 		iDiv.id = 'dcard';
