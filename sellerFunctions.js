@@ -54,6 +54,7 @@ db.collection("users").doc(seller).get()
 			
 		var card = "<div class='card col-3'>";
 		var dRow = "<div class='row' >";
+		var dcol = "<div class='col-sm'>";
 		var divEnd = "</div>";
 		var cardImage = "<img src='Empty.jpg' class='card-img-top mt-3' style='background-color: grey;' alt=''></img>";
 		var cardBody = "<div class='card-body'><h6 class='card-title'>Title</h6><p class='card-text'>Description</p></div>";
@@ -67,7 +68,7 @@ db.collection("users").doc(seller).get()
 			iDiv.innerHTML+= dRow;
 			
 			for(j=0;j<count;j++){
-				iDiv.innerHTML+= card + cardImage + cardBody + divEnd;
+				iDiv.innerHTML+= dcol + card + cardImage + cardBody + divEnd + divEnd;
 			}
 			 iDiv.innerHTML+= divEnd; 
 		}
