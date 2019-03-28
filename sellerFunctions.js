@@ -44,10 +44,12 @@ db.collection("users").doc(seller).get()
 			/* sample getting documents from collection */
 			
 			db.collection(username).get().then((snapshot) => {
+				var postCount = snapshot.size;
 				snapshot.docs.forEach(doc => {
 					console.log(doc.data())
 				})
 			})
+		console.log(postCount);
 		/* Code for loading seller's posting */
 		var count = 4;
 		var rowCount = 2;
@@ -85,10 +87,14 @@ db.collection("users").doc(seller).get()
 		listings.className = "container";
 		var dRow = document.createElement("div");
 		dRow.className = "row";
-		var card = document.createElement("div");
-		card.className = "card col-3";
-		card.innerHTML = cardImage + cardBody;
-			
+		var card;
+		for(i=0;i<4;i++){
+			card = document.createElement("div");
+			card.className = "card col-3";
+			card.innerHTML = cardImage + cardBody;
+			dRow.appendChild(card);
+		}
+		/*	
 		var card2 = document.createElement("div");
 		card2.className = "card col-3";
 		card2.innerHTML = cardImage + cardBody;
@@ -97,7 +103,7 @@ db.collection("users").doc(seller).get()
 		dRow.appendChild(card.cloneNode());
 		dRow.appendChild(card.cloneNode());
 		dRow.appendChild(card.cloneNode(true));
-			
+		*/	
 		listings.appendChild(dRow);
 		document.body.appendChild(listings);
 			
