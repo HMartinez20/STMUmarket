@@ -40,6 +40,14 @@ db.collection("users").doc(seller).get()
 			
 			$('#popover1').popover(); 
 			
+			
+			/* sample getting documents from collection */
+			
+			db.collection(username).get().then((snapshot) = > {
+				snapshot.docs.forEach(doc => {
+					console.log(doc)
+				})
+			})
 			/* Code for loading seller's posting */
 		var count = 4;
 		var rowCount = postCount % 4;
