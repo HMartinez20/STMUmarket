@@ -96,7 +96,7 @@ db.collection("users").doc(seller).get()
 		dRow.appendChild(card);
 		dRow.appendChild(card.cloneNode());
 		dRow.appendChild(card.cloneNode());
-		dRow.appendChild(card.cloneNode());
+		dRow.appendChild(card.cloneNode(True));
 			
 		listings.appendChild(dRow);
 		document.body.appendChild(listings);
