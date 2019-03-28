@@ -49,6 +49,7 @@ db.collection("users").doc(seller).get()
 				})
 			})
 			/* Code for loading seller's posting */
+			/*
 		var count = 4;
 		var rowCount = postCount % 4;
 		if ( (postCount%4) !== 0 ) {
@@ -60,8 +61,7 @@ db.collection("users").doc(seller).get()
 			html+= "<div class='row' >"
 			for(j=0;j<count;j++){
 				html+= "<div class='card col-3' href='#'>";
-				html+= "<img src='https://github.com/HMartinez20/STMUmarket/blob/master/Empty.jpg' height='200' width='200'>" 
-				/* html+= "alt=''>"  */
+				html+= "<img src='https://github.com/HMartinez20/STMUmarket/blob/master/Empty.jpg' height='200' width='200'>"  
 				html+= "<div class='card-body'><h6 class='card-title'>Title</h6><p class='card-text'>"
 				html+= "Description </p></div>"
 				html+= " </div>";
@@ -70,17 +70,32 @@ db.collection("users").doc(seller).get()
 			html+= "</div>"
 		}
 		$("#sellerListings").html(html);
+		*/
 			
-		/* pratice appending dynamic div elements */
+		/* practice appending dynamic div elements */
+		var count = 4;
+		var rowCount = 2;
+			
 		var card = "<div class='card col-3'>"
-		var cardEnd = "</div>"
+		var dRow = "<div class='row' >"
+		var divEnd = "</div>"
 		var cardImage = "<img src='Empty.jpg' class='card-img-top mt-3' style='background-color: grey;' alt=''></img>";
 		var cardBody = "<div class='card-body'><h6 class='card-title'>Title</h6><p class='card-text'>Description</p></div>";
 			
 		var iDiv = document.createElement('div');
 		iDiv.id = 'dcard';
 		iDiv.className = 'container';
-		iDiv.innerHTML = card + cardImage + cardBody + cardEnd;
+		iDiv.innerHTML = "";
+			
+		for(i=0;i<rowCount;i++){
+			iDiv.innerHTML+= dRow;
+			for(j=0;j<count;j++){
+				iDiv.innerHTML+= card + cardImage + cardBody + divEnd;
+			}
+			iDiv.innerHTML+= divEnd;
+		}
+			
+		/* iDiv.innerHTML = card + cardImage + cardBody + divEnd; */
 			
 		document.body.appendChild(iDiv);
 		/* document.getElementByID("listings").appendChild(iDiv); */
