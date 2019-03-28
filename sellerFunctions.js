@@ -86,9 +86,11 @@ db.collection("users").doc(seller).get()
 		iDiv.id = 'dcard';
 		iDiv.className = 'container';
 		iDiv.innerHTML = "";
+		
+		iDiv.innerHTML+= dRow;	
 			
 		for(i=0;i<rowCount;i++){
-			iDiv.innerHTML+= dRow;
+			
 			for(j=0;j<count;j++){
 				iDiv.innerHTML+= card + cardImage + cardBody;
 			}
