@@ -79,7 +79,7 @@ db.collection("users").doc(seller).get()
 		document.body.appendChild(iDiv);
 		*/	
 			
-		var listings = document.createElement('div);
+		var listings = document.createElement('div');
 		var t = document.createTextNode("div class='row' >");
 		listings.appendChild(t);
 		document.body.appendChild(listings);
