@@ -71,6 +71,14 @@ db.collection("users").doc(seller).get()
 		}
 		$("#sellerListings").html(html);
 			
+		/* pratice appending dynamic div elements */
+		var iDiv = document.createElement('div');
+		iDiv.id = 'dcard';
+		iDiv.className = 'card col-3';
+		document.body.appendChild(iDiv);
+			
+		/* end sample code for dynamic div
+			
 	    	} else {
         	// doc.data() will be undefined in this case
         	console.log("No such document!");
