@@ -60,7 +60,7 @@ db.collection("users").doc(seller).get()
 			html+= "<div class='row' >"
 			for(j=0;j<count;j++){
 				html+= "<div class='card col-3' href='#'>";
-				html+= "<img src='https://github.com/HMartinez20/STMUmarket/blob/master/Empty.jpg'>" 
+				html+= "<img src='https://github.com/HMartinez20/STMUmarket/blob/master/Empty.jpg' height='200' width='200'>" 
 				/* html+= "alt=''>"  */
 				html+= "<div class='card-body'><h6 class='card-title'>Title</h6><p class='card-text'>"
 				html+= "Description </p></div>"
@@ -72,7 +72,7 @@ db.collection("users").doc(seller).get()
 		$("#sellerListings").html(html);
 			
 		/* pratice appending dynamic div elements */
-		var cardImage = "<img src='https://github.com/HMartinez20/STMUmarket/blob/master/Empty.jpg' class='card-img-top mt-3' style='background-color: grey;' alt=''>";
+		var cardImage = "<img src='https://github.com/HMartinez20/STMUmarket/blob/master/Empty.jpg' class='card-img-top mt-3' style='background-color: grey;' alt=''></img>";
 		var cardBody = "<div class='card-body'><h6 class='card-title'>Title</h6><p class='card-text'>Description</p></div>";
 			
 		var iDiv = document.createElement('div');
