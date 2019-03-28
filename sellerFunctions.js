@@ -77,7 +77,7 @@ db.collection("users").doc(seller).get()
 		iDiv.className = 'card col-3';
 		document.body.appendChild(iDiv);
 			
-		/* end sample code for dynamic div
+		/* end sample code for dynamic div */
 			
 	    	} else {
         	// doc.data() will be undefined in this case
