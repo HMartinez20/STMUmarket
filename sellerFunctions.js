@@ -60,17 +60,16 @@ db.collection("users").doc(seller).get()
 			
 		var iDiv = document.createElement('div');
 		iDiv.id = 'dcard';
-		iDiv.className = 'row';
-		iDiv.innerHTML = "";
-		
-		iDiv.innerHTML+= dRow;	
+		iDiv.className = 'container';
+		iDiv.innerHTML = "";	
 			
 		for(i=0;i<rowCount;i++){
+			iDiv.innerHTML+= dRow;
 			
 			for(j=0;j<count;j++){
 				iDiv.innerHTML+= card + cardImage + cardBody;
 			}
-			/* iDiv.innerHTML+= divEnd; */
+			 iDiv.innerHTML+= divEnd; 
 		}
 			
 		/* iDiv.innerHTML = card + cardImage + cardBody + divEnd; */
