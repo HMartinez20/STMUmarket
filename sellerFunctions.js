@@ -51,7 +51,7 @@ db.collection("users").doc(seller).get()
 			/* Code for loading seller's posting */
 		var count = 4;
 		var rowCount = postCount % 4;
-		if (postCount % 4) !== 0:
+		if postCount%4 !== 0:
 			rowCount = rowCount + 1
 		var html = "";
 		
