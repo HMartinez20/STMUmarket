@@ -60,7 +60,7 @@ db.collection("users").doc(seller).get()
 			html+= "<div class='row' >"
 			for(j=0;j<count;j++){
 				html+= "<div class='card col-3' >";
-				html+= "<img src='{{site.baseurl}}/Empty.jpg' class='card-img-top mt-3' style='background-color: grey;'" 
+				html+= "<img src='https://github.com/HMartinez20/STMUmarket/blob/master/Empty.jpg' class='card-img-top mt-3' style='background-color: grey;'" 
 				html+= "alt=''>"
 				html+= "<div class='card-body'><h6 class='card-title'>Title</h6><p class='card-text'>"
 				html+= "Description </p></div>"
