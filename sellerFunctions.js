@@ -48,31 +48,7 @@ db.collection("users").doc(seller).get()
 					console.log(doc.data())
 				})
 			})
-			/* Code for loading seller's posting */
-			/*
-		var count = 4;
-		var rowCount = postCount % 4;
-		if ( (postCount%4) !== 0 ) {
-			rowCount++;
-		}
-		var html = "";
-		
-		for (i=0;i<rowCount;i++){
-			html+= "<div class='row' >"
-			for(j=0;j<count;j++){
-				html+= "<div class='card col-3' href='#'>";
-				html+= "<img src='https://github.com/HMartinez20/STMUmarket/blob/master/Empty.jpg' height='200' width='200'>"  
-				html+= "<div class='card-body'><h6 class='card-title'>Title</h6><p class='card-text'>"
-				html+= "Description </p></div>"
-				html+= " </div>";
-				html+= "<br>";
-			}
-			html+= "</div>"
-		}
-		$("#sellerListings").html(html);
-		*/
-			
-		/* practice appending dynamic div elements */
+		/* Code for loading seller's posting */
 		var count = 4;
 		var rowCount = 2;
 			
@@ -84,7 +60,7 @@ db.collection("users").doc(seller).get()
 			
 		var iDiv = document.createElement('div');
 		iDiv.id = 'dcard';
-		iDiv.className = 'container';
+		iDiv.className = 'row';
 		iDiv.innerHTML = "";
 		
 		iDiv.innerHTML+= dRow;	
