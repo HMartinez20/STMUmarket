@@ -89,10 +89,10 @@ db.collection("users").doc(seller).get()
 		card.className = "card col-3";
 		card.innerHTML = cardImage + cardBody;
 		
-		drow.appendChild(card);
-		drow.appendChild(card);
+		dRow.appendChild(card);
+		dRow.appendChild(card);
 			
-		listings.appendChild(drow);
+		listings.appendChild(dRow);
 		document.body.appendChild(listings);
 			
 						      
