@@ -75,6 +75,7 @@ db.collection("users").doc(seller).get()
 		var iDiv = document.createElement('div');
 		iDiv.id = 'dcard';
 		iDiv.className = 'card col-3';
+		iDiv.innerHTML = "This works";
 		document.body.appendChild(iDiv);
 			
 		/* end sample code for dynamic div */
