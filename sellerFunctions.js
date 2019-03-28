@@ -80,7 +80,7 @@ db.collection("users").doc(seller).get()
 		*/	
 			
 		var listings = document.createElement('div');
-		var t = document.createTextNode("div class='row' >");
+		var t = document.createTextNode("< div class='row' >");
 		listings.appendChild(t);
 		document.body.appendChild(listings);
 			
