@@ -80,7 +80,8 @@ db.collection("users").doc(seller).get()
 		iDiv.className = 'card col-3';
 		iDiv.innerHTML = cardImage + cardBody;
 			
-		document.body.appendChild(iDiv);
+		/* document.body.appendChild(iDiv); */
+		document.getElementByID("listings").appendChild(iDiv);
 			
 		/* end sample code for dynamic div */
 			
