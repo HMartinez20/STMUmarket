@@ -52,11 +52,11 @@ db.collection("users").doc(seller).get()
 		var count = 4;
 		var rowCount = 2;
 			
-		var card = "<div class='card col-3'>"
-		var dRow = "<div class='row' >"
-		var divEnd = "</div>"
+		var card = "<div class='card col-3'>";
+		var dRow = "<div class='row' >";
+		var divEnd = "</div>";
 		var cardImage = "<img src='Empty.jpg' class='card-img-top mt-3' style='background-color: grey;' alt=''></img>";
-		var cardBody = "<div class='card-body'><h6 class='card-title'>Title</h6><p class='card-text'>Description</p>";
+		var cardBody = "<div class='card-body'><h6 class='card-title'>Title</h6><p class='card-text'>Description</p></div>";
 			
 		var iDiv = document.createElement('div');
 		iDiv.id = 'dcard';
@@ -67,7 +67,7 @@ db.collection("users").doc(seller).get()
 			iDiv.innerHTML+= dRow;
 			
 			for(j=0;j<count;j++){
-				iDiv.innerHTML+= card + cardImage + cardBody;
+				iDiv.innerHTML+= card + cardImage + cardBody + divEnd;
 			}
 			 iDiv.innerHTML+= divEnd; 
 		}
@@ -75,7 +75,6 @@ db.collection("users").doc(seller).get()
 		/* iDiv.innerHTML = card + cardImage + cardBody + divEnd; */
 			
 		document.body.appendChild(iDiv);
-		/* document.getElementByID("listings").appendChild(iDiv); */
 			
 		/* end sample code for dynamic div */
 			
@@ -146,7 +145,7 @@ $("#sellerName").html(html);
 		});	
 */
 
-/* Function to access seller information, currently testing */
+/* Function to set seller information, remove later*/
 	$("#setinfo").click(function(){
 		db.collection("sampleseller").doc("samplelistings").set({
     			email: "srodriguezgome@mail.stmarytx.edu",
