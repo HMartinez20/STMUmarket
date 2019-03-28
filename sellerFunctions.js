@@ -92,7 +92,7 @@ db.collection("users").doc(seller).get()
 			for(j=0;j<count;j++){
 				iDiv.innerHTML+= card + cardImage + cardBody;
 			}
-			iDiv.innerHTML+= divEnd;
+			/* iDiv.innerHTML+= divEnd; */
 		}
 			
 		/* iDiv.innerHTML = card + cardImage + cardBody + divEnd; */
