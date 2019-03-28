@@ -88,9 +88,13 @@ db.collection("users").doc(seller).get()
 		var card = document.createElement("div");
 		card.className = "card col-3";
 		card.innerHTML = cardImage + cardBody;
+			
+		var card2 = document.createElement("div");
+		card2.className = "card col-3";
+		card2.innerHTML = cardImage + cardBody;
 		
 		dRow.appendChild(card);
-		dRow.appendChild(card);
+		dRow.appendChild(card2);
 			
 		listings.appendChild(dRow);
 		document.body.appendChild(listings);
