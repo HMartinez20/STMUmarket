@@ -42,12 +42,14 @@ db.collection("users").doc(seller).get()
 			
 			/* Code for loading seller's posting */
 		var count = 4;
-		var rowCount = 2;
+		var rowCount = postCount % 4;
+		if (postCount % 4) != 0:
+			rowCount = rowCount + 1
 		var html = "";
 		
 		for (i=0;i<rowCount;i++){
 			html+= "<div class='row' >"
-			for(j=0;j<postCount;j++){
+			for(j=0;j<count;j++){
 				html+= "<div class='card col-3' >";
 				html+= "<img src='{{site.baseurl}}/Empty.jpg' class='card-img-top mt-3' style='background-color: grey;'" 
 				html+= "alt=''>"
