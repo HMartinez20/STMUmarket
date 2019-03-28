@@ -43,7 +43,7 @@ db.collection("users").doc(seller).get()
 			
 			/* sample getting documents from collection */
 			
-			db.collection(username).get().then((snapshot) = > {
+			db.collection(username).get().then((snapshot) => {
 				snapshot.docs.forEach(doc => {
 					console.log(doc)
 				})
