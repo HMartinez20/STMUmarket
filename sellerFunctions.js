@@ -31,6 +31,7 @@ db.collection("users").doc(text).get()
 			$('#popover2').popover(
 				{
 				content: "To contact, send email to " + email + " \n and include STMUM and posting number as email subject"
+				trigger: "focus"
 				}				
 			);
 			var html = "<h1> " + username + " </h1>";
