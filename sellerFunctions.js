@@ -1,40 +1,38 @@
 /* JS used for seller.html */
-
-
-$( document ).ready(function() {
-
-	
+$( document ).ready(function() {	
 /* see if user is signed in */
-if (firebase.auth().currentUser){
-	console.log("Signed In")
-}
-else{
-	console.log("Not signed In")
-}
+	if (firebase.auth().currentUser){
+		console.log("Signed In")
+	}
+	else{
+		console.log("Not signed In")
+	}
 
-/* get UID from URL */
-var seller = window.location.hash.substring(1)
-console.log(seller)
+	/* get UID passed in URL, url format is https://hmartinez20.github.io/STMUmarket/seller.html#"UIDgoesHere" */
+	var sellerId = window.location.hash.substring(1)
+	/* TESTING, prints UID */
+	console.log(sellerId)
 
-/* get data from firebase */
-db.collection("users").doc(seller).get()
-	.then(function(doc) {
+	/*load the seller's data from  firebase */
+	db.collection("users").doc(sellerId).get().then(function(doc) {
 		if (doc.exists) {
+			/* get and store min amount of seller data needed, omit sensitive information */
 			var data = doc.data();
 			var email = data.email;
-			var firstName = data.first;
-			var lastName = data.last;
+			var name = data.first + data.last;
 			var username = data.username;
-			var postCount = data.posts;
 			/*  var bio = data.bio;  */
-			console.log(email);	
 			
+		
+			/* popover for contact seller, uses email retrieved from db */
 			$('#popover2').popover(
 				{
 				content: "To contact, send email to " + email + " \n and include STMUM and posting number as email subject",
 				trigger: "focus"
 				}				
 			);
+			
+			
 			var html = "<h1> " + username + " </h1>";
 			$("#sellerName").html(html);
 			
@@ -136,58 +134,8 @@ db.collection("users").doc(seller).get()
    		 	console.log("Error getting document:", error);
 		});	
 	
-	 
 
-/*
-		var count = 4;
-		var rowCount = 2;
-		var html = "";
-		
-		for (i=0;i<rowCount;i++){
-			html+= "<div class='row' >"
-			for(j=0;j<count;j++){
-				html+= "<div class='card col-3' >";
-				html+= "<img src='{{site.baseurl}}/Empty.jpg' class='card-img-top mt-3' style='background-color: grey;'" 
-				html+= "alt=''>"
-				html+= "<div class='card-body'><h6 class='card-title'>Title</h6><p class='card-text'>"
-				html+= "Description </p></div>"
-				html+= " </div>";
-				html+= "<br>";
-			}
-			html+= "</div>"
-		}
-		$("#sellerListings").html(html);
-*/
-
-/* Get and display seller's name 
-$( document ).ready(function() {
-var html = "<h1> " + username + " </h1>";
-$("#sellerName").html(html);
-});
-*/
-
-
-/*
-	var sellerID = "seller";
-		db.collection("users").doc(sellerID).get()
-		.then(function(doc) {
-    			if (doc.exists) {
-				console.log("getting username");
-				var data = doc.data();
-				var html = "<h1> " + data.username + " </h1>";
-				
-				$("#sellerName").html(html);
-	    		} else {
-        		// doc.data() will be undefined in this case
-        		console.log("No such document!");
-   		 	 }
-		})
-		.catch(function(error) {
-   		 	console.log("Error getting document:", error);
-		});	
-*/
-
-/* Function to set seller information, remove later*/
+/* Function to set seller information, remove later
 	$("#setinfo").click(function(){
 		db.collection("sampleseller").doc("samplelistings").set({
     			email: "srodriguezgome@mail.stmarytx.edu",
@@ -203,11 +151,9 @@ $("#sellerName").html(html);
     			console.error("Error writing document: ", error);
 		});
 	});
-
+*/
 	
 	
 	
 	
 }); /* doc ready end */
-
-
