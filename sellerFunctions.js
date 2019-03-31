@@ -47,7 +47,7 @@ $( document ).ready(function() {
 			db.collection(username).get().then((snapshot) => {
 				var postCount = snapshot.size;
 				var postNum = 0;
-				var cardImage = "<img src='Empty.jpg' class='card-img-top mt-3' style='background-color: grey;' alt=''></img>";
+				var cardImage = "<div class='card-body'><img src='Empty.jpg' class='card-img-top mt-3' style='background-color: grey;' alt=''></img></div>";
 				/* container for listings */
 				var listings = document.createElement("div");
 				/* listings.className = "container"; */
@@ -65,7 +65,7 @@ $( document ).ready(function() {
 					
 					var post = doc.data();
 					/* listing's title and price in card body */
-					var cardBody = "<div class='card-body'><h6 class='card-title'>"
+					var cardBody = "<div class='card-footer'><h6 class='card-title'>"
 					cardBody+= post.title + "</h6><p class='card-text'>" + post.price + "</p></div>";
 			
 					card = document.createElement("div");
