@@ -27,6 +27,7 @@ $( document ).ready(function() {
 			/* popover for contact seller, uses email retrieved from db */
 			$('#popover2').popover(
 				{
+				html:"true",
 				content: "To contact, send email to " + email + " <br> and include STMUM and posting number as email subject",
 				trigger: "focus"
 				}				
