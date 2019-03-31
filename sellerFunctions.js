@@ -45,15 +45,35 @@ db.collection("users").doc(seller).get()
 			
 			db.collection(username).get().then((snapshot) => {
 				var postCount = snapshot.size;
+				
+				var cardImage = "<img src='Empty.jpg' class='card-img-top mt-3' style='background-color: grey;' alt=''></img>";
+				var listings = document.createElement("div");
+				listings.className = "container";
+				var dRow = document.createElement("div");
+				dRow.className = "row";
+				var card;
+				
 				snapshot.docs.forEach(doc => {
 					console.log(doc.data())
+					var post = doc.data();
+					
+					var cardBody = "<div class='card-body'><h6 class='card-title'>Title</h6><p class='card-text'>Description</p></div>";
+			
+					card = document.createElement("div");
+					card.className = "card col-3";
+					card.innerHTML = cardImage + cardBody;
+					dRow.appendChild(card);
+				
+					listings.appendChild(dRow);
+					
 				})
+				document.getElementById("sellerListings").appendChild(listings);
 			})
 		console.log(postCount);
-		/* Code for loading seller's posting */
+		/* Code for loading seller's posting 
 		var count = 4;
 		var rowCount = 2;
-		
+		*/
 		/*
 		var card = "<div class='card col-3'>";
 		var dRow = "<div class='row' >";
@@ -80,6 +100,9 @@ db.collection("users").doc(seller).get()
 			
 		document.body.appendChild(iDiv);
 		*/	
+		/*
+		pratice code for loading listings
+	
 		var cardImage = "<img src='Empty.jpg' class='card-img-top mt-3' style='background-color: grey;' alt=''></img>";
 		var cardBody = "<div class='card-body'><h6 class='card-title'>Title</h6><p class='card-text'>Description</p></div>";
 			
@@ -94,9 +117,10 @@ db.collection("users").doc(seller).get()
 			card.innerHTML = cardImage + cardBody;
 			dRow.appendChild(card);
 		}
-		listings.appendChild(dRow);
-		/* document.body.appendChild(listings); */
-		document.getElementById("sellerListings").appendChild(listings);
+		listings.appendChild(dRow); */
+		/* document.body.appendChild(listings); 
+		document.getElementById("sellerListings").appendChild(listings); 
+		*/
 			
 						      
 		/* end sample code for dynamic div */
