@@ -32,10 +32,16 @@ $( document ).ready(function() {
 				}				
 			);
 			
-			
+			/*
 			var html = "<h1> " + username + " </h1>";
 			$("#sellerName").html(html);
+			*/
+			var seller = document.createElement('h1');
+			seller.innerHTML = username;
+			document.getElementById('sellerName').appendChild(seller);
 			
+			
+			/* Popover for Ratings */
 			$('#popover1').popover(); 
 			
 			
@@ -126,8 +132,8 @@ $( document ).ready(function() {
 			
 	
 	    	} else {
-        	// doc.data() will be undefined in this case
-        	console.log("No such document!");
+        	// doc doesn't exist
+        	console.log("Requested document does not exist...");
    		 }
 		}).catch(function(error) {
    		 	console.log("Error getting document:", error);
