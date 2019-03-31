@@ -70,7 +70,7 @@ $( document ).ready(function() {
 				})
 				listings.appendChild(dRow);
 				document.getElementById("sellerListings").appendChild(listings);
-			});
+			})
 	    	} else {
         	// doc doesn't exist
         	console.log("Requested document does not exist...");
