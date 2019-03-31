@@ -65,8 +65,8 @@ $( document ).ready(function() {
 					
 					var post = doc.data();
 					/* listing's title and price in card body */
-					var cardBody = "<div class='card-footer'><h6 class='card-title'>"
-					cardBody+= post.title + "</h6><p class='card-text'>" + post.price + "</p></div>";
+					var cardBody = "<div class='card-body'><h4 class='card-title'>"
+					cardBody+= post.title + "</h4><p class='card-text'>" + post.price + "</p></div>";
 			
 					card = document.createElement("div");
 					card.className = "card col-3";
