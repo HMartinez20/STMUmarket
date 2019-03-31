@@ -47,7 +47,7 @@ $( document ).ready(function() {
 			db.collection(username).get().then((snapshot) => {
 				var postCount = snapshot.size;
 				var postNum = 0;
-				var cardImage = "<div class='card-body'><img src='Empty.jpg' class='card-img-top mt-3' style='background-color: grey;' alt=''></img></div>";
+				var cardImage = "<img class='card-image-top' src='Empty.jpg' class='card-img-top mt-3' style='background-color: grey;' alt=''></img>";
 				/* container for listings */
 				var listings = document.createElement("div");
 				/* listings.className = "container"; */
