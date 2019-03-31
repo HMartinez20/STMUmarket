@@ -182,6 +182,6 @@ $("#sellerName").html(html);
 	
 	
 	
-} /* doc ready end */
+}); /* doc ready end */
 
 
