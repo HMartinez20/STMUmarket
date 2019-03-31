@@ -45,7 +45,6 @@ $( document ).ready(function() {
 			
 			/* Get and display seller's listings */
 			db.collection(username).get().then((snapshot) => {
-				/* currently not used */
 				var postCount = snapshot.size;
 				var postNum = 0;
 				var cardImage = "<img src='Empty.jpg' class='card-img-top mt-3' style='background-color: grey;' alt=''></img>";
@@ -74,7 +73,7 @@ $( document ).ready(function() {
 					card.innerHTML = cardImage + cardBody;
 					dRow.appendChild(card);	
 					
-					if (postNum % 2==0){
+					if (postNum % 2==0 || postNum==postCount){
 						listings.appendChild(dRow);	
 					}
 				})
