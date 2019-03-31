@@ -65,9 +65,10 @@ db.collection("users").doc(seller).get()
 					card.innerHTML = cardImage + cardBody;
 					dRow.appendChild(card);
 				
-					listings.appendChild(dRow);
+					
 					
 				})
+				listings.appendChild(dRow);
 				document.getElementById("sellerListings").appendChild(listings);
 			})
 		console.log(postCount);
