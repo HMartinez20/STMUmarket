@@ -57,7 +57,7 @@ $( document ).ready(function() {
 				var card;
 				/* add a listing card for each listing */
 				snapshot.docs.forEach(doc => {
-					if (postNum % 2==0){
+					if (postNum % 4==0){
 						dRow = document.createElement("div");
 						dRow.className = "row";	
 					}
@@ -73,7 +73,7 @@ $( document ).ready(function() {
 					card.innerHTML = cardImage + cardBody;
 					dRow.appendChild(card);	
 					
-					if (postNum % 2==0 || postNum==postCount){
+					if (postNum % 4==0 || postNum==postCount){
 						listings.appendChild(dRow);	
 					}
 				})
