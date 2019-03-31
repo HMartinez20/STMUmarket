@@ -47,10 +47,11 @@ $( document ).ready(function() {
 			db.collection(username).get().then((snapshot) => {
 				/* currently not used */
 				var postCount = snapshot.size;
+				var postNum = 0;
 				var cardImage = "<img src='Empty.jpg' class='card-img-top mt-3' style='background-color: grey;' alt=''></img>";
 				/* container for listings */
 				var listings = document.createElement("div");
-				listings.className = "col-9 d-inline-block card-deck";
+				listings.className = "container";
 				/* row of listigs */
 				var dRow = document.createElement("div");
 				dRow.className = "row";
@@ -58,6 +59,11 @@ $( document ).ready(function() {
 				var card;
 				/* add a listing card for each listing */
 				snapshot.docs.forEach(doc => {
+					if (postNum % 2==0){
+						dRow.className = "row";	
+					}
+					postNum+=1;
+					
 					var post = doc.data();
 					/* listing's title and price in card body */
 					var cardBody = "<div class='card-body'><h6 class='card-title'>"
@@ -67,8 +73,12 @@ $( document ).ready(function() {
 					card.className = "card col-3";
 					card.innerHTML = cardImage + cardBody;
 					dRow.appendChild(card);	
+					
+					if (postNum % 2==0){
+						listings.appendChild(dRow);	
+					}
 				})
-				listings.appendChild(dRow);
+				
 				document.getElementById("sellerListings").appendChild(listings);
 			})
 	    	} else {
