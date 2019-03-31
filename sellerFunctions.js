@@ -92,7 +92,8 @@ db.collection("users").doc(seller).get()
 			dRow.appendChild(card);
 		}
 		listings.appendChild(dRow);
-		document.body.appendChild(listings);
+		/* document.body.appendChild(listings); */
+		document.getElementByID("sellerListings").appendChild(listings);
 			
 						      
 		/* end sample code for dynamic div */
