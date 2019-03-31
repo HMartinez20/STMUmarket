@@ -70,7 +70,7 @@ $( document ).ready(function() {
 				})
 				listings.appendChild(dRow);
 				document.getElementById("sellerListings").appendChild(listings);
-			})
+			});
 	    	} else {
         	// doc doesn't exist
         	console.log("Requested document does not exist...");
@@ -78,7 +78,7 @@ $( document ).ready(function() {
 		}).catch(function(error) {
    		 	console.log("Error getting document:", error);
 		});	
-	
+}); 
 
 /* Function to set seller information, remove later
 	$("#setinfo").click(function(){
@@ -97,4 +97,4 @@ $( document ).ready(function() {
 		});
 	});
 */	
-}); 
+
