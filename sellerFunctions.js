@@ -53,13 +53,13 @@ $( document ).ready(function() {
 				var listings = document.createElement("div");
 				listings.className = "container";
 				/* row of listigs */
-				var dRow = document.createElement("div");
-				dRow.className = "row";
+				var dRow;
 				/* listing card, contains image, title, and price */
 				var card;
 				/* add a listing card for each listing */
 				snapshot.docs.forEach(doc => {
 					if (postNum % 2==0){
+						dRow = document.createElement("div");
 						dRow.className = "row";	
 					}
 					postNum+=1;
