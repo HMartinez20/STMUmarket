@@ -15,7 +15,7 @@ $( document ).ready(function() {
 
 	/*load the seller's data from  firebase */
 	db.collection("users").doc(sellerId).get().then(function(doc) {
-		/*if (doc.exists) { */
+		if (doc.exists) { 
 			/* get and store min amount of seller data needed, omit sensitive information */
 			var data = doc.data();
 			var email = data.email;
@@ -124,12 +124,11 @@ $( document ).ready(function() {
 						      
 		/* end sample code for dynamic div */
 			
-		/*	
+	
 	    	} else {
         	// doc.data() will be undefined in this case
         	console.log("No such document!");
    		 }
-		 */
 		}).catch(function(error) {
    		 	console.log("Error getting document:", error);
 		});	
