@@ -50,7 +50,7 @@ $( document ).ready(function() {
 				var cardImage = "<img src='Empty.jpg' class='card-img-top mt-3' style='background-color: grey;' alt=''></img>";
 				/* container for listings */
 				var listings = document.createElement("div");
-				listings.className = "container";
+				/* listings.className = "container"; */
 				/* row of listigs */
 				var dRow;
 				/* listing card, contains image, title, and price */
