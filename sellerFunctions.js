@@ -32,10 +32,8 @@ $( document ).ready(function() {
 				}				
 			);
 			
-			/*
-			var html = "<h1> " + username + " </h1>";
-			$("#sellerName").html(html);
-			*/
+			
+			/* set and display seller username to html*/
 			var seller = document.createElement('h1');
 			seller.innerHTML = username;
 			document.getElementById('sellerName').appendChild(seller);
@@ -45,92 +43,34 @@ $( document ).ready(function() {
 			$('#popover1').popover(); 
 			
 			
-			/* sample getting documents from collection */
-			
+			/* Get and display seller's listings */
 			db.collection(username).get().then((snapshot) => {
+				/* currently not used */
 				var postCount = snapshot.size;
-				
 				var cardImage = "<img src='Empty.jpg' class='card-img-top mt-3' style='background-color: grey;' alt=''></img>";
+				/* container for listings */
 				var listings = document.createElement("div");
 				listings.className = "container";
+				/* row of listigs */
 				var dRow = document.createElement("div");
 				dRow.className = "row";
+				/* listing card, contains image, title, and price */
 				var card;
-				
+				/* add a listing card for each listing */
 				snapshot.docs.forEach(doc => {
-					console.log(doc.data())
 					var post = doc.data();
-					
+					/* listing's title and price in card body */
 					var cardBody = "<div class='card-body'><h6 class='card-title'>"
 					cardBody+= post.title + "</h6><p class='card-text'>" + post.price + "</p></div>";
 			
 					card = document.createElement("div");
 					card.className = "card col-3";
 					card.innerHTML = cardImage + cardBody;
-					dRow.appendChild(card);
-				
-					
-					
+					dRow.appendChild(card);	
 				})
 				listings.appendChild(dRow);
 				document.getElementById("sellerListings").appendChild(listings);
 			})
-		/* Code for loading seller's posting 
-		var count = 4;
-		var rowCount = 2;
-		*/
-		/*
-		var card = "<div class='card col-3'>";
-		var dRow = "<div class='row' >";
-		var dcol = "<div class='col-sm'>";
-		var divEnd = "</div>";
-		var cardImage = "<img src='Empty.jpg' class='card-img-top mt-3' style='background-color: grey;' alt=''></img>";
-		var cardBody = "<div class='card-body'><h6 class='card-title'>Title</h6><p class='card-text'>Description</p></div>";
-			
-		var iDiv = document.createElement('div');
-		iDiv.id = 'dcard';
-		iDiv.className = 'container';
-		iDiv.innerHTML = "";	
-			
-		for(i=0;i<rowCount;i++){
-			iDiv.innerHTML+= dRow;
-			
-			for(j=0;j<count;j++){
-				iDiv.innerHTML+= dcol + card + cardImage + cardBody + divEnd + divEnd;
-			}
-			 iDiv.innerHTML+= divEnd; 
-		}
-			
-	
-			
-		document.body.appendChild(iDiv);
-		*/	
-		/*
-		pratice code for loading listings
-	
-		var cardImage = "<img src='Empty.jpg' class='card-img-top mt-3' style='background-color: grey;' alt=''></img>";
-		var cardBody = "<div class='card-body'><h6 class='card-title'>Title</h6><p class='card-text'>Description</p></div>";
-			
-		var listings = document.createElement("div");
-		listings.className = "container";
-		var dRow = document.createElement("div");
-		dRow.className = "row";
-		var card;
-		for(i=0;i<4;i++){
-			card = document.createElement("div");
-			card.className = "card col-3";
-			card.innerHTML = cardImage + cardBody;
-			dRow.appendChild(card);
-		}
-		listings.appendChild(dRow); */
-		/* document.body.appendChild(listings); 
-		document.getElementById("sellerListings").appendChild(listings); 
-		*/
-			
-						      
-		/* end sample code for dynamic div */
-			
-	
 	    	} else {
         	// doc doesn't exist
         	console.log("Requested document does not exist...");
@@ -156,9 +96,5 @@ $( document ).ready(function() {
     			console.error("Error writing document: ", error);
 		});
 	});
-*/
-	
-	
-	
-	
-}); /* doc ready end */
+*/	
+}); 
