@@ -58,7 +58,7 @@ db.collection("users").doc(seller).get()
 					var post = doc.data();
 					
 					var cardBody = "<div class='card-body'><h6 class='card-title'>"
-					cardBody+= post.title + "</h6><p class='card-text'>" + post.description + "</p></div>";
+					cardBody+= post.title + "</h6><p class='card-text'>" + post.price + "</p></div>";
 			
 					card = document.createElement("div");
 					card.className = "card col-3";
