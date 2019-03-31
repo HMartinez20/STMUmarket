@@ -1,6 +1,9 @@
 /* JS used for seller.html */
 
 
+$( document ).ready(function() {
+
+	
 /* see if user is signed in */
 if (firebase.auth().currentUser){
 	console.log("Signed In")
@@ -175,5 +178,10 @@ $("#sellerName").html(html);
 		});
 	});
 
+	
+	
+	
+	
+} /* doc ready end */
 
 
