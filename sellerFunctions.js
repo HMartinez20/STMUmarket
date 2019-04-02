@@ -47,9 +47,9 @@ $( document ).ready(function() {
 			$('#popover1').popover(); 
 			
 			/*sample for 1 folder files */
-			let ref = firebase.database();
+			let ref = firebase.database().ref('items');
 			
-			ref.child('items').orderByChild('seller').equalTo('srodriguezgome').on("value", function(snapshot){
+			ref.orderByChild('seller').equalTo('srodriguezgome').on("value", function(snapshot){
 				snapshot.forEach(function(data){
 					console.log(data.key);
 				});
