@@ -58,7 +58,7 @@ $( document ).ready(function() {
 			.ref("child/path");
 			.orderByChild('seller')
 			*/
-			ref.orderByChild("seller").once("value", (snapshot) => {
+			ref.child("items).orderByChild("seller").once("value", (snapshot) => {
 				console.log(snapshot.val());
 				console.log("Got snapshot");
 				
