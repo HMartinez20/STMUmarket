@@ -1,4 +1,7 @@
 /* JS used for seller.html */
+
+console.log("4.12");
+
 $( document ).ready(function() {	
 /* see if user is signed in */
 	if (firebase.auth().currentUser){
@@ -43,6 +46,14 @@ $( document ).ready(function() {
 			/* Popover for Ratings */
 			$('#popover1').popover(); 
 			
+			/*sample for 1 folder files */
+			let usersRef = firebase.database().ref('items');
+			
+			db.child('items').orderByChild('seller').equalTo('srodriguezgome').on("value", function(snapshot){
+				snapshot.forEach(function(data){
+					console.log(data.key);
+				});
+			});
 			
 			/* Get and display seller's listings */
 			db.collection(username).get().then((snapshot) => {
