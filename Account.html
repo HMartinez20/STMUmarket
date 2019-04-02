@@ -18,11 +18,15 @@ title: Account Page
    </div>
 		<div class="row m-5">
 		<div class="col-3">
-			
-			<div class="row"> <img src="{{site.baseurl}}/Empty.jpg" class="img-fluid" alt="Profile Picture"> </div>
-			
-			<div class="row"> Average ratings </div>
-			    
+			<img src="{{site.baseurl}}/Empty.jpg" class="mx-auto d-block" style= "height: 12rem; width: 12rem;" alt="Profile Picture">
+			<h2 class = "d-block text-center"> Average User Rating</h2>
+			<div class ="d-flex justify-content-center">
+						<span class="far fa-star checked"></span>
+						<span class="far fa-star checked"></span>
+						<span class="far fa-star checked"></span>
+						<span class="far fa-star"></span>
+						<span class="fas fa-star"></span>
+			</div>
 		</div>
 		<div class="col-9">
 			<div class="row">
@@ -60,12 +64,7 @@ title: Account Page
      
       
    </div>
-					<h2> Average User Rating</h2>
-						<span class="far fa-star checked"></span>
-						<span class="far fa-star checked"></span>
-						<span class="far fa-star checked"></span>
-						<span class="far fa-star"></span>
-						<span class="fas fa-star"></span>
+			
 		   <div id="fileSubmit">
      <input type="file" value="upload" id="file-select"/>
       <button id="file-upload" class="btn btn-info" onclick="handleFileSelect();">Upload</button>
