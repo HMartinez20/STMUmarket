@@ -59,6 +59,75 @@ title: Account Page
 						<span class="far fa-star checked"></span>
 						<span class="far fa-star"></span>
 						<span class="fas fa-star"></span>
+		
+<!....Create new posting button....>
+		<div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Create New Posting</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+
+	<!-- Radio -->
+        <p class="text-left">
+          <strong>Item Type:</strong>
+        </p>
+        <div class="form-check mb-4">
+          <input class="form-check-input" name="group1" type="radio" id="radio-179" value="option1" checked>
+          <label class="form-check-label" for="radio-179">Books</label>
+        </div>
+
+        <div class="form-check mb-4">
+          <input class="form-check-input" name="group1" type="radio" id="radio-279" value="option2">
+          <label class="form-check-label" for="radio-279">Clothing</label>
+        </div>
+
+        <div class="form-check mb-4">
+          <input class="form-check-input" name="group1" type="radio" id="radio-379" value="option3">
+          <label class="form-check-label" for="radio-379">Fruniture</label>
+        </div>
+        <div class="form-check mb-4">
+          <input class="form-check-input" name="group1" type="radio" id="radio-479" value="option4">
+          <label class="form-check-label" for="radio-479">Misc.</label>
+        </div>
+        <!-- Radio -->
+
+        <div class="md-form mb-5">
+          <i class="fas fa-user prefix grey-text"></i>
+          <input type="text" id="form34" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="form34">Item Name</label>
+        </div>
+
+        <div class="md-form mb-5">
+          <i class="fas fa-envelope prefix grey-text"></i>
+          <input type="email" id="form29" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="form29">Price</label>
+        </div>
+
+
+        <div class="md-form">
+          <i class="fas fa-pencil prefix grey-text"></i>
+          <textarea type="text" id="form8" class="md-textarea form-control" rows="4"></textarea>
+          <label data-error="wrong" data-success="right" for="form8">Item Description</label>
+        </div>
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button class="btn btn-unique">Create Posting<i class="fas fa-paper-plane-o ml-1"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text-center">
+  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalContactForm">Create New Posting</a>
+</div>
+<!....End of new posting button....>
 	</body>
 </html>
 <script>
