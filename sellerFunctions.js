@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("4:27");
+console.log("5:28");
 
 $( document ).ready(function() {	
 /* see if user is signed in */
@@ -53,7 +53,7 @@ $( document ).ready(function() {
 			/*
 			.orderByChild('seller')
 			*/
-			db.ref().child('items').once("value", (snapshot) => {
+			db.child('items').once("value", (snapshot) => {
 				console.log(snapshot.val());
 				console.log("Got snapshot");
 				console.log(snapshot.size);
