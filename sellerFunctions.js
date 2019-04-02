@@ -55,6 +55,7 @@ $( document ).ready(function() {
 				snapshot.forEach(function(data){
 					console.log("hello");
 				});
+			});
 	
 			
 			/* Get and display seller's listings */
