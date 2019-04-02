@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("6:30");
+console.log("6:33");
 
 $( document ).ready(function() {	
 /* see if user is signed in */
@@ -61,9 +61,6 @@ $( document ).ready(function() {
 			ref.orderByChild("seller").once("value", (snapshot) => {
 				console.log(snapshot.val());
 				console.log("Got snapshot");
-				console.log(snapshot.size);
-				var s = snapshot.size;
-				console.log(s);
 				
 			});
 	
