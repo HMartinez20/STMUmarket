@@ -49,7 +49,7 @@ $( document ).ready(function() {
 			/*sample for 1 folder files */
 			let ref = firebase.database().ref('items');
 			
-			ref.orderByChild('seller').equalTo('srodriguezgome').on("value", (snapshot) => {
+			ref.orderByChild('seller').on("value", (snapshot) => {
 				console.log(snapshot.val());
 				console.log("Got snapshot");
 				console.log(snapshot.size);
