@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("4:37");
+console.log("5:48");
 
 $( document ).ready(function() {	
 /* see if user is signed in */
@@ -47,15 +47,26 @@ $( document ).ready(function() {
 			$('#popover1').popover(); 
 			
 			/*sample for 1 folder files */
-			let ref = firebase.database().ref('items');
+			var sample = firebase.database().ref("/items").orderByChild("seller");
+			console.log(sample.data());
 			
-			ref.orderByChild('items/seller').equalTo('srodriguezgome').on("value", function(snapshot){
+			
+			let ref = firebase.database().ref('/items');
+			
+			
+			/*
+			.ref("child/path");
+			.orderByChild('seller')
+			*/
+			ref.orderByChild("seller").once("value", (snapshot) => {
+				console.log(snapshot.val());
 				console.log("Got snapshot");
 				console.log(snapshot.size);
-				snapshot.forEach(function(data){
-					console.log("hello");
-				});
+				var s = snapshot.size;
+				console.log(s);
+				
 			});
+	
 			
 			/* Get and display seller's listings */
 			db.collection(username).get().then((snapshot) => {

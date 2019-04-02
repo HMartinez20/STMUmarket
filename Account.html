@@ -6,33 +6,29 @@ title: Account Page
   <head>
     {% include header.html %}
     {% include fire.html %}
-	  <title>Bootstrap Example</title>
-  <!--<meta charset="utf-8">-->
-  <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+
+
   </head>
 	<body>
 		{% include navBar.html %}
-		   <div id="fileSubmit">
+		<div id="fileSubmit">
      <input type="file" value="upload" id="file-select"/>
       <button id="file-upload" class="btn btn-info" onclick="handleFileSelect();">Upload</button>
    </div>
-		<div class="row ml-5 mr-5">
+	<div class="row ml-5 mr-5">
 		<div class="col-3">
-			<img src="{{site.baseurl}}/Empty.jpg" class="mx-auto d-block" style= "height: 12rem; width: 12rem;" alt="Profile Picture">
-			
+		  <img src="{{site.baseurl}}/Empty.jpg" class="mx-auto d-block" style= "height: 12rem; width: 12rem;" alt="Profile Picture">
 		</div>
 		<div class="col-9"> 
 			 	<h1 class="card-title">User Name</h1>
 				<p class="card-subtitle">FirstName LastName</p>
-			<div class="row">
-				<button id="file-upload" class="btn btn-info" onclick="handleFileSelect();">Edit Profile</button>
-				<!-- <input type="file" value="upload" id="file-select"/> -->
-			</div>
-			
-			<div class="row"> Body </div>
-		
-		</div> </div> 
-		
+			  <div class="row">
+				  <button id="file-upload" class="btn btn-info" onclick="handleFileSelect();">Edit Profile</button>
+				  <!-- <input type="file" value="upload" id="file-select"/> -->
+			  </div>
+			  <div class="row"> Body </div>
+	  </div> 
+    </div> 
 		<div class="row ml-5 mr-5"> 
 			<div class = "col-3"> 
 				<h2 class = "d-block text-center"> Average User Rating</h2>
@@ -75,8 +71,7 @@ title: Account Page
      
       
    </div>
-			
-		   <div id="fileSubmit">
+	  <div id="fileSubmit">
      <input type="file" value="upload" id="file-select"/>
       <button id="file-upload" class="btn btn-info" onclick="handleFileSelect();">Upload</button>
    </div>
@@ -136,6 +131,11 @@ title: Account Page
           <textarea type="text" id="form8" class="md-textarea form-control" rows="4"></textarea>
           <label data-error="wrong" data-success="right" for="form8">Item Description</label>
         </div>
+	      
+	<div id="fileSubmit">
+     	  <input type="file" value="upload" id="file-select"/>
+          <button id="file-upload" class="btn btn-info" onclick="handleFileSelect();">Upload</button>
+   	</div>
 
       </div>
       <div class="modal-footer d-flex justify-content-center">
@@ -148,14 +148,15 @@ title: Account Page
 <div class="text-center">
   <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalContactForm">Create New Posting</a>
 </div>
-<!-- End of new posting button-->
+	<!....THIS IS THE END OF CODE FOR THE CREATE NEW POSTING BUTTON...>
+
 	</body>
 </html>
 <script>
 	 const storage = firebase.storage(); // Reference to storage service
       
 		var fileButton = document.getElementById("file-upload");
-		//var fileSelect = document.getElementById("file-select");
+	
 		function handleFileSelect(){
 			 // Get file
 			 var file = document.getElementById("file-select").files[0];
