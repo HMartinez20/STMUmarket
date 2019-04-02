@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("5:33");
+console.log("5:40");
 
 $( document ).ready(function() {	
 /* see if user is signed in */
@@ -47,6 +47,9 @@ $( document ).ready(function() {
 			$('#popover1').popover(); 
 			
 			/*sample for 1 folder files */
+			var sample = firebase.database().ref("/items").orderByChild("seller");
+			console.log(sample);
+			
 			let ref = firebase.database().ref('items');
 			
 			
