@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("4:29");
+console.log("4:32");
 
 $( document ).ready(function() {	
 /* see if user is signed in */
@@ -50,8 +50,9 @@ $( document ).ready(function() {
 			let ref = firebase.database().ref('items');
 			
 			ref.orderByChild('seller').equalTo('srodriguezgome').on("value", function(snapshot){
+				console.log("Got snapshot");
 				snapshot.forEach(function(data){
-					console.log(data.key);
+					console.log("hello");
 				});
 			});
 			
