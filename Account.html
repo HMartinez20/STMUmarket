@@ -5,7 +5,8 @@ title: Account Page
 <html>
   <head>
     {% include header.html %}
-    {% include fire.html %}<title>Bootstrap Example</title>
+    {% include fire.html %}
+	  <title>Bootstrap Example</title>
   <!--<meta charset="utf-8">-->
   <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
   </head>
@@ -61,6 +62,10 @@ title: Account Page
 						<span class="far fa-star checked"></span>
 						<span class="far fa-star"></span>
 						<span class="fas fa-star"></span>
+		   <div id="fileSubmit">
+     <input type="file" value="upload" id="file-select"/>
+      <button id="file-upload" class="btn btn-info" onclick="handleFileSelect();">Upload</button>
+   </div>
 		
 <!-- Create new posting button -->
 		<div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -159,6 +164,14 @@ title: Account Page
 					}
 			 );
 		}
+	      var usersRef = firebase.database().ref("users/");
+      function writeNewUser(){
+         usersRef.push({
+            name: "Jane",
+            number: 1,
+            age: 30
+         });
+      }
 </script>
 	<!-- navigation bar code
 	 <div class="btn-group col" role="group">
