@@ -164,6 +164,19 @@ title: Account Page
 			 );
 		}
 	      var usersRef = firebase.database().ref("users/");
+		
+		//Referencing code START
+		//When user uploads an image, the download url links back to them
+		var ref= firebase.database().ref("Uploads");
+		var storage = firebase.storage();
+		var pathReference = storage.ref('images/stars.jpg');
+		pathReference.getDownloadURL().then(function(url) {
+		ref.push().set({
+		imgurl: url
+		});
+		//Referencing code END
+			
+	
       function writeNewUser(){
          usersRef.push({
             name: "Jane",
