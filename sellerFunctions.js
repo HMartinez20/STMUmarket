@@ -47,13 +47,14 @@ $( document ).ready(function() {
 			$('#popover1').popover(); 
 			
 			/*sample for 1 folder files */
-			let ref = firebase.database().ref("child/path");
+			let ref = firebase.database()
 			
 			
 			/*
+			.ref("child/path");
 			.orderByChild('seller')
 			*/
-			db.child('items').once("value", (snapshot) => {
+			ref.child('items').once("value", (snapshot) => {
 				console.log(snapshot.val());
 				console.log("Got snapshot");
 				console.log(snapshot.size);
