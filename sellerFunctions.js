@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("6:38");
+console.log("6:39");
 
 $( document ).ready(function() {	
 /* see if user is signed in */
@@ -51,7 +51,7 @@ $( document ).ready(function() {
 			console.log(sample);
 			
 			
-			let ref = firebase.database().ref('items');
+			let ref = firebase.database().ref();
 			
 			
 			/*
@@ -63,7 +63,7 @@ $( document ).ready(function() {
 				console.log("Got snapshot");
 				
 			});
-	
+			console.log("hello");
 			
 			/* Get and display seller's listings */
 			db.collection(username).get().then((snapshot) => {
