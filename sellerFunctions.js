@@ -49,13 +49,13 @@ $( document ).ready(function() {
 			/*sample for 1 folder files */
 			let ref = firebase.database().ref('items');
 			
-			ref.orderByChild('items/seller').equalTo('srodriguezgome').on("value", function(snapshot){
+			ref.orderByChild('items/seller').equalTo('srodriguezgome').then((snapshot) => {
 				console.log("Got snapshot");
 				console.log(snapshot.size);
 				snapshot.forEach(function(data){
 					console.log("hello");
 				});
-			});
+	
 			
 			/* Get and display seller's listings */
 			db.collection(username).get().then((snapshot) => {
