@@ -140,50 +140,39 @@ title: Account Page
 	 const storage = firebase.storage(); // Reference to storage service
       
 		var fileButton = document.getElementById("file-upload");
-		//var fileSelect = document.getElementById("file-select");
-		function handleFileSelect(){
-			 // Get file
-			 var file = document.getElementById("file-select").files[0];
+		//Listen for file selection
+fileButton.addEventListener('change', function(e){ 
+    //Get files
+    for (var i = 0; i < e.target.files.length; i++) {
+        var imageFile = e.target.files[i];
 
-			 // Create storage ref
-			 const storageRef = storage.ref('posts/'+file.name);  // Reference to WHERE the image will be stored
+        uploadImageAsPromise(imageFile);
+    }
+});
 
-			 // Upload File
-			 var task = storageRef.put(file);
+//Handle waiting to upload each file using promise
+function uploadImageAsPromise (imageFile) {
+    return new Promise(function (resolve, reject) {
+        var storageRef = firebase.storage().ref(fullDirectory+"/"+imageFile.name);
 
-			 //Upload progress
-			 task.on('state_changed',
-					function progress(snapshot){
-					},
-					function error(err){
-						 alert("Error!"+err);
-					},
-					function complete(){
-						 alert("Uploaded!");
-					}
-			 );
-		}
-	      var usersRef = firebase.database().ref("users/");
-		
-		
-		//Referencing code START
-		//When user uploads an image, the download url links back to them
-		var ref= firebase.database().ref("Uploads");
-		var storage = firebase.storage();
-		var pathReference = storage.ref('images/stars.jpg');
-		pathReference.getDownloadURL().then(function(url) {
-		ref.push().set({
-		imgurl: url
-		});
-		//Referencing code END	
-	
-      function writeNewUser(){
-         usersRef.push({
-            name: "Jane",
-            number: 1,
-            age: 30
-         });
-      }
+        //Upload file
+        var task = storageRef.put(imageFile);
+
+        //Update progress bar
+        task.on('state_changed',
+            function progress(snapshot){
+                var percentage = snapshot.bytesTransferred / snapshot.totalBytes * 100;
+                uploader.value = percentage;
+            },
+            function error(err){
+
+            },
+            function complete(){
+                var downloadURL = task.snapshot.downloadURL;
+            }
+        );
+    });
+}
 </script>
 	<!-- navigation bar code
 	 <div class="btn-group col" role="group">
