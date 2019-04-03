@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("8:59");
+console.log("8:07");
 
 $( document ).ready(function() {	
 /* see if user is signed in */
@@ -52,13 +52,12 @@ $( document ).ready(function() {
 				var imgURL;
 				var imageRef = firebase.storage().ref('posts/1.jpg');
 				imageRef.getDownloadURL().then((url) => {
-					var cardImage = document.createElement("img");
-					cardImage.className = "card-image-top mt-3";
-					cardImage.src = url;
+					imgURL = url;
 					console.log(url);
 				});
+				console.log(url);
 				
-				/* var cardImage = "<img class='card-image-top mt-3' src=" + imgURL + "style='background-color: grey;' alt=''></img>"; */
+				 var cardImage = "<img class='card-image-top mt-3' src=" + imgURL + "style='background-color: grey;' alt=''></img>"; */
 				/* container for listings */
 				var listings = document.createElement("div");
 				/* listings.className = "container"; */
@@ -81,8 +80,7 @@ $( document ).ready(function() {
 			
 					card = document.createElement("div");
 					card.className = "card col-3";
-					card.appendChild(cardImage);
-					card.innerHTML = cardBody;
+					card.innerHTML = cardImage + cardBody;
 					dRow.appendChild(card);	
 					
 					if (postNum % 4==0 || postNum==postCount){
