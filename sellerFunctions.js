@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("8:27");
+console.log("8:49");
 
 $( document ).ready(function() {	
 /* see if user is signed in */
@@ -49,7 +49,14 @@ $( document ).ready(function() {
 			db.collection('items').where('seller', '==', username).limit(12).get().then((snapshot) => {
 				var postCount = snapshot.size;
 				var postNum = 0;
-				var cardImage = "<img class='card-image-top mt-3' src='Empty.jpg' style='background-color: blue;' alt=''></img>";
+				var imgURL;
+				var imageRef = firebase.storage().ref('posts/1.jpg');
+				imageRef.getDownloadURL().then((url) => {
+					imgURL = url;
+					console.log(url);
+				});
+				
+				var cardImage = "<img class='card-image-top mt-3' src=" + imgURL + "style='background-color: blue;' alt=''></img>";
 				/* container for listings */
 				var listings = document.createElement("div");
 				/* listings.className = "container"; */
