@@ -48,7 +48,7 @@ $( document ).ready(function() {
 			
 			/*sample for 1 folder files */
 			db.collection("items").where("seller", "==", "srodriguezgome").get().then((snapshot) =>{
-				cosnole.log(snapshot.data());
+				console.log(snapshot.data());
 			});
 			
 			/* Get and display seller's listings */
