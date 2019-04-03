@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("8:18");
+console.log("8:20");
 
 $( document ).ready(function() {	
 /* see if user is signed in */
@@ -47,11 +47,11 @@ $( document ).ready(function() {
 			$('#popover1').popover(); 
 			
 			/*sample for 1 folder files */
-			db.collection("items").get().then((snapshot) =>{
-				snapshot.forEach(doc => {
+			db.collection("items").get().then((snapshot) => {
+				snapshot.docs.forEach(doc => {
 				console.log(snapshot.data());
 				})
-			});
+			})
 			
 			/* Get and display seller's listings */
 			db.collection(username).get().then((snapshot) => {
