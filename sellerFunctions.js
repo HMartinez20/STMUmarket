@@ -1,8 +1,16 @@
 /* JS used for seller.html */
 
-console.log("9:45");
+console.log("9:49");
 
-$( document ).ready(function() {	
+$( document ).ready(function() {
+	function getPic(){
+					var imageRef = firebase.storage().ref('posts/1.jpg');
+					var imgurl;
+					imageRef.getDownloadURL().then((url) => {
+						window.imgurl = url;
+					});
+					return imgurl;
+}
 /* see if user is signed in */
 	if (firebase.auth().currentUser){
 		console.log("Signed In")
@@ -98,14 +106,7 @@ $( document ).ready(function() {
 	
 }); 
 
-function getPic(){
-					var imageRef = firebase.storage().ref('posts/1.jpg');
-					var imgurl;
-					imageRef.getDownloadURL().then((url) => {
-						window.imgurl = url;
-					});
-					return imgurl;
-}
+
 /* Function to set seller information, remove later
 	$("#setinfo").click(function(){
 		db.collection("sampleseller").doc("samplelistings").set({
