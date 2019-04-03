@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("9:32");
+console.log("9:35");
 
 $( document ).ready(function() {	
 /* see if user is signed in */
@@ -54,8 +54,9 @@ $( document ).ready(function() {
 				function getPic(){
 					var imageRef = firebase.storage().ref('posts/1.jpg');
 					imageRef.getDownloadURL().then((url) => {
-						return url;
+						
 					});
+					return url;
 				}
 				
 				var imgURL = getPic();
