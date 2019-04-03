@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("8:02");
+console.log("8:04");
 
 $( document ).ready(function() {	
 /* see if user is signed in */
@@ -48,7 +48,7 @@ $( document ).ready(function() {
 			
 			/*sample for 1 folder files */
 			db.collection("items").where("seller", "==", "srodriguezgome").orderBy("seller").get().then((snapshot) =>{
-				snapshot.docs.forEach(doc => {
+				snapshot.forEach(doc => {
 				console.log(snapshot.data());
 				})
 			});
