@@ -57,7 +57,7 @@ $( document ).ready(function() {
 				});
 				console.log(url);
 				
-				 var cardImage = "<img class='card-image-top mt-3' src=" + imgURL + "style='background-color: grey;' alt=''></img>"; */
+				var cardImage = "<img class='card-image-top mt-3' src=" + imgURL + "style='background-color: grey;' alt=''></img>"; 
 				/* container for listings */
 				var listings = document.createElement("div");
 				/* listings.className = "container"; */
