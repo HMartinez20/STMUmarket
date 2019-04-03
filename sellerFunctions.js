@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("9:37");
+console.log("9:39");
 
 $( document ).ready(function() {	
 /* see if user is signed in */
@@ -49,15 +49,7 @@ $( document ).ready(function() {
 			db.collection('items').where('seller', '==', username).limit(12).get().then((snapshot) => {
 				var postCount = snapshot.size;
 				var postNum = 0;
-			
-				
-				function getPic(){
-					var imageRef = firebase.storage().ref('posts/1.jpg');
-					imgurl = imageRef.getDownloadURL().then((url) => {
-						return url;
-					});
-					return imgurl;
-				}
+		
 				
 				var imgURL = getPic();
 				control.log(getPic());
@@ -105,6 +97,15 @@ $( document ).ready(function() {
 		});	
 	
 }); 
+
+function getPic(){
+					var imageRef = firebase.storage().ref('posts/1.jpg');
+					var imgurl;
+					imageRef.getDownloadURL().then((url) => {
+						imgurl = url;
+					});
+					return imgurl;
+				}
 
 /* Function to set seller information, remove later
 	$("#setinfo").click(function(){
