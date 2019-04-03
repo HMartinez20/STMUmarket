@@ -53,10 +53,10 @@ $( document ).ready(function() {
 				
 				function getPic(){
 					var imageRef = firebase.storage().ref('posts/1.jpg');
-					imageRef.getDownloadURL().then((url) => {
-						
+					imgurl = imageRef.getDownloadURL().then((url) => {
+						return url;
 					});
-					return url;
+					return imgurl;
 				}
 				
 				var imgURL = getPic();
