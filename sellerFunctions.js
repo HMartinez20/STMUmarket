@@ -13,8 +13,6 @@ $( document ).ready(function() {
 
 	/* get UID passed in URL, url format is https://hmartinez20.github.io/STMUmarket/seller.html#"UIDgoesHere" */
 	var sellerId = window.location.hash.substring(1)
-	/* TESTING, prints UID */
-	console.log(sellerId)
 
 	/*load the seller's data from  firebase */
 	db.collection("users").doc(sellerId).get().then(function(doc) {
@@ -46,15 +44,9 @@ $( document ).ready(function() {
 			/* Popover for Ratings */
 			$('#popover1').popover(); 
 			
-			/*sample for 1 folder files */
-			db.collection("items").get().then((snapshot) => {
-				snapshot.docs.forEach(doc => {
-				console.log(snapshot.data());
-				})
-			})
 			
-			/* Get and display seller's listings */
-			db.collection("items").where("seller", "==", username).limit(2).get().then((snapshot) => {
+			/* Get and display seller's listings, will load max of 12 listings */
+			db.collection('items').where('seller', '==', username).limit(12).get().then((snapshot) => {
 				var postCount = snapshot.size;
 				var postNum = 0;
 				var cardImage = "<img class='card-image-top mt-3' src='Empty.jpg' style='background-color: blue;' alt=''></img>";
