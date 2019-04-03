@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("9:27");
+console.log("9:31");
 
 $( document ).ready(function() {	
 /* see if user is signed in */
@@ -58,6 +58,7 @@ $( document ).ready(function() {
 				}
 				
 				var imgURL = getPic();
+				control.log(getPic());
 				console.log(imgURL);
 				
 				var cardImage = "<img class='card-image-top mt-3' src=" + getPic() + "style='background-color: grey;' alt=''></img>"; 
