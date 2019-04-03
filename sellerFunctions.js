@@ -48,7 +48,7 @@ $( document ).ready(function() {
 			
 			/*sample for 1 folder files */
 			firebase.database().ref().on("value", (snapshot) => {
-				console.log(snapshot.size);
+				console.log(snapshot.key);
 				snapshot.forEach(function(childSnapshot) {
 					console.log("Data");
 					console.log(childSnapshot.val());
