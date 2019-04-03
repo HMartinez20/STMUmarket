@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("8:20");
+console.log("8:23");
 
 $( document ).ready(function() {	
 /* see if user is signed in */
@@ -54,7 +54,7 @@ $( document ).ready(function() {
 			})
 			
 			/* Get and display seller's listings */
-			db.collection(username).get().then((snapshot) => {
+			db.collection("items").get().then((snapshot) => {
 				var postCount = snapshot.size;
 				var postNum = 0;
 				var cardImage = "<img class='card-image-top mt-3' src='Empty.jpg' style='background-color: blue;' alt=''></img>";
