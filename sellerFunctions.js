@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("7:14");
+console.log("7:18");
 
 $( document ).ready(function() {	
 /* see if user is signed in */
@@ -52,7 +52,7 @@ $( document ).ready(function() {
 				snapshot.forEach(function(childSnapshot) {
 					console.log("Data");
 					console.log(childSnapshot.val());
-					console.log(snapshot.size);
+					console.log(childSnapshot.size);
 				});
 				
 			});
