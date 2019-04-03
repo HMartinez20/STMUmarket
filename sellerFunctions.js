@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("8:10");
+console.log("9:16");
 
 $( document ).ready(function() {	
 /* see if user is signed in */
@@ -50,11 +50,16 @@ $( document ).ready(function() {
 				var postCount = snapshot.size;
 				var postNum = 0;
 				var imgURL;
-				var imageRef = firebase.storage().ref('posts/1.jpg');
-				imageRef.getDownloadURL().then((url) => {
+				
+				function getPic(){
+					var imageRef = firebase.storage().ref('posts/1.jpg');
+					imageRef.getDownloadURL().then((url) => {
 					imgURL = url;
 					console.log(url);
-				});
+					});
+				}
+				
+				getPic();
 				console.log(imgURL);
 				
 				var cardImage = "<img class='card-image-top mt-3' src=" + imgURL + "style='background-color: grey;' alt=''></img>"; 
@@ -97,6 +102,7 @@ $( document ).ready(function() {
 		}).catch(function(error) {
    		 	console.log("Error getting document:", error);
 		});	
+	
 }); 
 
 /* Function to set seller information, remove later
