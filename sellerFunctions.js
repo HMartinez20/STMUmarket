@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("9:21");
+console.log("9:24");
 
 $( document ).ready(function() {	
 /* see if user is signed in */
@@ -61,7 +61,7 @@ $( document ).ready(function() {
 				var imgURL = getPic();
 				console.log(imgURL);
 				
-				var cardImage = "<img class='card-image-top mt-3' src=" + imgURL + "style='background-color: grey;' alt=''></img>"; 
+				var cardImage = "<img class='card-image-top mt-3' src=" + getPic() + "style='background-color: grey;' alt=''></img>"; 
 				/* container for listings */
 				var listings = document.createElement("div");
 				/* listings.className = "container"; */
