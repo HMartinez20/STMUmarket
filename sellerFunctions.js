@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("9:39");
+console.log("9:45");
 
 $( document ).ready(function() {	
 /* see if user is signed in */
@@ -102,10 +102,9 @@ function getPic(){
 					var imageRef = firebase.storage().ref('posts/1.jpg');
 					var imgurl;
 					imageRef.getDownloadURL().then((url) => {
-						imgurl = url;
+						window.imgurl = url;
 					});
 					return imgurl;
-				}
 
 /* Function to set seller information, remove later
 	$("#setinfo").click(function(){
