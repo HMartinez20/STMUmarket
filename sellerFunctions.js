@@ -54,7 +54,7 @@ $( document ).ready(function() {
 			})
 			
 			/* Get and display seller's listings */
-			db.collection("items").where("seller", "==", username).get().then((snapshot) => {
+			db.collection("items").where("seller", "==", username).limit(2).get().then((snapshot) => {
 				var postCount = snapshot.size;
 				var postNum = 0;
 				var cardImage = "<img class='card-image-top mt-3' src='Empty.jpg' style='background-color: blue;' alt=''></img>";
