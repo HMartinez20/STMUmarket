@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("9:16");
+console.log("9:21");
 
 $( document ).ready(function() {	
 /* see if user is signed in */
@@ -49,17 +49,16 @@ $( document ).ready(function() {
 			db.collection('items').where('seller', '==', username).limit(12).get().then((snapshot) => {
 				var postCount = snapshot.size;
 				var postNum = 0;
-				var imgURL;
+			
 				
 				function getPic(){
 					var imageRef = firebase.storage().ref('posts/1.jpg');
 					imageRef.getDownloadURL().then((url) => {
-					imgURL = url;
-					console.log(url);
+					return url;
 					});
 				}
 				
-				getPic();
+				var imgURL = getPic();
 				console.log(imgURL);
 				
 				var cardImage = "<img class='card-image-top mt-3' src=" + imgURL + "style='background-color: grey;' alt=''></img>"; 
