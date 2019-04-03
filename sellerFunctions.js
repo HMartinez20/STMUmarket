@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("7:05");
+console.log("7:07");
 
 $( document ).ready(function() {	
 /* see if user is signed in */
@@ -50,8 +50,9 @@ $( document ).ready(function() {
 			firebase.database().ref().once("value", (snapshot) => {
 				snapshot.forEach(function(childSnapshot) {
 					console.log("Data");
+					console.log(snapshot.val());
 				});
-				console.log(snapshot.val());
+				
 			});
 												  
 			
@@ -65,7 +66,6 @@ $( document ).ready(function() {
 			.orderByChild('seller')
 			*/
 			ref.child("items").orderByChild("seller").once("value", (snapshot) => {
-				console.log(snapshot.val());
 				console.log("Got snapshot");
 				
 			});
@@ -73,7 +73,6 @@ $( document ).ready(function() {
 			
 			/* Get and display seller's listings */
 			db.collection(username).get().then((snapshot) => {
-				console.log(snapshot.val())
 				var postCount = snapshot.size;
 				var postNum = 0;
 				var cardImage = "<img class='card-image-top mt-3' src='Empty.jpg' style='background-color: blue;' alt=''></img>";
