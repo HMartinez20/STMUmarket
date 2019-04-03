@@ -47,7 +47,7 @@ $( document ).ready(function() {
 			$('#popover1').popover(); 
 			
 			/*sample for 1 folder files */
-			firebase.database().ref("items").orderByChild("seller").once("value", (snapshot) => {
+			firebase.database().ref("items").once("value", (snapshot) => {
 				snapshot.forEach(function(childSnapshot) {
 					console.log("Data");
 				});
