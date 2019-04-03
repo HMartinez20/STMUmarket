@@ -105,7 +105,7 @@ function getPic(){
 						window.imgurl = url;
 					});
 					return imgurl;
-
+}
 /* Function to set seller information, remove later
 	$("#setinfo").click(function(){
 		db.collection("sampleseller").doc("samplelistings").set({
