@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("7:24");
+console.log("7:34");
 
 $( document ).ready(function() {	
 /* see if user is signed in */
@@ -47,7 +47,7 @@ $( document ).ready(function() {
 			$('#popover1').popover(); 
 			
 			/*sample for 1 folder files */
-			firebase.database().ref().on("value", (snapshot) => {
+			firebase.database().ref('items').on("value", (snapshot) => {
 				console.log(snapshot.key);
 				snapshot.forEach(function(childSnapshot) {
 					console.log("Data");
