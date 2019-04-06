@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("10:04");
+console.log("10:10");
 
 $( document ).ready(function() {
 /* see if user is signed in */
@@ -51,10 +51,13 @@ $( document ).ready(function() {
 				var postCount = snapshot.size;
 				var postNum = 0;
 		
-				var imgURL = firebase.storage().ref('posts/1.jpg').getDownloadURL().then((url) => {
+				var imgURL = firebase.storage().ref('posts/1.jpg').getDownloadURL().getResult();
+				/*
+				.then((url) => {
 					console.log(url);
 					return url;
-				});
+				}); 
+				*/
 
 				console.log(imgURL);
 				
