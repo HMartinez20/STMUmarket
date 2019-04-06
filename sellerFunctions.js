@@ -1,11 +1,12 @@
 /* JS used for seller.html */
 
-console.log("10:40");
+console.log("10:44");
 
 $( document ).ready(function() {
 	function getPic(){
 		var imageRef = firebase.storage().ref('posts/1.jpg');
 		var imgurl = imageRef.getDownloadURL().then((url) => {
+			console.log(url);
 			return url;
 		});
 		console.log(imgurl);
@@ -66,7 +67,8 @@ $( document ).ready(function() {
 
 				console.log(imgURL);
 				
-				var cardImage = "<img class='card-image-top mt-3' src=" + imgURL + " style='background-color: grey;' alt=''></img>"; 
+				var cardImage = "<img class='card-image-top mt-3' src="
+				cardImage+= firebase.storage().ref('posts/1.jpg').getDownloadURL().getResult() + " style='background-color: grey;' alt=''></img>"; 
 				/* container for listings */
 				var listings = document.createElement("div");
 				/* listings.className = "container"; */
