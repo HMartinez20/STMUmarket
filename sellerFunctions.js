@@ -1,13 +1,8 @@
 /* JS used for seller.html */
 
-console.log("10:50");
+console.log("10:53");
 
 $( document ).ready(function() {
-	function getPic(){
-		var imageRef = firebase.storage().ref('posts/1.jpg');
-		var imgurl = storageRef.child("users/me/profile.png").getDownloadUrl().getResult(); 
-		return imgurl;
-	};
 /* see if user is signed in */
 	if (firebase.auth().currentUser){
 		console.log("Signed In")
@@ -56,7 +51,6 @@ $( document ).ready(function() {
 				var postCount = snapshot.size;
 				var postNum = 0;
 		
-				console.log(getPic());
 				let imgURL = firebase.storage().ref('posts/1.jpg').getDownloadURL().then((url) => {
 					return url;
 				});;
