@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("10:36");
+console.log("10:39");
 
 $( document ).ready(function() {
 	function getPic(){
