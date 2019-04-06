@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("11:50");
+console.log("11:53");
 
 $( document ).ready(function() {
 /* see if user is signed in */
