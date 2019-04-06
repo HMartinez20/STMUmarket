@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("11:28");
+console.log("11:38");
 
 $( document ).ready(function() {
 /* see if user is signed in */
@@ -58,7 +58,7 @@ $( document ).ready(function() {
 					imgURL = url;
 					console.log(imgURL);
 				}); 
-				}
+				};
 				getPic();
 				console.log(imgURL);
 				
