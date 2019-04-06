@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("10:20");
+console.log("10:22");
 
 $( document ).ready(function() {
 	function getPic(){
@@ -8,6 +8,7 @@ $( document ).ready(function() {
 		var imgurl = imageRef.getDownloadURL().then((url) => {
 			return url;
 		});
+		console.log(imgurl);
 		return imgurl;
 	};
 /* see if user is signed in */
@@ -54,6 +55,7 @@ $( document ).ready(function() {
 			
 			/* Get and display seller's listings, will load max of 12 listings */
 			db.collection('items').where('seller', '==', username).limit(12).get().then((snapshot) => {
+				console.log("geting seller listings");
 				var postCount = snapshot.size;
 				var postNum = 0;
 		
