@@ -61,11 +61,13 @@ $( document ).ready(function() {
 				var postNum = 0;
 		
 				
-				let imgURL = firebase.storage().ref('posts/1.jpg').getDownloadURL();
+				let imgURL = firebase.storage().ref('posts/1.jpg').getDownloadURL().then((url) => {
+					return url;
+				});;
 
 				console.log(imgURL);
 				
-				var cardImage = "<img class='card-image-top mt-3' src=" + getPic() + "style='background-color: grey;' alt=''></img>"; 
+				var cardImage = "<img class='card-image-top mt-3' src=" + getPic() + " style='background-color: grey;' alt=''></img>"; 
 				/* container for listings */
 				var listings = document.createElement("div");
 				/* listings.className = "container"; */
