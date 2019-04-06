@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("11:43");
+console.log("11:46");
 
 $( document ).ready(function() {
 /* see if user is signed in */
@@ -50,7 +50,8 @@ $( document ).ready(function() {
 				console.log("geting seller listings");
 				var postCount = snapshot.size;
 				var postNum = 0;
-		
+				
+				/*
 				var imgURL;
 				function getPic(){
 				firebase.storage().ref('posts/1.jpg').getDownloadURL().then((url) => {
@@ -61,6 +62,7 @@ $( document ).ready(function() {
 				};
 				getPic();
 				console.log(imgURL);
+				*/
 				
 				var cardImage;   
 				/* container for listings */
@@ -72,7 +74,6 @@ $( document ).ready(function() {
 				var card;
 				/* add a listing card for each listing */
 				snapshot.docs.forEach(doc => {
-					cardImage = "<img class='card-image-top mt-3' src=" + imgURL + " style='background-color: grey;' alt=''></img>";
 					if (postNum % 4==0){
 						dRow = document.createElement("div");
 						dRow.className = "row";	
@@ -81,13 +82,18 @@ $( document ).ready(function() {
 					
 					var post = doc.data();
 					/* listing's title and price in card body */
+					firebase.storage().ref('posts/1.jpg').getDownloadURL().then((url) => {
+					console.log(url);
+					
 					var cardBody = "<div class='card-body'><h4 class='card-title'>"
 					cardBody+= post.title + "</h4><p class='card-text'> Asking Price: $" + post.price + "</p></div>";
-			
+					var cardImage = "<img class='card-image-top mt-3' src=" + url + " style='background-color: grey;' alt=''></img>";
 					card = document.createElement("div");
 					card.className = "card col-3";
 					card.innerHTML = cardImage + cardBody;
-					dRow.appendChild(card);	
+					dRow.appendChild(card);		
+					}); 
+					
 					
 					if (postNum % 4==0 || postNum==postCount){
 						listings.appendChild(dRow);	
