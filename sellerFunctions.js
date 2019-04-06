@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("11:05");
+console.log("11:08");
 
 $( document ).ready(function() {
 /* see if user is signed in */
@@ -69,8 +69,7 @@ $( document ).ready(function() {
 					var post = doc.data();
 					var imgPath = "posts/" + post.image1;
 					/* listing's title and price in card body */
-					var imgRef = firebase.storage().ref("posts/1.jpg");
-					imgRef.getDownloadURL().then((url) => {
+					firebase.storage().ref(imgPath).getDownloadURL().then((url) => {
 					
 						console.log(url);
 					var cardBody = "<div class='card-body'><h4 class='card-title'>"
