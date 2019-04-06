@@ -4,13 +4,13 @@ console.log("9:49");
 
 $( document ).ready(function() {
 	function getPic(){
-					var imageRef = firebase.storage().ref('posts/1.jpg');
-					var imgurl;
-					imageRef.getDownloadURL().then((url) => {
-						window.imgurl = url;
-					});
-					return imgurl;
-}
+		var imageRef = firebase.storage().ref('posts/1.jpg');
+		var imgurl;
+		imageRef.getDownloadURL().then((url) => {
+			window.imgurl = url;
+		});
+		return imgurl;
+	};
 /* see if user is signed in */
 	if (firebase.auth().currentUser){
 		console.log("Signed In")
