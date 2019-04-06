@@ -1,13 +1,12 @@
 /* JS used for seller.html */
 
-console.log("9:49");
+console.log("10:20");
 
 $( document ).ready(function() {
 	function getPic(){
 		var imageRef = firebase.storage().ref('posts/1.jpg');
-		var imgurl;
-		imageRef.getDownloadURL().then((url) => {
-			window.imgurl = url;
+		var imgurl = imageRef.getDownloadURL().then((url) => {
+			return url;
 		});
 		return imgurl;
 	};
