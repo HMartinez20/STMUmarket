@@ -1,15 +1,11 @@
 /* JS used for seller.html */
 
-console.log("10:44");
+console.log("10:48");
 
 $( document ).ready(function() {
 	function getPic(){
 		var imageRef = firebase.storage().ref('posts/1.jpg');
-		var imgurl = imageRef.getDownloadURL().then((url) => {
-			console.log(url);
-			return url;
-		});
-		console.log(imgurl);
+		var imgurl = storageRef.child("users/me/profile.png").getDownloadUrl().getResult(); 
 		return imgurl;
 	};
 /* see if user is signed in */
@@ -60,7 +56,7 @@ $( document ).ready(function() {
 				var postCount = snapshot.size;
 				var postNum = 0;
 		
-				
+				console.log(getPic());
 				let imgURL = firebase.storage().ref('posts/1.jpg').getDownloadURL().then((url) => {
 					return url;
 				});;
