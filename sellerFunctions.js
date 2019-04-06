@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("11:38");
+console.log("11:43");
 
 $( document ).ready(function() {
 /* see if user is signed in */
@@ -62,7 +62,7 @@ $( document ).ready(function() {
 				getPic();
 				console.log(imgURL);
 				
-				var cardImage = "<img class='card-image-top mt-3' src=" + imgURL + " style='background-color: grey;' alt=''></img>"; 
+				var cardImage;   
 				/* container for listings */
 				var listings = document.createElement("div");
 				/* listings.className = "container"; */
@@ -72,6 +72,7 @@ $( document ).ready(function() {
 				var card;
 				/* add a listing card for each listing */
 				snapshot.docs.forEach(doc => {
+					cardImage = "<img class='card-image-top mt-3' src=" + imgURL + " style='background-color: grey;' alt=''></img>";
 					if (postNum % 4==0){
 						dRow = document.createElement("div");
 						dRow.className = "row";	
