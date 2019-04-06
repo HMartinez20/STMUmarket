@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("10:25");
+console.log("10:32");
 
 $( document ).ready(function() {
 	function getPic(){
@@ -61,8 +61,8 @@ $( document ).ready(function() {
 				var postNum = 0;
 		
 				
-				var imgURL = getPic();
-				control.log(getPic());
+				let imgURL = firebase.storage().ref('posts/1.jpg').getDownloadURL();
+
 				console.log(imgURL);
 				
 				var cardImage = "<img class='card-image-top mt-3' src=" + getPic() + "style='background-color: grey;' alt=''></img>"; 
