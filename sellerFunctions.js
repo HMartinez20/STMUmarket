@@ -51,9 +51,9 @@ $( document ).ready(function() {
 				var postCount = snapshot.size;
 				var postNum = 0;
 		
-				let imgURL = firebase.storage().ref('posts/1.jpg').getDownloadURL().then((url) => {
+				var imgURL = firebase.storage().ref('posts/1.jpg').getDownloadURL().then((url) => {
 					console.log(url);
-					return ("" + url);
+					return url;
 				});;
 
 				console.log(imgURL);
