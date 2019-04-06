@@ -50,20 +50,6 @@ $( document ).ready(function() {
 				console.log("geting seller listings");
 				var postCount = snapshot.size;
 				var postNum = 0;
-				
-				/*
-				var imgURL;
-				function getPic(){
-				firebase.storage().ref('posts/1.jpg').getDownloadURL().then((url) => {
-					console.log(url);
-					imgURL = url;
-					console.log(imgURL);
-				}); 
-				};
-				getPic();
-				console.log(imgURL);
-				*/
-				
 				var cardImage;   
 				/* container for listings */
 				var listings = document.createElement("div");
@@ -83,7 +69,7 @@ $( document ).ready(function() {
 					var post = doc.data();
 					var imgPath = "posts/" + post.image1;
 					/* listing's title and price in card body */
-					firebase.storage().ref("posts/" + post.image1).getDownloadURL().then((url) => {
+					firebase.storage().ref("posts/" + doc.data().image1).getDownloadURL().then((url) => {
 					console.log(url);
 					var cardBody = "<div class='card-body'><h4 class='card-title'>"
 					cardBody+= post.title + "</h4><p class='card-text'> Asking Price: $" + post.price + "</p></div>";
