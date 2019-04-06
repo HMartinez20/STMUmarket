@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("10:48");
+console.log("10:50");
 
 $( document ).ready(function() {
 	function getPic(){
@@ -63,8 +63,7 @@ $( document ).ready(function() {
 
 				console.log(imgURL);
 				
-				var cardImage = "<img class='card-image-top mt-3' src="
-				cardImage+= firebase.storage().ref('posts/1.jpg').getDownloadURL().getResult() + " style='background-color: grey;' alt=''></img>"; 
+				var cardImage = "<img class='card-image-top mt-3' src=" + imgURL + " style='background-color: grey;' alt=''></img>"; 
 				/* container for listings */
 				var listings = document.createElement("div");
 				/* listings.className = "container"; */
