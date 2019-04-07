@@ -1,5 +1,5 @@
 /* JS used for seller.html */
-console.log("2:55");
+console.log("3:00");
 
 /* get seller name that is passed through url */
 var sellerId = window.location.hash.substring(1)
@@ -70,7 +70,6 @@ $( document ).ready(function() {
 				var card;
 				/* add a listing card for each listing */
 				snapshot.docs.forEach(doc => {
-				
 					if (postNum % 4==0){
 						dRow = document.createElement("div");
 						dRow.className = "row";	
@@ -84,22 +83,18 @@ $( document ).ready(function() {
 					firebase.storage().ref(post.image1).getDownloadURL().then((url) => {
 						console.log(url);
 						var cardBody = "<div class='card-body'><h4 class='card-title'>"
-						cardBody+= post.title + "</h4><p class='card-text'> Asking Price: $" + post.price + "</p></div>";
+						cardBody+= post.title + "</h4><p class='card-text'> Asking Price: $" + post.price
+						cardBody+= "<br> <a href='google.com'>Go To Posting</a></p></div>";
 						var cardImage = "<img class='card-image-top mt-3' src=" + url + " style='background-color: grey;' alt=''></img>";
 						card = document.createElement("div");
 						card.className = "card col-3";
 						card.innerHTML = cardImage + cardBody;
 						dRow.appendChild(card); 	
 					}); 
-					
-				
 					if (postNum % 4==0 || postNum==postCount){
 						listings.appendChild(dRow);	
 					}
-				
-				
 				})
-				
 				document.getElementById("sellerListings").appendChild(listings);
 			})
 	    	} else {
