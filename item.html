@@ -88,8 +88,9 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		var title = data.title;
 		var price = data.price;
 		
+		/* Display title and price*/
 		var postHead = document.createElement("div");
-		postHead.innerHTML = "<h1>" + title + "</h1> <h2>" + price + "</h2>" ;
+		postHead.innerHTML = "<h1>" + title + "</h1> <h2> Price: $" + price + "</h2>" ;
 		document.getElementById("postInfo").appendChild(postHead);
 		
 	} else {
@@ -107,22 +108,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		{ $("[data-toggle=popover]").popover(); });
 </script>
 
-	
-<script>
-	$(document).ready( function()
-		{
-			var count = 4;
-		
-			var html = "";
-			
-			for(i=1;i<=count;i++){
-				html+= "<div class='card'> card " + i;
-				html+= ""+ "</div>";
-				html+= "<br>";
-			}
-			$("#scrolling-wrapper").html(html);
-		});
-</script>
+
 <script>
 window.onload = function() {
 	  firebase.auth().onAuthStateChanged(function(user) {
