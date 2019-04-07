@@ -47,11 +47,7 @@ $( document ).ready(function() {
 			/* set and display seller username to html*/
 			var seller = document.createElement('h1');
 			seller.innerHTML = username;
-			document.getElementById('sellerName').appendChild(seller);
-			
-			
-			/* Popover for Ratings */
-			$('#popover1').popover(); 
+			document.getElementById('sellerName').appendChild(seller);/
 			
 			
 			/* Get and display seller's listings, will load max of 12 listings */
