@@ -69,6 +69,18 @@ title: Item
 	
   </body>
 </html>
+<script>
+/* Code to get posting ID */
+var postId = window.location.hash.substring(1)
+console.log(postId);
+/* redirect to home page if no variable was passed */
+if (!(postId)){
+	alert("Error Occurred, Redirecting to Home Page");
+	window.location = "https://hmartinez20.github.io/STMUmarket/";
+}	
+	
+	
+</script>
 		<!--Script to toggle popover-->
 <script >
 	$(document).ready(function () 
