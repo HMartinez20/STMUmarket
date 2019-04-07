@@ -104,7 +104,7 @@ if (!(postId)){
 		});
 </script>
 <script>
-window.onload(){
+window.onload = function() {
 	  firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     alert('signed in');
