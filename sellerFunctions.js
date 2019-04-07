@@ -1,5 +1,5 @@
 /* JS used for seller.html */
-console.log("3:00");
+console.log("3:08");
 
 /* get seller name that is passed through url */
 var sellerId = window.location.hash.substring(1)
@@ -78,13 +78,14 @@ $( document ).ready(function() {
 					postNum+=1;
 					
 					var post = doc.data();
-					var imgPath = "posts/" + post.image1;
+					var postURL = "item.html#" + doc.id
+					
 					/* listing's title and price in card body */
 					firebase.storage().ref(post.image1).getDownloadURL().then((url) => {
 						console.log(url);
 						var cardBody = "<div class='card-body'><h4 class='card-title'>"
 						cardBody+= post.title + "</h4><p class='card-text'> Asking Price: $" + post.price
-						cardBody+= "<br> <a href='google.com'>Go To Posting</a></p></div>";
+						cardBody+= "<br> <a href=" + postURL +">Go To Posting</a></p></div>";
 						var cardImage = "<img class='card-image-top mt-3' src=" + url + " style='background-color: grey;' alt=''></img>";
 						card = document.createElement("div");
 						card.className = "card col-3";
