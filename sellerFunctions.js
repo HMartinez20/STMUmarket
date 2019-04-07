@@ -1,10 +1,11 @@
 /* JS used for seller.html */
 
-console.log("2:42");
+console.log("2:44");
 
 var sellerId = window.location.hash.substring(1)
-console.log(window.sellerId);
+console.log(sellerId);
 	if (window.sellerId == null){
+		console.log("Error")
 		window.location = "https://hmartinez20.github.io/STMUmarket/";
 	}
 
