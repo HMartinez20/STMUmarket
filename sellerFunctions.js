@@ -1,5 +1,5 @@
 /* JS used for seller.html */
-console.log("3:37");
+console.log("3:44");
 
 /* get seller name that is passed through url */
 var sellerId = window.location.hash.substring(1)
