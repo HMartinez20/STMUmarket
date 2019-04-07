@@ -97,8 +97,9 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		/* get and display images */
 		firebase.storage().ref(data.image1).getDownloadURL().then((url) => {
 			console.log(url);
+			/* display main image */
 			var imgHTML = "<img style='position:absolute; TOP:350px; LEFT:300px; WIDTH:450px; HEIGHT:500px' src=" + url + "hspace='20'>"
-			 var cardImage = document.createElement("div");
+			var cardImage = document.createElement("div");
 			cardImage.innerHTML = imgHTML;
 			document.getElementById("images").append(cardImage)
 					}); 
