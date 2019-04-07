@@ -94,6 +94,15 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		postHead.innerHTML = "<h1>" + title + "</h1> <h2> Price: $" + price + "</h2>" ;
 		document.getElementById("postInfo").appendChild(postHead);
 		
+		/* get and display images */
+		firebase.storage().ref(data.image1).getDownloadURL().then((url) => {
+			console.log(url);
+			var cardImage = "<img style='position:absolute; TOP:350px; LEFT:300px; WIDTH:450px; HEIGHT:500px' " + url + "hspace='20'>";
+			document.getElementById("images").appendChild(cardImage)
+					}); 
+		/* <IMG STYLE="position:absolute; TOP:350px; LEFT:300px; WIDTH:450px; HEIGHT:500px" src="" hspace="20"> */
+		
+		
 	} else {
         	// doc doesn't exist
         	console.log("Requested document does not exist...");
