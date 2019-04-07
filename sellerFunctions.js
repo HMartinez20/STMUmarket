@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("11:08");
+console.log("2:08");
 
 $( document ).ready(function() {
 /* see if user is signed in */
@@ -69,16 +69,15 @@ $( document ).ready(function() {
 					var post = doc.data();
 					var imgPath = "posts/" + post.image1;
 					/* listing's title and price in card body */
-					firebase.storage().ref(imgPath).getDownloadURL().then((url) => {
-					
+					firebase.storage().ref(post.image1).getDownloadURL().then((url) => {
 						console.log(url);
-					var cardBody = "<div class='card-body'><h4 class='card-title'>"
-					cardBody+= post.title + "</h4><p class='card-text'> Asking Price: $" + post.price + "</p></div>";
-					var cardImage = "<img class='card-image-top mt-3' src=" + url + " style='background-color: grey;' alt=''></img>";
-					card = document.createElement("div");
-					card.className = "card col-3";
-					card.innerHTML = cardImage + cardBody;
-					dRow.appendChild(card);		
+						var cardBody = "<div class='card-body'><h4 class='card-title'>"
+						cardBody+= post.title + "</h4><p class='card-text'> Asking Price: $" + post.price + "</p></div>";
+						var cardImage = "<img class='card-image-top mt-3' src=" + url + " style='background-color: grey;' alt=''></img>";
+						card = document.createElement("div");
+						card.className = "card col-3";
+						card.innerHTML = cardImage + cardBody;
+						dRow.appendChild(card);		
 					}); 
 					
 					
