@@ -60,10 +60,12 @@ $( document ).ready(function() {
 				var card;
 				/* add a listing card for each listing */
 				snapshot.docs.forEach(doc => {
+					/*
 					if (postNum % 4==0){
 						dRow = document.createElement("div");
 						dRow.className = "row";	
 					}
+					*/
 					postNum+=1;
 					
 					var post = doc.data();
@@ -77,13 +79,16 @@ $( document ).ready(function() {
 						card = document.createElement("div");
 						card.className = "card col-3";
 						card.innerHTML = cardImage + cardBody;
-						dRow.appendChild(card);		
+						listings.appendChild(card);
+						/* dRow.appendChild(card); */	
 					}); 
 					
-					
+					/*
 					if (postNum % 4==0 || postNum==postCount){
 						listings.appendChild(dRow);	
 					}
+					*/
+				
 				})
 				
 				document.getElementById("sellerListings").appendChild(listings);
