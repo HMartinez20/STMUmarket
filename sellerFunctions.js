@@ -6,7 +6,7 @@ var sellerId = window.location.hash.substring(1)
 console.log(sellerId);
 	/* redirect to home page if no variable was passed */
 	if (!(window.sellerId)){
-		alert("Error Occurred, Redirecting to Home Page);
+		alert("Error Occurred, Redirecting to Home Page");
 		window.location = "https://hmartinez20.github.io/STMUmarket/";
 	}
 
