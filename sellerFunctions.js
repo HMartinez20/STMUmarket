@@ -1,6 +1,11 @@
 /* JS used for seller.html */
 
-console.log("2:38");
+console.log("2:40");
+
+var sellerId = window.location.hash.substring(1)
+	if (sellerId == null){
+		window.location = "https://hmartinez20.github.io/STMUmarket/";
+	}
 
 $( document ).ready(function() {
 /* see if user is signed in */
@@ -12,14 +17,11 @@ $( document ).ready(function() {
 	}
 
 	/* get UID passed in URL, url format is https://hmartinez20.github.io/STMUmarket/seller.html#"UIDgoesHere" */
-	var sellerId = window.location.hash.substring(1)
-	if (sellerId == null){
-		window.location = "https://hmartinez20.github.io/STMUmarket/";
-	}
+	
 	
 
 	/*load the seller's data from  firebase */
-	db.collection("users").doc(sellerId).get().then(function(doc) {
+	db.collection("users").doc(window.sellerId).get().then(function(doc) {
 		if (doc.exists) { 
 			/* get and store min amount of seller data needed, omit sensitive information */
 			var data = doc.data();
