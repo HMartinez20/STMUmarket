@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("2:34");
+console.log("2:36");
 
 $( document ).ready(function() {
 /* see if user is signed in */
@@ -13,7 +13,7 @@ $( document ).ready(function() {
 
 	/* get UID passed in URL, url format is https://hmartinez20.github.io/STMUmarket/seller.html#"UIDgoesHere" */
 	var sellerId = window.location.hash.substring(1)
-	if (sellerID == null){
+	if (sellerId == null){
 		window.location.href = "https://hmartinez20.github.io/STMUmarket/";
 	}
 	
