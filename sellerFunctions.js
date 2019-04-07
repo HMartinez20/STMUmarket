@@ -1,6 +1,6 @@
 /* JS used for seller.html */
 
-console.log("2:08");
+console.log("2:19");
 
 $( document ).ready(function() {
 /* see if user is signed in */
@@ -53,6 +53,7 @@ $( document ).ready(function() {
 				var cardImage;   
 				/* container for listings */
 				var listings = document.createElement("div");
+				listings.className = "card-deck";
 				/* listings.className = "container"; */
 				/* row of listigs */
 				var dRow;
