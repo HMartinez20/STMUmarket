@@ -1,9 +1,10 @@
 /* JS used for seller.html */
+console.log("2:53");
 
-console.log("2:52");
-
+/* get seller name that is passed through url */
 var sellerId = window.location.hash.substring(1)
 console.log(sellerId);
+	/* redirect to main page if no variable was passed */
 	if (!(window.sellerId)){
 		window.location = "https://hmartinez20.github.io/STMUmarket/";
 	}
