@@ -70,20 +70,7 @@ title: Items Listed Page
 				 </div>
 				 
 				 <div class = "col-9">
-					<table class="mt-5 mx-auto d-block table-sm. table-borderless">
-					    <thead> </thead>
-					    <tbody>
-					      <tr>
-						<td><p class="font-weight-bold">Email:</p></td>
-						<td><p class="">John Wick</p></td>
-					      </tr>
-					      <tr>
-						<td><p class="font-weight-bold">Contact Number:</p></td>
-						<td><p class=""> (818)888-888</p></td>
-					      </tr>
-					    </tbody>
-					 </table>	
-					 
+	
 				 </div>
 			 </div>
 		</div>
