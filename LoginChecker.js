@@ -2,7 +2,7 @@
 $( document ).ready(function() {
   	firebase.auth().onAuthStateChanged(function(user) {
   		if (user) {
-    		console.log('signed in');
+    		console.log("signed in..." + user);
 			document.getElementById("login").setAttribute("hidden","");
         document.getElementById("signUp").setAttribute("hidden","");
 			//alert(email);
