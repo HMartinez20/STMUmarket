@@ -13,7 +13,7 @@ title: Account Page
 		{% include navBar.html %}
 		
 		<div id="fileSubmit">
-		   </div>
+		</div>
 		
 		<!-- BODY WITH THE PRO PIC, USERNAMES AND EDIT PROFILE BUTTON -->
 		<div class="container-fluid">
@@ -21,10 +21,10 @@ title: Account Page
 				<div class="col-3">
 				  <img src="{{site.baseurl}}/Empty.jpg" class="mx-auto d-block" style= "height: 12rem; width: 12rem;" alt="Profile Picture">
 				</div>
-				<div class="col-9"> 
-						<h2 class = "ml-5">User Name</h2>
-						<h4 class = "ml-5">FirstName LastName</h4>
-						<button type ="button" class="ml-5 btn btn-outline-primary">Edit Profile</button>
+			<div class="col-9"> 
+				<h2 class = "ml-5">User Name</h2>
+				<h4 class = "ml-5">FirstName LastName</h4>
+				<button type ="button" class="ml-5 btn btn-outline-primary">Edit Profile</button>
 			  </div> 
 			</div> 
 		</div>
@@ -41,7 +41,7 @@ title: Account Page
 								<span class="far fa-star"></span>
 								<span class="fas fa-star"></span>
 							</div>
-						</div>
+					</div>
 
 					<div class = "col-9">
 						 <ul class="nav nav-tabs nav-justified">
@@ -153,7 +153,7 @@ title: Account Page
           <textarea type="text" id="form8" class="md-textarea form-control" rows="4"></textarea>
           <label data-error="wrong" data-success="right" for="form8">Item Description</label>
         </div>	
-	      
+	<!-- Upload button for multiple images -->
 	 <div class="md-form">
                 <!-- IMPORTANT:  FORM's enctype must be "multipart/form-data" -->
                 <form method="post" action="upload-page.php" enctype="multipart/form-data">
@@ -162,7 +162,7 @@ title: Account Page
           </div>
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-unique">Create Posting<i class="fas fa-paper-plane-o ml-1"></i></button>
+        <button class="btn btn-unique" onclick="createPosting();">Create Posting<i class="fas fa-paper-plane-o ml-1"></i></button>
       </div>
     </div>
   </div>
@@ -171,7 +171,7 @@ title: Account Page
 <div class="text-center">
   <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalContactForm">Create New Posting</a>
 </div>
-	<!--....THIS IS THE END OF CODE FOR THE CREATE NEW POSTING BUTTON...-->
+<!--....THIS IS THE END OF CODE FOR THE CREATE NEW POSTING BUTTON...-->
 
 	</body>
 </html>
@@ -202,18 +202,8 @@ title: Account Page
 					}
 			 );
 		}
-	      var usersRef = firebase.database().ref("users/");
-      function writeNewUser(){
-         usersRef.push({
-            name: "Jane",
-            number: 1,
-            age: 30
-         });
-      }
+	
+	var itemsRef = firebase.database().ref("items/");
+
 </script>
-	<!-- navigation bar code
-	 <div class="btn-group col" role="group">
-    <button type="button" class="btn btn-info col" onclick="window.location='https://hmartinez20.github.io/STMUmarket/item.html'">Item Page</button>
-    <button type="button" class="btn btn-secondary col" onclick="window.location='https://hmartinez20.github.io/STMUmarket/seller.html'">Seller Page</button>
-  </div>
--->
+
