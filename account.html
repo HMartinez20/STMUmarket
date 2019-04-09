@@ -74,7 +74,7 @@ title: Account Page
 					    <tbody>
 					      <tr>
 						<td><p class="font-weight-bold">Email:</p></td>
-						<td><p class="">John Wick</p></td>
+						<td><p id="showEmail"></p></td>
 					      </tr>
 					      <tr>
 						<td><p class="font-weight-bold">Contact Number:</p></td>
@@ -189,6 +189,7 @@ title: Account Page
 					/* append username and name */
 					document.getElementById("showUser").append(data.username);
 					document.getElementById("showName").append(data.first + " " + data.last);
+					document.getElementById("showEmail").append(data.email);
 				}
 				else {
 					console.log("Requested document does not exist...");
