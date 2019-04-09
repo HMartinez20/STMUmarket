@@ -176,6 +176,14 @@ title: Account Page
 	</body>
 </html>
 <script>
+	firebase.onAuthStateChanged(function(user)){
+	 	if(user){
+			console.log("Signed In");
+		}
+		else{
+			window.location = "https://hmartinez20.github.io/STMUmarket/login.html"
+		}
+				    });
 	
 	const storage = firebase.storage(); // Reference to storage service
 
