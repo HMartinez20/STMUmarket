@@ -61,6 +61,7 @@ title: StMU Marketplace
   	firebase.auth().onAuthStateChanged(function(user) {
   		if (user) {
     		console.log('signed in');
+			document.getElementById("login").setAttribute("hidden,"");
   		} else {
     		console.log(' not signed in');
   		}
