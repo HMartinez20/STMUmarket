@@ -55,18 +55,21 @@ title: StMU Marketplace
   </body>
   {% include footer.html %}
 </html>
+<script src="=LoginChecker"></script>
+	
+	
 <script id="genListings" src="search.js" data-search="generic"></script>
 <script>
-	$( document ).ready(function() {
-  	firebase.auth().onAuthStateChanged(function(user) {
-  		if (user) {
-    		console.log('signed in');
-			document.getElementById("login").setAttribute("hidden","");
-  		} else {
-    		console.log(' not signed in');
-  		}
-		});
-	});
+// 	$( document ).ready(function() {
+//   	firebase.auth().onAuthStateChanged(function(user) {
+//   		if (user) {
+//     		console.log('signed in');
+// 			document.getElementById("login").setAttribute("hidden","");
+//   		} else {
+//     		console.log(' not signed in');
+//   		}
+// 		});
+// 	});
   function genListings(search){
 		db.collection("items").where("category", "==", search).get()
 			.then(function(querySnapshot){
