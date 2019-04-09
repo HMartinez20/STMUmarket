@@ -29,6 +29,7 @@
  function logout(){
    firebase.auth().signOut().then(function() {
   console.log('Signed Out');
+     location.reload();
 }, function(error) {
   console.error('Sign Out Error', error);
 });
