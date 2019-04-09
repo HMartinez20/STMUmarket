@@ -178,7 +178,8 @@ title: Account Page
 <script>
 	firebase.auth().onAuthStateChanged(function(user){
 	 	if(user){
-			console.log("Signed In");
+			console.log(user.uid);
+			
 		}
 		else{
 			window.location = "https://hmartinez20.github.io/STMUmarket/login.html";
