@@ -117,10 +117,19 @@ title: StMU Marketplace
   function genListings(search){
 		db.collection("items").where("category", "==", search).get()
 			.then(function(querySnapshot){
-				querySnapshot.forEach(function(doc){
-					// doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
+				querySnapshot.forEach(function(doc){ // doc.data() is never undefined for query doc snapshots
+					var card = document.createElement("div");
+					card.setAttribute("class","card col-3");card.setAttribute("href","#");
+					card.innerHTML= '<img src="{{site.baseurl}}/Empty.jpg" class="card img-top mt-3"/>'; 
+					card.innerHTML += '<div class"card-body"><h6 class="card-title">'+ doc.data().name +'</h6><p class="card-text">'+ doc.data().price +'</p></div>';
+					document.getElementById("listings").appendChild(card);
 					console.log(doc.data().price);
+					/*
+					<div class="card col-3" href="#">
+          <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="">
+          <div class="card-body"><h6 class="card-title">Title</h6><p class="card-text">Description</p></div>
+        	</div>
+					*/
         });
 			});
     console.log(search + "Btn");
