@@ -1,5 +1,5 @@
 /* JS used for seller.html */
-console.log("3:48");
+console.log("10:30");
 
 /* get seller name that is passed through url */
 var sellerId = window.location.hash.substring(1)
@@ -82,7 +82,7 @@ $( document ).ready(function() {
 						var cardBody = "<div class='card-body'><h4 class='card-title'>"
 						cardBody+= post.title + "</h4><p class='card-text'> Asking Price: $" + post.price
 						cardBody+= "<br> <a href=" + postURL +">Go To Posting</a></p></div>";
-						var cardImage = "<img class='card-image-top mt-3' src=" + url + "alt=''></img>";
+						var cardImage = "<img class='card-image-top' src=" + url + "alt=''></img>";
 						card = document.createElement("div");
 						card.className = "card col-3";
 						card.style.cssText = 'max-width:40rem;'
