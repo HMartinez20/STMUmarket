@@ -176,12 +176,13 @@ title: Account Page
 	</body>
 </html>
 <script>
+	/* authentication state observer */
 	firebase.auth().onAuthStateChanged(function(user){
 	 	if(user){
 			console.log("signed in");
-			
+			/* get user's data */
 			db.collection("users").doc(user).get().then(function(doc) {
-				if (user){
+				if (doc.exists){
 					console.log(doc.data().username);
 				}
 				else {
