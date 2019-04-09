@@ -120,7 +120,8 @@ title: StMU Marketplace
 				querySnapshot.forEach(function(doc){
 					// doc.data() is never undefined for query doc snapshots
             console.log(doc.id, " => ", doc.data());
-						console.log(doc.field("price"));
+	console.log(doc.("price"));
+					console.log(doc.name);
         });
 			});
     console.log(search + "Btn");
