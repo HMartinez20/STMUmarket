@@ -178,13 +178,15 @@ title: Account Page
 <script>
 	firebase.auth().onAuthStateChanged(function(user){
 	 	if(user){
-			console.log(user.uid);
+			console.log("signed in");
 			
 		}
 		else{
 			window.location = "https://hmartinez20.github.io/STMUmarket/login.html";
 		}
-				    });
+	});
+	
+	console.log(firebase.auth().currentUser);
 	
 	const storage = firebase.storage(); // Reference to storage service
 
