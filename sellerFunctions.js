@@ -58,7 +58,7 @@ $( document ).ready(function() {
 				var cardImage;   
 				/* container for listings */
 				var listings = document.createElement("div");
-				listings.className = "card-deck";
+				/* listings.className = "card-deck"; */
 				/* listings.className = "container"; */
 				/* row of listigs */
 				var dRow;
