@@ -1,5 +1,5 @@
 /* JS used for seller.html */
-console.log("1:23");
+console.log("2:28");
 
 /* get UID passed in URL, url format is https://hmartinez20.github.io/STMUmarket/seller.html#"UIDgoesHere" */
 var sellerId = window.location.hash.substring(1)
@@ -77,7 +77,8 @@ $( document ).ready(function() {
 						console.log(url);
 						var cardBody = "<div class='card-body'><h4 class='card-title'>"
 						cardBody+= post.title + "</h4><p class='card-text'> Asking Price: $" + post.price
-						cardBody+= "<br> <a href=" + postURL +">Go To Posting</a></p></div>";
+						cardBody+= "<a href=" + postURL + "class='btn btn-primary stretched-link'>See Posting</a></p></div>";
+						/*cardBody+= "<br> <a href=" + postURL +">Go To Posting</a></p></div>"; */
 						var cardImage = "<img class='card-image-top' src=" + url + " height='400' alt=''></img>";
 						card = document.createElement("div");
 						card.className = "card col-3";
