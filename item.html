@@ -120,13 +120,12 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 
 <script>
 window.onload = function() {
-	  firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    alert('signed in');
-  } else {
-    alert(' not signed in');
-  }
-});
+	if (firebase.auth().currentUser){
+		console.log("Signed In")
+	}
+	else{
+		console.log("Not signed In")
+	}
   };
 	
 </script>
