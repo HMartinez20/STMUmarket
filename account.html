@@ -180,13 +180,23 @@ title: Account Page
 	 	if(user){
 			console.log("signed in");
 			
+			db.collection("users").doc(user).get().then(function(doc) {
+				if (user){
+					console.log(doc.data().username);
+				}
+				else {
+					console.log("Requested document does not exist...");
+				}
+			}).catch(function(error) {
+				console.log("Error getting document:", error);
+			});
+			
 		}
 		else{
 			window.location = "https://hmartinez20.github.io/STMUmarket/login.html";
 		}
 	});
 	
-	console.log(firebase.auth().currentUser);
 	
 	const storage = firebase.storage(); // Reference to storage service
 
