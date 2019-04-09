@@ -1,5 +1,5 @@
 /* JS used for seller.html */
-console.log("10:10");
+console.log("10:14");
 
 /* get seller name that is passed through url */
 var sellerId = window.location.hash.substring(1)
@@ -97,7 +97,7 @@ $( document ).ready(function() {
 			})
 			var sellerInfo = document.createElement("p");
 			sellerInfo.innerHTML = "hello";
-			document.getElementById("sellerId").append();
+			document.getElementById("sellerId").appendChild(sellerInfo);
 	    	} else {
         	// doc doesn't exist
         	console.log("Requested document does not exist...");
