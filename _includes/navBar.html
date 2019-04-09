@@ -13,7 +13,7 @@
         <br>
         <a class="mr-2" href="https://hmartinez20.github.io/STMUmarket/account.html" id="myAccount">My Account</a>
         <br>
-        <a class="mr-2" href="https://hmartinez20.github.io/STMUmarket/signout.html" id="signOut">Sign Out</a>
+        <a class="mr-2" onclick="logout();" id="signOut">Sign Out</a>
     	</div>
     	<div><img style="width: 5rem; height: 5rem;" src="/STMUmarket/cart.png" alt="User Image"></div>
     </div>
@@ -24,3 +24,13 @@
     <button type="button" class="btn btn-secondary col" onclick="window.location='https://hmartinez20.github.io/STMUmarket/seller.html#cHA0nV0vUHbEKxS6F4vRfCWMhUS2'">Seller Page</button>
   </div>
 </div>
+
+<script>
+ function logout(){
+   firebase.auth().signOut().then(function() {
+  console.log('Signed Out');
+}, function(error) {
+  console.error('Sign Out Error', error);
+});
+ }
+</script>
