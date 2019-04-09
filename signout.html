@@ -1,0 +1,16 @@
+//This function is for the implementation of signing out.
+<!DOCTYPE html>
+<html>
+<script>
+function signOut(){
+firebase.auth().signOut().then(function() {
+  console.log('Signed Out');
+}, function(error) {
+  console.error('Sign Out Error', error);
+});
+ 
+ window.locaction = "";
+}
+
+</script>
+</html>
