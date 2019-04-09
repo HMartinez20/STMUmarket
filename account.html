@@ -163,7 +163,7 @@ title: Account Page
           </div>
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-unique" onclick="createPosting();">Create Posting<i class="fas fa-paper-plane-o ml-1"></i></button>
+        <button class="btn btn-unique" onclick="writeNewItem();">Create Posting<i class="fas fa-paper-plane-o ml-1"></i></button>
       </div>
     </div>
   </div>
@@ -214,20 +214,20 @@ title: Account Page
 	
 	function writeNewItem(){
 		var selected = null;
-		 var radios = document.getElementsByName("group1");
+		var radios = document.getElementsByName("group1");
 		for(var i = 0; i < radios.length; i++){
 			if (radios[i].checked){
-				selected = radios[i].values;
+				selected = radios[i].value;
 				break;
 			}
 		}
 		
 				
 		db.collection("items").add({
-			category: selected;
-			name: document.getElementById("form34").value;
-			price: document.getElementById("form29").value;
-			description: document.getElementById("form8").value;
+			category: selected,
+			name: document.getElementById("form34").value,
+			price: document.getElementById("form29").value,
+			description: document.getElementById("form8").value
 		})
 		.then(function(docRef){
 			console.log("ID = ", docRef.id);
