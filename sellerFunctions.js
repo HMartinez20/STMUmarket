@@ -1,5 +1,5 @@
 /* JS used for seller.html */
-console.log("2:45");
+console.log("2:57");
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
