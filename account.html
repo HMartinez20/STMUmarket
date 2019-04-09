@@ -115,6 +115,7 @@ title: Account Page
         <p class="text-left">
           <strong>Item Type:</strong>
         </p>
+	      
         <div class="form-check mb-4">
           <input class="form-check-input" name="group1" type="radio" id="radio-179" value="option1" checked>
           <label class="form-check-label" for="radio-179">Books</label>
@@ -127,7 +128,7 @@ title: Account Page
 
         <div class="form-check mb-4">
           <input class="form-check-input" name="group1" type="radio" id="radio-379" value="option3">
-          <label class="form-check-label" for="radio-379">Fruniture</label>
+          <label class="form-check-label" for="radio-379">Furniture</label>
         </div>
         <div class="form-check mb-4">
           <input class="form-check-input" name="group1" type="radio" id="radio-479" value="option4">
@@ -176,11 +177,18 @@ title: Account Page
 	</body>
 </html>
 <script>
+	
 	 const storage = firebase.storage(); // Reference to storage service
       
 		var fileButton = document.getElementById("file-upload");
 	
-		function handleFileSelect(){
+		function handleFileSelect(id){
+			
+			var metaData = {
+				customMetadata:{
+					'seller': id
+				}
+			};
 			 // Get file
 			 var file = document.getElementById("file-select").files[0];
 
@@ -188,7 +196,7 @@ title: Account Page
 			 const storageRef = storage.ref('posts/'+file.name);  // Reference to WHERE the image will be stored
 
 			 // Upload File
-			 var task = storageRef.put(file);
+			 var task = storageRef.put(file, metaData);
 
 			 //Upload progress
 			 task.on('state_changed',
@@ -201,9 +209,35 @@ title: Account Page
 						 alert("Uploaded!");
 					}
 			 );
+			
 		}
 	
-	var itemsRef = firebase.database().ref("items/");
+	function writeNewItem(){
+		var selected = null;
+		 var radios = document.getElementsByName("group1");
+		for(var i = 0; i < radios.length; i++){
+			if (radios[i].checked){
+				selected = radios[i].values;
+				break;
+			}
+		}
+		
+				
+		db.collection("items").add({
+			category: selected;
+			name: document.getElementById("form34").value;
+			price: document.getElementById("form29").value;
+			description: document.getElementById("form8").value;
+		})
+		.then(function(docRef){
+			console.log("ID = ", docRef.id);
+			handleFileSelect(dofRef.id);
+		})
+		.catch(function(error){
+			alert("\n Error! Ask your administrator");
+			console.log("Error writing document ", error);
+		});
+	
 
 </script>
 
