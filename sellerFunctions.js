@@ -4,6 +4,7 @@ console.log("2:45");
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
 	  console.log("IN");
+	  console.log(user);
     // User is signed in.
   } else {
 	  console.log(" Not In");
