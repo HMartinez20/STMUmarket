@@ -1,7 +1,7 @@
 /* JS used for seller.html */
 console.log("1:23");
 
-/* get seller name that is passed through url */
+/* get UID passed in URL, url format is https://hmartinez20.github.io/STMUmarket/seller.html#"UIDgoesHere" */
 var sellerId = window.location.hash.substring(1)
 console.log(sellerId);
 	/* redirect to home page if no variable was passed */
@@ -18,11 +18,7 @@ $( document ).ready(function() {
 	else{
 		console.log("Not signed In")
 	}
-
-	/* get UID passed in URL, url format is https://hmartinez20.github.io/STMUmarket/seller.html#"UIDgoesHere" */
 	
-	
-
 	/*load the seller's data from  firebase */
 	db.collection("users").doc(window.sellerId).get().then(function(doc) {
 		if (doc.exists) { 
@@ -96,7 +92,7 @@ $( document ).ready(function() {
 				document.getElementById("sellerListings").appendChild(listings);
 			})
 			var sellerBio = document.createElement("p");
-			sellerBio.innerHTML = "hello";
+			sellerBio.innerHTML = "Classification: " + data.class + "<br> Major: " + data.major;
 			document.getElementById("sellerInfo").appendChild(sellerBio);
 	    	} else {
         	// doc doesn't exist
