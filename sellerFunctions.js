@@ -1,5 +1,5 @@
 /* JS used for seller.html */
-console.log("10:14");
+console.log("1:23");
 
 /* get seller name that is passed through url */
 var sellerId = window.location.hash.substring(1)
@@ -95,9 +95,9 @@ $( document ).ready(function() {
 				})
 				document.getElementById("sellerListings").appendChild(listings);
 			})
-			var sellerInfo = document.createElement("p");
-			sellerInfo.innerHTML = "hello";
-			document.getElementById("sellerId").appendChild(sellerInfo);
+			var sellerBio = document.createElement("p");
+			sellerBio.innerHTML = "hello";
+			document.getElementById("sellerInfo").appendChild(sellerBio);
 	    	} else {
         	// doc doesn't exist
         	console.log("Requested document does not exist...");
