@@ -179,9 +179,9 @@ title: Account Page
 	/* authentication state observer */
 	firebase.auth().onAuthStateChanged(function(user){
 	 	if(user){
-			console.log("signed in:",user);
+			console.log("signed in:",user.uid);
 			/* get user's data */
-			db.collection("users").doc(user).get().then(function(doc) {
+			db.collection("users").doc(user.uid).get().then(function(doc) {
 				if (doc.exists){
 					console.log("hello");
 					console.log(doc.data().username);
