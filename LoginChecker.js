@@ -4,10 +4,14 @@ $( document ).ready(function() {
   		if (user) {
 			document.getElementById("login").setAttribute("hidden","");
         document.getElementById("signUp").setAttribute("hidden","");
-			alert("Welcome: "+user.email);
+	document.getElementById("myAccount").removeAttribute("hidden");
+        document.getElementById("signOut").removeAttribute("hidden");
+			//alert("Welcome: "+user.email);
   		} else {
-        document.getElementById("myAccout").setAttribute("hidden","");
+        document.getElementById("myAccount").setAttribute("hidden","");
         document.getElementById("signOut").setAttribute("hidden","");
+	document.getElementById("login").removeAttribute("hidden");
+        document.getElementById("signUp").removeAttribute("hidden");
     		console.log(' not signed in');
   		}
 		});
