@@ -5,6 +5,7 @@ $( document ).ready(function() {
     		console.log('signed in');
 			document.getElementById("login").setAttribute("hidden","");
         document.getElementById("signUp").setAttribute("hidden","");
+			//alert(email);
   		} else {
         document.getElementById("myAccout").setAttribute("hidden","");
         document.getElementById("signOut").setAttribute("hidden","");
