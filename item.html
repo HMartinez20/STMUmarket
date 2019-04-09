@@ -80,10 +80,12 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		var data = doc.data();
 		var title = data.title;
 		var price = data.price;
+		var seller = data.seller;
+		/* var sellerId = data.sellerId; */
 		
 		/* Display title and price*/
 		var postHead = document.createElement("div");
-		postHead.innerHTML = "<h1>" + title + "</h1> <h2> Seller: <br>Price: $" + price + "</h2>" ;
+		postHead.innerHTML = "<h1>" + title + "</h1> <h3> Seller :" + seller +"<br>Price: $" + price + "</h3>" ;
 		document.getElementById("postInfo").appendChild(postHead);
 		
 		/* get and display images */
