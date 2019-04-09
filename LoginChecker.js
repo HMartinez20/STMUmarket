@@ -2,10 +2,9 @@
 $( document ).ready(function() {
   	firebase.auth().onAuthStateChanged(function(user) {
   		if (user) {
-    		console.log("signed in..." + user.email);
 			document.getElementById("login").setAttribute("hidden","");
         document.getElementById("signUp").setAttribute("hidden","");
-			//alert(email);
+			alert("Welcome: "+user.email);
   		} else {
         document.getElementById("myAccout").setAttribute("hidden","");
         document.getElementById("signOut").setAttribute("hidden","");
