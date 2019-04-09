@@ -115,6 +115,14 @@ title: StMU Marketplace
 		});
 	});
   function genListings(search){
+		db.collection("items").where("category", "==", search).get()
+			.then(function(querySnapshot){
+				querySnapshot.forEach(function(doc){
+					// doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+						console.log(doc("category"), ", ", doc("name"), ", ", doc("price"));
+        });
+			});
     console.log(search + "Btn");
     var badge = document.getElementById(search+"Badge");
     if(badge.hasAttribute("hidden")){ badge.removeAttribute("hidden"); }
