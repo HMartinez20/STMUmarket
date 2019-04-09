@@ -81,11 +81,12 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		var title = data.title;
 		var price = data.price;
 		var seller = data.seller;
-		 var sellerId = data.sellerId; 
+		 var sellerLink = "seller.html#" + data.sellerId; 
 		
 		/* Display title and price*/
 		var postHead = document.createElement("div");
-		postHead.innerHTML = "<h1>" + title + "</h1> <h3> Seller: " + seller +"<br>Price: $" + price + "</h3>" ;
+		postHead.innerHTML = "<h1>" + title + "</h1> <h3><a href=sellerLink> Seller: " + seller +"</a>";
+		postHead.innerHTML+= "<br>Price: $" + price + "</h3>";
 		document.getElementById("postInfo").appendChild(postHead);
 		
 		/* get and display images */
