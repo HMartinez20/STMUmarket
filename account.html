@@ -178,39 +178,37 @@ title: Account Page
 </html>
 <script>
 	
-	 const storage = firebase.storage(); // Reference to storage service
-      
-		var fileButton = document.getElementById("file-upload");
+	const storage = firebase.storage(); // Reference to storage service
+
+	var fileButton = document.getElementById("file-upload");
 	
-		function handleFileSelect(id){
-			
-			var metaData = {
-				customMetadata:{
-					'seller': id
-				}
-			};
-			 // Get file
-			 var file = document.getElementById("file-select").files[0];
+	function handleFileSelect(id){		
+		var metaData = {
+			customMetadata:{
+				'seller': id
+			}
+		};
+		// Get file
+		var file = document.getElementById("file-select").files[0];
 
-			 // Create storage ref
-			 const storageRef = storage.ref('posts/'+file.name);  // Reference to WHERE the image will be stored
+		// Create storage ref
+		const storageRef = storage.ref('posts/'+file.name);  // Reference to WHERE the image will be stored
 
-			 // Upload File
-			 var task = storageRef.put(file, metaData);
+		// Upload File
+		var task = storageRef.put(file, metaData);
 
-			 //Upload progress
-			 task.on('state_changed',
-					function progress(snapshot){
-					},
-					function error(err){
-						 alert("Error!"+err);
-					},
-					function complete(){
-						 alert("Uploaded!");
-					}
-			 );
-			
-		}
+		//Upload progress
+		task.on('state_changed',
+			function progress(snapshot){
+			},
+			function error(err){
+				alert("Error!"+err);
+			},
+			function complete(){
+				alert("Uploaded!");
+			}
+		);	
+	}
 	
 	function writeNewItem(){
 		var selected = null;
@@ -221,7 +219,6 @@ title: Account Page
 				break;
 			}
 		}
-		
 				
 		db.collection("items").add({
 			category: selected,
@@ -237,7 +234,6 @@ title: Account Page
 			alert("\n Error! Ask your administrator");
 			console.log("Error writing document ", error);
 		});
-	
-
+	}
 </script>
 
