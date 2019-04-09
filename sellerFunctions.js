@@ -1,5 +1,15 @@
 /* JS used for seller.html */
-console.log("2:37");
+console.log("2:45");
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+	  console.log("IN");
+    // User is signed in.
+  } else {
+	  console.log(" Not In");
+    // No user is signed in.
+  }
+});
 
 /* get UID passed in URL, url format is https://hmartinez20.github.io/STMUmarket/seller.html#"UIDgoesHere" */
 var sellerId = window.location.hash.substring(1)
@@ -18,6 +28,7 @@ $( document ).ready(function() {
 	else{
 		console.log("Not signed In")
 	}
+
 	
 	/*load the seller's data from  firebase */
 	db.collection("users").doc(window.sellerId).get().then(function(doc) {
