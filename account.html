@@ -176,7 +176,7 @@ title: Account Page
 	</body>
 </html>
 <script>
-	firebase.onAuthStateChanged(function(user){
+	firebase.auth().onAuthStateChanged(function(user){
 	 	if(user){
 			console.log("Signed In");
 		}
