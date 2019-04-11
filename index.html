@@ -8,50 +8,59 @@ title: StMU Marketplace
     {% include fire.html %}
   </header>
   <body>
-    {% include navBar.html %}
+    {% include navBar.html %} <!-- Jumbotron -->
     <br>
-    <div class="col-3 d-inline-block align-top">
-      <div class="btn-group-lg col" role="group">
-        <button id="catergories" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</button>
-        <div class="dropdown-menu" aria-labelledby="catergories" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(15px, 78px, 0px);">
-          <button class="btn btn-dark" id="booksBtn" onclick="genListings('books');">Books</button>
-          <button class="btn btn-dark" id="clothingBtn" onclick="genListings('clothing');">Clothing</button>
-          <button class="btn btn-dark" id="furnitureBtn" onclick="genListings('furniture');">Furniture</button>
-        </div>
-        <span class="badge badge-primary" id="booksBadge" hidden>Books</span>
-	<span class="badge badge-primary" id="clothingBadge" hidden>Clothing</span>
-	<span class="badge badge-primary" id="furnitureBadge" hidden>Furniture</span>
-      </div>
-      <br>
-      <div id="filters">
-        <h5>Filters</h5>
-        <div class="pl-4">
-          <button id="price" type="button" class="btn btn-secondary dropdown-toggle d-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Prices</button> <br>
-          <div class="dropdown-menu" aria-labelledby="prices" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(15px, 78px, 0px);">
-            <button class="btn btn-dark" id="booksBtn" onclick="genListings('books');">Lowest</button>
-            <button class="btn btn-dark" id="furnitureBtn" onclick="genListings('furniture');">Highest</button>
-          </div>
-          <button id="date" type="button" class="btn btn-secondary dropdown-toggle d-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Date</button> <br>
-          <div class="dropdown-menu" aria-labelledby="date" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(15px, 78px, 0px);">
-            <button class="btn btn-dark" id="oldestBtn" onclick="genListings('books');">Oldest</button>
-            <button class="btn btn-dark" id="newestBtn" onclick="genListings('furniture');">Newest</button>
-          </div>
-          <button id="reviews" type="button" class="btn btn-secondary dropdown-toggle d-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reviews</button> <br>
-          <div class="dropdown-menu" aria-labelledby="reviews" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(15px, 78px, 0px);">
-            <button class="btn btn-dark" id="booksBtn" onclick="genListings('books');">Lowest</button>
-            <button class="btn btn-dark" id="furnitureBtn" onclick="genListings('furniture');">Highest</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-9 d-inline-block card-deck">
-      <div class="row" id="listings">
-        <div class="card col-3" href="#">
-          <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="">
-          <div class="card-body"><h6 class="card-title">Title</h6><p class="card-text">Price</p></div>
-        </div>
-      </div> <!-- End 1st row-->
-    </div> <!-- End listings section-->
+		<div class="row">
+			<div class="col-2">
+				<div class="btn-group-lg" role="group">
+					<button id="catergories" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</button>
+					<div class="dropdown-menu" aria-labelledby="catergories" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(15px, 78px, 0px);">
+						<button class="btn btn-dark" id="booksBtn" onclick="genListings('books');">Books</button>
+						<button class="btn btn-dark" id="clothingBtn" onclick="genListings('clothing');">Clothing</button>
+						<button class="btn btn-dark" id="furnitureBtn" onclick="genListings('furniture');">Furniture</button>
+					</div>
+					<span class="badge badge-primary" id="booksBadge" hidden>Books</span>
+					<span class="badge badge-primary" id="clothingBadge" hidden>Clothing</span>
+					<span class="badge badge-primary" id="furnitureBadge" hidden>Furniture</span>
+				</div><!-- End Categories -->
+				<br>
+				<div id="filters">
+					<h5>Filters</h5>
+					<div class="pl-4">
+						<button id="price" type="button" class="btn btn-secondary dropdown-toggle d-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Prices</button> <br>
+						<div class="dropdown-menu" aria-labelledby="prices" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(15px, 78px, 0px);">
+							<button class="btn btn-dark" id="booksBtn" onclick="genListings('books');">Lowest</button>
+							<button class="btn btn-dark" id="furnitureBtn" onclick="genListings('furniture');">Highest</button>
+						</div>
+						<button id="date" type="button" class="btn btn-secondary dropdown-toggle d-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Date</button> <br>
+						<div class="dropdown-menu" aria-labelledby="date" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(15px, 78px, 0px);">
+							<button class="btn btn-dark" id="oldestBtn" onclick="genListings('books');">Oldest</button>
+							<button class="btn btn-dark" id="newestBtn" onclick="genListings('furniture');">Newest</button>
+						</div>
+						<button id="reviews" type="button" class="btn btn-secondary dropdown-toggle d-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reviews</button> <br>
+						<div class="dropdown-menu" aria-labelledby="reviews" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(15px, 78px, 0px);">
+							<button class="btn btn-dark" id="booksBtn" onclick="genListings('books');">Lowest</button>
+							<button class="btn btn-dark" id="furnitureBtn" onclick="genListings('furniture');">Highest</button>
+						</div>
+					</div>
+				</div><!-- End Filters -->
+			</div><!-- End Left Pane -->
+			<div class="col-10">
+				<div class="container no-gutters">
+					<div class="row card-deck" id="listings">
+						<div class="col-3">	
+							<div class="card">
+								<img src="{{site.baseurl}}/Empty.jpg" class="card-img-top">
+								<div class="card-body">
+									<h6 class="card-title">Title</h6>
+									<p class="card-text">Price</p>
+								</div>
+							</div>
+						</div>
+					</div><!-- End row -->
+				</div><!-- End containter -->
+			</div><!-- End Right Pane -->
+		</div><!-- End row -->
   </body>
   {% include footer.html %}
 </html>
@@ -74,19 +83,17 @@ title: StMU Marketplace
 		db.collection("items").where("category", "==", search).get()
 			.then(function(querySnapshot){
 				querySnapshot.forEach(function(doc){ // doc.data() is never undefined for query doc snapshots
+					var placeholder = document.createElement("div");
+					placeholder.setAttribute("class","col-3");
+					
 					var card = document.createElement("div");
-					card.setAttribute("class","card col-3");card.setAttribute("href","#");
-					card.innerHTML= '<img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3"/>'; 
+					card.setAttribute("class","card");
+					card.innerHTML= '<img src="{{site.baseurl}}/Empty.jpg" class="card-img-top"/>'; 
 					card.innerHTML += '<div class="card-body"><h6 class="card-title">'+ doc.data().name +'</h6><p class="card-text">'+ doc.data().price +'</p>';
 					card.innerHTML += '<a href=' + ('item.html#' + doc.id) + ' class="btn btn-primary stretched-link">See Posting</a></div>';
+					
 					document.getElementById("listings").appendChild(card);
-					console.log(doc.data().price);
-					/*
-					<div class="card col-3" href="#">
-          <img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3" style="background-color: grey;" alt="">
-          <div class="card-body"><h6 class="card-title">Title</h6><p class="card-text">Description</p></div>
-        	</div>
-					*/
+					placeholder.appendChild(card);
         });
 			});
     console.log(search + "Btn");
