@@ -77,7 +77,8 @@ title: StMU Marketplace
 					var card = document.createElement("div");
 					card.setAttribute("class","card col-3");card.setAttribute("href","#");
 					card.innerHTML= '<img src="{{site.baseurl}}/Empty.jpg" class="card-img-top mt-3"/>'; 
-					card.innerHTML += '<div class="card-body"><h6 class="card-title">'+ doc.data().name +'</h6><p class="card-text">'+ doc.data().price +'</p></div>';
+					card.innerHTML += '<div class="card-body"><h6 class="card-title">'+ doc.data().name +'</h6><p class="card-text">'+ doc.data().price +'</p>';
+					card.innerHTML += '<a href=' + ('item.html#' + doc.id) + ' class="btn btn-primary stretched-link">See Posting</a></div>';
 					document.getElementById("listings").appendChild(card);
 					console.log(doc.data().price);
 					/*
