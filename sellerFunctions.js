@@ -108,8 +108,9 @@ $( document ).ready(function() {
 			sellerBio.innerHTML = "Classification: " + data.class + "<br> Major: " + data.major;
 			document.getElementById("sellerInfo").appendChild(sellerBio);
 	    	} else {
-        	// doc doesn't exist
-        	console.log("Requested document does not exist...");
+        		// doc doesn't exist
+        		alert("Invalid seller, redirecting to Home Page");
+			window.location = "https://hmartinez20.github.io/STMUmarket/";
    		 }
 		}).catch(function(error) {
    		 	console.log("Error getting document:", error);
