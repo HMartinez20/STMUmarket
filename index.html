@@ -92,8 +92,8 @@ title: StMU Marketplace
 					card.innerHTML += '<div class="card-body"><h6 class="card-title">'+ doc.data().name +'</h6><p class="card-text">'+ doc.data().price +'</p>';
 					card.innerHTML += '<a href=' + ('item.html#' + doc.id) + ' class="btn btn-primary stretched-link">See Posting</a></div>';
 					
-					document.getElementById("listings").appendChild(card);
 					placeholder.appendChild(card);
+					document.getElementById("listings").appendChild(placeholder);
         });
 			});
     console.log(search + "Btn");
