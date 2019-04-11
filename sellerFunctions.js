@@ -20,8 +20,9 @@ console.log(sellerId);
 		alert("Error Occurred, Redirecting to Home Page");
 		window.location = "https://hmartinez20.github.io/STMUmarket/";
 	}
-
-$( document ).ready(function() {
+/*
+$( document ).ready(function() { 
+*/
 /* see if user is signed in */
 	if (firebase.auth().currentUser){
 		console.log("Signed In")
@@ -115,9 +116,9 @@ $( document ).ready(function() {
 		}).catch(function(error) {
    		 	console.log("Error getting document:", error);
 		});	
-	
+/*
 }); 
-
+*/
 
 /* Function to set seller information, remove later
 	$("#setinfo").click(function(){
