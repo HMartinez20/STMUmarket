@@ -88,7 +88,7 @@ $( document ).ready(function() {
 					firebase.storage().ref(post.image1).getDownloadURL().then((url) => {
 						console.log(url);
 						var cardBody = "<div class='card-body'><h4 class='card-title'>"
-						cardBody+= post.title + "</h4><p class='card-text'> Asking Price: $" + post.price + "<p>";
+						cardBody+= post.title + "</h4><p class='card-text'> Asking Price: " + post.price + "<p>";
 						cardBody+= "<a href=" + postURL + " class='btn btn-primary stretched-link'>See Posting</a></div>";
 						/*cardBody+= "<br> <a href=" + postURL +">Go To Posting</a></p></div>"; */
 						var cardImage = "<img class='card-image-top' src=" + url + " height='400' alt=''></img>";
