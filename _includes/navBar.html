@@ -39,7 +39,7 @@
   $( document ).ready(function() {
   	firebase.auth().onAuthStateChanged(function(user) {
   		if (user) {
-        document.getElementById('<myAccount>').innerHTML = <+user.email>;
+        document.getElementById('<myAccount>').innerHTML = <user.email>;
       }
    	});
 	});
