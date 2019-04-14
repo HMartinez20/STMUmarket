@@ -16,8 +16,7 @@ title: Account Signup
         console.log(password);
 
         firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-        // Handle Errors here.
-      var errorCode = error.code;
+			var errorCode = error.code;
 			var errorMessage = error.message;
 			if (errorCode === 'auth/wrong-password') {
 				alert('Wrong password.');
@@ -27,9 +26,9 @@ title: Account Signup
 			}    
 			else if (errorCode === 'auth/invalid-email') {
 				alert('invalid-email.');
-        		});
+			}  	
+			});
 	}
-      }
     
     </script>
   </header>
