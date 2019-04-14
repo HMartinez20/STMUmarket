@@ -34,4 +34,16 @@
   console.error('Sign Out Error', error);
 });
  }
+  
+  
+  $( document ).ready(function() {
+  	firebase.auth().onAuthStateChanged(function(user) {
+  		if (user) {
+        document.getElementById('myAccount').id = <user>;
+      }
+  
+  
+  
+  
+  
 </script>
