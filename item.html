@@ -58,7 +58,7 @@ title: Item
 		</div>
 	</DIV>	
 		
-		
+		<br><br>
 	
   </body>
   {% include footer.html %}
@@ -87,7 +87,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		/* Display title and price*/
 		var postHead = document.createElement("div");
 		postHead.innerHTML = "<h1>" + title + "</h1> <h3> Seller: <a href=" + sellerLink + ">" + seller +"</a></h3>";
-		postHead.innerHTML+= "<h3>Price: $" + price + "</h3>";
+		postHead.innerHTML+= "<h3>Price: " + price + "</h3>";
 		document.getElementById("postInfo").appendChild(postHead);
 		
 		/* display description*/
