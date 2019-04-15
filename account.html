@@ -305,7 +305,7 @@ title: Account Page
 					 var fileName = fileList.files[i].name;
 
 					 // Create storage ref to where image will be stored
-					 const storageRef = storage.ref('posts/'+currentUser+'/'+id+'/'+dateFormatted+'_'+fileName);  
+					 const storageRef = storage.ref('posts/'+currentUser+'/'+dateFormatted+'_'+fileName);  
 
 					 task = storageRef.put(fileList.files[i], metaData);
 
