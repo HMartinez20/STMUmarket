@@ -188,7 +188,8 @@ title: Account Page
 	firebase.auth().onAuthStateChanged(function(user){
 	 	if(user){
 			console.log("signed in:",user.uid);
-			currentUser = user.username;
+			console.log("signed in:",user);
+			currentUser = user.uid;
 			/* get user's data */
 			db.collection("users").doc(user.uid).get().then(function(doc) {
 				if (doc.exists){
@@ -215,7 +216,7 @@ title: Account Page
 	const storage = firebase.storage(); // Reference to storage service
 	var fileButton = document.getElementById("file-upload");
 	var d = new Date();
-    var dateFormatted = d.getDay().toString()+d.getMonth().toString()+d.getFullYear().toString();
+    	var dateFormatted = d.getDay().toString().padStart(2, '0')+d.getMonth().toString().padStart(2, '0')+d.getFullYear().toString();
 	function handleFileSelect(id){		
 		var metaData = {
 			customMetadata:{
