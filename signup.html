@@ -10,7 +10,7 @@ title: Account Signup
      
 
       function whatever(){
-        var email = document.getElementById("email").value;
+        var email = (document.getElementById("username").value + "@mail.stmarytx.edu");
         var password = document.getElementById("pass").value;
         console.log(email);
         console.log(password);
@@ -39,9 +39,18 @@ title: Account Signup
       <p>Please fill in this form to create an account.</p>
       <hr>
 
-      <label for="email"><b>Email</b></label><br>
-      <input type="text" placeholder="Enter Email" name="email" required  id="email" ><br>
-
+      <label for="username"><b>Username - use st mary's</b></label><br>
+      <input type="text" placeholder="Enter st mary's username" name="username" required  id="username" ><br>
+	  <!-- first name -->
+	  <label for="first"><b>First Name</b></label><br>
+      <input type="text" placeholder="Enter first name" name="first" id="firstName" ><br>
+	  <!-- last name -->
+	  <label for="last"><b>Last Name</b></label><br>
+      <input type="text" placeholder="Enter last name" name="last" id="lastName" ><br>
+	  <!-- user bio -->
+	  <label for="userInfo"><b>Enter a quick bio</b></label><br>
+      <input type="text" placeholder="Enter bio" name="userInfo" id="bio" ><br>
+	  
       <label for="psw"><b>Password(must be 9 characters long)</b></label><br>
       <input type="password" placeholder="Enter Password" name="psw" id="pass" ><br>
 
