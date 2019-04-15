@@ -214,8 +214,8 @@ title: Account Page
 	
 	const storage = firebase.storage(); // Reference to storage service
 	var fileButton = document.getElementById("file-upload");
-	var date = new Date();
-        var dateFormatted = date.getDay()+date.getMonth()+date.getFullYear();
+	var d = new Date();
+    var dateFormatted = d.getDay().toString()+d.getMonth().toString()+d.getFullYear().toString();
 	function handleFileSelect(id){		
 		var metaData = {
 			customMetadata:{
