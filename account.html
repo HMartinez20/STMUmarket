@@ -237,8 +237,8 @@ title: Account Page
 				for(var i = 0; i < fileList.files.length; i++){
 					 var fileName = fileList.files[i].name;
 
-					 // Create storage ref
-					 const storageRef = storage.ref('posts/'+currentUser+'/'+dateFormatted+'_'+fileName);  // Reference to WHERE the image will be stored
+					 // Create storage ref to where image will be stored
+					 const storageRef = storage.ref('posts/'+currentUser+'/'+id+'/'+dateFormatted+'_'+fileName);  
 
 					 task = storageRef.put(fileList.files[i], metaData);
 
