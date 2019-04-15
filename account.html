@@ -259,7 +259,7 @@ title: Account Page
 	 	if(user){
 			console.log("signed in:",user.uid);
 			console.log("signed in:",user);
-			currentUser = user.uid;
+			currentUser = user.email.substring(0, user.email.indexOf('@'));
 			/* get user's data */
 			db.collection("users").doc(user.uid).get().then(function(doc) {
 				if (doc.exists){
