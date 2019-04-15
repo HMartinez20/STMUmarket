@@ -271,6 +271,7 @@ title: Account Page
 					/* Show user's listings */
 					db.collection('items').where('seller', '==', data.username).get().then((snapshot) => {
 						console.log("geting seller listings");
+						var postCount = snapshot.size;
 						var postNum = 0;
 						var cardImage;   
 						/* container for listings */
