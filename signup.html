@@ -9,7 +9,7 @@ title: Account Signup
     <script>
      firebase.auth().onAuthStateChanged(function(user){
 	 	if(user){
-			/* redirect is user is signed in*/
+			/* redirect if user is signed in*/
 			window.location = "https://hmartinez20.github.io/STMUmarket/";
 		}
 	});
@@ -31,7 +31,6 @@ title: Account Signup
 			bio: document.getElementById("bio").value
 		});
 	alert("Account created!");
-	window.location = "https://hmartinez20.github.io/STMUmarket/";
 		
 	}).catch(function(error) {
 			var errorCode = error.code;
