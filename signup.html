@@ -17,7 +17,21 @@ title: Account Signup
         console.log(password);
 
         firebase.auth().createUserWithEmailAndPassword(email, password).then(function(user){
-		console.log(firebase.auth().currentUser.uid);
+		console.log(user.uid);
+		db.collection("users").doc(user.uid).set({
+    			email: email,
+			first: document.getElementById("firstName").value,
+			last: document.getElementById("lastName").value,
+			username: username,
+			bio: document.getElementById("bio").value
+		});
+		/*
+		.then(function() {
+    			console.log("Document successfully written!");
+		})
+		.catch(function(error) {
+    			console.error("Error writing document: ", error);
+		}); */
 		
 		}).catch(function(error) {
 			var errorCode = error.code;
