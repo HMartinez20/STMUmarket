@@ -18,12 +18,39 @@ title: Account Page
 		<div class="container-fluid">
 			<div class="row ml-5 mr-5">
 				<div class="col-xl-3">
-				  <img src="{{site.baseurl}}/Empty.jpg" class="mx-auto d-block img-circle" style= "height: 12rem; width: 12rem;" alt="Profile Picture">
+				 	<button type="button" class="mt-5 mx-auto d-block bg-transparent text-dark btn btn-primary" data-toggle="collapse" data-target="#ProfileDesc">About Myself</button>
+					  <div id="ProfileDesc" class="ml-3 collapse">
+							<p> Some Description </p>
+					  </div>
 				</div>
 			<div class="col-xl-9"> 
 				<h2 class = "ml-5" id="showUser"></h2>
 				<h4 class = "ml-5" id="showName"></h4>
 				
+				<!-- MY INFORMATION TABLE -->
+				<div class="container-fluid bg-light">
+			 <div class="row ml-5 mr-5"> 
+				 <div class = "col-xl-3">
+				 </div>
+				 <div class = "col-xl-9">
+					<table class="mt-5 mx-auto d-block table-sm. table">
+					    <thead> </thead>
+					    <tbody>
+					      <tr>
+						<td><p class="font-weight-bold">Email:</p></td>
+						<td><p id="showEmail"></p></td>
+					      </tr>
+					      <tr>
+						<td><p class="font-weight-bold">Contact Number:</p></td>
+						<td><p class=""> (818)888-888</p></td>
+					      </tr>
+					    </tbody>
+					 </table>		 
+				 </div>
+				
+			 </div>
+		</div>
+				 
 				
 				<!-- EDIT PROFILE BUTTON -->
 				<button type ="button" class="ml-5 btn btn-outline-primary">Edit Profile</button>
@@ -49,16 +76,16 @@ title: Account Page
 					<div class = "col-xl-9">
 						<div class="card">
 							<ul class="nav nav-pills nav-justified">
-								<li class="nav-item" onclick="getInfo();"><a class="nav-link active" data-toggle="tab" href="#home">My Information</a></li>
+							<!--	<li class="nav-item" onclick="getInfo();"><a class="nav-link active" data-toggle="tab" href="#home">My Information</a></li> -->
 								<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu1">My Listings</a></li>
 								<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu2">My Purchases</a></li>
 							</ul>
 
 							<div class="tab-content">
-								<div id="home" class="tab-pane active">
+							<!--	<div id="home" class="tab-pane active">
 									<h3>My Information</h3>
 									<p>Some content.</p>
-								</div>
+								</div> -->
 								<div id="menu1" class="tab-pane fade">
 									<h3>My Items</h3>
 									<p>Some content in menu 1.</p>
@@ -76,33 +103,7 @@ title: Account Page
 		</div>
 		
 		<!-- BELOW THE ITEM NAV BAR -->
-		<div class="container-fluid bg-light">
-			 <div class="row ml-5 mr-5"> 
-				 <div class = "col-xl-3">
-				 	<button type="button" class="mt-5 mx-auto d-block bg-transparent text-dark btn btn-primary" data-toggle="collapse" data-target="#ProfileDesc">About Myself</button>
-					  <div id="ProfileDesc" class="ml-3 collapse">
-						My Life is GOOD! I am here to SELL and Make some CASH$$$
-					  </div>
-				 </div>
-				 
-				 <div class = "col-xl-9">
-					<table class="mt-5 mx-auto d-block table-sm. table">
-					    <thead> </thead>
-					    <tbody>
-					      <tr>
-						<td><p class="font-weight-bold">Email:</p></td>
-						<td><p id="showEmail"></p></td>
-					      </tr>
-					      <tr>
-						<td><p class="font-weight-bold">Contact Number:</p></td>
-						<td><p class=""> (818)888-888</p></td>
-					      </tr>
-					    </tbody>
-					 </table>	
-					 
-				 </div>
-			 </div>
-		</div>
+		
 		
 		
 			<!--  For the Upload File Button (Might need Code later)
