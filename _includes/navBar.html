@@ -33,13 +33,6 @@
 }, function(error) {
   console.error('Sign Out Error', error);
 });
- }
-  
-  firebase.auth().onAuthStateChanged(function(user) {
-  	if (user) {
-        	document.getElementById('myAccount').innerHTML = user.email;
-     	}
-   });
-  
+ }  
   
 </script>
