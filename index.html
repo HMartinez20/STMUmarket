@@ -87,11 +87,13 @@ title: StMU Marketplace
 // 		});
 // 	});
   function genListings(search){
+	  document.getElementById("listings").innerHTML = '';
+	  console.log("price = " + priceSort);
+	  console.log("date = " + dateSort);
+	  console.log("ratings = " + ratingsSort);
 		db.collection("items").where("category", "==", search).get()
 			.then(function(querySnapshot){
 				querySnapshot.forEach(function(doc){ // doc.data() is never undefined for query doc snapshots
-					document.getElementById("listings").innerHTML = '';
-					
 					var placeholder = document.createElement("div");
 					placeholder.setAttribute("class","col-3");
 					
