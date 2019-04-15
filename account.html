@@ -151,7 +151,7 @@ title: Account Page
 
         <div class="md-form mb-5">
           <i class="fas fa-envelope prefix grey-text"></i>
-          <input type="email" id="form29" class="form-control validate">
+          <input type="text" id="form29" class="form-control validate">
           <label data-error="wrong" data-success="right" for="form29">Price</label>
         </div>
 
@@ -221,6 +221,7 @@ title: Account Page
 	var fileButton = document.getElementById("file-upload");
 	var d = new Date();
     	var dateFormatted = d.getDay().toString().padStart(2, '0')+d.getMonth().toString().padStart(2, '0')+d.getFullYear().toString();
+	
 	function handleFileSelect(id){		
 		var metaData = {
 			customMetadata:{
@@ -270,7 +271,7 @@ title: Account Page
 			title: document.getElementById("form34").value,
 			price: Number(document.getElementById("form29").value),
 			description: document.getElementById("form8").value,
-			date: new Date()
+			date: new Date(),
 		})
 		.then(function(docRef){
 			console.log("ID = ", docRef.id);
@@ -282,6 +283,4 @@ title: Account Page
 		});
 	}
 </script>
-
-<script src="LoginChecker.js"></script>
 
