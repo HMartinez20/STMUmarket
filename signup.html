@@ -22,8 +22,10 @@ title: Account Signup
 			last: document.getElementById("lastName").value,
 			username: username,
 			bio: document.getElementById("bio").value
+		}).then(function(){
+			alert("Account created!");
 		});
-	alert("Account created!");
+	
 		
 	}).catch(function(error) {
 			var errorCode = error.code;
