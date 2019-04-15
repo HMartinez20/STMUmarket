@@ -4,6 +4,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         	document.getElementById("signUp").setAttribute("hidden","");
 		document.getElementById("myAccount").removeAttribute("hidden");
         	document.getElementById("signOut").removeAttribute("hidden");
+		document.getElementById('myAccount').innerHTML = user.email;
 			//alert("Welcome: "+user.email);
   	} else {
         	document.getElementById("myAccount").setAttribute("hidden","");
