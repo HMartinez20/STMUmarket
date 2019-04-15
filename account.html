@@ -138,6 +138,7 @@ title: Account Page
 								<div id="menu1" class="tab-pane fade">
 									<h3>My Items</h3>
 									<p>Some content in menu 1.</p>
+									<div id="myListings"> </div>
 								</div>
 								<div id="menu2" class="tab-pane fade">
 									<h3>My Purchases</h3>
@@ -265,6 +266,51 @@ title: Account Page
 					document.getElementById("showUser").append(data.username);
 					document.getElementById("showName").append(data.first + " " + data.last);
 					document.getElementById("showEmail").append(data.email);
+					
+					
+					/* Show user's listings */
+					db.collection('items').where('seller', '==', data.username).get().then((snapshot) => {
+						console.log("geting seller listings");
+						var postNum = 0;
+						var cardImage;   
+						/* container for listings */
+						var listings = document.createElement("div");
+						/* row of listigs */
+						var dRow;
+						/* listing card, contains image, title, and price */
+						var card;
+						/* add a listing card for each listing */
+						snapshot.docs.forEach(doc => {
+							if (postNum % 4==0){
+								dRow = document.createElement("div");
+								dRow.className = "row";	
+							}
+							postNum+=1;
+					
+							var post = doc.data();
+							var postURL = "item.html#" + doc.id
+						
+							/* listing's title and price in card body */
+							firebase.storage().ref(post.image1).getDownloadURL().then((url) => {
+								console.log(url);
+								var cardBody = "<div class='card-body'><h4 class='card-title'>"
+								cardBody+= post.title + "</h4><p class='card-text'> Asking Price: " + post.price + "<p>";
+								cardBody+= "<a href=" + postURL + " class='btn btn-primary stretched-link'>See Posting</a></div>";
+								/*cardBody+= "<br> <a href=" + postURL +">Go To Posting</a></p></div>"; */
+								var cardImage = "<img class='card-image-top' src=" + url + " height='400' alt=''></img>";
+								card = document.createElement("div");
+								card.className = "card col-3";
+								card.style.cssText = 'max-width:40rem;'
+								card.innerHTML = cardImage + cardBody;
+								dRow.appendChild(card); 	
+							}); 
+							if (postNum % 4==0 || postNum==postCount){
+								listings.appendChild(dRow);	
+							}
+						})
+						document.getElementById("myListings").appendChild(listings);
+					})
+					/* end of listing code */	
 				}
 				else {
 					console.log("Requested document does not exist...");
