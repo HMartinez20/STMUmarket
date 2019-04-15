@@ -31,20 +31,20 @@ title: StMU Marketplace
 				<div id="filters">
 					<h5>Filters</h5>
 					<div class="pl-4">
-						<button id="price" type="button" class="btn btn-secondary dropdown-toggle d-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Prices</button> <br>
+						<button id="price" type="button" class="btn btn-secondary dropdown-toggle d-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Price</button> <br>
 						<div class="dropdown-menu" aria-labelledby="prices" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(15px, 78px, 0px);">
-							<button class="btn btn-dark" id="booksBtn" onclick="priceSort = 'asc';">Lowest</button>
-							<button class="btn btn-dark" id="furnitureBtn" onclick="priceSort = 'desc';">Highest</button>
+							<button class="btn btn-dark" id="booksBtn" onclick="filter = 'price'; order = 'asc';">Lowest</button>
+							<button class="btn btn-dark" id="furnitureBtn" onclick="filter = 'price'; order = 'desc';">Highest</button>
 						</div>
 						<button id="date" type="button" class="btn btn-secondary dropdown-toggle d-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Date</button> <br>
 						<div class="dropdown-menu" aria-labelledby="date" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(15px, 78px, 0px);">
-							<button class="btn btn-dark" id="oldest" onclick="dateSort = 'desc';">Oldest</button>
-							<button class="btn btn-dark" id="newest" onclick="dateSort = 'asc';">Newest</button>
+							<button class="btn btn-dark" id="oldest" onclick="filter = 'date'; order = 'desc';">Oldest</button>
+							<button class="btn btn-dark" id="newest" onclick="filter = 'date'; order = 'asc';">Newest</button>
 						</div>
 						<button id="reviews" type="button" class="btn btn-secondary dropdown-toggle d-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reviews</button> <br>
 						<div class="dropdown-menu" aria-labelledby="reviews" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(15px, 78px, 0px);">
-							<button class="btn btn-dark" id="booksBtn" onclick="ratingsSort = 'asc';">Lowest</button>
-							<button class="btn btn-dark" id="furnitureBtn" onclick="ratingsSort = 'desc';">Highest</button>
+							<button class="btn btn-dark" id="booksBtn" onclick="filter = 'rating'; order = 'asc';">Lowest</button>
+							<button class="btn btn-dark" id="furnitureBtn" onclick="filter = 'rating'; order = 'desc';">Highest</button>
 						</div>
 					</div>
 				</div><!-- End Filters -->
@@ -73,9 +73,8 @@ title: StMU Marketplace
 	
 <script id="genListings" src="search.js" data-search="generic"></script>
 <script>
-	var priceSort = 'asc';
-	var dateSort = 'asc';
-	var ratingsSort = 'desc';
+	var filter = 'price';
+	var order = 'asc';
 // 	$( document ).ready(function() {
 //   	firebase.auth().onAuthStateChanged(function(user) {
 //   		if (user) {
@@ -88,10 +87,7 @@ title: StMU Marketplace
 // 	});
   function genListings(search){
 	  document.getElementById("listings").innerHTML = '';
-	  console.log("price = " + priceSort);
-	  console.log("date = " + dateSort);
-	  console.log("ratings = " + ratingsSort);
-		db.collection("items").where("category", "==", search).get()
+		db.collection("items").where("category", "==", search).orderby(filter, order).get()
 			.then(function(querySnapshot){
 				querySnapshot.forEach(function(doc){ // doc.data() is never undefined for query doc snapshots
 					var placeholder = document.createElement("div");
@@ -100,7 +96,7 @@ title: StMU Marketplace
 					var card = document.createElement("div");
 					card.setAttribute("class","card");
 					card.innerHTML= '<img src="{{site.baseurl}}/Empty.jpg" class="card-img-top"/>'; 
-					card.innerHTML += '<div class="card-body"><a class="card-title" href="' + ('item.html#' + doc.id) + '" target="_blank">'+ doc.data().title +'</a><p class="card-text">'+ doc.data().price;
+					card.innerHTML += '<div class="card-body"><a class="card-title" href="' + ('item.html#' + doc.id) + '" target="_blank">'+ doc.data().title +'</a><p class="card-text">$'+ doc.data().price;
 					card.innerHTML += '</p></div>';
 					
 					placeholder.appendChild(card);
