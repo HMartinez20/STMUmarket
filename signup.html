@@ -7,13 +7,6 @@ title: Account Signup
     {% include header.html %} <!-- Jekyll Liquid command -->
     {% include fire.html %}
     <script>
-     firebase.auth().onAuthStateChanged(function(user){
-	 	if(user){
-			/* redirect if user is signed in*/
-			window.location = "https://hmartinez20.github.io/STMUmarket/";
-		}
-	});
-
       function whatever(){
 	var username = document.getElementById("username").value;
         var email = username + "@mail.stmarytx.edu";
@@ -31,6 +24,7 @@ title: Account Signup
 			bio: document.getElementById("bio").value
 		});
 	alert("Account created!");
+	window.location = "https://hmartinez20.github.io/STMUmarket/";
 		
 	}).catch(function(error) {
 			var errorCode = error.code;
