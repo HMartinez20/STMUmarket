@@ -115,22 +115,27 @@ title: Account Page
         </p>
 	      
         <div class="form-check mb-4">
-          <input class="form-check-input" name="group1" type="radio" id="radio-179" value="option1" checked>
+          <input class="form-check-input" name="group1" type="radio" id="radio-179" value="books" checked>
           <label class="form-check-label" for="radio-179">Books</label>
         </div>
 
         <div class="form-check mb-4">
-          <input class="form-check-input" name="group1" type="radio" id="radio-279" value="option2">
+          <input class="form-check-input" name="group1" type="radio" id="radio-279" value="clothing">
           <label class="form-check-label" for="radio-279">Clothing</label>
+        </div>
+				
+        <div class="form-check mb-4">
+          <input class="form-check-input" name="group1" type="radio" id="radio-379" value="electronics">
+          <label class="form-check-label" for="radio-379">Electronics</label>
         </div>
 
         <div class="form-check mb-4">
-          <input class="form-check-input" name="group1" type="radio" id="radio-379" value="option3">
-          <label class="form-check-label" for="radio-379">Furniture</label>
+          <input class="form-check-input" name="group1" type="radio" id="radio-479" value="furniture">
+          <label class="form-check-label" for="radio-479">Furniture</label>
         </div>
         <div class="form-check mb-4">
-          <input class="form-check-input" name="group1" type="radio" id="radio-479" value="option4">
-          <label class="form-check-label" for="radio-479">Other</label>
+          <input class="form-check-input" name="group1" type="radio" id="radio-579" value="other">
+          <label class="form-check-label" for="radio-579">Other</label>
         </div>
         <!-- Radio -->
 
@@ -177,6 +182,8 @@ title: Account Page
 	{% include footer.html %}
 </html>
 <script>
+	var currentUser;
+	
 	/* authentication state observer */
 	firebase.auth().onAuthStateChanged(function(user){
 	 	if(user){
@@ -185,8 +192,7 @@ title: Account Page
 			db.collection("users").doc(user.uid).get().then(function(doc) {
 				if (doc.exists){
 					var data = doc.data();
-					console.log("hello");
-					console.log(doc.data().username);
+					currentUser = data.username;
 					/* append username and name */
 					document.getElementById("showUser").append(data.username);
 					document.getElementById("showName").append(data.first + " " + data.last);
@@ -213,29 +219,36 @@ title: Account Page
 	function handleFileSelect(id){		
 		var metaData = {
 			customMetadata:{
-				'seller': id
+				'item': id
 			}
 		};
-		// Get file
-		var file = document.getElementById("file-select").files[0];
+		// Get file(s)
+		var fileList = document.getElementById("file-select");
+		var task = [];
+		
+		// Upload file(s) to storage
+		if(fileList.files.length != 0){
+				for(var i = 0; i < fileList.files.length; i++){
+					 var fileName = fileList.files[i].name;
 
-		// Create storage ref
-		const storageRef = storage.ref('posts/'+file.name);  // Reference to WHERE the image will be stored
+					 // Create storage ref
+					 const storageRef = storage.ref('posts/'+currentUser+'/'+dateFormatted+'_'+fileName);  // Reference to WHERE the image will be stored
 
-		// Upload File
-		var task = storageRef.put(file, metaData);
+					 task = storageRef.put(fileList.files[i], metaData);
 
-		//Upload progress
-		task.on('state_changed',
-			function progress(snapshot){
-			},
-			function error(err){
-				alert("Error!"+err);
-			},
-			function complete(){
-				alert("Uploaded!");
-			}
-		);	
+					 //Upload progress
+					 task.on('state_changed',
+							function progress(snapshot){
+							},
+							function error(err){
+								 alert(err);
+							},
+							function complete(){
+								 alert(fileName+"\nUploaded!");
+							}
+					 );
+				}
+		 }
 	}
 	
 	function writeNewItem(){
@@ -246,13 +259,13 @@ title: Account Page
 				selected = radios[i].value;
 				break;
 			}
-		}
-				
+		}		
 		db.collection("items").add({
 			category: selected,
 			title: document.getElementById("form34").value,
 			price: document.getElementById("form29").value,
-			description: document.getElementById("form8").value
+			description: document.getElementById("form8").value,
+			date: new Date()
 		})
 		.then(function(docRef){
 			console.log("ID = ", docRef.id);
