@@ -162,7 +162,7 @@ title: Account Page
 	 <div class="md-form">
                 <!-- IMPORTANT:  FORM's enctype must be "multipart/form-data" -->
                 <form method="post" action="upload-page.php" enctype="multipart/form-data">
-                <input name="filesToUpload[]" id="filesToUpload" type="file" multiple="" />
+                <input name="filesToUpload[]" id="filesToUpload" type="file" multiple />
                 </form>
           </div>
       </div>
@@ -223,7 +223,7 @@ title: Account Page
 			}
 		};
 		// Get file(s)
-		var fileList = document.getElementById("file-select");
+		var fileList = document.getElementById("filesToUpload");
 		var task = [];
 		
 		// Upload file(s) to storage
