@@ -7,7 +7,12 @@ title: Account Signup
     {% include header.html %} <!-- Jekyll Liquid command -->
     {% include fire.html %}
     <script>
-     
+     firebase.auth().onAuthStateChanged(function(user){
+	 	if(user){
+			/* redirect is user is signed in*/
+			window.location = "https://hmartinez20.github.io/STMUmarket/";
+		}
+	});
 
       function whatever(){
 	var username = document.getElementById("username").value;
