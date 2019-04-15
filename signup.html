@@ -25,15 +25,8 @@ title: Account Signup
 			username: username,
 			bio: document.getElementById("bio").value
 		});
-		/*
-		.then(function() {
-    			console.log("Document successfully written!");
-		})
-		.catch(function(error) {
-    			console.error("Error writing document: ", error);
-		}); */
 		
-		}).catch(function(error) {
+	}).catch(function(error) {
 			var errorCode = error.code;
 			var errorMessage = error.message;
 			if (errorCode === 'auth/wrong-password') {
@@ -48,22 +41,6 @@ title: Account Signup
 			});
 	      
 	}
-	
-	/*
-	db.collection("users").doc("samplelistings").set({
-    			email: "srodriguezgome@mail.stmarytx.edu",
-			first: "Salvador",
-			last: "Rodriguez",
-			username: "srodriguezgome",
-			bio: "Hello. I am a Junior at St Mary's."
-		})
-		.then(function() {
-    			console.log("Document successfully written!");
-		})
-		.catch(function(error) {
-    			console.error("Error writing document: ", error);
-		});
-		*/
     
     </script>
   </header>
