@@ -10,7 +10,8 @@ title: Account Signup
      
 
       function whatever(){
-        var email = (document.getElementById("username").value + "@mail.stmarytx.edu");
+	var username = document.getElementById("username").value;
+        var email = username + "@mail.stmarytx.edu";
         var password = document.getElementById("pass").value;
         console.log(email);
         console.log(password);
@@ -28,7 +29,24 @@ title: Account Signup
 				alert('invalid-email.');
 			}  	
 			});
+	      console.log(firebase.auth().currentUser.uid);
 	}
+	
+	/*
+	db.collection("users").doc("samplelistings").set({
+    			email: "srodriguezgome@mail.stmarytx.edu",
+			first: "Salvador",
+			last: "Rodriguez",
+			username: "srodriguezgome",
+			bio: "Hello. I am a Junior at St Mary's."
+		})
+		.then(function() {
+    			console.log("Document successfully written!");
+		})
+		.catch(function(error) {
+    			console.error("Error writing document: ", error);
+		});
+		*/
     
     </script>
   </header>
