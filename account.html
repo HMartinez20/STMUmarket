@@ -14,7 +14,7 @@ title: Account Page
 		<div id="fileSubmit">
 		</div>
 		
-		<!-- BODY WITH THE PRO PIC, USERNAMES AND EDIT PROFILE BUTTON -->
+		<!-- BODY WITH THE USERNAME AND EDIT PROFILE BUTTON -->
 		<div class="container-fluid">
 			<div class="row ml-5 mr-5">
 				<div class="col-xl-3">
@@ -27,33 +27,12 @@ title: Account Page
 				<h2 class = "ml-5" id="showUser"></h2>
 				<h4 class = "ml-5" id="showName"></h4>
 				
-				<!-- MY INFORMATION TABLE -->
-				<div class="container-fluid bg-light">
+			<!-- MY INFORMATION TABLE -->
+			<div class="container-fluid bg-light">
 			 <div class="row ml-5 mr-5"> 
 				 <div class = "col-xl-3">
-				 </div>
-				 <div class = "col-xl-9">
-					<table class="mt-5 mx-auto d-block table-sm. table">
-					    <thead> </thead>
-					    <tbody>
-					      <tr>
-						<td><p class="font-weight-bold">Email:</p></td>
-						<td><p id="showEmail"></p></td>
-					      </tr>
-					      <tr>
-						<td><p class="font-weight-bold">Contact Number:</p></td>
-						<td><p class=""> Cell Phone</p></td>
-					      </tr>
-					    </tbody>
-					 </table>		 
-				 </div>
-				
-			 </div>
-		</div>
-				 
-				
-				<!-- EDIT PROFILE BUTTON -->
-				<!-- Button to Open the Edit Profile -->
+					<!-- EDIT PROFILE BUTTON -->
+					<!-- Button to Open the Edit Profile -->
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Edit Profile</button>
 
 						<!-- The Modal -->
@@ -104,8 +83,30 @@ title: Account Page
 
 								</div>
 							</div>
-						</div>
-				<!-- EDIT PROFILE BUTTON ENDS -->
+						</div><!-- EDIT PROFILE BUTTON ENDS -->
+				 </div>
+				 
+				 <div class = "col-xl-9">
+					<table class="mt-5 mx-auto d-block table-sm. table">
+					    <thead> </thead>
+					    <tbody>
+					      <tr>
+						<td><p class="font-weight-bold">Email:</p></td>
+						<td><p id="showEmail"></p></td>
+					      </tr>
+					      <tr>
+						<td><p class="font-weight-bold">Contact Number:</p></td>
+						<td><p class=""> Cell Phone</p></td>
+					      </tr>
+					    </tbody>
+					 </table>		 
+				 </div>
+				
+			 </div>
+		</div>
+				 
+				
+				
 				
 			  </div> 
 			</div> 
@@ -259,7 +260,7 @@ title: Account Page
 	 	if(user){
 			console.log("signed in:",user.uid);
 			console.log("signed in:",user);
-			currentUser = user.email.substring(0, user.email.indexOf('@'));
+			currentUser = user.uid;
 			/* get user's data */
 			db.collection("users").doc(user.uid).get().then(function(doc) {
 				if (doc.exists){
