@@ -49,7 +49,7 @@ title: Account Page
 					<div class = "col-xl-9">
 						<div class="card">
 							<ul class="nav nav-pills nav-justified">
-								<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#home">My Information</a></li>
+								<li class="nav-item" onclick="getInfo();"><a class="nav-link active" data-toggle="tab" href="#home">My Information</a></li>
 								<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu1">My Listings</a></li>
 								<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu2">My Purchases</a></li>
 							</ul>
@@ -294,6 +294,11 @@ title: Account Page
 			alert("\n Error! Ask your administrator");
 			console.log("Error writing document ", error);
 		});
+	}
+</script>
+<script>
+	function getInfo(){
+		console.log("function called!!!");
 	}
 </script>
 
