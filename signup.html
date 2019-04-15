@@ -16,9 +16,9 @@ title: Account Signup
         console.log(email);
         console.log(password);
 
-        firebase.auth().createUserWithEmailAndPassword(email, password).then(function(user){
-		console.log(user.uid);
-		db.collection("users").doc(user.uid).set({
+        firebase.auth().createUserWithEmailAndPassword(email, password).then(function(){
+		console.log(firebase.auth().currentUser.uid);
+		db.collection("users").doc(firebase.auth().currentUser.uid).set({
     			email: email,
 			first: document.getElementById("firstName").value,
 			last: document.getElementById("lastName").value,
