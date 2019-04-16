@@ -95,6 +95,8 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		desc.innerHTML = data.description;
 		document.getElementById("itemDesc").appendChild(desc);
 		
+		var imgSrc = "{{site.baseurl}}/Empty.jpg";
+		if(doc.data().image1){ imgSrc = doc.data().image1; }
 		/* display main image */
 		var imgHTML = "<img style='position:absolute; TOP:350px; LEFT:300px; WIDTH:500px; HEIGHT:500px' src=" + imgSrc + "hspace='20'>"
 		var cardImage = document.createElement("div");
@@ -102,8 +104,6 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		document.getElementById("images").append(cardImage)
 		
 		/* get and display other images */
-		var imgSrc = "{{site.baseurl}}/Empty.jpg";
-		if(doc.data().image1){ imgSrc = doc.data().image1; }
 		
 		var img2 = "{{site.baseurl}}/Empty.jpg";
 		if(doc.data().image2){ 
