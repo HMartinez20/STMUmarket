@@ -516,10 +516,10 @@ title: Account Page
 					var docRef = db.collection("items").doc(id);
 					var mergeInfo = docRef.set( data, {merge:true} );
 				});
-			location.reload(true);
+			
 								       
-			}
-		);
+			});
+		location.reload(true);
 	}
 
 	
