@@ -21,11 +21,13 @@ title: StMU Marketplace
 						<button class="btn btn-dark" id="furnitureCatBtn" onclick="genListings('furniture');">Furniture</button>
 						<button class="btn btn-dark" id="otherCatBtn" onclick="genListings('other');">Other</button>
 					</div>
-					<span class="badge badge-primary" id="booksBadge" hidden>Books</span>
-					<span class="badge badge-primary" id="clothingBadge" hidden>Clothing</span>
-					<span class="badge badge-primary" id="electronicsBadge" hidden>Electronics</span>
-					<span class="badge badge-primary" id="furnitureBadge" hidden>Furniture</span>
-					<span class="badge badge-primary" id="otherBadge" hidden>Other</span>
+					<div id="badges">
+						<span class="badge badge-primary" id="booksBadge" hidden>Books</span>
+						<span class="badge badge-primary" id="clothingBadge" hidden>Clothing</span>
+						<span class="badge badge-primary" id="electronicsBadge" hidden>Electronics</span>
+						<span class="badge badge-primary" id="furnitureBadge" hidden>Furniture</span>
+						<span class="badge badge-primary" id="otherBadge" hidden>Other</span>
+					</div>
 				</div><!-- End Categories -->
 				<br>
 				<div id="filters">
@@ -86,9 +88,13 @@ title: StMU Marketplace
 					document.getElementById("listings").appendChild(placeholder);
         });
 			});
-    var badge = document.getElementById(search+"Badge");
-    if(badge.hasAttribute("hidden")){ badge.removeAttribute("hidden"); }
-    else{ badge.setAttribute("hidden",""); }
+	var badgeArray = ["books","clothing","electronics","furniture","other"];
+	badgeArray.forEach(function(item){
+		document.getElementById(item+"Badge").setAttribute("hidden","");
+	});
+	var badge = document.getElementById(search+"Badge");
+	if(badge.hasAttribute("hidden")){ badge.removeAttribute("hidden"); }
+//     else{ badge.setAttribute("hidden",""); }
   }
 
 </script>
