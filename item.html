@@ -25,6 +25,7 @@ title: Item
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-2">
+				<div id="otherImages"></div>
 			</div>
 			<div class="col-sm-4">
 				<div id="images"></div>
@@ -74,7 +75,7 @@ title: Item
 </html>
 
 <script>
-console.log("3:41");
+console.log("3:46");
 /* Code to get posting ID */
 var postId = window.location.hash.substring(1)
 console.log(postId);
@@ -118,10 +119,10 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		
 		var img2 = "{{site.baseurl}}/Empty.jpg";
 		if(doc.data().image2){ 
-			var img2HTML = "<img style='position:absolute; TOP:350px; LEFT:30px; WIDTH:125px; HEIGHT:125px' src=" + doc.data().image2 + "hspace='20'>"
+			var img2HTML = "<img style='WIDTH:125px; HEIGHT:125px' src=" + doc.data().image2 + "hspace='20'>"
 			var img2div = document.createElement("div");
 			img2div.innerHTML = img2HTML;
-			document.getElementById("images").append(img2div)
+			document.getElementById("otherImages").append(img2div)
 		}
 		
 		var img3 = "{{site.baseurl}}/Empty.jpg";
