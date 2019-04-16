@@ -113,7 +113,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		var imgHTML = "<img style='WIDTH:500px; HEIGHT:500px' src=" + imgSrc + "hspace='20'>"
 		var cardImage = document.createElement("div");
 		cardImage.innerHTML = imgHTML;
-		document.getElementById("images").append(cardImage)
+		document.getElementById("images").append(cardImage);
 		
 		/* get and display other images */
 		
@@ -122,7 +122,8 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 			var img2HTML = "<img style='WIDTH:125px; HEIGHT:125px' src=" + doc.data().image2 + "hspace='20'>"
 			var img2div = document.createElement("div");
 			img2div.innerHTML = img2HTML;
-			document.getElementById("otherImages").append(img2div)
+			document.getElementById("otherImages").append(img2div);
+			document.getElementById("otherImages").append("<br><br>");
 		}
 		
 		var img3 = "{{site.baseurl}}/Empty.jpg";
@@ -130,7 +131,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 			var img3HTML = "<img style='position:absolute; TOP:525px; LEFT:30px; WIDTH:125px; HEIGHT:125px' src=" + doc.data().image2 + "hspace='20'>"
 			var img3div = document.createElement("div");
 			img3div.innerHTML = img3HTML;
-			document.getElementById("images").append(img3div)
+			document.getElementById("otherImages").append(img3div);
 		}
 		
 		var img4 = "{{site.baseurl}}/Empty.jpg";
@@ -138,7 +139,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 			var img4HTML = "<img style='position:absolute; TOP:700px; LEFT:30px; WIDTH:125px; HEIGHT:125px' src=" + doc.data().image2 + "hspace='20'>"
 			var img4div = document.createElement("div");
 			img4div.innerHTML = img4HTML;
-			document.getElementById("images").append(img4div)
+			document.getElementById("otherImages").append(img4div);
 		}
 				 
 		/* <IMG STYLE="position:absolute; TOP:350px; LEFT:300px; WIDTH:450px; HEIGHT:500px" src="" hspace="20"> */
