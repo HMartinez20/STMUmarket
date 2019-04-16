@@ -252,21 +252,6 @@ title: Account Page
 					document.getElementById("showEmail").append(data.email);
 					document.getElementById("ProfileDesc").append(data.bio);
 					
-					/* update account info */
-					function updateAccount(){
-						console.log(user.uid);
-						return db.collection("users").doc(user.uid).update({
-							first: document.getElementById("inputFirstName").value,
-							/* enter update fields here*/
-						})
-						.then(function() {
-							console.log("Updated Account Info");
-						})
-						.catch(function(error) {
-							console.log("Error updating document: ", error);
-						});
-					}
-					
 					/* Show user's active listings */
 					db.collection('items').where('seller', '==', data.username).where('sold', '==', "no").get().then((snapshot) => {
 						console.log("getting active listings");
@@ -427,6 +412,21 @@ title: Account Page
 			console.log("Error writing document ", error);
 		});
 	}
+	
+	/* update account info */
+					function updateAccount(){
+						console.log(firebase.auth().currentUser.uid);
+						return db.collection("users").doc(firebase.auth().currentUser.uid).update({
+							first: document.getElementById("inputFirstName").value,
+							/* enter update fields here*/
+						})
+						.then(function() {
+							console.log("Updated Account Info");
+						})
+						.catch(function(error) {
+							console.log("Error updating document: ", error);
+						});
+					}
 	
 	function handleFileSelect(id){		
 		var metaData = {
