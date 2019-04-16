@@ -263,6 +263,37 @@ title: Account Page
 					document.getElementById("showEmail").append(data.email);
 					
 					
+					/* start test of wriet listing */
+					function writeNewItem(){
+		var selected = null;
+		var radios = document.getElementsByName("group1");
+		for(var i = 0; i < radios.length; i++){
+			if (radios[i].checked){
+				selected = radios[i].value;
+				break;
+			}
+		}		
+		db.collection("items").add({
+			category: selected,
+			title: document.getElementById("form34").value,
+			price: Number(document.getElementById("form29").value),
+			description: document.getElementById("form8").value,
+			date: new Date(),
+			seller: data.username,
+			sellerId: user.uid
+		})
+		.then(function(docRef){
+			console.log("ID = ", docRef.id);
+			handleFileSelect(docRef.id);
+		})
+		.catch(function(error){
+			alert("\n Error! Ask your administrator");
+			console.log("Error writing document ", error);
+		});
+	}
+					/* end write listing test */
+					
+					
 					/* Show user's listings */
 					db.collection('items').where('seller', '==', data.username).get().then((snapshot) => {
 						console.log("geting seller listings");
@@ -361,7 +392,7 @@ title: Account Page
 				}
 		 }
 	}
-	
+	/*
 	function writeNewItem(){
 		var selected = null;
 		var radios = document.getElementsByName("group1");
@@ -389,6 +420,7 @@ title: Account Page
 			console.log("Error writing document ", error);
 		});
 	}
+	*/
 </script>
 <script>
 	function getInfo(){
