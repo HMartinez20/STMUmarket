@@ -263,7 +263,7 @@ title: Account Page
 					/* update account info */
 					function updateAccount(){
 						console.log(user.uid);
-						db.collection("users").doc(user.uid).update({
+						return db.collection("users").doc(user.uid).update({
 							first: document.getElementById("inputFirstName").value,
 							/* enter update fields here*/
 						})
