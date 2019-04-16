@@ -243,6 +243,7 @@ title: Account Page
 </html>
 <script>
 	var currentUser;
+	var username; // for file handling
 	
 	/* authentication state observer */
 	firebase.auth().onAuthStateChanged(function(user){
@@ -250,6 +251,7 @@ title: Account Page
 			console.log("signed in:",user.uid);
 			console.log("signed in:",user);
 			currentUser = user.uid;
+			username = (user.email).substring(0, (user.email).indexOf('@'));
 			/* get user's data */
 			db.collection("users").doc(user.uid).get().then(function(doc) {
 				if (doc.exists){
@@ -428,57 +430,11 @@ title: Account Page
 	
 	const storage = firebase.storage(); // Reference to storage service
 	var fileButton = document.getElementById("file-upload");
-	var d = new Date();
-    	var dateFormatted = d.getDate().toString().padStart(2, '0')+(d.getMonth()+1).toString().padStart(2, '0')+d.getFullYear().toString();
 	
-	function handleFileSelect(id){		
-		var metaData = {
-			customMetadata:{
-				'item': id
-			}
-		};
-		// Get file(s)
-		var fileList = document.getElementById("filesToUpload");
-		var task = [];
-		
-		// Upload file(s) to storage
-		if(fileList.files.length != 0){
-			window.imagePaths =[];
-				for(var i = 0; i < fileList.files.length; i++){
-					 var fileName = fileList.files[i].name;
-
-					 // Create storage ref to where image will be stored
-					 const storageRef = storage.ref('posts/'+currentUser+'/'+dateFormatted+'_'+fileName);
-					 window.imagePaths[i] = ('posts/'+currentUser+'/'+dateFormatted+'_'+fileName);
-
-					 task = storageRef.put(fileList.files[i], metaData);
-
-					 //Upload progress
-					 task.on('state_changed',
-							function progress(snapshot){
-							},
-							function error(err){
-								 alert(err);
-							},
-							function complete(){
-								 alert(fileName+"\nUploaded!");
-							}
-					 );
-				}
-		 }
-		else{
-			window.imagePaths = ["", "", "", ""];
-			console.log("else");	
-		} /* end of else */
-		
-		db.collection("items").doc(id).set({
-			image1: window.imagePaths[0],
-			image2: window.imagePaths[1],
-			image3: window.imagePaths[2],
-			image4: window.imagePaths[3]
-		}, { merge: true });
-	}
-
+	var d = new Date();
+    var dateFormatted = d.getDate().toString().padStart(2, '0')+(d.getMonth()+1).toString().padStart(2, '0')+d.getFullYear().toString();
+	
+	console.log(window.data.username);
 	function writeNewItem(){
 		var selected = null;
 		var radios = document.getElementsByName("group1");
@@ -494,11 +450,11 @@ title: Account Page
 			price: Number(document.getElementById("form29").value),
 			description: document.getElementById("form8").value,
 			date: new Date(),
-			seller: window.data.username,
+			seller: username,
 			sellerId: firebase.auth().currentUser.uid,
 			sold: "no",
-			soldTo: "",
-			/* image1: window.imagePaths[0] */
+			soldTo: ""
+			// image1: window.imagePaths[0]
 		})
 		.then(function(docRef){
 			console.log("ID = ", docRef.id);
@@ -509,6 +465,78 @@ title: Account Page
 			console.log("Error writing document ", error);
 		});
 	}
+	
+	function handleFileSelect(id){		
+		var metaData = {
+			customMetadata:{
+				'item': id
+			}
+		};
+		// Get file(s)
+		var fileList = document.getElementById("filesToUpload");
+		
+		// Upload file(s) to storage
+		if(fileList.files.length != 0){
+			window.imagePaths =[];
+			var img;
+			// Upload individual images
+			for(var i = 0; i < fileList.files.length; i++){
+				img = "image"+(i+1);
+				var fileName = fileList.files[i].name;
+				
+				// Upload Image
+				uploadImg(fileList.files[i], metaData, id, fileName, img);
+				
+				 // Create storage ref to where image will be stored
+				 const storageRef = storage.ref('posts/'+username+'/'+dateFormatted+'_'+fileName);
+				 window.imagePaths[i] = ('posts/'+currentUser+'/'+dateFormatted+'_'+fileName);
+
+				 task = storageRef.put(fileList.files[i], metaData);
+
+				 //Upload progress
+			 	task.on('state_changed',
+					function progress(snapshot){},
+					function error(err){ alert(err); },
+					function complete(){ alert(fileName+"\nUploaded!"); }
+				 );
+			}
+			alert("Posted!");
+		 }
+		else{
+			window.imagePaths = ["", "", "", ""];
+			console.log("else");	
+		} /* end of else */
+		
+		db.collection("items").doc(id).set({
+			image1: window.imagePaths[0],
+			image2: window.imagePaths[1],
+			image3: window.imagePaths[2],
+			image4: window.imagePaths[3]
+		}, { merge: true });
+	}
+	
+	function uploadImg(file, metaData, id, fileName, img){
+		var storageRef = storage.ref('posts/'+username+'/'+id+'/'+ fileName);  // Reference to WHERE the image will be stored
+		var task = storageRef.put(file, metaData);
+		
+		// Upload Progress
+		task.on('state_changed', 
+			function(snapshot){},
+			function(error){},
+			function(){
+				alert(fileName+"\nUploaded!");
+				task.snapshot.ref.getDownloadURL().then(function(downloadURL){
+					console.log(downloadURL);
+					var data = {};
+					data[img] = downloadURL;
+					var docRef = db.collection("items").doc(id);
+					var mergeInfo = docRef.set( data, {merge:true} );
+				});
+			}
+		);
+	}
+
+	
 	
 </script>
 <script>
