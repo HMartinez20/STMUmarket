@@ -284,15 +284,12 @@ title: Account Page
 						var postCount = snapshot.size;
 						var postNum = 0;
 						var cardImage;   
-						/* container for listings */
-						var listings = document.createElement("div");
-						/* row of listigs */
-						var dRow;
-						/* listing card, contains image, title, and price */
+						var listings = document.createElement("div"); /* container for listings */
+						var dRow; /* row of listings */
 						var card;
 						/* add a listing card for each listing */
 						snapshot.docs.forEach(doc => {
-							if (postNum % 3==0){
+							if (postNum % 3==0){ /* start new row */
 								dRow = document.createElement("div");
 								dRow.className = "row";	
 							}
@@ -304,18 +301,16 @@ title: Account Page
 							/* listing's title and price in card body */
 							var imgSrc = "{{site.baseurl}}/Empty.jpg";
 							if(post.image1){ imgSrc = post.image1; }
-							
-							
-								var cardBody = "<div class='card-body'><h4 class='card-title'>"
-								cardBody+= post.title + "</h4><p class='card-text'> Asking Price: " + post.price + "<p>";
-								cardBody+= "<a href=" + postURL + " class='btn btn-primary stretched-link'>See Posting</a></div>";
-								/*cardBody+= "<br> <a href=" + postURL +">Go To Posting</a></p></div>"; */
-								var cardImage = "<img class='card-image-top' src=" + imgSrc + " height='350' alt=''></img>";
-								card = document.createElement("div");
-								card.className = "card col-3";
-								card.style.cssText = 'max-width:40rem;'
-								card.innerHTML = cardImage + cardBody;
-								dRow.appendChild(card); 	
+							var cardBody = "<div class='card-body'><a class='card-title' href=" + ("item.html#" + doc.id); 
+							cardBody+= ">" + post.title + "</a><p class='card-text'> Asking Price: " + post.price + "<p></div>";
+							/* cardBody+= "<a href=" + postURL + " class='btn btn-primary stretched-link'>See Posting</a></div>"; */
+							/*cardBody+= "<br> <a href=" + postURL +">Go To Posting</a></p></div>"; */
+							var cardImage = "<img class='card-image-top' src=" + imgSrc + " height='350' alt=''></img>";
+							card = document.createElement("div");
+							card.className = "card col-3";
+							card.style.cssText = 'max-width:40rem;'
+							card.innerHTML = cardImage + cardBody;
+							dRow.appendChild(card); 	
 					
 							if (postNum % 3==0 || postNum==postCount){
 								listings.appendChild(dRow);	
