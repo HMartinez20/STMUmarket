@@ -68,7 +68,7 @@ title: Account Page
 												<label for="inputBio">Bio</label>
 												<input type="text" class="form-control" id="inputBio" placeholder="About yourself">
 											</div>
-											<button type="submit" class="btn btn-primary" onclick="updateAccount();">Submit</button>
+											<button type="submit" class="btn btn-primary" onclick="updateUser();">Submit</button>
 								</form>
 									</div>
 
@@ -391,9 +391,9 @@ title: Account Page
 		db.collection("users").doc(currentUser).set({
 			first: document.getElementById("inputFirstName"),
 			last: document.getElementById("inputLastName"),
-			username: document.getElementById("inputUserName"),
+			/* username: document.getElementById("inputUserName"), */
 			bio: document.getElementById("inputBio")
-		}).then(function {
+		} merge: true).then(function {
 			alert("Account updated!");
 		}
 	}
@@ -526,9 +526,3 @@ title: Account Page
 	
 	
 </script>
-<script>
-	function getInfo(){
-		console.log("function called!!!");
-	}
-</script>
-
