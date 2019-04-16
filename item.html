@@ -101,8 +101,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 				$('#contact').popover(
 					{
 					html:true,
-					content: "To contact, send email to " + doc.data().email + " <br> and include 'STMUM Item: "+
-						window.postId+ "' as the subject",
+					content: "To contact, send email to " + doc.data().email + " <br> and include 'STMUM Item: "+window.postId+ "' as the subject",
 					trigger: "focus"
 					}				
 				);
