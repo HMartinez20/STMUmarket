@@ -472,9 +472,9 @@ title: Account Page
 		} /* end of else */
 		
 		db.collection("items").doc(id).set({
-			image1: window.imagePaths[0]
-			image2: window.imagePaths[1]
-			image3: window.imagePaths[2]
+			image1: window.imagePaths[0],
+			image2: window.imagePaths[1],
+			image3: window.imagePaths[2],
 			image4: window.imagePaths[3]
 		}, { merge: true });
 	}
