@@ -423,16 +423,18 @@ title: Account Page
 			}
 		};
 		// Get file(s)
-		window.fileList = document.getElementById("filesToUpload");
+		var fileList = document.getElementById("filesToUpload");
 		var task = [];
 		
 		// Upload file(s) to storage
 		if(fileList.files.length != 0){
+			window.imagePaths =[];
 				for(var i = 0; i < fileList.files.length; i++){
 					 var fileName = fileList.files[i].name;
 
 					 // Create storage ref to where image will be stored
-					 const storageRef = storage.ref('posts/'+currentUser+'/'+dateFormatted+'_'+fileName);  
+					 const storageRef = storage.ref('posts/'+currentUser+'/'+dateFormatted+'_'+fileName);
+					 window.imagePaths[i] = ('posts/'+currentUser+'/'+dateFormatted+'_'+fileName);
 
 					 task = storageRef.put(fileList.files[i], metaData);
 
@@ -450,6 +452,7 @@ title: Account Page
 				}
 		 }
 		else{
+			window.imagePaths[0] = "";
 			console.log("else");	
 		} /* end of else */
 	}
@@ -473,7 +476,7 @@ title: Account Page
 			sellerId: firebase.auth().currentUser.uid,
 			sold: "no",
 			soldTo: "",
-			image1: 'posts/'+currentUser+'/'+dateFormatted+'_'+window.fileList.files[0].name
+			image1: window.imagePaths[0]
 		})
 		.then(function(docRef){
 			console.log("ID = ", docRef.id);
