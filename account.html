@@ -117,7 +117,7 @@ title: Account Page
 					<div class = "col-xl-9">
 						<div class="card">
 							<ul class="nav nav-pills nav-justified">
-								<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#menu1">My Active Listings</a></li>
+								<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu1">My Active Listings</a></li>
 								<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu2">My Sold Listings</a></li>
 								<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu3">My Purchases</a></li>
 							</ul>
@@ -261,7 +261,7 @@ title: Account Page
 					document.getElementById("ProfileDesc").append(data.bio);
 					
 					/* Show user's active listings */
-					db.collection('items').where('seller', '==', data.username).get().then((snapshot) => {
+					db.collection('items').where('seller', '==', data.username).where('sold', '==', "no").get().then((snapshot) => {
 						console.log("geting seller listings");
 						var postCount = snapshot.size;
 						var postNum = 0;
