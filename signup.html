@@ -21,7 +21,8 @@ title: Account Signup
 			first: document.getElementById("firstName").value,
 			last: document.getElementById("lastName").value,
 			username: username,
-			bio: document.getElementById("bio").value
+			bio: document.getElementById("bio").value,
+			phone: document.getElementById("phoneNumber").value,
 		}).then(function(){
 			alert("Account created!");
 			window.location = "https://hmartinez20.github.io/STMUmarket/";
@@ -70,6 +71,9 @@ title: Account Signup
 	  <!-- last name -->
 	  <label for="last"><b>Last Name</b></label><br>
       <input type="text" placeholder="Enter last name" name="last" id="lastName" ><br>
+     <!-- phone number -->
+	  <label for="phone number"><b>Phone Number (Optional)</b></label><br>
+      <input type="text" placeholder="Enter phone number 1234567890" name="phone" id="phoneNumber" ><br>
 	  <!-- user bio -->
 	  <label for="userInfo"><b>Enter something about yourself!</b></label><br>
       <input type="text" placeholder="I am a Junior at St Mary's" name="userInfo" id="bio" ><br>
