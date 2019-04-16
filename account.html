@@ -449,6 +449,9 @@ title: Account Page
 					 );
 				}
 		 }
+		else{
+			console.log("else");	
+		} /* end of else */
 	}
 
 	function writeNewItem(){
@@ -469,7 +472,8 @@ title: Account Page
 			seller: window.data.username,
 			sellerId: firebase.auth().currentUser.uid,
 			sold: "no",
-			soldTo: ""
+			soldTo: "",
+			image1: 'posts/'+currentUser+'/'+dateFormatted+'_'+fileList.files[0].name
 		})
 		.then(function(docRef){
 			console.log("ID = ", docRef.id);
