@@ -422,6 +422,7 @@ title: Account Page
 		.then(function(docRef){
 			console.log("ID = ", docRef.id);
 			handleFileSelect(docRef.id);
+			location.reload(true);
 		})
 		.catch(function(error){
 			alert("\n Error! Ask your administrator");
