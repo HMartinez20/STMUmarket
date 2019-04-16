@@ -27,10 +27,10 @@ title: Item
 			<div class="col-sm-2">
 				<div id="otherImages"></div>
 			</div>
-			<div class="col-sm-4">
+			<div class="col-sm-5">
 				<div id="images"></div>
 			</div>
-			<div class="col-sm-6">
+			<div class="col-sm-5">
 				<!--<div id="postInfo"style="position: absolute; top:350px; left:950px; width:700px; height:25px"></div>-->
 				<div id="postInfo" ></div>
 			
@@ -119,7 +119,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		
 		var img2 = "{{site.baseurl}}/Empty.jpg";
 		if(doc.data().image2){ 
-			var img2HTML = "<img style='WIDTH:125px; HEIGHT:125px' src=" + doc.data().image2 + "hspace='20'><br><br>"
+			var img2HTML = "<img style='WIDTH:125px; HEIGHT:125px' src=" + doc.data().image2 + "hspace='20'><br><br><br>"
 			var img2div = document.createElement("div");
 			img2div.innerHTML = img2HTML;
 			document.getElementById("otherImages").append(img2div);
@@ -127,7 +127,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		
 		var img3 = "{{site.baseurl}}/Empty.jpg";
 		if(doc.data().image3){ 
-			var img3HTML = "<img style='WIDTH:125px; HEIGHT:125px' src=" + doc.data().image2 + "hspace='20'><br><br>"
+			var img3HTML = "<img style='WIDTH:125px; HEIGHT:125px' src=" + doc.data().image2 + "hspace='20'><br><br><br>"
 			var img3div = document.createElement("div");
 			img3div.innerHTML = img3HTML;
 			document.getElementById("otherImages").append(img3div);
@@ -135,7 +135,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		
 		var img4 = "{{site.baseurl}}/Empty.jpg";
 		if(doc.data().image4){ 
-			var img4HTML = "<img style='WIDTH:125px; HEIGHT:125px' src=" + doc.data().image2 + "hspace='20'><br><br>"
+			var img4HTML = "<img style='WIDTH:125px; HEIGHT:125px' src=" + doc.data().image2 + "hspace='20'><br><br><br>"
 			var img4div = document.createElement("div");
 			img4div.innerHTML = img4HTML;
 			document.getElementById("otherImages").append(img4div);
