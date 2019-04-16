@@ -21,9 +21,7 @@ title: Account Page
 			
 				<div class="col-xl-3">
 				 	<button type="button" class="mt-5 mx-auto d-block bg-transparent text-dark btn btn-primary" data-toggle="collapse" data-target="#ProfileDesc">About Myself</button>
-					  <div id="ProfileDesc" class="ml-3 collapse">
-							<p> Some Description </p>
-					  </div>
+					  <div id="ProfileDesc" class="ml-3 collapse"></div>
 				</div>
 			
 			<div class="col-xl-9">
@@ -261,6 +259,7 @@ title: Account Page
 					document.getElementById("showUser").append(data.username);
 					document.getElementById("showName").append(data.first + " " + data.last);
 					document.getElementById("showEmail").append(data.email);
+					document.getElementById("ProfileDesc").append(data.bio);
 					
 					/* Show user's listings */
 					db.collection('items').where('seller', '==', data.username).get().then((snapshot) => {
