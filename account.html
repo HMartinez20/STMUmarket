@@ -422,7 +422,7 @@ title: Account Page
 		.then(function(docRef){
 			console.log("ID = ", docRef.id);
 			handleFileSelect(docRef.id);
-			location.reload(true);
+	
 		})
 		.catch(function(error){
 			alert("\n Error! Ask your administrator");
@@ -515,7 +515,9 @@ title: Account Page
 					data[img] = downloadURL;
 					var docRef = db.collection("items").doc(id);
 					var mergeInfo = docRef.set( data, {merge:true} );
-				});
+				}
+			location.reload(true);
+								       );
 			}
 		);
 	}
