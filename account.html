@@ -256,7 +256,7 @@ title: Account Page
 			/* get user's data */
 			db.collection("users").doc(user.uid).get().then(function(doc) {
 				if (doc.exists){
-					var data = doc.data();
+					window.data = doc.data();
 					/* append username and name */
 					document.getElementById("showUser").append(data.username);
 					document.getElementById("showName").append(data.first + " " + data.last);
@@ -376,7 +376,7 @@ title: Account Page
 			price: Number(document.getElementById("form29").value),
 			description: document.getElementById("form8").value,
 			date: new Date(),
-			seller: firebase.auth().currentUser.uid,
+			seller: window.data.username,
 			sellerId: firebase.auth().currentUser.uid
 		})
 		.then(function(docRef){
