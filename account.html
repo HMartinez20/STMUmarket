@@ -416,7 +416,7 @@ title: Account Page
 	/* update account info */
 					function updateAccount(){
 						console.log(firebase.auth().currentUser.uid);
-						db.collection("users").doc(firebase.auth().currentUser.uid).update({
+						return db.collection("users").doc(firebase.auth().currentUser.uid).update({
 							first: document.getElementById("inputFirstName").value,
 							last: document.getElementById("inputLastName").value,
 							username: document.getElementById("inputUserName").value,
