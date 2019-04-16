@@ -8,6 +8,10 @@ title: Account Signup
     {% include fire.html %}
     <script>
       function whatever(){
+	if(document.getElementById("pass").value != document.getElementById("passwordRepeat").value){
+		alert("Passwords do not match");
+		return;
+	}
 	var username = document.getElementById("username").value;
         var email = username + "@mail.stmarytx.edu";
         var password = document.getElementById("pass").value;
