@@ -418,6 +418,11 @@ title: Account Page
 						console.log(firebase.auth().currentUser.uid);
 						db.collection("users").doc(firebase.auth().currentUser.uid).update({
 							first: document.getElementById("inputFirstName").value,
+							last: document.getElementById("inputLastName").value,
+							username: document.getElementById("inputUserName").value,
+							bio: document.getElementById("inputBio").value,
+							
+							
 							/* enter update fields here*/
 						})
 						.then(function() {
