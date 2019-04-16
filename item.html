@@ -25,7 +25,23 @@ title: Item
 	<div class="row">
 		<div class="col-sm-2">Hello</div>
 		<div class="col-sm-4">Col 2</div>
-		<div class="col-sm-6"> Supp</div>
+		<div class="col-sm-6">
+			<button class = "btn btn-primary" id="contactPopover" title="Seller Contact Information"
+				data-html="true"
+				data-content="To contact, email xxxxxxxxx@mail.stmarytx.edu <br>
+					      and include STMUM and posting number as email subject"
+				data-placement="bottom"
+				data-trigger="focus" 
+				data-toggle="popover">
+					Contact Seller
+	 		 </button>
+
+		
+			<div class="card">
+			<div class="card-header"> Description </div>
+			<div class="card-body" id="itemDesc"> </div>
+			</div>
+		</div>
 	  </div>
 	  
 	  
@@ -40,20 +56,7 @@ title: Item
 			echo"hh";			?>
 					
 					<!-- This Button triggers a popup that gives seller contact info-->
-				<button class = "btn btn-primary" id="contactPopover" title="Seller Contact Information"
-				data-html="true"
-				data-content="To contact, email xxxxxxxxx@mail.stmarytx.edu <br>
-					      and include STMUM and posting number as email subject"
-				data-placement="bottom"
-				data-trigger="focus" 
-				data-toggle="popover">
-					Contact Seller
-	  </button>
-
-		
-			<div class="card">
-			<div class="card-header"> Description </div>
-			<div class="card-body" id="itemDesc"> </div>
+				
 		
 		
 		
@@ -63,6 +66,7 @@ title: Item
 </html>
 
 <script>
+console.log("3:34");
 /* Code to get posting ID */
 var postId = window.location.hash.substring(1)
 console.log(postId);
