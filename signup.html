@@ -60,10 +60,10 @@ title: Account Signup
       <label for "email"> @mail.stmarytx.edu </label><br>
 
       <label for="psw"><b>Password(must be at least 9 characters long)</b></label><br>
-      <input type="password" placeholder="Enter Password" name="psw" id="pass" ><br>
+      <input type="password" placeholder="Enter Password" name="psw" id="pass" onkeyup='check();' ><br>
 
       <label for="psw-repeat"><b>Repeat Password</b></label><br>
-      <input type="password" placeholder="Repeat Password" name="psw-repeat" id="passwordRepeat" required><br>
+      <input type="password" placeholder="Repeat Password" name="psw-repeat" id="passwordRepeat" onkeyup='check();' required><br>
 
       <!-- first name -->
 	  <label for="first"><b>First Name</b></label><br>
