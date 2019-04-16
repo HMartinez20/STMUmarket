@@ -21,8 +21,19 @@ title: Item
 </style>
   <body>
     {% include navBar.html %}
-     	
-	  <div id="images"></div> 
+
+     	<!--<div id="images"></div> -->
+		<!-- BODY WITH THE USERNAME AND EDIT PROFILE BUTTON -->
+		<!-- <div class="container-fluid"> -->
+		<div class="container-fluid">
+		<!--<div style="margin-left:45px; margin-right:45px;" > -->
+			<div class="row ml-5 mr-5">
+				<div class="col-xl-5 bg-light">
+					<div id="images"></div>
+				</div>
+			</div>
+			
+			<div class="col-xl-7">
 				<div id="postInfo"style="position: absolute; top:350px; left:950px; width:700px; height:25px"></div>
 				<div style="position: absolute; top:500px; left:950px; width:400px; height:25px"></div>
 					
@@ -40,10 +51,10 @@ title: Item
 			<div class="card-header"> Description </div>
 			<div class="card-body" id="itemDesc"> </div>
 			</div>
-				
+			</div>	
 		
 		<br><br>
-		
+		</div>
 		
 	 	<?php
 			echo"hh";			?>
@@ -131,17 +142,24 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 });
 	
 </script>
-		<!--Script to toggle popover-->
+		<!--Script to toggle popover
 <script >
 	$(document).ready(function () 
 		{ $("[data-toggle=popover]").popover(); });
 </script>
-
+-->
 
 <script>
 window.onload = function() {
 	if (firebase.auth().currentUser){
 		console.log("Signed In")
+		$("[data-toggle=popover]").popover(
+				{
+				html:true,
+				content: "To contact, send email to " + "PLACEHOLDER" + " <br> and include STMUM and posting number as email subject",
+				trigger: "focus"
+				}				
+			);
 	}
 	else{
 		console.log("Not signed In")
