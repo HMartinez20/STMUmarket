@@ -458,7 +458,7 @@ title: Account Page
 		
 		db.collection("items").doc(id).set({
 			image1: window.imagePaths[0]
-		});
+		}, { merge: true });
 	}
 
 	function writeNewItem(){
