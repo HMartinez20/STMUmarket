@@ -69,7 +69,7 @@ title: Item
 </html>
 
 <script>
-console.log("5:06");
+console.log("6:01");
 /* Code to get posting ID */
 var postId = window.location.hash.substring(1)
 console.log(postId);
@@ -101,7 +101,8 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 				$('#contact').popover(
 					{
 					html:true,
-					content: "To contact, send email to " + doc.data().email + " <br> and include STMUM and posting number as email subject",
+					content: "To contact, send email to " + doc.data().email + " <br> and include 'STMUM Item: "+
+						window.postId+ "' as the subject",
 					trigger: "focus"
 					}				
 				);
