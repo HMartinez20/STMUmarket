@@ -34,7 +34,7 @@ title: Item
 				<!--<div id="postInfo"style="position: absolute; top:350px; left:950px; width:700px; height:25px"></div>-->
 				<div id="postInfo" ></div>
 			
-				<button class = "btn btn-primary" id="contactPopover" title="Seller Contact Information"
+				<button class = "btn btn-primary" id="contact" title="Seller Contact Information"
 					data-html="true"
 					data-content="To contact, email xxxxxxxxx@mail.stmarytx.edu <br>
 					      and include STMUM and posting number as email subject"
@@ -102,6 +102,19 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		postHead.innerHTML+= "<h3>Price: " + price + "</h3>";
 		document.getElementById("postInfo").appendChild(postHead);
 		
+		db.collection("users").doc().get(data.sellerId).then(function(doc) {
+			if(doc.exists){
+				$('#contact').popover(
+					{
+					html:true,
+					content: "To contact, send email to " + doc.data().email + " <br> and include STMUM and posting number as email subject",
+					trigger: "focus"
+					}				
+				);
+			}
+		)};
+		
+		
 		/* display description*/
 		var desc = document.createElement("p");
 		desc.innerHTML = data.description;
@@ -164,13 +177,6 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 window.onload = function() {
 	if (firebase.auth().currentUser){
 		console.log("Signed In")
-		$("[data-toggle=popover]").popover(
-				{
-				html:true,
-				content: "To contact, send email to " + "PLACEHOLDER" + " <br> and include STMUM and posting number as email subject",
-				trigger: "focus"
-				}				
-			);
 	}
 	else{
 		console.log("Not signed In")
