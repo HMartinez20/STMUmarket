@@ -455,6 +455,10 @@ title: Account Page
 			window.imagePaths[0] = "";
 			console.log("else");	
 		} /* end of else */
+		
+		db.collection("items").doc(id).set({
+			image1: window.imagePaths[0]
+		});
 	}
 
 	function writeNewItem(){
@@ -476,7 +480,7 @@ title: Account Page
 			sellerId: firebase.auth().currentUser.uid,
 			sold: "no",
 			soldTo: "",
-			image1: window.imagePaths[0]
+			/* image1: window.imagePaths[0] */
 		})
 		.then(function(docRef){
 			console.log("ID = ", docRef.id);
