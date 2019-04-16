@@ -232,8 +232,8 @@ title: Account Page
 </html>
 <script>
 	const storage = firebase.storage(); // Reference to storage service
-	var currentUser;
-	var username; // for file handling
+	var currentUser; // set to user's ID
+	var username; // for file handling, set to user's username
 	
 	/* authentication state observer */
 	firebase.auth().onAuthStateChanged(function(user){
@@ -377,6 +377,26 @@ title: Account Page
 			window.location = "https://hmartinez20.github.io/STMUmarket/login.html";
 		}
 	});
+	
+	function updateUser(){
+// 		var email = document.getElementById().val;
+		
+// 		var user = firebase.auth().currentUser; // Reference Firebase Authentication
+// 		user.updateEmail(email).then(function() {
+// 		  // Update successful.
+// 		}).catch(function(error) {
+// 		  // An error happened.
+// 		});
+		
+		db.collection("users").doc(currentUser).set({
+			first: document.getElementById("inputFirstName"),
+			last: document.getElementById("inputLastName"),
+			username: document.getElementById("inputUserName"),
+			bio: document.getElementById("inputBio")
+		}).then(function {
+			alert("Account updated!");
+		}
+	}
 	
 	var d = new Date();
     var dateFormatted = d.getDate().toString().padStart(2, '0')+(d.getMonth()+1).toString().padStart(2, '0')+d.getFullYear().toString();
