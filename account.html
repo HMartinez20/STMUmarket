@@ -467,7 +467,9 @@ title: Account Page
 			description: document.getElementById("form8").value,
 			date: new Date(),
 			seller: window.data.username,
-			sellerId: firebase.auth().currentUser.uid
+			sellerId: firebase.auth().currentUser.uid,
+			sold: "no",
+			soldTo: ""
 		})
 		.then(function(docRef){
 			console.log("ID = ", docRef.id);
