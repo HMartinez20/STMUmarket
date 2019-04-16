@@ -22,26 +22,29 @@ title: Item
   <body>
     {% include navBar.html %}
 
-     	<div id="images"></div>
+     	<!--<div id="images"></div> -->
+		<!-- BODY WITH THE USERNAME AND EDIT PROFILE BUTTON -->
+		<!-- <div class="container-fluid"> -->
 		
-	<div id="postInfo"style="position: absolute; top:350px; left:950px; width:700px; height:25px"></div>
-	<div style="position: absolute; top:500px; left:950px; width:400px; height:25px">
-		
-		
-	 	
-		<?php
-			echo"hh";			?>
-	
-		<!-- This Button triggers a popup that gives seller contact info-->
+		<div style="margin-left:45px; margin-right:45px;" >
+			<div class="row ml-5 mr-5">
+				<div class="col-xl-5 bg-light">
+					<div id="images"></div>
+				</div>
+			</div>
+			
+			<div class="col-xl-7">
+				<div id="postInfo"style="position: absolute; top:350px; left:950px; width:700px; height:25px"></div>
+				<div style="position: absolute; top:500px; left:950px; width:400px; height:25px">
+					
+					<!-- This Button triggers a popup that gives seller contact info-->
 		<button class = "btn btn-primary" id="contactPopover" title="Seller Contact Information"
 			data-html="true"
 			data-content="To contact, email xxxxxxxxx@mail.stmarytx.edu <br>
 				      and include STMUM and posting number as email subject"
 			data-placement="bottom"
 			data-trigger="focus" 
-			data-toggle="popover">
-				Contact Seller
-		</button>
+			data-toggle="popover">Contact Seller</button>
 		
 		<br><br>
 		
@@ -53,10 +56,17 @@ title: Item
 	</DIV>	
 		
 		<br><br>
+			</div>
+		
+	 	<?php
+			echo"hh";			?>
+	
+		
 	
   </body>
-  {% include footer.html %}
+  <!-- {% include footer.html %} -->
 </html>
+
 <script>
 /* Code to get posting ID */
 var postId = window.location.hash.substring(1)
