@@ -244,7 +244,7 @@ title: Account Page
 			db.collection("users").doc(user.uid).get().then(function(doc) {
 				if (doc.exists){
 					window.data = doc.data();
-					/* append username and name */
+					/* append user info */
 					document.getElementById("showUser").append(data.username);
 					document.getElementById("showName").append(data.first + " " + data.last);
 					document.getElementById("showEmail").append(data.email);
@@ -285,10 +285,9 @@ title: Account Page
 						})
 						document.getElementById("myActiveListings").appendChild(listings);
 					})
-					/* end of listing code */	
+					/* end of active listing code */	
 					
 					/* code for sold listings */
-					/* code for purchased listings */
 					db.collection('items').where('seller', '==', data.username).where('sold', '==', "yes").get().then((snapshot) => {
 						console.log("getting sold listings");
 						var postCount = snapshot.size;
@@ -323,7 +322,6 @@ title: Account Page
 						})
 						document.getElementById("mySoldListings").appendChild(listings);
 					})
-					/* end purchased listing */
 					/* end of sold listings */
 					
 					/* code for purchased listings */
@@ -361,7 +359,7 @@ title: Account Page
 						})
 						document.getElementById("myPurchases").appendChild(listings);
 					})
-					/* end purchased listing */
+					/* end of purchased listings */
 				}
 				else {
 					console.log("Requested document does not exist...");
