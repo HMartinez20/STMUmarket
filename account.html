@@ -377,6 +377,8 @@ title: Account Page
 			price: Number(document.getElementById("form29").value),
 			description: document.getElementById("form8").value,
 			date: new Date(),
+			seller: firebase.auth().currentUser.data().username,
+			sellerId: firebase.auth().currentUser.uid
 		})
 		.then(function(docRef){
 			console.log("ID = ", docRef.id);
