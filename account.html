@@ -280,13 +280,11 @@ title: Account Page
 					
 					/* Show user's active listings */
 					db.collection('items').where('seller', '==', data.username).where('sold', '==', "no").get().then((snapshot) => {
-						console.log("geting seller listings");
+						console.log("getting active listings");
 						var postCount = snapshot.size;
 						var postNum = 0;
-						var cardImage;   
 						var listings = document.createElement("div"); /* container for listings */
 						var dRow; /* row of listings */
-						var card;
 						/* add a listing card for each listing */
 						snapshot.docs.forEach(doc => {
 							if (postNum % 3==0){ /* start new row */
@@ -295,21 +293,10 @@ title: Account Page
 							}
 							postNum+=1;
 						
-							var post = doc.data();
-						
-							/* listing's title and price in card body */
+							/* get image url */
 							var imgSrc = "{{site.baseurl}}/Empty.jpg";
 							if(doc.data().image1){ imgSrc = doc.data().image1; }
-							/*
-							var cardBody = "<div class='card-body'><a class='card-title' href=" + ("item.html#" + doc.id); 
-							cardBody+= ">" + post.title + "</a><p class='card-text'> Asking Price: " + post.price + "<p></div>";
-							var cardImage = "<img class='card-image-top' src=" + imgSrc + " height='350' alt=''></img>";
-							card = document.createElement("div");
-							card.className = "card col-3";
-							card.style.cssText = 'max-width:40rem;'
-							card.innerHTML = cardImage + cardBody;
-							dRow.appendChild(card); 	
-							*/
+							/* create card for listing */
 							var card = document.createElement("div");
 							card.setAttribute("class","card col-3");
 							card.style.cssText = 'max-width:40rem;'
@@ -318,9 +305,7 @@ title: Account Page
 							card.innerHTML += '</p></div>';
 							dRow.appendChild(card);
 							
-							if (postNum % 3==0 || postNum==postCount){
-								listings.appendChild(dRow);	
-							}
+							if (postNum % 3==0 || postNum==postCount){ listings.appendChild(dRow); }
 						})
 						document.getElementById("myActiveListings").appendChild(listings);
 					})
