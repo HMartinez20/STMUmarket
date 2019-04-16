@@ -314,8 +314,8 @@ title: Account Page
 							card.setAttribute("class","card col-3");
 							card.style.cssText = 'max-width:40rem;'
 							card.innerHTML= '<img src="'+imgSrc+'" class="card-img-top" height="350"/>'; 
-							card.innerHTML+= '<div class="card-body"><a class="card-title" href="'; 
-							card.innerHTML+= ('item.html#' + doc.id) + '" target="_blank">'+ doc.data().title +'</a><p class="card-text">$'+ doc.data().price;
+							card.innerHTML+= '<div class="card-body"><a class="card-title" href='; 
+							card.innerHTML+= ('item.html#' + doc.id) + ' target="_blank">' + doc.data().title +'</a><p class="card-text">$'+ doc.data().price;
 							card.innerHTML+= '</p></div>';
 							dRow.appendChild(card);
 							
