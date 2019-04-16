@@ -1,5 +1,5 @@
 /* JS used for seller.html */
-console.log("2:50");
+console.log("1:39");
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
@@ -60,53 +60,42 @@ $( document ).ready(function() {
 			
 			
 			/* Get and display seller's listings, will load max of 12 listings */
-			db.collection('items').where('seller', '==', username).limit(12).get().then((snapshot) => {
-				console.log("geting seller listings");
-				var postCount = snapshot.size;
-				var postNum = 0;
-				var cardImage;   
-				/* container for listings */
-				var listings = document.createElement("div");
-				/* listings.className = "card-deck"; */
-				/* listings.className = "container"; */
-				/* row of listigs */
-				var dRow;
-				/* listing card, contains image, title, and price */
-				var card;
-				/* add a listing card for each listing */
-				snapshot.docs.forEach(doc => {
-					if (postNum % 4==0){
-						dRow = document.createElement("div");
-						dRow.className = "row";	
-					}
-				
-					postNum+=1;
-					
-					var post = doc.data();
-					var postURL = "item.html#" + doc.id
-					
-					/* listing's title and price in card body */
-					firebase.storage().ref(post.image1).getDownloadURL().then((url) => {
-						console.log(url);
-						var cardBody = "<div class='card-body'><h4 class='card-title'>"
-						cardBody+= post.title + "</h4><p class='card-text'> Asking Price: " + post.price + "<p>";
-						cardBody+= "<a href=" + postURL + " class='btn btn-primary stretched-link'>See Posting</a></div>";
-						/*cardBody+= "<br> <a href=" + postURL +">Go To Posting</a></p></div>"; */
-						var cardImage = "<img class='card-image-top' src=" + url + " height='400' alt=''></img>";
-						card = document.createElement("div");
-						card.className = "card col-3";
-						card.style.cssText = 'max-width:40rem;'
-						card.innerHTML = cardImage + cardBody;
-						dRow.appendChild(card); 	
-					}); 
-					if (postNum % 4==0 || postNum==postCount){
-						listings.appendChild(dRow);	
-					}
-				})
-				document.getElementById("sellerListings").appendChild(listings);
-			})
+			db.collection('items').where('seller', '==', data.username).where('sold', '==', "no").get().then((snapshot) => {
+						console.log("getting active listings");
+						var postCount = snapshot.size;
+						var postNum = 0;
+						var listings = document.createElement("div"); /* container for listings */
+						var dRow; /* row of listings */
+						/* add a listing card for each listing */
+						snapshot.docs.forEach(doc => {
+							if (postNum % 3==0){ /* start new row */
+								dRow = document.createElement("div");
+								dRow.className = "row";	
+							}
+							postNum+=1;
+						
+							/* get image url */
+							var imgSrc = "{{site.baseurl}}/Empty.jpg";
+							if(doc.data().image1){ imgSrc = doc.data().image1; }
+							/* create col for listing */
+							var col = document.createElement("div");
+							col.setAttribute("class","col-4");
+							/* create card for listing */
+							var card = document.createElement("div");
+							card.setAttribute("class","card");
+							card.innerHTML= '<img src="'+imgSrc+'" class="card-img-top"/>'; 
+							card.innerHTML += '<div class="card-body"><a class="card-title" href="' + ('item.html#' + doc.id) + '" target="_blank">'+ doc.data().title +'</a><p class="card-text">$'+ doc.data().price;
+							card.innerHTML += '</p></div>';
+							
+							col.appendChild(card);
+							dRow.appendChild(col);
+							
+							if (postNum % 3==0 || postNum==postCount){ listings.appendChild(dRow); }
+						})
+						document.getElementById("sellerListings").appendChild(listings);
+					})
 			var sellerBio = document.createElement("p");
-			sellerBio.innerHTML = "Classification: " + data.class + "<br> Major: " + data.major;
+			sellerBio.innerHTML = data.bio;
 			document.getElementById("sellerInfo").appendChild(sellerBio);
 	    	} else {
         		// doc doesn't exist
