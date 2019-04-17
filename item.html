@@ -134,7 +134,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		
 		var img3 = "{{site.baseurl}}/Empty.jpg";
 		if(doc.data().image3){ 
-			var img3HTML = "<img style='WIDTH:125px; HEIGHT:125px' src=" + doc.data().image2 + "hspace='20'><br><br><br>"
+			var img3HTML = "<img style='WIDTH:125px; HEIGHT:125px' src=" + doc.data().image3 + "hspace='20'><br><br><br>"
 			var img3div = document.createElement("div");
 			img3div.innerHTML = img3HTML;
 			document.getElementById("otherImages").append(img3div);
@@ -142,7 +142,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		
 		var img4 = "{{site.baseurl}}/Empty.jpg";
 		if(doc.data().image4){ 
-			var img4HTML = "<img style='WIDTH:125px; HEIGHT:125px' src=" + doc.data().image2 + "hspace='20'><br><br><br>"
+			var img4HTML = "<img style='WIDTH:125px; HEIGHT:125px' src=" + doc.data().image4 + "hspace='20'><br><br><br>"
 			var img4div = document.createElement("div");
 			img4div.innerHTML = img4HTML;
 			document.getElementById("otherImages").append(img4div);
