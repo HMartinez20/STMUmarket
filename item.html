@@ -69,7 +69,7 @@ title: Item
 </html>
 
 <script>
-console.log("6:01");
+console.log("6:23");
 /* Code to get posting ID */
 var postId = window.location.hash.substring(1)
 console.log(postId);
@@ -126,7 +126,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		
 		var img2 = "{{site.baseurl}}/Empty.jpg";
 		if(doc.data().image2){ 
-			var img2HTML = "<img style='WIDTH:125px; HEIGHT:125px' src=" + doc.data().image2 + "hspace='20'><br><br><br>"
+			var img2HTML = "<img style='max-width:125px; max-height:125px' src=" + doc.data().image2 + "hspace='20'><br><br><br>"
 			var img2div = document.createElement("div");
 			img2div.innerHTML = img2HTML;
 			document.getElementById("otherImages").append(img2div);
