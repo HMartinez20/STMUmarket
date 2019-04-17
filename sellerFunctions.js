@@ -1,5 +1,5 @@
 /* JS used for seller.html */
-console.log("1:39");
+console.log("8:06");
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
@@ -83,7 +83,7 @@ $( document ).ready(function() {
 							/* create card for listing */
 							var card = document.createElement("div");
 							card.setAttribute("class","card");
-							card.innerHTML= '<img src="'+imgSrc+'" class="card-img-top"/>'; 
+							card.innerHTML= '<img src="'+imgSrc+'" class="card-img-top" style="max-width:500px; max-height:500px;"/>'; 
 							card.innerHTML += '<div class="card-body"><a class="card-title" href="' + ('item.html#' + doc.id) + '" target="_blank">'+ doc.data().title +'</a><p class="card-text">$'+ doc.data().price;
 							card.innerHTML += '</p></div>';
 							
