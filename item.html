@@ -86,7 +86,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		var imgSrc = "{{site.baseurl}}/Empty.jpg";
 		if(doc.data().image1){ imgSrc = doc.data().image1; }
 		/* display main image */
-		var imgHTML = "<img style='max-width:600px; max-height:600px;' src=" + imgSrc + "hspace='20'>"
+		var imgHTML = "<img style='max-width:100%; max-height:100%;' src=" + imgSrc + "hspace='20'>"
 		var cardImage = document.createElement("div");
 		cardImage.innerHTML = imgHTML;
 		document.getElementById("mainImage").append(cardImage);
@@ -95,7 +95,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		
 		var img2 = "{{site.baseurl}}/Empty.jpg";
 		if(doc.data().image2){ 
-			var img2HTML = "<img style='max-width:150px; max-height:150px;' src=" + doc.data().image2 + "hspace='20'><br><br><br>"
+			var img2HTML = "<img style='max-width:60%; max-height:60%;' src=" + doc.data().image2 + "hspace='20'><br><br><br>"
 			var img2div = document.createElement("div");
 			img2div.innerHTML = img2HTML;
 			document.getElementById("otherImages").append(img2div);
@@ -103,7 +103,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		
 		var img3 = "{{site.baseurl}}/Empty.jpg";
 		if(doc.data().image3){ 
-			var img3HTML = "<img style='max-width:150px; max-height:150px;' src=" + doc.data().image3 + "hspace='20'><br><br><br>"
+			var img3HTML = "<img style='max-width:60%; max-height:60%;' src=" + doc.data().image3 + "hspace='20'><br><br><br>"
 			var img3div = document.createElement("div");
 			img3div.innerHTML = img3HTML;
 			document.getElementById("otherImages").append(img3div);
@@ -111,7 +111,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		
 		var img4 = "{{site.baseurl}}/Empty.jpg";
 		if(doc.data().image4){ 
-			var img4HTML = "<img style='max-width:150px; max-height:150px;' src=" + doc.data().image4 + "hspace='20'><br><br><br>"
+			var img4HTML = "<img style='max-width:60%; max-height:60%;' src=" + doc.data().image4 + "hspace='20'><br><br><br>"
 			var img4div = document.createElement("div");
 			img4div.innerHTML = img4HTML;
 			document.getElementById("otherImages").append(img4div);
