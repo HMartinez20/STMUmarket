@@ -233,6 +233,15 @@ title: Account Page
 	var currentUser; // set to user's ID
 	var username; // for file handling, set to user's username
 	
+	// reset password
+					function resetPassword(){
+						firebase.auth().sendPasswordResetEmail(data.email).then(function() {
+							alert("Password Reset Link was sent to your email.");
+						}).catch(function(error){
+							console.log("An Error Occurred");
+						});
+					}
+	
 	/* authentication state observer */
 	firebase.auth().onAuthStateChanged(function(user){
 	 	if(user){
@@ -249,15 +258,6 @@ title: Account Page
 					document.getElementById("showName").append(data.first + " " + data.last);
 					document.getElementById("showEmail").append(data.email);
 					document.getElementById("ProfileDesc").append(data.bio);
-					
-					// reset password
-					function resetPassword(){
-						firebase.auth().sendPasswordResetEmail(data.email).then(function() {
-							alert("Password Reset Link was sent to your email.");
-						}).catch(function(error){
-							console.log("An Error Occurred");
-						});
-					}
 					
 					/* Show user's active listings */
 					db.collection('items').where('seller', '==', data.username).where('sold', '==', "no").get().then((snapshot) => {
