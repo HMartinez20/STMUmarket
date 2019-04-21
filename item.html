@@ -88,7 +88,7 @@ title: Item
 </html>
 
 <script>
-console.log("8:49");
+console.log("8:54");
 /* Code to get posting ID */
 var postId = window.location.hash.substring(1)
 console.log(postId);
@@ -214,13 +214,14 @@ function updatePost(){
 		alert("Posting successfully updated");
 	});
 }
-	
+
+// mark listing as sold
 function markSold(){
 	var buyer = document.getElementById("inputBuyer").value;
-	
-	db.collection("users").where('username', '==', buyer).get().then((snapshot) => {
+	// Check that username is valid
+	db.collection("users").where('username', '==', buyer).limit(1).get().then((snapshot) => {
 		snapshot.docs.forEach(doc => {
-		
+			// if username is valid, mark as sold
 			if(doc.exists){
 			db.collection("items").doc(window.postId).update({
 				sold: "yes",
