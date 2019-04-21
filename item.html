@@ -219,7 +219,9 @@ function markSold(){
 	var buyer = document.getElementById("inputBuyer").value;
 	
 	db.collection("users").where('username', '==', buyer).get().then((snapshot) => {
-		if(snapshot.doc.exists){
+		snapshot.docs.forEach(doc => {
+		
+			if(doc.exists){
 			db.collection("items").doc(window.postId).update({
 				sold: "yes",
 				soldTo: purchaser
@@ -229,6 +231,8 @@ function markSold(){
 		}
 		else{
 			alert("Invalid username");
+		}
+			
 		}
 	}).then(function(){
 		console.log("SOLD!");
