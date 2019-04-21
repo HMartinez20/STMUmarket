@@ -79,7 +79,48 @@ title: Item
 					</div>
 				</div>
 			</div>
-		</div><!-- EDIT POSTING FORM ENDS -->
+		</div><!-- SOLD FORM ENDS -->
+		
+		<div class="modal fade" id="rate">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h4 class="modal-title">Rate User</h4>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<!-- Modal body -->
+					<div class="modal-body">
+						<form>
+							<p class="text-left">
+          							<strong>How would you rate you experience with this seller?</strong>
+        						</p>
+							<div class="form-check mb-4">
+          							<input class="form-check-input" name="group1" type="radio" id="radio-179" value="other">
+          							<label class="form-check-label" for="radio-179">Terrible</label>
+       							 </div>
+							<div class="form-check mb-4">
+          							<input class="form-check-input" name="group1" type="radio" id="radio-279" value="other">
+          							<label class="form-check-label" for="radio-279">Poor</label>
+       							 </div>
+							<div class="form-check mb-4">
+          							<input class="form-check-input" name="group1" type="radio" id="radio-379" value="other">
+          							<label class="form-check-label" for="radio-379">Fair</label>
+       							 </div>
+							<div class="form-check mb-4">
+          							<input class="form-check-input" name="group1" type="radio" id="radio-479" value="other">
+          							<label class="form-check-label" for="radio-479">Good</label>
+       							 </div>
+							<div class="form-check mb-4">
+          							<input class="form-check-input" name="group1" type="radio" id="radio-579" value="other">
+          							<label class="form-check-label" for="radio-579">Excellent</label>
+       							 </div>
+							<button type="button" class="btn btn-primary" onclick="rateUser()"> Rate </button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div><!-- RATE FORM ENDS -->
 		
 	  </div>
   </body>
