@@ -1,5 +1,5 @@
 /* JS used for seller.html */
-console.log("2:19");
+console.log("2:21");
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
@@ -95,7 +95,7 @@ $( document ).ready(function() {
 						document.getElementById("sellerListings").appendChild(listings);
 					})
 			var sellerBio = document.createElement("p");
-			sellerBio.innerHTML = "Average Rating: " + data.avgRating + "<br>";
+			sellerBio.innerHTML = "Average Rating: " + data.avgRating + "/5 <br>";
 			sellerBio.innerHTML += "# of Ratings: " + data.ratings + "<br>";
 			sellerBio.innerHTML += data.bio;
 			document.getElementById("sellerInfo").appendChild(sellerBio);
