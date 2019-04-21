@@ -318,12 +318,23 @@ function rateUser(){
 			}
 		}
 	console.log(window.data.sellerId);
-	/* update rated field
+	// update rated field
 	db.collection("items").doc(window.postId).update({
 		rated: "yes"
-	}); */
+	});
 	// update seller rating statistics
-	//db.collection("users").doc()
+	var rateData = {};
+	db.collection("users").doc(window.data.sellerId).get().then(function(seller) {
+		if(seller.data().ratings == 0){
+			rateData["avgRating"] = selected;
+			rateData["ratings"] = 1;
+		}
+		else{
+			rateData["avgRating"] = ( (seller.data().avgRating * seller.data().ratings) + selected) / (seller.data().ratings + 1);
+			rateData["ratings"] = seller.data().ratings + 1;
+		}
+		db.collection("users").doc(window.data.sellerId).set(rateData, {merge: true});
+	});
 	
 }
 	
