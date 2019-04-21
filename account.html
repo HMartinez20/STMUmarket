@@ -374,10 +374,10 @@ title: Account Page
 	// update user account info
 	function updateUser(){
 		console.log(firebase.auth().currentUser.uid);
+		console.log(data.first);
 		db.collection("users").doc((firebase.auth().currentUser.uid)).update({
 			first: document.getElementById("inputFirstName").value,
 			last: document.getElementById("inputLastName").value,
-			/* username: document.getElementById("inputUserName"), */
 			bio: document.getElementById("inputBio").value
 		}).then(function() {
 			alert("Account updated!");
