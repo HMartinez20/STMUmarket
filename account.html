@@ -399,7 +399,7 @@ title: Account Page
 			last: document.getElementById("inputLastName"),
 			/* username: document.getElementById("inputUserName"), */
 			bio: document.getElementById("inputBio")
-		}).then(function() {
+		}, { merge: true } ).then(function() {
 			alert("Account updated!");
 		})
 	}
