@@ -147,7 +147,25 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 					document.getElementById("actionButtons").innerHTML = ""; // clear contact button
 					document.getElementById("actionButtons").append(purchaseInfo) // add purchase info
 				}
-			}
+			} // end of if owner
+			else{ // if owner is not signed in
+				db.collection("users").doc(user.uid).get().then(function(userInfo) {
+					var userData = userInfo.data();
+					
+					if(userData.username == data.soldTo){ // check if current user bought this item
+						var soldInfo = document.createElement("div"); 
+					
+						// Display sold status
+						document.getElementById("actionButtons").innerHTML = ""; // clear contact button
+						soldInfo.innerHTML = "<p>You Bought this listing</p>";
+						
+						if(data.rated == "no"){ // show button to rate
+							soldInfo.innerHTML += "<button class='btn btn-primary' data-toggle='modal' data-target='#rate'>Rate Seller</button>";
+						}
+						document.getElementById("actionButtons").append(soldInfo) // add sold info
+					}
+				});
+			} // end of else (not owner)
 	
 		});
 		
