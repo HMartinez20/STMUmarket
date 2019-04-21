@@ -88,7 +88,7 @@ title: Item
 </html>
 
 <script>
-console.log("8:56");
+console.log("8:43");
 /* Code to get posting ID */
 var postId = window.location.hash.substring(1)
 console.log(postId);
@@ -218,8 +218,8 @@ function updatePost(){
 function markSold(){
 	var buyer = document.getElementById("inputBuyer").value;
 	
-	db.collection("users").where('username', '==', buyer).get().then(function(doc){
-		if(doc.exists){
+	db.collection("users").where('username', '==', buyer).get().then((snapshot) => {
+		if(snapshot.doc.exists){
 			db.collection("items").doc(window.postId).update({
 				sold: "yes",
 				soldTo: purchaser
