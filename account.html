@@ -234,14 +234,14 @@ title: Account Page
 	var currentUser; // set to user's ID
 	var username; // for file handling, set to user's username
 	
-	// reset password
-					function resetPassword(){
-						firebase.auth().sendPasswordResetEmail(data.email).then(function() {
-							alert("Password Reset Link was sent to your email.");
-						}).catch(function(error){
-							console.log("An Error Occurred");
-						});
-					}
+	// reset password - sends email to reset password
+	function resetPassword(){
+		firebase.auth().sendPasswordResetEmail(data.email).then(function() {
+			alert("Password Reset Link was sent to your email.");
+		}).catch(function(error){
+			console.log("An Error Occurred");
+		});
+	}
 	
 	/* authentication state observer */
 	firebase.auth().onAuthStateChanged(function(user){
@@ -294,8 +294,7 @@ title: Account Page
 							if (postNum % 3==0 || postNum==postCount){ listings.appendChild(dRow); }
 						})
 						document.getElementById("myActiveListings").appendChild(listings);
-					})
-					/* end of active listing code */	
+					}) // end of active listings
 					
 					/* code for sold listings */
 					db.collection('items').where('seller', '==', data.username).where('sold', '==', "yes").get().then((snapshot) => {
@@ -331,8 +330,7 @@ title: Account Page
 							if (postNum % 3==0 || postNum==postCount){ listings.appendChild(dRow); }
 						})
 						document.getElementById("mySoldListings").appendChild(listings);
-					})
-					/* end of sold listings */
+					}) // end of sold listings 
 					
 					/* code for purchased listings */
 					db.collection('items').where('soldTo', '==', data.username).get().then((snapshot) => {
@@ -349,13 +347,13 @@ title: Account Page
 							}
 							postNum+=1;
 						
-							/* get image url */
+							// get main image url 
 							var imgSrc = "{{site.baseurl}}/Empty.jpg";
 							if(doc.data().image1){ imgSrc = doc.data().image1; }
-							/* create col for listing */
+							// create col for listing 
 							var col = document.createElement("div");
 							col.setAttribute("class","col-4");
-							/* create card for listing */
+							// create card for listing 
 							var card = document.createElement("div");
 							card.setAttribute("class","card");
 							card.innerHTML= '<img src="'+imgSrc+'" class="card-img-top"/>'; 
@@ -368,8 +366,7 @@ title: Account Page
 							if (postNum % 3==0 || postNum==postCount){ listings.appendChild(dRow); }
 						})
 						document.getElementById("myPurchases").appendChild(listings);
-					})
-					/* end of purchased listings */
+					}) // end of purchased listings
 				}
 				else {
 					console.log("Requested document does not exist...");
@@ -379,22 +376,13 @@ title: Account Page
 			});
 			
 		}
-		else{
+		else{ // redirect to login if no user is signed in
 			window.location = "https://hmartinez20.github.io/STMUmarket/login.html";
 		}
 	});
-	
+	// update user account info
 	function updateUser(){
-// 		var email = document.getElementById().val;
-		
-// 		var user = firebase.auth().currentUser; // Reference Firebase Authentication
-// 		user.updateEmail(email).then(function() {
-// 		  // Update successful.
-// 		}).catch(function(error) {
-// 		  // An error happened.
-// 		});
-		
-		db.collection("users").doc(firebase.auth().currentUser.uid).set({
+		db.collection("users").doc((firebase.auth().currentUser.uid)).set({
 			first: document.getElementById("inputFirstName").value,
 			last: document.getElementById("inputLastName").value,
 			/* username: document.getElementById("inputUserName"), */
@@ -404,19 +392,22 @@ title: Account Page
 		})
 	}
 	
+	// Get date and create formatted date string 
 	var d = new Date();
     var dateFormatted = d.getDate().toString().padStart(2, '0')+(d.getMonth()+1).toString().padStart(2, '0')+d.getFullYear().toString();
 	
-	/* console.log(window.data.username); */
+	// Create New Posting and save to firebase
 	function writeNewItem(){
 		var selected = null;
 		var radios = document.getElementsByName("group1");
+		// grab category value
 		for(var i = 0; i < radios.length; i++){
 			if (radios[i].checked){
 				selected = radios[i].value;
 				break;
 			}
-		}		
+		}
+		
 		db.collection("items").add({
 			category: selected,
 			title: document.getElementById("form34").value,
@@ -427,80 +418,41 @@ title: Account Page
 			sellerId: firebase.auth().currentUser.uid,
 			sold: "no",
 			soldTo: ""
-			// image1: window.imagePaths[0]
-		})
-		.then(function(docRef){
+		}).then(function(docRef){
 			console.log("ID = ", docRef.id);
 			handleFileSelect(docRef.id);
 	
-		})
-		.catch(function(error){
+		}).catch(function(error){
 			alert("\n Error! Ask your administrator");
 			console.log("Error writing document ", error);
 		});
 	}
 	
-	/* update account info */
-					function updateAccount(){
-						console.log(firebase.auth().currentUser.uid);
-						db.collection("users").doc(firebase.auth().currentUser.uid).update({
-							first: document.getElementById("inputFirstName").value
-							
-							/* last: document.getElementById("inputLastName").value,
-							username: document.getElementById("inputUserName").value,
-							bio: document.getElementById("inputBio").value, */
-							
-							
-							/* enter update fields here*/
-						})
-						.then(function() {
-							alert("Update->Then");
-							console.log("Updated Account Info");
-						})
-						.catch(function(error) {
-							alert("Update->error");
-							console.log("Error updating document: ", error);
-						});
-					}
-	
+
+	// handle getting images for a new posting
 	function handleFileSelect(id){		
 		var metaData = {
 			customMetadata:{
 				'item': id
 			}
 		};
-		// Get file(s)
+		// Get image(s) 
 		var fileList = document.getElementById("filesToUpload");
 		
 		// Upload file(s) to storage
 		if(fileList.files.length != 0){
-			//window.imagePaths =[];
 			var img;
 			// Upload individual images
 			for(var i = 0; i < fileList.files.length; i++){
 				img = "image"+(i+1);
 				var fileName = fileList.files[i].name;
 				
-				// Upload Image
 				uploadImg(fileList.files[i], metaData, id, fileName, img);
-				
-				 // Create storage ref to where image will be stored
-				 //const storageRef = storage.ref('posts/'+username+'/'+dateFormatted+'_'+fileName);
-				 //window.imagePaths[i] = ('posts/'+currentUser+'/'+dateFormatted+'_'+fileName);
-
-				 //task = storageRef.put(fileList.files[i], metaData);
-
-				 //Upload progress
-// 			 	task.on('state_changed',
-// 					function progress(snapshot){},
-// 					function error(err){ alert(err); },
-// 					function complete(){ alert(fileName+"\nUploaded!"); }
-// 				 );
 			}
 			alert("Posted!");
 		 }
 	}
-	
+	// add image URL's as fields to thee posting's document in firebase
 	function uploadImg(file, metaData, id, fileName, img){
 		var storageRef = storage.ref('posts/'+username+'/'+id+'/'+ fileName);  // Reference to WHERE the image will be stored
 		var task = storageRef.put(file, metaData);
@@ -510,6 +462,7 @@ title: Account Page
 			function(snapshot){},
 			function(error){},
 			function(){
+				// display alert when image uplaod is complete
 				alert(fileName+"\nUploaded!");
 				task.snapshot.ref.getDownloadURL().then(function(downloadURL){
 					//console.log(downloadURL);
