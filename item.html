@@ -333,10 +333,10 @@ function rateUser(){
 			rateData["ratings"] = seller.data().ratings + 1;
 			console.log(rateData["avgRating"]);
 		}
-		db.collection("users").doc(window.data.sellerId).set(rateData, {merge: true});
-	}).then(function(){
-		alert("Rated Seller");
-		// location.reload(true);
+		db.collection("users").doc(window.data.sellerId).set(rateData, {merge: true}).then(function(){
+			alert("Rated Seller");
+			location.reload(true);
+		});
 	});
 	
 }
