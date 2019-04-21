@@ -128,15 +128,25 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		
 		// Check to see if logged in user is owner of posting
 		firebase.auth().onAuthStateChanged(function(user){
-			if(user.uid == data.sellerId && data.sold =="no"){
+			if(user.uid == data.sellerId){
 				console.log("Owner is signed in");
 				
-				var buttons = document.createElement("div");
-				buttons.innerHTML = "<button class='btn btn-primary' style='margin:5px;' data-toggle='modal' data-target='#editPosting'>Edit Post</button>";
-				buttons.innerHTML += "<button class='btn btn-primary' data-toggle='modal' data-target='#sell'> Mark as Sold </button>";
+				if(data.sold == "no"){
+					var buttons = document.createElement("div");
+					// code for owner actions buttons to edit or mark posting as sold
+					buttons.innerHTML = "<button class='btn btn-primary' style='margin:5px;' data-toggle='modal' data-target='#editPosting'>Edit Post</button>";
+					buttons.innerHTML += "<button class='btn btn-primary' data-toggle='modal' data-target='#sell'> Mark as Sold </button>";
 				
-				document.getElementById("actionButtons").innerHTML = ""; // clear contact button
-				document.getElementById("actionButtons").append(buttons); // add owner actions
+					document.getElementById("actionButtons").innerHTML = ""; // clear contact button
+					document.getElementById("actionButtons").append(buttons); // add owner actions
+				}
+				else{ // item was already sold
+					var purchaseInfo = document.createElement("p");
+					purchaseInfo.innerHTML = "This Item was sold to " + data.soldTo;
++					
+					document.getElementById("actionButtons").innerHTML = ""; // clear contact button
+					document.getElementById("actionButtons").append(purchaseInfo) // add purchase info
+				}
 			}
 	
 		});
