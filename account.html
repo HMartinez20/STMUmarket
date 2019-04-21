@@ -66,7 +66,7 @@ title: Account Page
 												<label for="inputBio">Bio</label>
 												<input type="text" class="form-control" id="inputBio" placeholder="About yourself">
 											</div>
-											<button type="submit" class="btn btn-primary" onclick="updateUser()">Submit</button>
+											<button type="button" class="btn btn-primary" onclick="updateUser()">Submit</button>
 								</form>
 									</div>
 
@@ -383,12 +383,12 @@ title: Account Page
 	// update user account info
 	function updateUser(){
 		console.log(firebase.auth().currentUser.uid);
-		db.collection("users").doc((firebase.auth().currentUser.uid)).set({
+		db.collection("users").doc((firebase.auth().currentUser.uid)).update({
 			first: document.getElementById("inputFirstName").value,
 			last: document.getElementById("inputLastName").value,
 			/* username: document.getElementById("inputUserName"), */
 			bio: document.getElementById("inputBio").value
-		}, { merge: true } ).then(function() {
+		}).then(function() {
 			alert("Account updated!");
 		});
 	}
