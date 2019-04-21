@@ -81,7 +81,7 @@ title: Item
 			</div>
 		</div><!-- SOLD FORM ENDS -->
 		
-		<div class="modal fade" id="rate">
+		<div class="modal fade" id="rate"> <!-- Rate form -->
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<!-- Modal Header -->
@@ -304,7 +304,24 @@ function markSold(){
 			}	
 		})
 	});
+}
 	
+function rateUser(){
+	// get rating value from form
+	var selected = null;
+		var radios = document.getElementsByName("group1");
+		// grab rating
+		for(var i = 0; i < radios.length; i++){
+			if (radios[i].checked){
+				selected = radios[i].value;
+				break;
+			}
+		}
+	// update rated field
+	db.collection("items").doc(window.postId).update({
+		rated: "yes"
+	});
+	// update seller rating statistics
 	
 }
 	
