@@ -413,7 +413,8 @@ title: Account Page
 			seller: username,
 			sellerId: firebase.auth().currentUser.uid,
 			sold: "no",
-			soldTo: ""
+			soldTo: "",
+			rated: "no"
 		}).then(function(docRef){
 			console.log("ID = ", docRef.id);
 			handleFileSelect(docRef.id);
