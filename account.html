@@ -254,6 +254,7 @@ title: Account Page
 						var postCount = snapshot.size;
 						var postNum = 0;
 						var listings = document.createElement("div"); /* container for listings */
+						listings.innerHTML = "<p>" + postCount + " Listings<p>";
 						var dRow; /* row of listings */
 						/* add a listing card for each listing */
 						snapshot.docs.forEach(doc => {
