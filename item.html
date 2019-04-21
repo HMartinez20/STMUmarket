@@ -132,7 +132,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 				console.log("Owner is signed in");
 				
 				var buttons = document.createElement("div");
-				buttons.innerHTML = "<button class='btn btn-primary' data-toggle='modal' data-target='#editPosting'> Edit </button>";
+				buttons.innerHTML = "<button class='btn btn-primary' style='margin:5px;' data-toggle='modal' data-target='#editPosting'>Edit Post</button>";
 				buttons.innerHTML += "<button class='btn btn-primary' data-toggle='modal' data-target='#sell'> Mark as Sold </button>";
 				
 				document.getElementById("actionButtons").innerHTML = ""; // clear contact button
