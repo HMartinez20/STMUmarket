@@ -224,7 +224,7 @@ function markSold(){
 			if(doc.exists){
 			db.collection("items").doc(window.postId).update({
 				sold: "yes",
-				soldTo: purchaser
+				soldTo: buyer
 			}).then(function() {
 				alert("Great Job on the Sale!");
 			});
