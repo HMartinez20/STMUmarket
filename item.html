@@ -143,7 +143,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 				else{ // item was already sold
 					var purchaseInfo = document.createElement("p");
 					purchaseInfo.innerHTML = "This Item was sold to " + data.soldTo;
-+					
+					
 					document.getElementById("actionButtons").innerHTML = ""; // clear contact button
 					document.getElementById("actionButtons").append(purchaseInfo) // add purchase info
 				}
