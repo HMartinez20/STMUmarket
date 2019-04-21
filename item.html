@@ -179,7 +179,7 @@ function updatePost(){
 	//$.trim(ref).length === 0
 	if ($.trim(document.getElementById("inputTitle").value).length > 0){
 		console.log("Update Title");
-		data["title] = document.getElementById("inputTitle").value;
+		data["title"] = document.getElementById("inputTitle").value;
 	}
 	db.collection("items").doc(window.postId).update({
 		/* title: document.getElementById("inputTitle").value ,
