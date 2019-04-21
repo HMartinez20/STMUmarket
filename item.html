@@ -276,11 +276,9 @@ function updatePost(){
 		updateData["description"] = document.getElementById("inputTitle").value;
 	}
 	
-	db.collection("items").doc(window.postId).update( // {
-		/* title: document.getElementById("inputTitle").value ,
-		 description: document.getElementById("inputDesc").value
-	} */ updateData).then(function(){
+	db.collection("items").doc(window.postId).update(updateData).then(function(){
 		alert("Posting successfully updated");
+		location.reload(true);
 	});
 }
 
@@ -297,6 +295,7 @@ function markSold(){
 					soldTo: buyer
 				}).then(function() {
 					alert("Great Job on the Sale!");
+					location.reload(true);
 				});
 			}
 			else{
@@ -335,6 +334,9 @@ function rateUser(){
 			console.log(rateData["avgRating"]);
 		}
 		db.collection("users").doc(window.data.sellerId).set(rateData, {merge: true});
+	}).then(function(){
+		alert("Rated Seller");
+		location.reload(true);
 	});
 	
 }
