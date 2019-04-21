@@ -135,16 +135,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		}
 	
 	});	
-	if (firebase.auth().currentUser){
-		console.log("Signed In")
-		
-		if(firebase.auth().currentUser.uid == data.sellerId){
-			console.log("Owner is signed in");
-		}
-	}
-	else{
-		console.log("Not signed In")
-	}
+
 	
 	
 	
