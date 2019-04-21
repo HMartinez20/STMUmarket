@@ -336,6 +336,11 @@ title: Account Page
 						listings.innerHTML = "<p>" + postCount + " Listings<p>";
 						/* add a listing card for each listing */
 						snapshot.docs.forEach(doc => {
+							// send alerts for unrated, purchased items
+							if(doc.data().rated == "no"){
+								alert("Don't forget to rate " + doc.data().title + " Go to item to rate the seller"):
+							}
+							
 							if (postNum % 3==0){ /* start new row */
 								dRow = document.createElement("div");
 								dRow.className = "row";	
