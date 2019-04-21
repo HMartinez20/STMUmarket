@@ -176,10 +176,16 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 // update posting info
 function updatePost(){
 	var updateData = {};
-	//$.trim(ref).length === 0
+
+	// Check if a value other than spaces was entered for title
 	if ($.trim(document.getElementById("inputTitle").value).length > 0){
 		console.log("Update Title");
 		updateData["title"] = document.getElementById("inputTitle").value;
+	}
+	// Check if a value other than spaces was entered for description
+	if ($.trim(document.getElementById("inputTitle").value).length > 0){
+		console.log("Update Title");
+		updateData["description"] = document.getElementById("inputTitle").value;
 	}
 	
 	db.collection("items").doc(window.postId).update( // {
