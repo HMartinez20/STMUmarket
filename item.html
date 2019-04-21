@@ -142,7 +142,7 @@ if (!(postId)){
 db.collection("items").doc(window.postId).get().then(function(doc) {
 	if (doc.exists) { 
 		/* get posting data */
-		var data = doc.data();
+		window data = doc.data();
 		var title = data.title;
 		var price = data.price;
 		var seller = data.seller;
@@ -322,6 +322,7 @@ function rateUser(){
 		rated: "yes"
 	});
 	// update seller rating statistics
+	db.collection("users").doc()
 	
 }
 	
