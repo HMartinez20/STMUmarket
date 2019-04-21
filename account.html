@@ -395,10 +395,10 @@ title: Account Page
 // 		});
 		
 		db.collection("users").doc(firebase.auth().currentUser.uid).set({
-			first: document.getElementById("inputFirstName"),
-			last: document.getElementById("inputLastName"),
+			first: document.getElementById("inputFirstName").value,
+			last: document.getElementById("inputLastName").value,
 			/* username: document.getElementById("inputUserName"), */
-			bio: document.getElementById("inputBio")
+			bio: document.getElementById("inputBio").value
 		}, { merge: true } ).then(function() {
 			alert("Account updated!");
 		})
