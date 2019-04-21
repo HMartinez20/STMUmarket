@@ -40,9 +40,8 @@ title: Item
 					<!-- Modal Header -->
 					<div class="modal-header">
 						<h4 class="modal-title">Edit your Posting</h4>
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
 					</div>
-
 					<!-- Modal body -->
 					<div class="modal-body">
 						<form>
@@ -50,20 +49,40 @@ title: Item
 								<label for="inputTitle"> Title </label>
 								<input type="text" class="form-control" id="inputTitle" placeholder="First Name">
 							</div>
-							
 							<div class="form-group">
 								<label for="inputDesc"> Description</label>
 								<input type="text" class="form-control" id="inputDesc" placeholder="Last Name">
 							</div>
-							
 							<button type="button" class="btn btn-primary" onclick="updatePost()"> Update </button>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div><!-- EDIT POSTING FORM ENDS -->
+		
+		<div class="modal fade" id="sell">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h4 class="modal-title">Update Posting Status</h4>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<!-- Modal body -->
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label for="inputBuyer"> Please Enter username of buyer </label>
+								<input type="text" class="form-control" id="inputBuyer" placeholder="username">
+							</div>
+							<button type="button" class="btn btn-primary" onclick="markSold()"> Mark as Sold </button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div><!-- EDIT POSTING FORM ENDS -->
+		
 	  </div>
-	  
   </body>
    {% include footer.html %} 
 </html>
