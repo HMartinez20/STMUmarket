@@ -218,7 +218,7 @@ function updatePost(){
 function markSold(){
 	var buyer = document.getElementById("inputBuyer").value;
 	
-	db.collection("users").where('username', '==', buyer).get()then(function(doc){
+	db.collection("users").where('username', '==', buyer).get().then(function(doc){
 		if(doc.exists){
 			db.collection("items").doc(window.postId).update({
 				sold: "yes",
