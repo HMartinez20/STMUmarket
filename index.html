@@ -69,7 +69,7 @@ title: StMU Marketplace
 	var order = 'asc';
   function genListings(search){
 	  document.getElementById("listings").innerHTML = '';
-		db.collection("items").where("category", "==", search).where("sold", "==", "no").orderBy(filter, order).get()
+		db.collection("items").where("category", "==", search).orderBy(filter, order).get()
 			.then(function(querySnapshot){
 				querySnapshot.forEach(function(doc){ // doc.data() is never undefined for query doc snapshots
 					var placeholder = document.createElement("div");
