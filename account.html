@@ -375,10 +375,18 @@ title: Account Page
 	function updateUser(){
 		console.log(firebase.auth().currentUser.uid);
 		console.log(data.first);
+		newFirst = document.getElementById("inputFirstName").value;
+		newLast = document.getElementById("inputLastName").value;
+		newBio = document.getElementById("inputBio").value;
+		
+		if (newFirst == ""){ newFirst = data.first}
+		if (newLast == ""){ newLast = data.last}
+		if (newBio == ""){ newBio = data.bio}
+		
 		db.collection("users").doc((firebase.auth().currentUser.uid)).update({
-			first: document.getElementById("inputFirstName").value,
-			last: document.getElementById("inputLastName").value,
-			bio: document.getElementById("inputBio").value
+			first: newFirst,
+			last: newLast,
+			bio: newBio
 		}).then(function() {
 			alert("Account updated!");
 			location.reload(true);
