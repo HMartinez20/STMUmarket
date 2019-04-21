@@ -128,7 +128,7 @@ title: Item
 </html>
 
 <script>
-console.log("11:33");
+console.log("11:00");
 /* Code to get posting ID */
 var postId = window.location.hash.substring(1)
 console.log(postId);
@@ -330,7 +330,7 @@ function rateUser(){
 			rateData["ratings"] = 1;
 		}
 		else{
-			rateData["avgRating"] = ( (seller.data().avgRating * seller.data().ratings) + selected) / (seller.data().ratings + 1);
+			rateData["avgRating"] = ( (seller.data().avgRating * seller.data().ratings) + Number(selected)) / (seller.data().ratings + 1);
 			rateData["ratings"] = seller.data().ratings + 1;
 			console.log(rateData["avgRating"]);
 		}
