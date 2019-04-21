@@ -134,7 +134,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 				
 				var buttons = document.createElement("div");
 				buttons.innerHTML = "<button class='btn btn-primary' data-toggle='modal' data-target='#editPosting'> Edit </button>";
-				buttons.innerHTML += "<button class='btn btn-primary'> Mark as Sold </button>";
+				buttons.innerHTML += "<button class='btn btn-primary' data-toggle='modal' data-target='#sell'> Mark as Sold </button>";
 				
 				document.getElementById("ownerActions").append(buttons);
 			}
@@ -216,14 +216,25 @@ function updatePost(){
 }
 	
 function markSold(){
-	var purchaser = document.getElementById("soldForm").value;
+	var buyer = document.getElementById("inputBuyer").value;
 	
-	db.collection("items").doc(window.postId).update({
-		sold: "yes",
-		soldTo: purchaser
-	}).then(function() {
-		alert("Great Job on the Sale!");
+	db.collection("users").where('username', '==', buyer).get()then(function(doc){
+		if(doc.exists){
+			db.collection("items").doc(window.postId).update({
+				sold: "yes",
+				soldTo: purchaser
+			}).then(function() {
+				alert("Great Job on the Sale!");
+			});
+		}
+		else{
+			alert("Invalid username");
+		}
+	}).then(function(){
+		console.log("SOLD!");
 	});
+	
+	
 }
 	
 </script>
