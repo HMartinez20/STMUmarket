@@ -88,7 +88,7 @@ title: Item
 </html>
 
 <script>
-console.log("8:54");
+console.log("11:57");
 /* Code to get posting ID */
 var postId = window.location.hash.substring(1)
 console.log(postId);
@@ -223,20 +223,17 @@ function markSold(){
 		snapshot.docs.forEach(doc => {
 			// if username is valid, mark as sold
 			if(doc.exists){
-			db.collection("items").doc(window.postId).update({
-				sold: "yes",
-				soldTo: buyer
-			}).then(function() {
-				alert("Great Job on the Sale!");
-			});
-		}
-		else{
-			alert("Invalid username");
-		}
-			
+				db.collection("items").doc(window.postId).update({
+					sold: "yes",
+					soldTo: buyer
+				}).then(function() {
+					alert("Great Job on the Sale!");
+				});
+			}
+			else{
+				alert("Invalid username");
+			}	
 		})
-	}).then(function(){
-		console.log("SOLD!");
 	});
 	
 	
