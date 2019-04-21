@@ -443,7 +443,7 @@ title: Account Page
 	/* update account info */
 					function updateAccount(){
 						console.log(firebase.auth().currentUser.uid);
-						return db.collection("users").doc(firebase.auth().currentUser.uid).update({
+						db.collection("users").doc(firebase.auth().currentUser.uid).update({
 							first: document.getElementById("inputFirstName").value,
 							last: document.getElementById("inputLastName").value,
 							username: document.getElementById("inputUserName").value,
@@ -453,9 +453,11 @@ title: Account Page
 							/* enter update fields here*/
 						})
 						.then(function() {
+							alert("Update->Then");
 							console.log("Updated Account Info");
 						})
 						.catch(function(error) {
+							alert("Update->error");
 							console.log("Error updating document: ", error);
 						});
 					}
