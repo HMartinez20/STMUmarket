@@ -326,7 +326,7 @@ function rateUser(){
 	var rateData = {};
 	db.collection("users").doc(window.data.sellerId).get().then(function(seller) {
 		if(seller.data().ratings == 0){
-			rateData["avgRating"] = selected;
+			rateData["avgRating"] = Number(selected);
 			rateData["ratings"] = 1;
 		}
 		else{
