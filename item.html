@@ -81,7 +81,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		
 		// Check to see if logged in user is owner of posting
 		firebase.auth().onAuthStateChanged(function(user){
-			if(user.uid == data.sellerId){
+			if(user.uid == data.sellerId && data.sold =="no"){
 				console.log("Owner is signed in");
 				
 				var buttons = document.createElement("div");
@@ -143,5 +143,16 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 }).catch(function(error) {
 	console.log("Error getting document:", error);
 });	
+	
+function markSold(){
+	var purchaser = document.getElementById("soldForm").value;
+	
+	db.collection("items").doc(window.postId).update({
+		sold: "yes",
+		soldTo: purchaser
+	}).then(function() {
+		alert("Great Job on the Sale!");
+	}
+}
 	
 </script>
