@@ -332,6 +332,7 @@ function rateUser(){
 		else{
 			rateData["avgRating"] = ( (seller.data().avgRating * seller.data().ratings) + selected) / (seller.data().ratings + 1);
 			rateData["ratings"] = seller.data().ratings + 1;
+			console.log(rateData["avgRating"]);
 		}
 		db.collection("users").doc(window.data.sellerId).set(rateData, {merge: true});
 	});
