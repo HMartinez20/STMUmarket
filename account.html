@@ -108,7 +108,6 @@ title: Account Page
 							<div class="tab-content">
 								<div id="menu1" class="mt-3 ml-3 mr-3 mb-3 tab-pane fade">
 									<h3>Active Listings</h3>
-									<h4> Click on a listing to edit or mark as sold</h4>
 									<div id="myActiveListings"> </div>
 								</div>
 								<div id="menu2" class="mt-3 ml-3 mr-3 mb-3 tab-pane fade">
@@ -254,8 +253,11 @@ title: Account Page
 						var postCount = snapshot.size;
 						var postNum = 0;
 						var listings = document.createElement("div"); /* container for listings */
-						listings.innerHTML = "<p>" + postCount + " Listings<p>";
 						var dRow; /* row of listings */
+						
+						listings.innerHTML = "<p>" + postCount + " Listings <br>"
+						listings.innerHTML += "Click on a listing to edit or mark as sold<p>";
+						
 						/* add a listing card for each listing */
 						snapshot.docs.forEach(doc => {
 							if (postNum % 3==0){ /* start new row */
@@ -292,6 +294,8 @@ title: Account Page
 						var postNum = 0;
 						var listings = document.createElement("div"); /* container for listings */
 						var dRow; /* row of listings */
+						
+						listings.innerHTML = "<p>" + postCount + " Listings<p>";
 						/* add a listing card for each listing */
 						snapshot.docs.forEach(doc => {
 							if (postNum % 3==0){ /* start new row */
@@ -328,6 +332,8 @@ title: Account Page
 						var postNum = 0;
 						var listings = document.createElement("div"); /* container for listings */
 						var dRow; /* row of listings */
+						
+						listings.innerHTML = "<p>" + postCount + " Listings<p>";
 						/* add a listing card for each listing */
 						snapshot.docs.forEach(doc => {
 							if (postNum % 3==0){ /* start new row */
