@@ -56,7 +56,7 @@ title: Item
 								<input type="text" class="form-control" id="inputDesc" placeholder="Last Name">
 							</div>
 							
-							<button type="button" class="btn btn-primary" onclick="markSold()"> Update </button>
+							<button type="button" class="btn btn-primary" onclick="updatePost()"> Update </button>
 						</form>
 					</div>
 				</div>
@@ -172,6 +172,16 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 }).catch(function(error) {
 	console.log("Error getting document:", error);
 });	
+
+// update posting info
+function updatePost(){
+	db.collection("items").doc(window.postId).update({
+		title: document.getElementById("inputTitle").value ,
+		description: document.getElementById("inputDesc").value
+	}).then(function(){
+		alert("Posting successfully updated");
+	});
+}
 	
 function markSold(){
 	var purchaser = document.getElementById("soldForm").value;
