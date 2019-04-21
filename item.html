@@ -128,13 +128,22 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 	console.log("Error getting document:", error);
 });
 	
+// Check to see if logged in user is owner of posting
+	if (firebase.auth().currentUser){
+		console.log("Signed In")
+		
+		if(firebase.auth().currentUser.uid == data.sellerId){
+			console.log("Owner is signed in");
+		}
+	}
+	else{
+		console.log("Not signed In")
+	}
+	
+	
+	
 </script>
-		<!--Script to toggle popover
-<script >
-	$(document).ready(function () 
-		{ $("[data-toggle=popover]").popover(); });
-</script>
--->
+
 
 <script>
 window.onload = function() {
