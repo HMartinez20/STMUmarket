@@ -129,6 +129,12 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 });
 	
 // Check to see if logged in user is owner of posting
+	firebase.auth().onAuthStateChanged(function(user){
+		if(user.uid == data.sellerId){
+			console.log("Owner is signed in");
+		}
+	
+	});	
 	if (firebase.auth().currentUser){
 		console.log("Signed In")
 		
@@ -141,18 +147,5 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 	}
 	
 	
-	
-</script>
-
-
-<script>
-window.onload = function() {
-	if (firebase.auth().currentUser){
-		console.log("Signed In")
-	}
-	else{
-		console.log("Not signed In")
-	}
-  };
 	
 </script>
