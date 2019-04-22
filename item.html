@@ -294,10 +294,9 @@ function updatePost(){
 	
 	
 	db.collection("items").doc(window.postId).update(updateData).then(function(){
-		if(handleFileSelect(window.postId)){
-			alert("Posting successfully updated");
-			location.reload(true);
-		}
+		var done =  handleFileSelect(window.postId))
+		alert("Posting successfully updated");
+		location.reload(true);
 	});
 	
 }
@@ -321,7 +320,7 @@ function updatePost(){
 				var done = uploadImg(fileList.files[i], metaData, id, fileName, img);
 			}
 		 }
-		return done;
+		return true;
 	}
 	// add image URL's as fields to thee posting's document in firebase
 	function uploadImg(file, metaData, id, fileName, img){
