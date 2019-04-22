@@ -31,13 +31,27 @@ title: Account Login
 	}
 	    
 	   
-	/*function resetPassword(){
-		firebase.auth().sendPasswordResetEmail(data.email).then(function() {
-			alert("Password Reset Link was sent to your email.");
-		}).catch(function(error){
-			console.log("An Error Occurred");
-		});
-	}*/
+	function resetPassword(){
+		var email = document.getElementById("email").value;
+		
+		if ($.trim(email).length > 0){
+			db.collection("users").where("email","==",email).limit(1).get().then((snapshot) => {
+				snapshot.docs.forEach(doc => {
+					if(doc.exists){
+						
+						firebase.auth().sendPasswordResetEmail(data.email).then(function() {
+							alert("Password Reset Link was sent to your email.");
+						}).catch(function(error){
+							console.log("An Error Occurred");
+						});
+				
+				
+							});
+		}						  
+		else{
+			// no input
+		}
+	}
 
  
 			
@@ -62,6 +76,7 @@ title: Account Login
        <button type="submit" class="signinbtn"   onclick="whatever();"    >Sign in</button>     
      <br>
         <a href="https://hmartinez20.github.io/STMUmarket/signup.html"> Don't have an account? Click Here</a>
+	<button type="button" class="ml-5 mb-5 btn btn-primary" onclick="resetPassword()"> Reset password </button>
     </div>
     </div>
         
