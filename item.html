@@ -49,6 +49,10 @@ title: Item
 								<input type="text" class="form-control" id="inputTitle" placeholder="Title">
 							</div>
 							<div class="form-group">
+								<label for="inputPrice"> Price </label>
+								<input type="text" class="form-control" id="inputPrice" placeholder="0.00">
+							</div>
+							<div class="form-group">
 								<label for="inputDesc"> Description</label>
 								<input type="text" class="form-control" id="inputDesc" placeholder="Description">
 							</div>
@@ -267,12 +271,14 @@ function updatePost(){
 
 	// Check if a value other than spaces was entered for title
 	if ($.trim(document.getElementById("inputTitle").value).length > 0){
-		console.log("Update Title");
 		updateData["title"] = document.getElementById("inputTitle").value;
+	}
+	// Check if a value other than spaces was entered for price
+	if ($.trim(document.getElementById("inputTitle").value).length > 0){
+		updateData["price"] = Number(document.getElementById("inputTitle").value);
 	}
 	// Check if a value other than spaces was entered for description
 	if ($.trim(document.getElementById("inputTitle").value).length > 0){
-		console.log("Update Title");
 		updateData["description"] = document.getElementById("inputTitle").value;
 	}
 	
