@@ -295,9 +295,6 @@ function updatePost(){
 	
 	db.collection("items").doc(window.postId).update(updateData).then(function(){
 		handleFileSelect(window.postId);
-	}).then(function(){
-		alert("Posting successfully updated");
-		location.reload(true);
 	});
 }
 
@@ -338,9 +335,10 @@ function updatePost(){
 					data[img] = downloadURL;
 					var docRef = db.collection("items").doc(id);
 					var mergeInfo = docRef.set( data, {merge:true} );
-				});
-			
-								       
+				});					       
+			}).then(function(){
+				alert("Posting successfully updated");
+				location.reload(true);
 			});
 	}
 	
