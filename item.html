@@ -288,8 +288,8 @@ function updatePost(){
 		updateData["price"] = Number(document.getElementById("inputPrice").value);
 	}
 	// Check if a value other than spaces was entered for description
-	if ($.trim(document.getElementById("inputTitle").value).length > 0){
-		updateData["description"] = document.getElementById("inputTitle").value;
+	if ($.trim(document.getElementById("inputDesc").value).length > 0){
+		updateData["description"] = document.getElementById("inputDesc").value;
 	}
 	
 	
@@ -297,16 +297,16 @@ function updatePost(){
 		alert("Posting successfully updated");
 		// location.reload(true);
 	}).then(function(){
-		handleFileSelect(window.postId)
+		handleFileSelect(window.postId);
+		alert("Posting successfully updated");
+		location.reload(true);
 	});
 }
 
 	// handle getting new images for update posting
 	function handleFileSelect(id){		
 		var metaData = {
-			customMetadata:{
-				'item': id
-			}
+			customMetadata:{ 'item': id }
 		};
 		// Get image(s) 
 		var fileList = document.getElementById("filesToUpload");
@@ -321,7 +321,7 @@ function updatePost(){
 				
 				uploadImg(fileList.files[i], metaData, id, fileName, img);
 			}
-			alert("Posted!");
+			alert("Updated");
 		 }
 	}
 	// add image URL's as fields to thee posting's document in firebase
@@ -335,7 +335,6 @@ function updatePost(){
 			function(error){},
 			function(){
 				// display alert when image uplaod is complete
-				alert(fileName+"\nUploaded!");
 				task.snapshot.ref.getDownloadURL().then(function(downloadURL){
 					//console.log(downloadURL);
 					var data = {};
