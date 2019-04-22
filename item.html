@@ -4,11 +4,11 @@ title: Item
 <!DOCTYPE html>
 <html>
   <header>
-    {% include header.html %} <!-- Jekyll Liquid command -->
+    {% include header.html %}
     {% include fire.html %}
   </header>
   <body>
-	  {% include navBar.html %}
+	{% include navBar.html %}
 	<div style="margin-left:45px; margin-right:45px">
 		<div class="row">
 			<div class="col-sm-2">
@@ -294,9 +294,6 @@ function updatePost(){
 	
 	
 	db.collection("items").doc(window.postId).update(updateData).then(function(){
-		alert("Posting successfully updated");
-		// location.reload(true);
-	}).then(function(){
 		handleFileSelect(window.postId);
 		alert("Posting successfully updated");
 		location.reload(true);
@@ -321,7 +318,6 @@ function updatePost(){
 				
 				uploadImg(fileList.files[i], metaData, id, fileName, img);
 			}
-			alert("Updated");
 		 }
 	}
 	// add image URL's as fields to thee posting's document in firebase
@@ -345,7 +341,6 @@ function updatePost(){
 			
 								       
 			});
-		//location.reload(true);
 	}
 	
 // mark listing as sold
@@ -367,7 +362,7 @@ function markSold(){
 			else{
 				alert("Invalid username");
 			}	
-		})
+		}) // end of forEach
 	});
 }
 	
