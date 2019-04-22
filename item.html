@@ -294,6 +294,54 @@ function updatePost(){
 	});
 }
 
+	// handle getting new images for update posting
+	function handleFileSelect(id){		
+		var metaData = {
+			customMetadata:{
+				'item': id
+			}
+		};
+		// Get image(s) 
+		var fileList = document.getElementById("filesToUpload");
+		
+		// Upload file(s) to storage
+		if(fileList.files.length != 0){
+			var img;
+			// Upload individual images
+			for(var i = 0; i < fileList.files.length; i++){
+				img = "image"+(i+1);
+				var fileName = fileList.files[i].name;
+				
+				uploadImg(fileList.files[i], metaData, id, fileName, img);
+			}
+			alert("Posted!");
+		 }
+	}
+	// add image URL's as fields to thee posting's document in firebase
+	function uploadImg(file, metaData, id, fileName, img){
+		var storageRef = storage.ref('posts/'+username+'/'+id+'/'+ fileName);  // Reference to WHERE the image will be stored
+		var task = storageRef.put(file, metaData);
+		
+		// Upload Progress
+		task.on('state_changed', 
+			function(snapshot){},
+			function(error){},
+			function(){
+				// display alert when image uplaod is complete
+				alert(fileName+"\nUploaded!");
+				task.snapshot.ref.getDownloadURL().then(function(downloadURL){
+					//console.log(downloadURL);
+					var data = {};
+					data[img] = downloadURL;
+					var docRef = db.collection("items").doc(id);
+					var mergeInfo = docRef.set( data, {merge:true} );
+				});
+			
+								       
+			});
+		//location.reload(true);
+	}
+	
 // mark listing as sold
 function markSold(){
 	var buyer = document.getElementById("inputBuyer").value;
