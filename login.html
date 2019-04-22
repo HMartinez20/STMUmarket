@@ -38,15 +38,16 @@ title: Account Login
 			db.collection("users").where("email","==",email).limit(1).get().then((snapshot) => {
 				snapshot.docs.forEach(doc => {
 					if(doc.exists){
-						
-						firebase.auth().sendPasswordResetEmail(data.email).then(function() {
+						firebase.auth().sendPasswordResetEmail(email).then(function() {
 							alert("Password Reset Link was sent to your email.");
 						}).catch(function(error){
 							console.log("An Error Occurred");
 						});
+					}
 				
 				
-							});
+				});
+			});
 		}						  
 		else{
 			// no input
