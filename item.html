@@ -56,6 +56,12 @@ title: Item
 								<label for="inputDesc"> Description</label>
 								<input type="text" class="form-control" id="inputDesc" placeholder="Description">
 							</div>
+							
+							<div class="form-group">
+								<form method="post" action="upload-page.php" enctype="multipart/form-data">
+                						<input name="filesToUpload[]" id="filesToUpload" type="file" multiple />
+               							</form>
+							</div>
 							<button type="button" class="btn btn-primary" onclick="updatePost()"> Update </button>
 						</form>
 					</div>
