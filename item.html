@@ -276,7 +276,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 });	
 
 // update posting info
-async function updatePost(){
+function updatePost(){
 	var updateData = {};
 
 	// Check if a value other than spaces was entered for title
@@ -294,13 +294,16 @@ async function updatePost(){
 	
 	
 	db.collection("items").doc(window.postId).update(updateData).then(function(){
-		await handleFileSelect(window.postId);
-		alert("Posting successfully updated");
+		handleFileSelect(window.postId);
 	});
-}
+	
+}.then(function(){
+	alert("Posting successfully updated");
+	location.reload(true);
+});
 
 	// handle getting new images for update posting
-	async function handleFileSelect(id){		
+	function handleFileSelect(id){		
 		var metaData = {
 			customMetadata:{ 'item': id }
 		};
@@ -315,12 +318,12 @@ async function updatePost(){
 				img = "image"+(i+1);
 				var fileName = fileList.files[i].name;
 				
-				await uploadImg(fileList.files[i], metaData, id, fileName, img);
+				uploadImg(fileList.files[i], metaData, id, fileName, img);
 			}
 		 }
 	}
 	// add image URL's as fields to thee posting's document in firebase
-	async function uploadImg(file, metaData, id, fileName, img){
+	function uploadImg(file, metaData, id, fileName, img){
 		var storageRef = storage.ref('posts/'+username+'/'+id+'/'+ fileName);  // Reference to WHERE the image will be stored
 		var task = storageRef.put(file, metaData);
 		
