@@ -241,7 +241,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		/* get and display other images */
 		var img2 = "{{site.baseurl}}/Empty.jpg";
 		if(doc.data().image2){ 
-			var img2HTML = "<img onclick='viewImage('" +String(doc.data().image2)+ "');' style='max-width:60%; max-height:60%; border:2px solid #cecece;' src=" + doc.data().image2 + " hspace='20'><br><br><br>"
+			var img2HTML = "<img onclick='viewImage(\'" +String(doc.data().image2)+ "\');' style='max-width:60%; max-height:60%; border:2px solid #cecece;' src=" + doc.data().image2 + " hspace='20'><br><br><br>"
 			var img2div = document.createElement("div");
 			img2div.innerHTML = img2HTML;
 			document.getElementById("otherImages").append(img2div);
