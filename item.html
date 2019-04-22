@@ -274,7 +274,7 @@ function updatePost(){
 		updateData["title"] = document.getElementById("inputTitle").value;
 	}
 	// Check if a value other than spaces was entered for price
-	if ($.trim(document.getElementById("inputTitle").value).length > 0){
+	if ($.trim(document.getElementById("inputPrice").value).length > 0){
 		updateData["price"] = Number(document.getElementById("inputPrice").value);
 	}
 	// Check if a value other than spaces was entered for description
