@@ -276,7 +276,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 });	
 
 // update posting info
-function updatePost(){
+async function updatePost(){
 	var updateData = {};
 
 	// Check if a value other than spaces was entered for title
