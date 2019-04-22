@@ -315,12 +315,12 @@ async function updatePost(){
 				img = "image"+(i+1);
 				var fileName = fileList.files[i].name;
 				
-				uploadImg(fileList.files[i], metaData, id, fileName, img);
+				await uploadImg(fileList.files[i], metaData, id, fileName, img);
 			}
 		 }
 	}
 	// add image URL's as fields to thee posting's document in firebase
-	function uploadImg(file, metaData, id, fileName, img){
+	async function uploadImg(file, metaData, id, fileName, img){
 		var storageRef = storage.ref('posts/'+username+'/'+id+'/'+ fileName);  // Reference to WHERE the image will be stored
 		var task = storageRef.put(file, metaData);
 		
