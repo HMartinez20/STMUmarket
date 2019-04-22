@@ -7,6 +7,7 @@ title: Account Signup
     {% include header.html %} <!-- Jekyll Liquid command -->
     {% include fire.html %}
     <script>
+      /* This function checks to see if the passwords match, if they do match then the account can be created. */
       function whatever(){
 	if(document.getElementById("pass").value != document.getElementById("passwordRepeat").value){
 		alert("Passwords do not match");
