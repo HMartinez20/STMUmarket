@@ -288,9 +288,12 @@ function updatePost(){
 		updateData["description"] = document.getElementById("inputTitle").value;
 	}
 	
+	
 	db.collection("items").doc(window.postId).update(updateData).then(function(){
 		alert("Posting successfully updated");
-		location.reload(true);
+		// location.reload(true);
+	}).then(function(){
+		handleFileSelect(window.postId)
 	});
 }
 
