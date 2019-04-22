@@ -37,19 +37,18 @@ title: Account Login
 		if ($.trim(email).length > 0){
 			db.collection("users").where("email","==",email).limit(1).get().then((snapshot) => {
 				if(snapshot.size == 1){
-				snapshot.docs.forEach(doc => {
+					snapshot.docs.forEach(doc => {
 					//if(doc.exists){
 						firebase.auth().sendPasswordResetEmail(email).then(function() {
 							alert("Password Reset Link was sent to your email.");
 						}).catch(function(error){
 							console.log("An Error Occurred");
 						});
-				});
+					});
 				}
-					else{
-						alert("Invalid Username.");
-					
-		
+				else{
+					alert("Invalid Username.");
+				}
 			});
 		}						  
 		else{
