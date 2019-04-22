@@ -321,7 +321,8 @@ title: Account Page
 							
 							if (postNum % 3==0 || postNum==postCount){ listings.appendChild(dRow); }
 						})
-						document.getElementById("mySoldListings").appendChild(totalSales).appendChild(listings);
+						document.getElementById("mySoldListings").innerHTML = "Total Sold: $" + totalSales;
+						document.getElementById("mySoldListings").appendChild(listings);
 					}) // end of sold listings 
 					
 					/* code for purchased listings */
