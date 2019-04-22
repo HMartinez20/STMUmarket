@@ -138,6 +138,9 @@ title: Item
 </html>
 
 <script>
+const storage = firebase.storage(); // Reference to storage service
+var username; // for file handling, set to user's username
+	
 console.log("11:00");
 /* Code to get posting ID */
 var postId = window.location.hash.substring(1)
@@ -156,6 +159,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		var title = data.title;
 		var price = data.price;
 		var seller = data.seller;
+		username = data.seller; // Test for img edit ----------------------------
 		/* path to the specific seller's page */
 		var sellerLink = "seller.html#" + data.sellerId; 
 		
