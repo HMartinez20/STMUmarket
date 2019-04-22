@@ -239,10 +239,9 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		document.getElementById("mainImage").append(cardImage);
 		
 		/* get and display other images */
-		
 		var img2 = "{{site.baseurl}}/Empty.jpg";
 		if(doc.data().image2){ 
-			var img2HTML = "<img style='max-width:60%; max-height:60%; border:2px solid #cecece;' src=" + doc.data().image2 + "hspace='20'><br><br><br>"
+			var img2HTML = "<img onclick="viewImage(doc.data().image2)"style='max-width:60%; max-height:60%; border:2px solid #cecece;' src=" + doc.data().image2 + "hspace='20'><br><br><br>"
 			var img2div = document.createElement("div");
 			img2div.innerHTML = img2HTML;
 			document.getElementById("otherImages").append(img2div);
@@ -274,6 +273,16 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 }).catch(function(error) {
 	console.log("Error getting document:", error);
 });	
+	
+// change main image	
+function viewImage(imgURL){
+	document.getElementById("mainImage").innerHTML = '';
+	
+	var imgHTML = "<img style='width:100%; max-height:100%; border:2px solid #cecece;' src=" + imgURL + "hspace='20'>"
+	var cardImage = document.createElement("div");
+	cardImage.innerHTML = imgHTML;
+	document.getElementById("mainImage").append(cardImage);
+}
 
 // update posting info
 function updatePost(){
