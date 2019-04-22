@@ -36,8 +36,9 @@ title: Account Login
 		
 		if ($.trim(email).length > 0){
 			db.collection("users").where("email","==",email).limit(1).get().then((snapshot) => {
+				if(snapshot.size == 1){
 				snapshot.docs.forEach(doc => {
-					if(doc.exists){
+					//if(doc.exists){
 						firebase.auth().sendPasswordResetEmail(email).then(function() {
 							alert("Password Reset Link was sent to your email.");
 						}).catch(function(error){
