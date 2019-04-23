@@ -1,6 +1,13 @@
 ---
 title: StMU Marketplace
 ---
+<!--
+Main page
+You can search through listings by selecting a category.
+View an item by clicking on the title
+Items are opened in new tab to save the current search state
+A user can then retrun to their search by exiting the item tab
+-->
 <!DOCTYPE html>
 <html>
   <header>
@@ -12,7 +19,7 @@ title: StMU Marketplace
     <br>
 		<div class="row">
 			<div class="col-2 pl-4">
-				<div class="btn-group-lg" role="group">
+				<div class="btn-group-lg" role="group"> <!-- for sorting listings by category -->
 					<button id="catergories" type="button" class="btn btn-secondary dropdown-toggle d-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</button>
 					<div class="dropdown-menu" aria-labelledby="catergories" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(15px, 78px, 0px);">
 						<button class="btn btn-dark" id="booksCatBtn" onclick="genListings('books');">Books</button>
@@ -67,11 +74,13 @@ title: StMU Marketplace
 <script>
 	var filter = 'price';
 	var order = 'asc';
+// search listings and display based on category and filters
   function genListings(search){
 	  document.getElementById("listings").innerHTML = '';
 		db.collection("items").where("category", "==", search).orderBy(filter, order).get().then(function(querySnapshot){
 				querySnapshot.forEach(function(doc){ // doc.data() is never undefined for query doc snapshots
 					if(doc.data().sold == "no"){ // only show unsold listings
+					// create card for listing and append to the page
 						var placeholder = document.createElement("div");
 						placeholder.setAttribute("class","col-3");
 					
