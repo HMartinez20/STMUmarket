@@ -136,11 +136,11 @@ has js to handle uploading images for new posting
 		
 		
 <!-- Create new posting form-->
-<div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalPostForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Create New Posting</h4>
+        <h4 class="modal-title w-100 font-weight-bold" id="myModalLabel">Create New Posting</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -212,7 +212,7 @@ has js to handle uploading images for new posting
 </div>
 
 <div class="text-center">
-  <a href="" class="ml-5 mb-5 btn btn-primary" data-toggle="modal" data-target="#modalContactForm">Create New Posting</a>
+  <a href="" class="ml-5 mb-5 btn btn-primary" data-toggle="modal" data-target="#modalPostForm">Create New Posting</a>
 </div>
 	</body>
 	{% include footer.html %}
