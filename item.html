@@ -1,3 +1,11 @@
+<!--
+Page displays item data such as images, title, price, desc.
+provides a seller link to view seller's other items
+Buttons and various options displayed vary in who is viewing the post
+	and if the post is sold/unsold and rated/unrated
+Item owner can edit, mark as sold, or delete their item here
+Non-owner can see seller contact info and rate seller if they bought the item
+-->
 ---
 title: Item
 ---
@@ -10,20 +18,21 @@ title: Item
   <body>
 	{% include navBar.html %}
 	<div style="margin-left:45px; margin-right:45px">
+		<!-- line up elements in a row -->
 		<div class="row">
-			<div class="col-sm-2">
+			<div class="col-sm-2"> <!-- This is where post images will be displayed -->
 				<center id="otherImages"></center>
 			</div>
-			<div class="col-sm-5">
+			<div class="col-sm-5">  <!-- where main image is displayed -->
 				<center id="mainImage"> <- Click on an image to enlarge and focus </center>
 			</div>
-			<div class="col-sm-5">
+			<div class="col-sm-5">  <!-- post info: title,seller/seller link, price, desc -->
 				<div id="postInfo" ></div>
-				
+				 <!-- displays info on how to contact seller regarding listing -->
 				<div class="row" id="actionButtons" style="margin-left:0rem;">
-				<button class = "btn btn-primary" id="contact" title="Seller Contact Information">
+					<button class = "btn btn-primary" id="contact" title="Seller Contact Information">
 						Contact Seller
-	 		 	</button>
+	 		 		</button>
 				</div>
 
 				<div class="card">
@@ -32,7 +41,7 @@ title: Item
 				</div>
 			</div>
 	  	</div> <!-- end of row  -->
-		
+		 <!-- form for editing posting-->
 		<div class="modal fade" id="editPosting">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -69,7 +78,7 @@ title: Item
 				</div>
 			</div>
 		</div><!-- EDIT POSTING FORM ENDS -->
-		
+		 <!-- form for marking a posting as sold -->
 		<div class="modal fade" id="sell">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -91,7 +100,7 @@ title: Item
 				</div>
 			</div>
 		</div><!-- SOLD FORM ENDS -->
-		
+		 <!-- form for rating seller -->
 		<div class="modal fade" id="rate"> <!-- Rate form -->
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -316,12 +325,11 @@ function updatePost(){
 	});
 	
 }
-	
+// delete a posting
 function deletePost(){
 	db.collection("items").doc(window.postId).delete().then(function() {
 		alert("Posting Removed");
 		window.location="https://hmartinez20.github.io/STMUmarket/account.html";
-    		console.log("Document successfully deleted!");
 	}).catch(function(error) {
     		console.error("Error removing document: ", error);
 	});
@@ -410,15 +418,16 @@ function rateUser(){
 	// update seller rating statistics
 	var rateData = {};
 	db.collection("users").doc(window.data.sellerId).get().then(function(seller) {
-		if(seller.data().ratings == 0){
+		if(seller.data().ratings == 0){ // if this is seller's first rating
 			rateData["avgRating"] = Number(selected);
 			rateData["ratings"] = 1;
 		}
-		else{
-			rateData["avgRating"] = ( (seller.data().avgRating * seller.data().ratings) + Number(selected)) / (seller.data().ratings + 1);
+		else{ // use previous data to recalculate avgRating
+			rateData["avgRating"] = ((seller.data().avgRating * seller.data().ratings) + Number(selected))/(seller.data().ratings + 1);
 			rateData["ratings"] = seller.data().ratings + 1;
 			console.log(rateData["avgRating"]);
 		}
+		// merge new rating stats with existing data in user doc
 		db.collection("users").doc(window.data.sellerId).set(rateData, {merge: true}).then(function(){
 			alert("Rated Seller");
 			location.reload(true);
