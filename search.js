@@ -2,7 +2,7 @@ var category = "none";
 
 function changeFilter(newFilter, newOrder){
 	console.log(newFilter+", "+newOrder)
-	if(category != "none"){ genListings(category); }
+	if(category != "none"){ genListings(category, newFilter, newOrder); }
 }
 
 // search listings and display based on category and filters
