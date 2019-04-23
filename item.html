@@ -141,8 +141,7 @@ title: Item
 const storage = firebase.storage(); // Reference to storage service
 var username; // for file handling, set to user's username
 	
-console.log("11:00");
-/* Code to get posting ID */
+/* Code to get posting ID form URL*/
 var postId = window.location.hash.substring(1)
 console.log(postId);
 /* redirect to home page if no variable was passed */
@@ -159,7 +158,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		var title = data.title;
 		var price = data.price;
 		var seller = data.seller;
-		username = data.seller; // Test for img edit ----------------------------
+		username = data.seller; // for new images
 		/* path to the specific seller's page */
 		var sellerLink = "seller.html#" + data.sellerId; 
 		
@@ -174,7 +173,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 				$('#contact').popover(
 					{
 					html:true,
-					content: "To contact, send email to " + doc.data().email + " <br> and include 'STMUM Item: "+window.postId+ "' as the subject",
+					content: "To contact, send email to " + data.seller + "@mail.stmarytx.edu <br> and include 'STMUM' and posting's title as subject",
 					trigger: "focus"
 					}				
 				);
