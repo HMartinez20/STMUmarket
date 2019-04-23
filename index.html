@@ -42,19 +42,21 @@ A user can then retrun to their search by exiting the item tab
 					<div class="pl-4">
 						<button id="price" type="button" class="btn btn-secondary dropdown-toggle d-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Price</button> <br>
 						<div class="dropdown-menu" aria-labelledby="prices" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(15px, 78px, 0px);">
-							<button class="btn btn-dark" id="booksBtn" onclick="filter = 'price'; order = 'asc';">Lowest</button>
-							<button class="btn btn-dark" id="furnitureBtn" onclick="filter = 'price'; order = 'desc';">Highest</button>
+							<button class="btn btn-dark" id="booksBtn" onclick="changeFilter('price', 'asc'); filter = 'price'; order = 'asc';">Lowest</button>
+							<button class="btn btn-dark" id="furnitureBtn" onclick="changeFilter('price', 'desc'); filter = 'price'; order = 'desc';">Highest</button>
 						</div>
 						<button id="date" type="button" class="btn btn-secondary dropdown-toggle d-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Date</button> <br>
 						<div class="dropdown-menu" aria-labelledby="date" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(15px, 78px, 0px);">
-							<button class="btn btn-dark" id="oldest" onclick="">Oldest</button>
-							<button class="btn btn-dark" id="newest" onclick="">Newest</button>
+							<button class="btn btn-dark" id="oldest" onclick="changeFilter('date', 'desc');">Oldest</button>
+							<button class="btn btn-dark" id="newest" onclick="changeFilter('date', 'asc');">Newest</button>
 						</div>
+						<!--
 						<button id="reviews" type="button" class="btn btn-secondary dropdown-toggle d-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reviews</button> <br>
 						<div class="dropdown-menu" aria-labelledby="reviews" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(15px, 78px, 0px);">
 							<button class="btn btn-dark" id="booksBtn" onclick="">Lowest</button>
 							<button class="btn btn-dark" id="furnitureBtn" onclick="">Highest</button>
 						</div>
+						-->
 					</div>
 				</div><!-- End Filters -->
 			</div><!-- End Left Pane -->
