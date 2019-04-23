@@ -1,3 +1,4 @@
+<!-- initialize/setup firebase with site/page -->
 <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
 <script>
   // Initialize Firebase
@@ -10,8 +11,9 @@
     messagingSenderId: "305545345045"
   };
   firebase.initializeApp(config);
-  
+  //ref for firebase, not used
   var database = firebase.database();
+  // ref for firestore
   var db  = firebase.firestore();
   
 </script>
