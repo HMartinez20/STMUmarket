@@ -5,7 +5,7 @@ Retrieves all unsold listings posted by this user and appends them
 */
 
 // listener to see if user is logged in
-// not really neccesary in this version
+// only signed in users can view this page
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
 	  console.log("Signed in");
