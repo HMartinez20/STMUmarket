@@ -320,7 +320,7 @@ function updatePost(){
 	
 	db.collection("items").doc(window.postId).update(updateData).then(function(){
 		handleFileSelect(window.postId);
-		alert("Posting successfully updated");
+		alert("Posting successfully updated, refresh page");
 		// location.reload(true);
 	});
 	
