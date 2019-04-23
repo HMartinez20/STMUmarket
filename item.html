@@ -318,6 +318,8 @@ function updatePost(){
 	
 function deletePost(){
 	db.collection("items").doc(window.postId).delete().then(function() {
+		alert("Posting Removed");
+		window.location="https://hmartinez20.github.io/STMUmarket/account.html";
     		console.log("Document successfully deleted!");
 	}).catch(function(error) {
     		console.error("Error removing document: ", error);
