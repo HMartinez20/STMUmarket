@@ -11,7 +11,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 	  console.log("Signed in");
     // User is signed in.
   } else {
-	  console.log(" Not Signed In");
+	  alert("Please sign in to view seller's page");
+	  window.location = "https://hmartinez20.github.io/STMUmarket/";
     // No user is signed in.
   }
 });
