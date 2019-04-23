@@ -2,7 +2,9 @@ var filter = 'price';
 var order = 'asc';
 var category = "none";
 
-function changeFilter(filter, order){
+function changeFilter(newFilter, newOrder){
+	filter = newFilter;
+	order = newOrder;
   if(category != "none"){
 		genListings(category);
 	}
