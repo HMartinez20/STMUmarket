@@ -1,3 +1,8 @@
+<!--
+Page used to login. Simple, minimal layout.
+contains two felds for user to inout email and password
+and buttons for user to sign in or reset password
+-->
 ---
 title: Account Login
 ---
@@ -8,14 +13,16 @@ title: Account Login
     {% include fire.html %}
 	<!-- function from firebase to check the user email/pass. -->
     <script>
+	// sign in function
 	function whatever(){
 		var email = document.getElementById("email").value;
 		var password = document.getElementById("pass").value;
-
+		// sign in with email and password input
 		firebase.auth().signInWithEmailAndPassword(email, password).then(function(user) {
-   		alert("Hello:" + email);
+   		alert("Hello: " + email); // greet and redirect
 			window.location="https://hmartinez20.github.io/STMUmarket/index.html";
 		}).catch(function(error) {
+			//catch and handle common login errors
 			var errorCode = error.code;
 			var errorMessage = error.message;
 			if (errorCode === 'auth/wrong-password') {
@@ -31,15 +38,15 @@ title: Account Login
 	}
 	    
 	 
-		  
+	// send reset email to email in email input box  
 	function resetPassword(){
 		var email = document.getElementById("email").value;
-		
-		if ($.trim(email).length > 0){
+	
+		if ($.trim(email).length > 0){ // Check that there is input other than whitespace
 			db.collection("users").where("email","==",email).limit(1).get().then((snapshot) => {
-				if(snapshot.size == 1){
-					snapshot.docs.forEach(doc => {
-					//if(doc.exists){
+				if(snapshot.size == 1){ // email is valid
+					snapshot.docs.forEach(doc => { 
+						// send reset email
 						firebase.auth().sendPasswordResetEmail(email).then(function() {
 							alert("Password Reset Link was sent to your email.");
 						}).catch(function(error){
@@ -47,12 +54,12 @@ title: Account Login
 						});
 					});
 				}
-				else{
-					alert("Invalid Username.");
+				else{ // email does not belong to any user
+					alert("Invalid Email.");
 				}
 			});
 		}						  
-		else{
+		else{ // no input
 			alert("Please enter your email in the box."); // no input
 		}
 	}
@@ -75,7 +82,7 @@ title: Account Login
 
       <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" id="pass" >
-     
+     <!-- Action buttons to sign in or reset password -->
     <div class="clearfix">
         <button type="button" class="cancelbtn">Cancel</button>
        <button type="submit" class="signinbtn"   onclick="whatever();"    >Sign in</button>
