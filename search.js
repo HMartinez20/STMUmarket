@@ -7,7 +7,7 @@ function changeFilter(newFilter, newOrder){
 
 // search listings and display based on category and filters
 function genListings(search = 'none', filter = 'price', order = 'asc'){
-	console.log(search+", "+newFilter+", "+newOrder)
+	console.log(search+", "+filter+", "+order)
 	category = search;
 	if(search != 'none'){
 		document.getElementById("listings").innerHTML = '';
