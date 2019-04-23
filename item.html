@@ -150,7 +150,7 @@ Non-owner can see seller contact info and rate seller if they bought the item
 <script>
 const storage = firebase.storage(); // Reference to storage service
 var username; // for file handling, set to user's username
-	
+// only signed in users can view this page	
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
 	  console.log("Signed in");
