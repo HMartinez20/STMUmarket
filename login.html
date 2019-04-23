@@ -6,7 +6,7 @@ title: Account Login
   <header>
     {% include header.html %} <!-- Jekyll Liquid command -->
     {% include fire.html %}
-	
+	<!-- function from firebase to check the user email/pass. -->
     <script>
 	function whatever(){
 		var email = document.getElementById("email").value;
@@ -30,7 +30,8 @@ title: Account Login
 			});
 	}
 	    
-	   
+	 
+		  
 	function resetPassword(){
 		var email = document.getElementById("email").value;
 		
@@ -59,6 +60,7 @@ title: Account Login
  
 			
 	 </script>	
+	   <!-- function from firebase to reset pass word^^^^. --> 
   </header>
   <body>
   {% include navBar.html %}
@@ -80,7 +82,7 @@ title: Account Login
        <button type="button" class="signinbtn" align="left" onclick="resetPassword()"> Reset password </button>
      
 	<br>
-        
+         <!-- get the user info then send it to the function up top^^^^^^. --> 
 	<a href="https://hmartinez20.github.io/STMUmarket/signup.html"> Don't have an account? Click Here</a>
 	<br>
 	
