@@ -1,3 +1,9 @@
+<!--
+Navbar displayed on every page of website.
+Used to nagivate to home or to account/login/signout
+displays project name, slogan, and logo
+buttons/links viewable depend on if a user is signed in
+-->
 <div class="jumbotron" style="padding: 1rem;">
   <div class="d-flex justify-content-between">
     <button class="btn btn-lg fas fa-home align-center" onclick="window.location='https://hmartinez20.github.io/STMUmarket/index.html'"></button>
@@ -21,6 +27,7 @@
 </div>
 <script src="LoginChecker.js"></script>
 <script>
+  // logout function used to sign out user
  function logout(){
    firebase.auth().signOut().then(function() {
   console.log('Signed Out');
