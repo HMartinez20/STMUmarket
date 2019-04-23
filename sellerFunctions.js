@@ -90,7 +90,7 @@ db.collection("users").doc(window.sellerId).get().then(function(doc) {
 					})
 			// append seller bio and rating stats
 			var sellerBio = document.createElement("p");
-			sellerBio.innerHTML = "Average Rating: " + data.avgRating + "out of 5 <br>";
+			sellerBio.innerHTML = "Average Rating: " + data.avgRating + " out of 5 <br>";
 			sellerBio.innerHTML += "# of Ratings: " + data.ratings + "<br>";
 			sellerBio.innerHTML += data.bio;
 			document.getElementById("sellerInfo").appendChild(sellerBio);
