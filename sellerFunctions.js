@@ -1,5 +1,10 @@
-/* JS used for seller.html */
-console.log("2:21");
+/* 
+JS used for seller.html 
+page can only be accessed by logged in users.
+If not logged in, page you will be redirected
+Code retrieves seller document and appends information to seller.html
+Retrieves all unsold listings posted by this user and appends them
+*/
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
@@ -47,7 +52,7 @@ $( document ).ready(function() {
 			$('#popover2').popover(
 				{
 				html:true,
-				content: "To contact, send email to " + email + " <br> and include STMUM and posting number as email subject",
+				content: "To contact, send email to " + email + " <br> and include STMUM and posting title as email subject",
 				trigger: "focus"
 				}				
 			);
@@ -94,8 +99,9 @@ $( document ).ready(function() {
 						})
 						document.getElementById("sellerListings").appendChild(listings);
 					})
+			// append seller bio and rating stats
 			var sellerBio = document.createElement("p");
-			sellerBio.innerHTML = "Average Rating: " + data.avgRating + "/5 <br>";
+			sellerBio.innerHTML = "Average Rating: " + data.avgRating + "out of 5 <br>";
 			sellerBio.innerHTML += "# of Ratings: " + data.ratings + "<br>";
 			sellerBio.innerHTML += data.bio;
 			document.getElementById("sellerInfo").appendChild(sellerBio);
@@ -107,25 +113,4 @@ $( document ).ready(function() {
 		}).catch(function(error) {
    		 	console.log("Error getting document:", error);
 		});	
-/*
-}); 
-*/
-
-/* Function to set seller information, remove later
-	$("#setinfo").click(function(){
-		db.collection("sampleseller").doc("samplelistings").set({
-    			email: "srodriguezgome@mail.stmarytx.edu",
-			first: "Salvador",
-			last: "Rodriguez",
-			username: "srodriguezgome",
-			bio: "Hello. I am a Junior at St Mary's."
-		})
-		.then(function() {
-    			console.log("Document successfully written!");
-		})
-		.catch(function(error) {
-    			console.error("Error writing document: ", error);
-		});
-	});
-*/	
 
