@@ -423,7 +423,7 @@ has js to handle uploading images for new posting
 				break;
 			}
 		}
-		if(document.getElementById("form34") != '' && document.getElementById("form29") != '' && document.getElementById("form8") != ''){
+		if(document.getElementById("form34").value != '' && document.getElementById("form29").value != '' && document.getElementById("form8").value != ''){
 			db.collection("items").add({
 				category: selected,
 				title: document.getElementById("form34").value,
