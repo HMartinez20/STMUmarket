@@ -1,18 +1,17 @@
 /* 
 JS used for seller.html 
-page can only be accessed by logged in users.
-If not logged in, page you will be redirected
 Code retrieves seller document and appends information to seller.html
 Retrieves all unsold listings posted by this user and appends them
 */
 
+// listener to see if user is logged in
+// not really neccesary in this version
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-	  console.log("IN");
-	  console.log(user);
+	  console.log("Signed in");
     // User is signed in.
   } else {
-	  console.log(" Not In");
+	  console.log(" Not Signed In");
     // No user is signed in.
   }
 });
@@ -25,20 +24,10 @@ console.log(sellerId);
 		alert("Error Occurred, Redirecting to Home Page");
 		window.location = "https://hmartinez20.github.io/STMUmarket/";
 	}
-/*
-$( document ).ready(function() { 
-*/
-/* see if user is signed in */
-	if (firebase.auth().currentUser){
-		console.log("Signed In")
-	}
-	else{
-		console.log("Not signed In")
-	}
 
-	
-	/*load the seller's data from  firebase */
-	db.collection("users").doc(window.sellerId).get().then(function(doc) {
+
+/*load the seller's data from  firebase */
+db.collection("users").doc(window.sellerId).get().then(function(doc) {
 		if (doc.exists) { 
 			/* get and store min amount of seller data needed, omit sensitive information */
 			var data = doc.data();
