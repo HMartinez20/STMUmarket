@@ -1,11 +1,13 @@
 var category = "none";
 
 function changeFilter(newFilter, newOrder){
+	console.log(newFilter+", "+newOrder)
 	if(category != "none"){ genListings(category); }
 }
 
 // search listings and display based on category and filters
 function genListings(search = 'none', filter = 'price', order = 'asc'){
+	console.log(search+", "+newFilter+", "+newOrder)
 	category = search;
 	if(search != 'none'){
 		document.getElementById("listings").innerHTML = '';
