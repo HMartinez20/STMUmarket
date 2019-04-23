@@ -22,9 +22,9 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 					if(doc.data().image1){ imgSrc = doc.data().image1; }
 
 					var card = document.createElement("div");
-					card.setAttribute("class","card");
+					card.setAttribute("class","card-block");
 					card.innerHTML= '<img src="'+imgSrc+'" class="card-img-top"/>'; 
-					card.innerHTML += '<div class="card-body"><a class="card-title" href="' + ('item.html#' + doc.id) + '" target="_blank">'+ doc.data().title +'</a><p class="card-text">$'+ doc.data().price;
+					card.innerHTML += '<div class="card-body"><p class="text-truncate card-title"><a href="' + ('item.html#' + doc.id) + '" target="_blank">'+ doc.data().title +'</a></p><p class="card-text">$'+ doc.data().price;
 					card.innerHTML += '</p></div>';
 
 					placeholder.appendChild(card);
