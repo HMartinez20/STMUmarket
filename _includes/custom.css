@@ -1,3 +1,4 @@
+/* Custom CS used for radio buttons*/
 input[type="radio"]:active{
   background-color: grey;
 }
