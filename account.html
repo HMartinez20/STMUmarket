@@ -438,6 +438,7 @@ has js to handle uploading images for new posting
 		}).then(function(docRef){
 			console.log("ID = ", docRef.id);
 			handleFileSelect(docRef.id);
+			alert("Posted, please refresh page");
 	
 		}).catch(function(error){
 			alert("\n Error! Ask your administrator");
@@ -466,7 +467,6 @@ has js to handle uploading images for new posting
 				
 				uploadImg(fileList.files[i], metaData, id, fileName, img);
 			}
-			alert("Posted!");
 		 }
 	}
 	// add image URL's as fields to thee posting's document in firebase
