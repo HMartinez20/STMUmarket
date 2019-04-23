@@ -151,6 +151,17 @@ Non-owner can see seller contact info and rate seller if they bought the item
 const storage = firebase.storage(); // Reference to storage service
 var username; // for file handling, set to user's username
 	
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+	  console.log("Signed in");
+    // User is signed in.
+  } else {
+	  alert("Please sign in to view item");
+	  window.location = "https://hmartinez20.github.io/STMUmarket/";
+    // No user is signed in.
+  }
+});
+	
 /* Code to get posting ID form URL*/
 var postId = window.location.hash.substring(1)
 console.log(postId);
