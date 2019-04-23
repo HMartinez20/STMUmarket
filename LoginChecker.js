@@ -1,3 +1,5 @@
+ <!-- function to hide or show login, sign up, account, and sign out --> 
+
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
 		document.getElementById("login").setAttribute("hidden","");
