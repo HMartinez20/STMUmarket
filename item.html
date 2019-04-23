@@ -186,9 +186,10 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 				if(data.sold == "no"){
 					var buttons = document.createElement("div");
 					// code for owner actions buttons to edit or mark posting as sold
-					buttons.innerHTML = "<button class='btn btn-primary' style='margin:5px;' data-toggle='modal' data-target='#editPosting'>Edit Post</button>";
-					buttons.innerHTML += "<button class='btn btn-primary' data-toggle='modal' data-target='#sell'> Mark as Sold </button>";
-				
+					buttons.innerHTML = "<button class='btn btn-primary' style='margin:2px;' data-toggle='modal' data-target='#editPosting'>Edit Post</button>";
+					buttons.innerHTML += "<button class='btn btn-primary' style='margin:2px;' data-toggle='modal' data-target='#sell'> Mark as Sold </button>";
+					buttons.innerHTML += "<button class='btn btn-primary' onclick='deletePost()'> Delete </button>";
+					
 					document.getElementById("actionButtons").innerHTML = ""; // clear contact button
 					document.getElementById("actionButtons").append(buttons); // add owner actions
 				}
@@ -313,6 +314,14 @@ function updatePost(){
 		location.reload(true);
 	});
 	
+}
+	
+function deletePost(){
+	db.collection("items").doc(window.postId).delete().then(function() {
+    		console.log("Document successfully deleted!");
+	}).catch(function(error) {
+    		console.error("Error removing document: ", error);
+	});
 }
 
 	// handle getting new images for update posting
