@@ -1,7 +1,16 @@
 var filter = 'price';
 var order = 'asc';
+var category = "none";
+
+function changeFilter(filter, order){
+  if(category != "none"){
+		genListings(category);
+	}
+}
+
 // search listings and display based on category and filters
 function genListings(search){
+	category = search;
   document.getElementById("listings").innerHTML = '';
   db.collection("items").where("category", "==", search).orderBy(filter, order).get().then(function(querySnapshot){
     querySnapshot.forEach(function(doc){ // doc.data() is never undefined for query doc snapshots
