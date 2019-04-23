@@ -168,17 +168,15 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		postHead.innerHTML+= "<h3>Price: $" + price + "</h3>";
 		document.getElementById("postInfo").appendChild(postHead);
 		
-		db.collection("users").doc(data.sellerId).get().then(function(doc) {
-			if(doc.exists){
-				$('#contact').popover(
-					{
-					html:true,
-					content: "To contact, send email to " + data.seller + "@mail.stmarytx.edu <br> and include 'STMUM' and posting's title as subject",
-					trigger: "focus"
-					}				
-				);
-			}
-		});
+		// code for popover functionality of Contact Seller Button
+		$('#contact').popover(
+			{
+			html:true,
+			content: "To contact, send email to " + data.seller + "@mail.stmarytx.edu <br> and include 'STMUM' and posting's title as subject",
+			trigger: "focus"
+			}				
+		);
+		
 		
 		// Check to see if logged in user is owner of posting
 		firebase.auth().onAuthStateChanged(function(user){
