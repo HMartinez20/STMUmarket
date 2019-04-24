@@ -15,20 +15,20 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 			querySnapshot.forEach(function(doc){ // doc.data() is never undefined for query doc snapshots
 				if(doc.data().sold == "no"){ // only show unsold listings
 					// create card for listing and append to the page
-					var placeholder = document.createElement("div");
-					placeholder.setAttribute("class","col-3");
+// 					var placeholder = document.createElement("div");
+// 					placeholder.setAttribute("class","col-3");
 
 					var imgSrc = "{{site.baseurl}}/Empty.jpg";
 					if(doc.data().image1){ imgSrc = doc.data().image1; }
 
 					var card = document.createElement("div");
-					card.setAttribute("class","card-block");
+					card.setAttribute("class","card-block col-3");
 					card.innerHTML= '<img src="'+imgSrc+'" class="card-img-top"/>'; 
-					card.innerHTML += '<div class="card-body"><p class="text-truncate card-title"><a href="' + ('item.html#' + doc.id) + '" target="_blank">'+ doc.data().title +'</a></p><p class="card-text">$'+ doc.data().price;
+					card.innerHTML += '<div class="card-body pl-0 pb-0 pr-0"><p class="text-truncate card-title"><a href="' + ('item.html#' + doc.id) + '" target="_blank">'+ doc.data().title +'</a></p><p class="card-text">$'+ doc.data().price;
 					card.innerHTML += '</p></div>';
 
-					placeholder.appendChild(card);
-					document.getElementById("listings").appendChild(placeholder);
+// 					placeholder.appendChild(card);
+					document.getElementById("listings").appendChild(card);
 				} // end of if
 			});
 		});
