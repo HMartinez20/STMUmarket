@@ -191,7 +191,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		
 		// code for popover functionality of Contact Seller Button
 		var insertEmail = data.seller+'@mail.stmarytx.edu';
-		var emailLink = 'mailto:'+insertEmail+'?Subject=STMU%20Market,%20Item%20'+window.postId;
+		var emailLink = 'mailto:'+insertEmail+'?Subject=STMU%20Market,%20'+title;
 		$('#contact').popover(
 			{
 			html:true,
