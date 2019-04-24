@@ -195,7 +195,7 @@ db.collection("items").doc(window.postId).get().then(function(doc) {
 		$('#contact').popover(
 			{
 			html:true,
-			content: 'To contact, send email to <a href="mailto:'+emailLink+'" target="_top">'+insertEmail+'</a>'+"<br> with 'STMU Market' and the post's title or ID as the subject.",
+			content: 'To contact, send email to <a href="'+emailLink+'" target="_top">'+insertEmail+'</a>'+"<br> with 'STMU Market' and the post's title or ID as the subject.",
 			trigger: "focus"
 			}				
 		);
