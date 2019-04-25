@@ -23,7 +23,7 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 
 					var card = document.createElement("div");
 					card.setAttribute("class","card-block col-3");
-					card.innerHTML= '<img src="'+imgSrc+'" class="card-img-top"/>'; 
+					card.innerHTML= '<img src="'+imgSrc+'" class="card-img-top" style="object-fit: cover; height: 12rem;"/>'; 
 					card.innerHTML += '<div class="card-body pl-0 pb-0 pr-0"><p class="text-truncate card-title"><a href="' + ('item.html#' + doc.id) + '" target="_blank">'+ doc.data().title +'</a></p><p class="card-text">$'+ doc.data().price;
 					card.innerHTML += '</p></div>';
 
