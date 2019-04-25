@@ -213,20 +213,18 @@ has js to handle uploading images for new posting
 	var currentUser; // set to user's ID
 	var username; // for file handling, set to user's username
 	
-	// reset password - sends email to reset password
+	// RESET PASSWORD - sends email to reset password
 	function resetPassword(){
 		firebase.auth().sendPasswordResetEmail(data.email).then(function() {
 			alert("Password Reset Link was sent to your email.");
-		}).catch(function(error){
-			console.log("An Error Occurred");
-		});
+		}).catch(function(error){console.log("An Error Occurred"); });
 	}
 	
-	/* authentication state observer */
+	/* AUTHENTICATION */
 	firebase.auth().onAuthStateChanged(function(user){
 	 	if(user){
-			console.log("signed in:",user.uid);
-			console.log("signed in:",user);
+			//console.log("signed in:",user.uid);
+			//console.log("signed in:",user);
 			currentUser = user.uid;
 			username = (user.email).substring(0, (user.email).indexOf('@'));
 			/* get user's data */
@@ -243,7 +241,7 @@ has js to handle uploading images for new posting
 					
 					/* Show user's active listings */
 					db.collection('items').where('seller', '==', data.username).where('sold', '==', "no").get().then((snapshot) => {
-						console.log("getting active listings");
+						//console.log("getting active listings");
 						var postCount = snapshot.size;
 						var postNum = 0;
 						var listings = document.createElement("div"); /* container for listings */
@@ -263,18 +261,14 @@ has js to handle uploading images for new posting
 							/* get image url */
 							var imgSrc = "{{site.baseurl}}/Empty.jpg";
 							if(doc.data().image1){ imgSrc = doc.data().image1; }
-							/* create col for listing */
-							var col = document.createElement("div");
-							col.setAttribute("class","col-4");
 							/* create card for listing */
 							var card = document.createElement("div");
-							card.setAttribute("class","card");
-							card.innerHTML= '<img src="'+imgSrc+'" class="card-img-top"/>'; 
-							card.innerHTML += '<div class="card-body"><a class="card-title" href="' + ('item.html#' + doc.id) + '" target="_blank">'+ doc.data().title +'</a><p class="card-text">$'+ doc.data().price;
+							card.setAttribute("class","card col-4");
+							card.innerHTML= '<img src="'+imgSrc+'" class="card-img-top img-thumbnail" style="object-fit: contain; height: 12rem;"/>'; 
+							card.innerHTML += '<div class="card-body pl-0 pb-0 pr-0"><a class="card-title text-truncate" href="' + ('item.html#' + doc.id) + '" target="_blank">'+ doc.data().title +'</a><p class="card-text">$'+ doc.data().price;
 							card.innerHTML += '</p></div>';
 							
-							col.appendChild(card);
-							dRow.appendChild(col);
+							dRow.appendChild(card);
 							
 							if (postNum % 3==0 || postNum==postCount){ listings.appendChild(dRow); }
 						})
@@ -299,22 +293,16 @@ has js to handle uploading images for new posting
 							}
 							postNum+=1;
 						
-							/* get image url */
 							var imgSrc = "{{site.baseurl}}/Empty.jpg";
 							if(doc.data().image1){ imgSrc = doc.data().image1; }
-							/* create col for listing */
-							var col = document.createElement("div");
-							col.setAttribute("class","col-4");
 							/* create card for listing */
 							var card = document.createElement("div");
-							card.setAttribute("class","card");
-							card.innerHTML= '<img src="'+imgSrc+'" class="card-img-top"/>'; 
-							card.innerHTML += '<div class="card-body"><a class="card-title" href="' + ('item.html#' + doc.id) + '" target="_blank">'+ doc.data().title +'</a><p class="card-text">$'+ doc.data().price;
-							totalSales += doc.data().price;
+							card.setAttribute("class","card col-4");
+							card.innerHTML= '<img src="'+imgSrc+'" class="card-img-top img-thumbnail" style="object-fit: contain; height: 12rem;"/>'; 
+							card.innerHTML += '<div class="card-body pl-0 pb-0 pr-0"><a class="card-title text-truncate" href="' + ('item.html#' + doc.id) + '" target="_blank">'+ doc.data().title +'</a><p class="card-text">$'+ doc.data().price;
 							card.innerHTML += '</p></div>';
 							
-							col.appendChild(card);
-							dRow.appendChild(col);
+							dRow.appendChild(card);
 							
 							if (postNum % 3==0 || postNum==postCount){ listings.appendChild(dRow); }
 						})
@@ -347,18 +335,14 @@ has js to handle uploading images for new posting
 							// get main image url 
 							var imgSrc = "{{site.baseurl}}/Empty.jpg";
 							if(doc.data().image1){ imgSrc = doc.data().image1; }
-							// create col for listing 
-							var col = document.createElement("div");
-							col.setAttribute("class","col-4");
-							// create card for listing 
+							/* create card for listing */
 							var card = document.createElement("div");
-							card.setAttribute("class","card");
-							card.innerHTML= '<img src="'+imgSrc+'" class="card-img-top"/>'; 
-							card.innerHTML += '<div class="card-body"><a class="card-title" href="' + ('item.html#' + doc.id) + '" target="_blank">'+ doc.data().title +'</a><p class="card-text">$'+ doc.data().price;
+							card.setAttribute("class","card col-4");
+							card.innerHTML= '<img src="'+imgSrc+'" class="card-img-top img-thumbnail" style="object-fit: contain; height: 12rem;"/>'; 
+							card.innerHTML += '<div class="card-body pl-0 pb-0 pr-0"><a class="card-title text-truncate" href="' + ('item.html#' + doc.id) + '" target="_blank">'+ doc.data().title +'</a><p class="card-text">$'+ doc.data().price;
 							card.innerHTML += '</p></div>';
 							
-							col.appendChild(card);
-							dRow.appendChild(col);
+							dRow.appendChild(card);
 							
 							if (postNum % 3==0 || postNum==postCount){ listings.appendChild(dRow); }
 						})
