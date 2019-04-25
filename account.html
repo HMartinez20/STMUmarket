@@ -149,7 +149,8 @@ has js to handle uploading images for new posting
 
 	<!-- Radio -->
         <p class="text-left">
-          <strong>Item Type:</strong>
+					<i class="fas fa-tags prefix grey-text"></i>
+          <strong>Item Type</strong>
         </p>
 	      
         <div class="form-check mb-4">
@@ -176,22 +177,15 @@ has js to handle uploading images for new posting
 					<label class="form-check-label" for="radio-579">Other</label>
         </div>
         <!-- End Radio -->
-
-        <div class="md-form mb-5">
-          <i class="fas fa-user prefix grey-text"></i><label data-error="wrong" data-success="right" for="form34">&nbsp Item Name</label>
-          <input type="text" id="form34" class="form-control validate">
+				<i class="fas fa-book prefix grey-text"></i><label data-error="wrong" data-success="right" for="form34">&nbsp Item Name</label>
+				<input type="text" id="form34" class="form-control validate mb-4">
+				<i class="fas fa-dollar-sign prefix grey-text"></i><label data-error="wrong" data-success="right" for="form29">&nbsp Price</label>
+        <div class="mb-3 input-group">
+					<div class="input-group-prepend"><div class="input-group-text">$</div></div>
+          <input type="text" id="form29" class="form-control validate" placeholder="0.00" onkeyup="formatCurrency(this);">
         </div>
-
-        <div class="md-form mb-5">
-          <i class="fas fa-envelope prefix grey-text"></i><label data-error="wrong" data-success="right" for="form29">&nbsp Price</label>
-          <input type="text" id="form29" class="form-control validate" onkeyup="formatCurrency(this);">
-        </div>
-
-
-        <div class="md-form mb-5">
-          <i class="fas fa-pencil prefix grey-text"></i><label data-error="wrong" data-success="right" for="form8">&nbsp Item Description</label>
-          <textarea type="text" id="form8" class="md-textarea form-control" rows="4"></textarea>
-        </div>	
+				<i class="fas fa-pencil prefix grey-text"></i><label data-error="wrong" data-success="right" for="form8">&nbsp Item Description</label>
+				<textarea type="text" id="form8" class="form-control mb-4" rows="4"></textarea>
 	<!-- Upload button for multiple images -->
 	      
 	 <div class="md-form">
