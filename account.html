@@ -183,8 +183,8 @@ has js to handle uploading images for new posting
         </div>
 
         <div class="md-form mb-5">
-          <i class="fas fa-envelope prefix grey-text"></i><label data-error="wrong" data-success="right" for="form29">&nbsp Price in $0.00</label>
-          <input type="text" id="form29" class="form-control validate">
+          <i class="fas fa-envelope prefix grey-text"></i><label data-error="wrong" data-success="right" for="form29">&nbsp Price</label>
+          <input type="text" id="form29" class="form-control validate" onkeyup="formatCurrency(this);">
         </div>
 
 
@@ -383,6 +383,22 @@ has js to handle uploading images for new posting
 			window.location = "https://hmartinez20.github.io/STMUmarket/login.html";
 		}
 	});
+	
+	// Format Currency to $0.00
+	function formatCurrency(userIn){
+		var num = userIn.value.replace(/\D/g,'').replace(/(^0+)/gm,''); //remove non-digits and extra zeros
+		var formatted = "";
+		if(num.length <=2){
+			formatted = "0.";
+			if(num.length == 0){formatted += "00";}
+			(num.length == 1)? formatted+="0" + num : formatted += num.substr(-2);
+		}
+		else{
+			formatted = num.substring(0, num.length-2) +"."+ num.substr(-2);
+		}
+		userIn.value = formatted;
+	}
+	
 	// update user account info
 	function updateUser(){
 		var updateData = {}
