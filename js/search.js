@@ -5,6 +5,12 @@ function changeFilter(newFilter, newOrder){
 	if(category != "none"){ genListings(category, newFilter, newOrder); }
 }
 
+/*TEST:
+query = query.where(x, '==', y)
+...
+query.get()...
+*/
+
 // search listings and display based on category and filters
 function genListings(search = 'none', filter = 'price', order = 'asc'){
 	console.log(search+", "+filter+", "+order)
