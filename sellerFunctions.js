@@ -1,7 +1,8 @@
 /* 
 JS used for seller.html 
 Code retrieves seller document and appends information to seller.html
-Retrieves all unsold listings posted by this user and appends them
+Retrieves all unsold listings posted by this user and appends them.
+Last updated on 4/23.
 */
 
 // listener to see if user is logged in
