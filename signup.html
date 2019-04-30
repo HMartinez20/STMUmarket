@@ -5,7 +5,8 @@ title: Account Signup
 create a new user account with firebase authetication
 upon successful account creation, the user submitted data is saved to the db
 A user can leave information fields blank but their account and seller page look incomplete
-Catches and displays errors with sign up
+Catches and displays errors with sign up. 
+least edit was 4/22/19 by tamas
 -->
 <!DOCTYPE html>
 <html>
@@ -68,9 +69,9 @@ Catches and displays errors with sign up
 
       <label for="username"><b>Username - use st mary's</b></label><br>
       <input type="text" placeholder="Enter st mary's username" name="username" required  id="username" >
-      <label for "email"> @mail.stmarytx.edu </label><br>
+      <label for "email"> @mail.stmarytx.edu </label><br>  <!-- forces the user to use a st mary email -->
 
-      <label for="psw"><b>Password(must be at least 9 characters long)</b></label><br>
+      <label for="psw"><b>Password(must be at least 9 characters long)</b></label><br> 
       <input type="password" placeholder="Enter Password" name="psw" id="pass" onkeyup='check();' ><br>
 
       <label for="psw-repeat"><b>Repeat Password</b>
@@ -103,7 +104,6 @@ Catches and displays errors with sign up
   {% include footer.html %}
 </html> 
 <script>
-  console.log("test");
   </script>
 
 <script src="LoginChecker.js"></script>
