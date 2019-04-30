@@ -70,7 +70,7 @@ Non-owner can see seller contact info and rate seller if they bought the item
 										<input name="filesToUpload[]" id="filesToUpload" type="file" multiple />
 									</form>
 								</div>
-								<button type="button" class="btn btn-primary" onclick="updatePost()"> Update </button>
+								<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="updatePost()"> Update </button>
 							</form>
 						</div>
 					</div>
@@ -242,7 +242,12 @@ Non-owner can see seller contact info and rate seller if they bought the item
 					});
 				} // end of else (not owner)
 			});
-
+			
+			/* Pre-fill edit form */
+			document.getElementById("inputTitle").value = data.title;
+			document.getElementById("inputPrice").value = data.price;
+			document.getElementById("inputDescription").value = data.description;
+			
 			/* display description*/
 			var desc = document.createElement("p");
 			desc.innerHTML = data.description;
