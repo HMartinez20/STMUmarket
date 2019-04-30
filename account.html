@@ -239,6 +239,11 @@ has js to handle uploading images for new posting
 					document.getElementById("numRatings").append(data.ratings);
 					document.getElementById("ProfileDesc").append(data.bio);
 					
+					// prefill edit form
+					document.getElementById("inputFirstName").value = data.first;
+					document.getElementById("inputLastName").value = data.last;
+					document.getElementById("inputBio").value = data.bio;
+					
 					/* Show user's active listings */
 					db.collection('items').where('seller', '==', data.username).where('sold', '==', "no").get().then((snapshot) => {
 						//console.log("getting active listings");
