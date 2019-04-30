@@ -144,6 +144,7 @@ has js to handle uploading images for new posting
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
+	      <!--- Button for new post --->
         <h4 class="modal-title w-100 font-weight-bold" id="myModalLabel">Create New Posting</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -153,37 +154,43 @@ has js to handle uploading images for new posting
 
 	<!-- Radio -->
         <p class="text-left">
-					<i class="fas fa-tags prefix grey-text"></i>
+	<i class="fas fa-tags prefix grey-text"></i>
+		<!--- Title: Type --->
           <strong>Item Type</strong>
         </p>
 	      
         <div class="form-check mb-2">
           <input class="form-check-input" name="group1" type="radio" id="radio-179" value="books" checked>
+		<!--- CLick radio for Books --->
           <label class="form-check-label" for="radio-179">Books</label>
         </div>
 
         <div class="form-check mb-2">
-					<input class="form-check-input" name="group1" type="radio" id="radio-279" value="clothing">
-					<label class="form-check-label" for="radio-279">Clothing</label>
+		<input class="form-check-input" name="group1" type="radio" id="radio-279" value="clothing">
+		<!--- CLick radio for Clothing --->
+		<label class="form-check-label" for="radio-279">Clothing</label>
         </div>
 				
         <div class="form-check mb-2">
-					<input class="form-check-input" name="group1" type="radio" id="radio-379" value="electronics">
-					<label class="form-check-label" for="radio-379">Electronics</label>
+		<input class="form-check-input" name="group1" type="radio" id="radio-379" value="electronics">
+		<!--- CLick radio for Electronics --->
+		<label class="form-check-label" for="radio-379">Electronics</label>
         </div>
 
         <div class="form-check mb-2">
-					<input class="form-check-input" name="group1" type="radio" id="radio-479" value="furniture">
-					<label class="form-check-label" for="radio-479">Furniture</label>
+		<input class="form-check-input" name="group1" type="radio" id="radio-479" value="furniture">
+		<!--- CLick radio for Furniture --->
+		<label class="form-check-label" for="radio-479">Furniture</label>
         </div>
         <div class="form-check mb-4">
-					<input class="form-check-input" name="group1" type="radio" id="radio-579" value="other">
-					<label class="form-check-label" for="radio-579">Other</label>
+		<input class="form-check-input" name="group1" type="radio" id="radio-579" value="other">
+		<!--- CLick radio for Other --->
+		<label class="form-check-label" for="radio-579">Other</label>
         </div>
         <!-- End Radio -->
-				<i class="fas fa-book prefix grey-text"></i><label data-error="wrong" data-success="right" for="form34">&nbsp Item Name</label>
-				<input type="text" id="form34" class="form-control validate mb-3">
-				<i class="fas fa-dollar-sign prefix grey-text"></i><label data-error="wrong" data-success="right" for="form29">&nbsp Price</label>
+	<i class="fas fa-book prefix grey-text"></i><label data-error="wrong" data-success="right" for="form34">&nbsp Item Name</label>
+		<input type="text" id="form34" class="form-control validate mb-3">
+		<i class="fas fa-dollar-sign prefix grey-text"></i><label data-error="wrong" data-success="right" for="form29">&nbsp Price</label>
         <div class="mb-4 input-group">
 					<div class="input-group-prepend"><div class="input-group-text">$</div></div>
           <input type="text" id="form29" class="form-control validate" placeholder="0.00" onkeyup="formatCurrency(this);">
