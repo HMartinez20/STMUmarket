@@ -11,350 +11,353 @@ Non-owner can see seller contact info and rate seller if they bought the item
 -->
 <!DOCTYPE html>
 <html>
-  <header>
-    {% include header.html %}
-    {% include fire.html %}
-  </header>
-  <body>
-	{% include navBar.html %}
-	<div style="margin-left:45px; margin-right:45px">
-		<!-- line up elements in a row -->
-		<div class="row">
-			<div class="col-sm-2"> <!-- This is where post images will be displayed -->
-				<center id="otherImages"></center>
-			</div>
-			<div class="col-sm-5">  <!-- where main image is displayed -->
-				<center id="mainImage"> <- Click on an image to enlarge and focus </center>
-			</div>
-			<div class="col-sm-5">  <!-- post info: title,seller/seller link, price, desc -->
-				<div id="postInfo" ></div>
-				 <!-- displays info on how to contact seller regarding listing -->
-				<div class="row" id="actionButtons" style="margin-left:0rem;">
-					<button class = "btn btn-primary" id="contact" title="Seller Contact Information">
-						Contact Seller
-	 		 		</button>
+	<header>
+		{% include header.html %}
+		{% include fire.html %}
+	</header>
+	<body>
+		{% include navBar.html %}
+		<div style="margin-left:45px; margin-right:45px">
+			<!-- line up elements in a row -->
+			<div class="row">
+				<div class="col-sm-2"> <!-- This is where post images will be displayed -->
+					<center id="otherImages"></center>
 				</div>
-
-				<div class="card">
-				<div class="card-header"> Description </div>
-				<div class="card-body" id="itemDesc"> </div>
+				<div class="col-sm-5">  <!-- where main image is displayed -->
+					<center id="mainImage"> <- Click on an image to enlarge and focus </center>
 				</div>
-			</div>
-	  	</div> <!-- end of row  -->
-		 <!-- form for editing posting-->
-		<div class="modal fade" id="editPosting">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<!-- Modal Header -->
-					<div class="modal-header">
-						<h4 class="modal-title">Edit your Posting</h4>
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<div class="col-sm-5">  <!-- post info: title,seller/seller link, price, desc -->
+					<div id="postInfo"></div>
+					<!-- displays info on how to contact seller regarding listing -->
+					<div class="row" id="actionButtons" style="margin-left:0rem;">
+						<button class = "btn btn-primary" id="contact" title="Seller Contact Information">
+							Contact Seller
+						</button>
 					</div>
-					<!-- Modal body -->
-					<div class="modal-body">
-						<form>
-							<div class="form-group">
-								<label for="inputTitle"> Title </label>
-								<input type="text" class="form-control" id="inputTitle" placeholder="Title">
-							</div>
-							<div class="form-group">
-								<label for="inputPrice"> Price </label>
-								<input type="text" class="form-control" id="inputPrice" placeholder="0.00">
-							</div>
-							<div class="form-group">
-								<label for="inputDesc"> Description</label>
-								<input type="text" class="form-control" id="inputDesc" placeholder="Description">
-							</div>
-							
-							<div class="form-group">
-								<label> Note: uploading new images will delete/overwrite existing images</label>
-								<form method="post" action="upload-page.php" enctype="multipart/form-data">
-                						<input name="filesToUpload[]" id="filesToUpload" type="file" multiple />
-               							</form>
-							</div>
-							<button type="button" class="btn btn-primary" onclick="updatePost()"> Update </button>
-						</form>
+					<div class="card">
+						<div class="card-header"> Description </div>
+						<div class="card-body" id="itemDesc"></div>
 					</div>
 				</div>
-			</div>
-		</div><!-- EDIT POSTING FORM ENDS -->
-		 <!-- form for marking a posting as sold -->
-		<div class="modal fade" id="sell">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<!-- Modal Header -->
-					<div class="modal-header">
-						<h4 class="modal-title">Update Posting Status</h4>
+			</div> <!-- end of row  -->
+			<!-- form for editing posting-->
+			<div class="modal fade" id="editPosting">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h4 class="modal-title">Edit your Posting</h4>
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
-					</div>
-					<!-- Modal body -->
-					<div class="modal-body">
-						<form>
-							<div class="form-group">
-								<label for="inputBuyer"> Please Enter username of buyer </label>
-								<input type="text" class="form-control" id="inputBuyer" placeholder="username">
-							</div>
-							<button type="button" class="btn btn-primary" onclick="markSold()"> Mark as Sold </button>
-						</form>
+						</div>
+						<!-- Modal body -->
+						<div class="modal-body">
+							<form>
+								<div class="form-group">
+									<label for="inputTitle"> Title </label>
+									<input type="text" class="form-control" id="inputTitle" placeholder="Title">
+								</div>
+								<div class="form-group">
+									<label for="inputPrice"> Price </label>
+									<input type="text" class="form-control" id="inputPrice" placeholder="0.00">
+								</div>
+								<div class="form-group">
+									<label for="inputDesc"> Description</label>
+									<input type="text" class="form-control" id="inputDesc" placeholder="Description">
+								</div>
+								<div class="form-group">
+									<label> Note: uploading new images will delete/overwrite existing images</label>
+									<form method="post" action="upload-page.php" enctype="multipart/form-data">
+										<input name="filesToUpload[]" id="filesToUpload" type="file" multiple />
+									</form>
+								</div>
+								<button type="button" class="btn btn-primary" onclick="updatePost()"> Update </button>
+							</form>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div><!-- SOLD FORM ENDS -->
-		 <!-- form for rating seller -->
-		<div class="modal fade" id="rate"> <!-- Rate form -->
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<!-- Modal Header -->
-					<div class="modal-header">
-						<h4 class="modal-title">Rate User</h4>
+			</div><!-- EDIT POSTING FORM ENDS -->
+			<!-- form for marking a posting as sold -->
+			<div class="modal fade" id="sell">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h4 class="modal-title">Update Posting Status</h4>
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
-					</div>
-					<!-- Modal body -->
-					<div class="modal-body">
-						<form>
-							<p class="text-left">
-          							<strong>How would you rate you experience with this seller?</strong>
-        						</p>
-							<div class="form-check mb-4">
-          							<input class="form-check-input" name="group1" type="radio" id="radio-179" value="1">
-          							<label class="form-check-label" for="radio-179">Terrible</label>
-       							 </div>
-							<div class="form-check mb-4">
-          							<input class="form-check-input" name="group1" type="radio" id="radio-279" value="2">
-          							<label class="form-check-label" for="radio-279">Poor</label>
-       							 </div>
-							<div class="form-check mb-4">
-          							<input class="form-check-input" name="group1" type="radio" id="radio-379" value="3">
-          							<label class="form-check-label" for="radio-379">Fair</label>
-       							 </div>
-							<div class="form-check mb-4">
-          							<input class="form-check-input" name="group1" type="radio" id="radio-479" value="4">
-          							<label class="form-check-label" for="radio-479">Good</label>
-       							 </div>
-							<div class="form-check mb-4">
-          							<input class="form-check-input" name="group1" type="radio" id="radio-579" value="5">
-          							<label class="form-check-label" for="radio-579">Excellent</label>
-       							 </div>
-							<button type="button" class="btn btn-primary" onclick="rateUser()"> Rate </button>
-						</form>
+						</div>
+						<!-- Modal body -->
+						<div class="modal-body">
+							<form>
+								<div class="form-group">
+									<label for="inputBuyer"> Please Enter username of buyer </label>
+									<input type="text" class="form-control" id="inputBuyer" placeholder="username">
+								</div>
+								<button type="button" class="btn btn-primary" onclick="markSold()"> Mark as Sold </button>
+							</form>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div><!-- RATE FORM ENDS -->
-		
-	  </div>
-  </body>
-   {% include footer.html %} 
+			</div><!-- SOLD FORM ENDS -->
+			<!-- form for rating seller -->
+			<div class="modal fade" id="rate"> <!-- Rate form -->
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h4 class="modal-title">Rate User</h4>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+						<!-- Modal body -->
+						<div class="modal-body">
+							<form>
+								<p class="text-left">
+									<strong>How would you rate you experience with this seller?</strong>
+								</p>
+								<div class="form-check mb-4">
+									<input class="form-check-input" name="group1" type="radio" id="radio-179" value="1">
+									<label class="form-check-label" for="radio-179">Terrible</label>
+								</div>
+								<div class="form-check mb-4">
+									<input class="form-check-input" name="group1" type="radio" id="radio-279" value="2">
+									<label class="form-check-label" for="radio-279">Poor</label>
+								</div>
+								<div class="form-check mb-4">
+									<input class="form-check-input" name="group1" type="radio" id="radio-379" value="3">
+									<label class="form-check-label" for="radio-379">Fair</label>
+								</div>
+								<div class="form-check mb-4">
+									<input class="form-check-input" name="group1" type="radio" id="radio-479" value="4">
+									<label class="form-check-label" for="radio-479">Good</label>
+								</div>
+								<div class="form-check mb-4">
+									<input class="form-check-input" name="group1" type="radio" id="radio-579" value="5">
+									<label class="form-check-label" for="radio-579">Excellent</label>
+								</div>
+								<button type="button" class="btn btn-primary" onclick="rateUser()"> Rate </button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div><!-- RATE FORM ENDS -->
+		</div>
+	</body>
+	{% include footer.html %} 
 </html>
 
 <script>
-const storage = firebase.storage(); // Reference to storage service
-var username; // for file handling, set to user's username
-// only signed in users can view this page	
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-	  console.log("Signed in");
-    // User is signed in.
-  } else {
-	  alert("Please sign in to view item");
-	  window.location = "https://hmartinez20.github.io/STMUmarket/";
-    // No user is signed in.
-  }
-});
+	const storage = firebase.storage(); // Reference to storage service
+	var username; // for file handling, set to user's username
+	// only signed in users can view this page
+	firebase.auth().onAuthStateChanged(function(user) {
+		if (user) {
+			console.log("Signed in"); // User is signed in.
+		} else {
+			alert("Please sign in to view item");
+			window.location = "https://hmartinez20.github.io/STMUmarket/";
+			// No user is signed in.
+		}
+	});
 	
-/* Code to get posting ID form URL*/
-var postId = window.location.hash.substring(1)
-console.log(postId);
-/* redirect to home page if no variable was passed */
-if (!(postId)){
-	alert("Error Occurred, Redirecting to Home Page");
-	window.location = "https://hmartinez20.github.io/STMUmarket/";
-}	
+	// ============================
+
+	/* Code to get posting ID form URL*/
+	var postId = window.location.hash.substring(1)
+	console.log(postId);
+	/* redirect to home page if no variable was passed */
+	if (!(postId)){
+		alert("Error Occurred, Redirecting to Home Page");
+		window.location = "https://hmartinez20.github.io/STMUmarket/";
+	}
 	
-/* Load posting Data */
-db.collection("items").doc(window.postId).get().then(function(doc) {
-	if (doc.exists) { 
-		/* get posting data */
-		window.data = doc.data();
-		var title = data.title;
-		var price = data.price;
-		var seller = data.seller;
-		username = data.seller; // for new images
-		/* path to the specific seller's page */
-		var sellerLink = "seller.html#" + data.sellerId; 
-		
-		/* Display title and price*/
-		var postHead = document.createElement("div");
-		postHead.innerHTML = "<h1>" + title + "</h1> <h3> Seller: <a href=" + sellerLink + ">" + seller +"</a></h3>";
-		postHead.innerHTML+= "<h3>Price: $" + price + "</h3>";
-		document.getElementById("postInfo").appendChild(postHead);
-		
-		// code for popover functionality of Contact Seller Button
-		var insertEmail = data.seller+'@mail.stmarytx.edu';
-		var emailLink = 'mailto:'+insertEmail+'?Subject=STMU%20Market,%20'+title;
-		$('#contact').popover(
-			{
-			html:true,
-			content: 'To contact, send email to <a href="'+emailLink+'" target="_top">'+insertEmail+'</a>'+"<br> with 'STMU Market' and the post's title or ID as the subject.",
-			trigger: "focus"
-			}				
-		);
-		
-		
-		// Check to see if logged in user is owner of posting
-		firebase.auth().onAuthStateChanged(function(user){
-			if(user.uid == data.sellerId){
-				console.log("Owner is signed in");
-				
-				if(data.sold == "no"){
-					var buttons = document.createElement("div");
-					// code for owner actions buttons to edit or mark posting as sold
-					buttons.innerHTML = "<button class='btn btn-primary' style='margin:2px;' data-toggle='modal' data-target='#editPosting'>Edit Post</button>";
-					buttons.innerHTML += "<button class='btn btn-primary' style='margin:2px;' data-toggle='modal' data-target='#sell'> Mark as Sold </button>";
-					buttons.innerHTML += "<button class='btn btn-primary' onclick='deletePost()'> Delete </button>";
-					
-					document.getElementById("actionButtons").innerHTML = ""; // clear contact button
-					document.getElementById("actionButtons").append(buttons); // add owner actions
-				}
-				else{ // item was already sold
-					var purchaseInfo = document.createElement("p");
-					purchaseInfo.innerHTML = "This Item was sold to " + data.soldTo;
-					
-					document.getElementById("actionButtons").innerHTML = ""; // clear contact button
-					document.getElementById("actionButtons").append(purchaseInfo) // add purchase info
-				}
-			} // end of if owner
-			else{ // if owner is not signed in
-				db.collection("users").doc(user.uid).get().then(function(userInfo) {
-					var userData = userInfo.data();
-					
-					if(userData.username == data.soldTo){ // check if current user bought this item
-						var soldInfo = document.createElement("div"); 
-					
-						// Display sold status
+	// ============================
+
+	/* Load posting Data */
+	db.collection("items").doc(window.postId).get().then(function(doc) {
+		if (doc.exists) { 
+			/* get posting data */
+			window.data = doc.data();
+			var title = data.title;
+			var price = data.price;
+			var seller = data.seller;
+			username = data.seller; // for new images
+			/* path to the specific seller's page */
+			var sellerLink = "seller.html#" + data.sellerId; 
+
+			/* Display title and price*/
+			var postHead = document.createElement("div");
+			postHead.innerHTML = "<h1>" + title + "</h1> <h3> Seller: <a href=" + sellerLink + ">" + seller +"</a></h3>";
+			postHead.innerHTML+= "<h3>Price: $" + price + "</h3>";
+			document.getElementById("postInfo").appendChild(postHead);
+
+			// code for popover functionality of Contact Seller Button
+			var insertEmail = data.seller+'@mail.stmarytx.edu';
+			var emailLink = 'mailto:'+insertEmail+'?Subject=STMU%20Market,%20'+title;
+			$('#contact').popover(
+				{
+					html:true,
+					content: 'To contact, send email to <a href="'+emailLink+'" target="_top">'+insertEmail+'</a>'+"<br> with 'STMU Market' and the post's title or ID as the subject.",
+					trigger: "focus"
+				}				
+			);
+
+			// Check to see if logged in user is owner of posting
+			firebase.auth().onAuthStateChanged(function(user){
+				if(user.uid == data.sellerId){
+					console.log("Owner is signed in");
+
+					if(data.sold == "no"){
+						var buttons = document.createElement("div");
+						// code for owner actions buttons to edit or mark posting as sold
+						buttons.innerHTML = "<button class='btn btn-primary' style='margin:2px;' data-toggle='modal' data-target='#editPosting'>Edit Post</button>";
+						buttons.innerHTML += "<button class='btn btn-primary' style='margin:2px;' data-toggle='modal' data-target='#sell'> Mark as Sold </button>";
+						buttons.innerHTML += "<button class='btn btn-primary' onclick='deletePost()'> Delete </button>";
+
 						document.getElementById("actionButtons").innerHTML = ""; // clear contact button
-						soldInfo.innerHTML = "<p>You Bought this listing</p>";
-						
-						if(data.rated == "no"){ // show button to rate
-							soldInfo.innerHTML += "<button class='btn btn-primary' data-toggle='modal' data-target='#rate'>Rate Seller</button>";
-						}
-						document.getElementById("actionButtons").append(soldInfo) // add sold info
+						document.getElementById("actionButtons").append(buttons); // add owner actions
 					}
-				});
-			} // end of else (not owner)
+					else{ // item was already sold
+						var purchaseInfo = document.createElement("p");
+						purchaseInfo.innerHTML = "This Item was sold to " + data.soldTo;
+
+						document.getElementById("actionButtons").innerHTML = ""; // clear contact button
+						document.getElementById("actionButtons").append(purchaseInfo) // add purchase info
+					}
+				} // end of if owner
+				else{ // if owner is not signed in
+					db.collection("users").doc(user.uid).get().then(function(userInfo) {
+						var userData = userInfo.data();
+
+						if(userData.username == data.soldTo){ // check if current user bought this item
+							var soldInfo = document.createElement("div"); 
+
+							// Display sold status
+							document.getElementById("actionButtons").innerHTML = ""; // clear contact button
+							soldInfo.innerHTML = "<p>You Bought this listing</p>";
+
+							if(data.rated == "no"){ // show button to rate
+								soldInfo.innerHTML += "<button class='btn btn-primary' data-toggle='modal' data-target='#rate'>Rate Seller</button>";
+							}
+							document.getElementById("actionButtons").append(soldInfo) // add sold info
+						}
+					});
+				} // end of else (not owner)
+			});
+
+			/* display description*/
+			var desc = document.createElement("p");
+			desc.innerHTML = data.description;
+			document.getElementById("itemDesc").appendChild(desc);
+
+			var imgSrc = "{{site.baseurl}}/Empty.jpg";
+			if(doc.data().image1){ imgSrc = doc.data().image1; }
+			/* display main image */
+			var imgHTML = "<img style='width:100%; max-height:100%; border:2px solid #cecece;' src=" + imgSrc + " hspace='20'>"
+			var cardImage = document.createElement("div");
+			cardImage.innerHTML = imgHTML;
+			document.getElementById("mainImage").append(cardImage);
+
+			/* get and display all images (up to 4)*/
+			var img1 = "{{site.baseurl}}/Empty.jpg";
+			if(doc.data().image1){ 
+				var img1HTML = "<img onclick='viewImage(\"" + doc.data().image1 + "\");' style='max-width:60%; max-height:60%; border:2px solid #cecece;' src=" + doc.data().image1 + " hspace='20'><br><br><br>"
+				var img1div = document.createElement("div");
+				img1div.innerHTML = img1HTML;
+				document.getElementById("otherImages").append(img1div);
+			}
+
+			var img2 = "{{site.baseurl}}/Empty.jpg";
+			if(doc.data().image2){ 
+				var img2HTML = "<img onclick='viewImage(\"" + doc.data().image2 + "\");' style='max-width:60%; max-height:60%; border:2px solid #cecece;' src=" + doc.data().image2 + " hspace='20'><br><br><br>"
+				var img2div = document.createElement("div");
+				img2div.innerHTML = img2HTML;
+				document.getElementById("otherImages").append(img2div);
+			}
+
+			var img3 = "{{site.baseurl}}/Empty.jpg";
+			if(doc.data().image3){ 
+				var img3HTML = "<img onclick='viewImage(\"" + doc.data().image3 + "\");'style='max-width:60%; max-height:60%; border:2px solid #cecece;' src=" + doc.data().image3 + "hspace='20'><br><br><br>"
+				var img3div = document.createElement("div");
+				img3div.innerHTML = img3HTML;
+				document.getElementById("otherImages").append(img3div);
+			}
+
+			var img4 = "{{site.baseurl}}/Empty.jpg";
+			if(doc.data().image4){ 
+				var img4HTML = "<img onclick='viewImage(\"" + doc.data().image4 + "\");' style='max-width:60%; max-height:60%; border:2px solid #cecece;' src=" + doc.data().image4 + "hspace='20'><br><br><br>"
+				var img4div = document.createElement("div");
+				img4div.innerHTML = img4HTML;
+				document.getElementById("otherImages").append(img4div);
+			}
+
+			/* <IMG STYLE="position:absolute; TOP:350px; LEFT:300px; WIDTH:450px; HEIGHT:500px" src="" hspace="20"> */
+		} else { // doc doesn't exist
+			console.log("Requested document does not exist...");
+		}
+	}).catch(function(error) {
+		console.log("Error getting document:", error);
+	});	
 	
-		});
-		
-		
-		/* display description*/
-		var desc = document.createElement("p");
-		desc.innerHTML = data.description;
-		document.getElementById("itemDesc").appendChild(desc);
-		
-		var imgSrc = "{{site.baseurl}}/Empty.jpg";
-		if(doc.data().image1){ imgSrc = doc.data().image1; }
-		/* display main image */
-		var imgHTML = "<img style='width:100%; max-height:100%; border:2px solid #cecece;' src=" + imgSrc + " hspace='20'>"
+	// ============================
+
+	// change main image
+	function viewImage(imgURL){
+		document.getElementById("mainImage").innerHTML = '';
+
+		var imgHTML = "<img style='width:100%; max-height:100%; border:2px solid #cecece;' src=" + imgURL + "hspace='20'>"
 		var cardImage = document.createElement("div");
 		cardImage.innerHTML = imgHTML;
 		document.getElementById("mainImage").append(cardImage);
-		
-		/* get and display all images (up to 4)*/
-		var img1 = "{{site.baseurl}}/Empty.jpg";
-		if(doc.data().image1){ 
-			var img1HTML = "<img onclick='viewImage(\"" + doc.data().image1 + "\");' style='max-width:60%; max-height:60%; border:2px solid #cecece;' src=" + doc.data().image1 + " hspace='20'><br><br><br>"
-			var img1div = document.createElement("div");
-			img1div.innerHTML = img1HTML;
-			document.getElementById("otherImages").append(img1div);
-		}
-		
-		var img2 = "{{site.baseurl}}/Empty.jpg";
-		if(doc.data().image2){ 
-			var img2HTML = "<img onclick='viewImage(\"" + doc.data().image2 + "\");' style='max-width:60%; max-height:60%; border:2px solid #cecece;' src=" + doc.data().image2 + " hspace='20'><br><br><br>"
-			var img2div = document.createElement("div");
-			img2div.innerHTML = img2HTML;
-			document.getElementById("otherImages").append(img2div);
-		}
-		
-		var img3 = "{{site.baseurl}}/Empty.jpg";
-		if(doc.data().image3){ 
-			var img3HTML = "<img onclick='viewImage(\"" + doc.data().image3 + "\");'style='max-width:60%; max-height:60%; border:2px solid #cecece;' src=" + doc.data().image3 + "hspace='20'><br><br><br>"
-			var img3div = document.createElement("div");
-			img3div.innerHTML = img3HTML;
-			document.getElementById("otherImages").append(img3div);
-		}
-		
-		var img4 = "{{site.baseurl}}/Empty.jpg";
-		if(doc.data().image4){ 
-			var img4HTML = "<img onclick='viewImage(\"" + doc.data().image4 + "\");' style='max-width:60%; max-height:60%; border:2px solid #cecece;' src=" + doc.data().image4 + "hspace='20'><br><br><br>"
-			var img4div = document.createElement("div");
-			img4div.innerHTML = img4HTML;
-			document.getElementById("otherImages").append(img4div);
-		}
-				 
-		/* <IMG STYLE="position:absolute; TOP:350px; LEFT:300px; WIDTH:450px; HEIGHT:500px" src="" hspace="20"> */
-		
-		
-	} else {
-        	// doc doesn't exist
-        	console.log("Requested document does not exist...");
-   	}
-}).catch(function(error) {
-	console.log("Error getting document:", error);
-});	
-	
-// change main image	
-function viewImage(imgURL){
-	document.getElementById("mainImage").innerHTML = '';
-	
-	var imgHTML = "<img style='width:100%; max-height:100%; border:2px solid #cecece;' src=" + imgURL + "hspace='20'>"
-	var cardImage = document.createElement("div");
-	cardImage.innerHTML = imgHTML;
-	document.getElementById("mainImage").append(cardImage);
-}
-
-// update posting info
-function updatePost(){
-	var updateData = {};
-
-	// Check if a value other than spaces was entered for title
-	if ($.trim(document.getElementById("inputTitle").value).length > 0){
-		updateData["title"] = document.getElementById("inputTitle").value;
 	}
-	// Check if a value other than spaces was entered for price
-	if ($.trim(document.getElementById("inputPrice").value).length > 0){
-		updateData["price"] = Number(document.getElementById("inputPrice").value);
-	}
-	// Check if a value other than spaces was entered for description
-	if ($.trim(document.getElementById("inputDesc").value).length > 0){
-		updateData["description"] = document.getElementById("inputDesc").value;
-	}	
-	// update document
-	db.collection("items").doc(window.postId).update(updateData).then(function(){
-		handleFileSelect(window.postId);
-		alert("Posting successfully updated, refresh page");
-		// location.reload(true);
-	});
 	
-}
-// delete a posting
-function deletePost(){
-	db.collection("items").doc(window.postId).delete().then(function() {
-		alert("Posting Removed");
-		window.location="https://hmartinez20.github.io/STMUmarket/account.html";
-	}).catch(function(error) {
-    		console.error("Error removing document: ", error);
-	});
-}
+	// ============================
+
+	// update posting info
+	function updatePost(){
+		var updateData = {};
+
+		// Check if a value other than spaces was entered for title
+		if ($.trim(document.getElementById("inputTitle").value).length > 0){
+			updateData["title"] = document.getElementById("inputTitle").value;
+		}
+		// Check if a value other than spaces was entered for price
+		if ($.trim(document.getElementById("inputPrice").value).length > 0){
+			updateData["price"] = Number(document.getElementById("inputPrice").value);
+		}
+		// Check if a value other than spaces was entered for description
+		if ($.trim(document.getElementById("inputDesc").value).length > 0){
+			updateData["description"] = document.getElementById("inputDesc").value;
+		}	
+		// update document
+		db.collection("items").doc(window.postId).update(updateData).then(function(){
+			handleFileSelect(window.postId);
+			alert("Posting successfully updated, refresh page");
+			// location.reload(true);
+		});
+	}
+	
+	// ============================
+	
+	// delete a posting
+	function deletePost(){
+		db.collection("items").doc(window.postId).delete().then(function() {
+			alert("Posting Removed");
+			window.location="https://hmartinez20.github.io/STMUmarket/account.html";
+		}).catch(function(error) {
+			console.error("Error removing document: ", error);
+		});
+	}
+	
+	// ============================
 
 	// handle getting new images for update posting
 	function handleFileSelect(id){		
 		var metaData = {
 			customMetadata:{ 'item': id }
 		};
+
 		// Get image(s) 
 		var fileList = document.getElementById("filesToUpload");
-		
+
 		// Upload file(s) to storage
 		if(fileList.files.length != 0){
 			var img;
@@ -362,16 +365,19 @@ function deletePost(){
 			for(var i = 0; i < fileList.files.length; i++){
 				img = "image"+(i+1);
 				var fileName = fileList.files[i].name;
-				
+
 				uploadImg(fileList.files[i], metaData, id, fileName, img);
 			}
-		 }
+		}
 	}
+	
+	// ============================
+	
 	// add image URL's as fields to thee posting's document in firebase
 	function uploadImg(file, metaData, id, fileName, img){
 		var storageRef = storage.ref('posts/'+username+'/'+id+'/'+ fileName);  // Reference to WHERE the image will be stored
 		var task = storageRef.put(file, metaData);
-		
+
 		// Upload Progress
 		task.on('state_changed', 
 			function(snapshot){},
@@ -384,36 +390,41 @@ function deletePost(){
 					data[img] = downloadURL;
 					var docRef = db.collection("items").doc(id);
 					var mergeInfo = docRef.set( data, {merge:true} );
-				});					       
-			});
+				});				       
+			}
+		);
+	}
+
+	// ============================
+	
+	// mark listing as sold
+	function markSold(){
+		var buyer = document.getElementById("inputBuyer").value;
+		// Check that username is valid
+		db.collection("users").where('username', '==', buyer).limit(1).get().then((snapshot) => {
+			snapshot.docs.forEach(doc => {
+				// if username is valid, mark as sold
+				if(doc.exists){
+					db.collection("items").doc(window.postId).update({
+						sold: "yes",
+						soldTo: buyer
+					}).then(function() {
+						alert("Great Job on the Sale!");
+						location.reload(true);
+					});
+				}
+				else{
+					alert("Invalid username");
+				}	
+			}) // end of forEach
+		});
 	}
 	
-// mark listing as sold
-function markSold(){
-	var buyer = document.getElementById("inputBuyer").value;
-	// Check that username is valid
-	db.collection("users").where('username', '==', buyer).limit(1).get().then((snapshot) => {
-		snapshot.docs.forEach(doc => {
-			// if username is valid, mark as sold
-			if(doc.exists){
-				db.collection("items").doc(window.postId).update({
-					sold: "yes",
-					soldTo: buyer
-				}).then(function() {
-					alert("Great Job on the Sale!");
-					location.reload(true);
-				});
-			}
-			else{
-				alert("Invalid username");
-			}	
-		}) // end of forEach
-	});
-}
-	
-function rateUser(){
-	// get rating value from form
-	var selected = null;
+	// ============================
+
+	function rateUser(){
+		// get rating value from form
+		var selected = null;
 		var radios = document.getElementsByName("group1");
 		// grab rating
 		for(var i = 0; i < radios.length; i++){
@@ -422,30 +433,28 @@ function rateUser(){
 				break;
 			}
 		}
-	console.log(window.data.sellerId);
-	// update rated field
-	db.collection("items").doc(window.postId).update({
-		rated: "yes"
-	});
-	// update seller rating statistics
-	var rateData = {};
-	db.collection("users").doc(window.data.sellerId).get().then(function(seller) {
-		if(seller.data().ratings == 0){ // if this is seller's first rating
-			rateData["avgRating"] = Number(selected);
-			rateData["ratings"] = 1;
-		}
-		else{ // use previous data to recalculate avgRating
-			rateData["avgRating"] = ((seller.data().avgRating * seller.data().ratings) + Number(selected))/(seller.data().ratings + 1);
-			rateData["ratings"] = seller.data().ratings + 1;
-			console.log(rateData["avgRating"]);
-		}
-		// merge new rating stats with existing data in user doc
-		db.collection("users").doc(window.data.sellerId).set(rateData, {merge: true}).then(function(){
-			alert("Rated Seller");
-			location.reload(true);
+		console.log(window.data.sellerId);
+		// update rated field
+		db.collection("items").doc(window.postId).update({
+			rated: "yes"
 		});
-	});
-	
-}
-	
+		// update seller rating statistics
+		var rateData = {};
+		db.collection("users").doc(window.data.sellerId).get().then(function(seller) {
+			if(seller.data().ratings == 0){ // if this is seller's first rating
+				rateData["avgRating"] = Number(selected);
+				rateData["ratings"] = 1;
+			}
+			else{ // use previous data to recalculate avgRating
+				rateData["avgRating"] = ((seller.data().avgRating * seller.data().ratings) + Number(selected))/(seller.data().ratings + 1);
+				rateData["ratings"] = seller.data().ratings + 1;
+				console.log(rateData["avgRating"]);
+			}
+			// merge new rating stats with existing data in user doc
+			db.collection("users").doc(window.data.sellerId).set(rateData, {merge: true}).then(function(){
+				alert("Rated Seller");
+				location.reload(true);
+			});
+		});
+	}
 </script>
