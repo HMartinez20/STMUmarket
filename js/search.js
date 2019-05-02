@@ -41,6 +41,7 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 					document.getElementById("listings").appendChild(card);
 				}
 			});
+			document.getElementById("pageBtns").removeAttribute("hidden"); // Result page buttons
 		});
 
 		// Show the appropriate category "badge" as confirmation of category change
@@ -50,7 +51,10 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 		});
 		var badge = document.getElementById(search+"Badge");
 		if(badge.hasAttribute("hidden")){ badge.removeAttribute("hidden"); }
-		
-		document.getElementById("pageBtns").removeAttribute("hidden"); // Clear table
 	}
+}
+
+function genPage(pgNo, setStart){
+	$("#paginate.active").removeClass("active");
+	$("#"+pgNo).classList.add("active");
 }
