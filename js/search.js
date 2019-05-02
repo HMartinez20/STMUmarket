@@ -24,14 +24,18 @@ query.get()...
 function genListings(search = 'none', filter = 'price', order = 'asc'){
 	//console.log(search+", "+filter+", "+order);
 	category = search; // Change category to selected category
+	var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
 	if(search != 'none'){
-		document.getElementById("listings").innerHTML = ''; // Clear table
-		db.collection("items").where("category", "==", search).orderBy(filter, order).limit(16).get().then(function(querySnapshot){
+		query.get().then(function(querySnapshot){
 			querySnapshot.forEach(function(doc){
 				console.log(querySnapshot.size);
 				console.log(querySnapshot.size / 16);
 				console.log(querySnapshot.size % 16);
-				
+			)};
+		)};
+		document.getElementById("listings").innerHTML = ''; // Clear table
+		query.limit(16).get().then(function(querySnapshot){
+			querySnapshot.forEach(function(doc){
 				if(doc.data().sold == "no"){ // Only show unsold listings
 					var imgSrc = "{{site.baseurl}}/Empty.jpg"; // Default image
 					if(doc.data().image1){ imgSrc = doc.data().image1; }
