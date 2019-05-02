@@ -4,25 +4,22 @@ Used to nagivate to home or to account/login/signout
 displays project name, slogan, and logo
 buttons/links viewable depend on if a user is signed in
 -->
-<div class="jumbotron" style="padding: 1rem;">
-  <div class="d-flex justify-content-between">
-    <button class="btn btn-lg fas fa-home align-center" onclick="window.location='https://hmartinez20.github.io/STMUmarket/index.html'"></button>
-    <div>
-      <h1 class="d-flex justify-content-center align-center block"> StMU Marketplace </h1>
-      <h4 class="block text-center"> <i>Don't trash it! Sell it!</i></h4>
-    </div>
-  	<div class="row text-right align-items-center">
-    	<div id="accountButtons">	
-    		<a class="mr-2" href="https://hmartinez20.github.io/STMUmarket/signup.html" id="signUp" hidden>Sign Up</a>
-        <br>
-        <a class="mr-2" href="https://hmartinez20.github.io/STMUmarket/login.html" id="login" hidden>Login</a>
-        <br>
-        <a class="mr-2" href="https://hmartinez20.github.io/STMUmarket/account.html" id="myAccount" hidden>My Account</a>
-        <br>
-        <a class="mr-2" href="#" onclick="logout();" id="signOut" hidden>Sign Out</a>
-    	</div>
-    	<div><img style="width: 7rem; height: 7rem;" src="/STMUmarket/cart.png" alt="User Image"></div>
-    </div>
+<div class="jumbotron p-3">
+  <div class="class="col-3 d-flex flex-column align-self-center"">
+    <button class="btn btn-lg fas fa-home align-center" style="width: 8rem;" onclick="window.location='https://hmartinez20.github.io/STMUmarket/index.html'"></button>
+  </div>
+  <div class="col-6 d-flex flex-column align-self-center">
+    <h1 class="text-center"> StMU Marketplace </h1>
+    <h4 class="text-center"> <i>Don't trash it! Sell it!</i></h4>
+  </div>
+  <div id="accountButtons" class="col-2 d-flex flex-column align-self-center">
+    <a class="mr-2" href="https://hmartinez20.github.io/STMUmarket/signup.html" id="signUp" hidden>Sign Up</a>
+    <a class="mr-2" href="https://hmartinez20.github.io/STMUmarket/login.html" id="login" hidden>Login</a>
+    <a class="mr-2" href="https://hmartinez20.github.io/STMUmarket/account.html" id="myAccount" hidden>My Account</a>
+    <a class="mr-2" href="#" onclick="logout();" id="signOut" hidden>Sign Out</a>
+  </div>
+  <div class="col-1 d-flex flex-column align-self-center">
+    <div><img style="width: 7rem; height: 7rem;" src="/STMUmarket/cart.png" alt="StMU Marketplace Logo"></div>
   </div>
 </div>
 <script src="LoginChecker.js"></script>
