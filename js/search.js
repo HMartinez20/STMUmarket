@@ -32,7 +32,7 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 				var pageBtn = document.createElement("label");
 				pageBtn.setAttribute("class","btn btn-outline-primary");
 				pageBtn.innerHTML= '<input type="radio" name="options" id="page'+i+'" onclick="genPage("page'+i+'",'+(((i-1)*16)+1)+');"'>
-				document.getElementById("listings").appendChild(card);
+				document.getElementById("paginate").appendChild(pageBtn);
 			}
 
 			$("#page1").classList.add("active");
