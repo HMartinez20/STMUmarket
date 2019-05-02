@@ -31,8 +31,8 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 				console.log(querySnapshot.size);
 				console.log(querySnapshot.size / 16);
 				console.log(querySnapshot.size % 16);
-			)};
-		)};
+			});
+		});
 		document.getElementById("listings").innerHTML = ''; // Clear table
 		query.limit(16).get().then(function(querySnapshot){
 			querySnapshot.forEach(function(doc){
