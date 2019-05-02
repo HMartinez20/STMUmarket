@@ -1,4 +1,20 @@
+/* CSS for pages that includes this file.
+   Used for small tweaks.
+   
+   Last Updated: 5/2/19 by Hailey Martinez
+*/
+
 /* Custom CS used for radio buttons*/
 input[type="radio"]:active{
   background-color: grey;
+}
+
+/* Removes outline from button outline */
+.btn-outline-primary{
+  border-color: transparent;
+}
+
+/* Removes background color when using icons as buttons */
+i.fas{
+  background-color: transparent;
 }
