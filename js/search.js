@@ -55,6 +55,8 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 }
 
 function genPage(pgNo, setStart){
+	console.log(pgNo);
+	console.log(setStart);
 	$("#paginate.active").removeClass("active");
 	$("#"+pgNo).classList.add("active");
 }
