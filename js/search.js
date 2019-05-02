@@ -27,10 +27,16 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 	var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
 	if(search != 'none'){
 		query.get().then(function(querySnapshot){
-			querySnapshot.forEach(function(doc){
+			querySnapshot(function(doc){
 				console.log(querySnapshot.size);
-				console.log(querySnapshot.size / 16);
-				console.log(querySnapshot.size % 16);
+				for(var i = 1; i <= (querySnapshot/16)+1; i++){
+					var pageBtn = document.createElement("label");
+					pageBtn.setAttribute("class","btn btn-outline-primary");
+					pageBtn.innerHTML= '<input type="radio" name="options" id="page'+i+'" onclick="genPage("page'+i+'",'+(((i-1)*16)+1)+');"'>
+					document.getElementById("listings").appendChild(card);
+				}
+				
+				$("#page1").classList.add("active");
 			});
 		});
 		document.getElementById("listings").innerHTML = ''; // Clear table
