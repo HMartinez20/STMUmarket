@@ -50,5 +50,7 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 		});
 		var badge = document.getElementById(search+"Badge");
 		if(badge.hasAttribute("hidden")){ badge.removeAttribute("hidden"); }
+		
+		document.getElementById("pageBtns").removeAttribute("hidden"); // Clear table
 	}
 }
