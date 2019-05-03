@@ -29,10 +29,12 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 		query.get().then(function(querySnapshot){
 			console.log(querySnapshot.size);
 			var noPages = (querySnapshot.size > 16)? Math.ceil(querySnapshot/16)+1: 1;
+			console.log(noPages);
 			for(var i = 1; i <= noPages; i++){
+				console.log(i);
 				var pageBtn = document.createElement("label");
 				pageBtn.setAttribute("class","btn btn-outline-primary");
-				pageBtn.innerHTML= i+'<input type="radio" name="options" id="page'+i+'" onclick="genPage("page'+i+'",'+(((i-1)*16)+1)+');"'>
+				pageBtn.innerHTML= 1+'<input type="radio" name="options" id="page'+i+'" onclick="genPage("page'+i+'",'+(((i-1)*16)+1)+');"'>
 				document.getElementById("paginate").appendChild(pageBtn);
 			}
 
