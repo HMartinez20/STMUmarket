@@ -67,10 +67,6 @@ query = query.where(x, '==', y)
 ...
 query.get()...
 */
-for(var i = 1; i <= 23; i++){
-	console.log(i);
-	genPage('page1', i, 'books', 'price', 'asc');
-}
 
 function genPage(pgNo, setStart, search, filter, order){
 	console.log(pgNo, setStart, search, filter, order);
