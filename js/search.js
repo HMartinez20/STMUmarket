@@ -38,6 +38,8 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 				pageBtn.onclick= "genPage('page"+i+"', "+(((i-1)*16)+1)+", '"+search+"', '"+filter+"', '"+order+"')";
 				pageBtn.innerHTML= i+'<input type="radio" name="options">';
 				document.getElementById("paginate").appendChild(pageBtn);
+				
+				console.log("genPage('page"+i+"', "+(((i-1)*16)+1)+", '"+search+"', '"+filter+"', '"+order+"')");
 			}
 		});
 		document.getElementById("listings").innerHTML = ''; // Clear table
@@ -79,5 +81,5 @@ function genPage(pgNo, setStart, search, filter, order){
 	});
 	
 	$("#paginate.active").removeClass("active");
-	document.getElementById(pgNo).setAttribute("class","active");//$("#"+pgNo).classList.add("active");
+	document.getElementById("'"+pgNo+"'").setAttribute("class","active");//$("#"+pgNo).classList.add("active");
 }
