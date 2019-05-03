@@ -57,6 +57,7 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 }
 
 function genPage(pgNo, setStart, search, filter, order){
+	console.log(pgNo, setStart, search, filter, order);
 	console.log(pgNo);
 	console.log(setStart);
 
@@ -76,11 +77,10 @@ function genPage(pgNo, setStart, search, filter, order){
 				document.getElementById("listings").appendChild(card);
 			}
 		});
-
 		document.getElementById("pageBtns").removeAttribute("hidden"); // Result page buttons
 	});
 	
-	$("#paginate.active").removeClass("active");
+	//$("#paginate.active").removeClass("active");
 	//$("#"+pgNo).classList.add("active");
 	console.log("#"+pgNo);
 	//document.getElementById("'"+pgNo+"'").setAttribute("class","active");
