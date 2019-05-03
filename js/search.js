@@ -94,8 +94,8 @@ function genPage(pgNo, setStart, search, filter, order){
 						document.getElementById("listings").appendChild(card);
 					}
 				});
-				var break = document.createElement("br");
-				document.getElementById("listings").appendChild(card);
+				var breakElement = document.createElement("br");
+				document.getElementById("listings").appendChild(breakElement);
 				document.getElementById("pageBtns").removeAttribute("hidden"); // Result page buttons
 			});
 		}
