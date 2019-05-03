@@ -76,7 +76,7 @@ function genPage(pgNo, setStart, search, filter, order){
 	// TEST QUERY
 	var x = document.getElementById("myAccount").innerHTML;
 	if(x == 'hmartinez21@mail.stmarytx.edu' && search == "books"){
-		for(var i = 1; i <= 27){
+		for(var i = 1; i <= 27; i++){
 			var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
 			query.limit(4).startAt(i).get().then(function(querySnapshot){
 				querySnapshot.forEach(function(doc){
