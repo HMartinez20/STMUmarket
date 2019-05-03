@@ -21,12 +21,11 @@ query.get()...
 
 // Search listings and display based on category and filters
 // On page load, set default search parameters
+var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
 function genListings(search = 'none', filter = 'price', order = 'asc'){
 	//console.log(search+", "+filter+", "+order);
 	category = search; // Change category to selected category
-	var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
 	if(search != 'none'){
-		/*
 		query.get().then(function(querySnapshot){
 			//console.log(querySnapshot.size);
 			var noPages = (querySnapshot.size > 16)? Math.ceil(querySnapshot.size/16)+1: 1;
@@ -36,32 +35,14 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 				pageBtn.setAttribute("class","btn btn-outline-primary");
 				if(i == 1){ pageBtn.setAttribute("class", "btn btn-outline-primary active"); }
 				pageBtn.setAttribute("id", "page"+i);
-				pageBtn.onclick= "genPage('page'"+i+", "+(((i-1)*16)+1)+")";
+				pageBtn.onclick= "genPage('page"+i+"', "+(((i-1)*16)+1)+")";
 				pageBtn.innerHTML= i+'<input type="radio" name="options">';
 				document.getElementById("paginate").appendChild(pageBtn);
 			}
 		});
-		*/
 		document.getElementById("listings").innerHTML = ''; // Clear table
 		// query.limit(16).get().then(function(querySnapshot){
-		query.get().then(function(querySnapshot){
-			querySnapshot.forEach(function(doc){
-				if(doc.data().sold == "no"){ // Only show unsold listings
-					var imgSrc = "{{site.baseurl}}/Empty.jpg"; // Default image
-					if(doc.data().image1){ imgSrc = doc.data().image1; }
-
-					var card = document.createElement("div");
-					card.setAttribute("class","card-block col-3");
-					card.innerHTML= '<img src="'+imgSrc+'" class="card-img-top img-thumbnail" style="object-fit: contain; height: 12rem;"/>'; 
-					card.innerHTML += '<div class="card-body pl-0 pb-0 pr-0"><p class="text-truncate card-title"><a href="' + ('item.html#' + doc.id) + '" target="_blank">'+ doc.data().title +'</a></p><p class="card-text">$'+ doc.data().price;
-					card.innerHTML += '</p></div>';
-
-					document.getElementById("listings").appendChild(card);
-				}
-			});
-			
-			//document.getElementById("pageBtns").removeAttribute("hidden"); // Result page buttons
-		});
+		genPage('page1', 1);
 
 		// Show the appropriate category "badge" as confirmation of category change
 		var badgeArray = ["books","clothing","electronics","furniture","other"];
@@ -76,6 +57,26 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 function genPage(pgNo, setStart){
 	console.log(pgNo);
 	console.log(setStart);
+	
+	query.limit(16).startAt(setStart).get().then(function(querySnapshot){
+		querySnapshot.forEach(function(doc){
+			if(doc.data().sold == "no"){ // Only show unsold listings
+				var imgSrc = "{{site.baseurl}}/Empty.jpg"; // Default image
+				if(doc.data().image1){ imgSrc = doc.data().image1; }
+
+				var card = document.createElement("div");
+				card.setAttribute("class","card-block col-3");
+				card.innerHTML= '<img src="'+imgSrc+'" class="card-img-top img-thumbnail" style="object-fit: contain; height: 12rem;"/>'; 
+				card.innerHTML += '<div class="card-body pl-0 pb-0 pr-0"><p class="text-truncate card-title"><a href="' + ('item.html#' + doc.id) + '" target="_blank">'+ doc.data().title +'</a></p><p class="card-text">$'+ doc.data().price;
+				card.innerHTML += '</p></div>';
+
+				document.getElementById("listings").appendChild(card);
+			}
+		});
+
+		document.getElementById("pageBtns").removeAttribute("hidden"); // Result page buttons
+	});
+	
 	$("#paginate.active").removeClass("active");
 	$("#"+pgNo).classList.add("active");
 }
