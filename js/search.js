@@ -68,7 +68,8 @@ query = query.where(x, '==', y)
 query.get()...
 */
 for(var i = 1; i <= 23; i++){
-	genPage('page1', i, 'books', 'price', 'asc');	 
+	console.log(i);
+	genPage('page1', i, 'books', 'price', 'asc');
 }
 
 function genPage(pgNo, setStart, search, filter, order){
@@ -93,7 +94,7 @@ function genPage(pgNo, setStart, search, filter, order){
 					document.getElementById("listings").appendChild(card);
 				}
 			});
-			var breakElement = document.createElement("div"); breakElement.setAttribute("class", "col-8");
+			var breakElement = document.createElement("div"); breakElement.setAttribute("class", "col-8");breakElement.innerHTML="break";
 			document.getElementById("listings").appendChild(breakElement);
 			document.getElementById("pageBtns").removeAttribute("hidden"); // Result page buttons
 		});
