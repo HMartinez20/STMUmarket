@@ -70,49 +70,24 @@ query.get()...
 
 function genPage(pgNo, setStart, search, filter, order){
 	console.log(pgNo, setStart, search, filter, order);
-	
-	// TEST QUERY
-	var x = document.getElementById("myAccount").innerHTML;
-	if(x == 'hmartinez21@mail.stmarytx.edu'){
-		var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
-		query.startAt(setStart).limit(16).get().then(function(querySnapshot){
-			querySnapshot.forEach(function(doc){
-				if(doc.data().sold == "no"){ // Only show unsold listings
-					var imgSrc = "{{site.baseurl}}/Empty.jpg"; // Default image
-					if(doc.data().image1){ imgSrc = doc.data().image1; }
+	document.getElementById("listings").innerHTML = ''; // Clear table
 
-					var card = document.createElement("div");
-					card.setAttribute("class","card-block col-3");
-					card.innerHTML= '<img src="'+imgSrc+'" class="card-img-top img-thumbnail" style="object-fit: contain; height: 12rem;"/>'; 
-					card.innerHTML += '<div class="card-body pl-0 pb-0 pr-0"><p class="text-truncate card-title"><a href="' + ('item.html#' + doc.id) + '" target="_blank">'+ doc.data().title +'</a></p><p class="card-text">$'+ doc.data().price;
-					card.innerHTML += '</p></div>';
+	var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
+	query.limit(16).startAt(setStart).get().then(function(querySnapshot){
+		querySnapshot.forEach(function(doc){
+			if(doc.data().sold == "no"){ // Only show unsold listings
+				var imgSrc = "{{site.baseurl}}/Empty.jpg"; // Default image
+				if(doc.data().image1){ imgSrc = doc.data().image1; }
 
-					document.getElementById("listings").appendChild(card);
-				}
-			});
-			document.getElementById("pageBtns").removeAttribute("hidden"); // Result page buttons
+				var card = document.createElement("div");
+				card.setAttribute("class","card-block col-3");
+				card.innerHTML= '<img src="'+imgSrc+'" class="card-img-top img-thumbnail" style="object-fit: contain; height: 12rem;"/>'; 
+				card.innerHTML += '<div class="card-body pl-0 pb-0 pr-0"><p class="text-truncate card-title"><a href="' + ('item.html#' + doc.id) + '" target="_blank">'+ doc.data().title +'</a></p><p class="card-text">$'+ doc.data().price;
+				card.innerHTML += '</p></div>';
+
+				document.getElementById("listings").appendChild(card);
+			}
 		});
-	}
-	else{
-		document.getElementById("listings").innerHTML = ''; // Clear table
-		
-		var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
-		query.limit(16).startAt(setStart).get().then(function(querySnapshot){
-			querySnapshot.forEach(function(doc){
-				if(doc.data().sold == "no"){ // Only show unsold listings
-					var imgSrc = "{{site.baseurl}}/Empty.jpg"; // Default image
-					if(doc.data().image1){ imgSrc = doc.data().image1; }
-
-					var card = document.createElement("div");
-					card.setAttribute("class","card-block col-3");
-					card.innerHTML= '<img src="'+imgSrc+'" class="card-img-top img-thumbnail" style="object-fit: contain; height: 12rem;"/>'; 
-					card.innerHTML += '<div class="card-body pl-0 pb-0 pr-0"><p class="text-truncate card-title"><a href="' + ('item.html#' + doc.id) + '" target="_blank">'+ doc.data().title +'</a></p><p class="card-text">$'+ doc.data().price;
-					card.innerHTML += '</p></div>';
-
-					document.getElementById("listings").appendChild(card);
-				}
-			});
-			document.getElementById("pageBtns").removeAttribute("hidden"); // Result page buttons
-		});
-	}
+		document.getElementById("pageBtns").removeAttribute("hidden"); // Result page buttons
+	});
 }
