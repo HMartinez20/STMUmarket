@@ -31,11 +31,7 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 				pageBtn.setAttribute("class","btn btn-outline-primary hidden");
 				if(i == 1){ pageBtn.setAttribute("class", "btn btn-outline-primary active"); }
 				pageBtn.setAttribute("id", "page"+i);
-				if(order == "desc"){
-					pageBtn.setAttribute("onclick", "genPage('page"+i+"', "+(querySnapshot.size-(16*(i-1)))+", '"+search+"', '"+filter+"', '"+order+"')");
-				}else{
-					pageBtn.setAttribute("onclick", "genPage('page"+i+"', "+(((i-1)*16)+1)+", '"+search+"', '"+filter+"', '"+order+"')");
-				}
+				pageBtn.setAttribute("onclick", "genPage('page"+i+"', "+(((i-1)*16)+1)+", '"+search+"', '"+filter+"', '"+order+"')");
 				pageBtn.innerHTML= i+'<input type="radio" name="options">';
 				document.getElementById("paginate").appendChild(pageBtn);
 			}
