@@ -34,7 +34,7 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 				console.log("page: "+i);
 				var pageBtn = document.createElement("label");
 				pageBtn.setAttribute("class","btn btn-outline-primary");
-				pageBtn.id = "page"+i;
+				pageBtn.setAttribute("id", "page"+i);
 				pageBtn.innerHTML= i+'<input type="radio" name="options" onclick="genPage(';
 				pageBtn.innerHTML+= "'page"+i+"'";
 				pageBtn.innerHTML+= ','+(((i-1)*16)+1)+');">';
