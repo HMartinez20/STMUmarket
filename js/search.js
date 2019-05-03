@@ -39,7 +39,6 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 				pageBtn.innerHTML= i+'<input type="radio" name="options">';
 				document.getElementById("paginate").appendChild(pageBtn);
 			}
-			$("#page1").classList.add("active");
 		});
 		document.getElementById("listings").innerHTML = ''; // Clear table
 		query.limit(16).get().then(function(querySnapshot){
