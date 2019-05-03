@@ -67,41 +67,40 @@ query = query.where(x, '==', y)
 ...
 query.get()...
 */
+for(var i = 1; i <= 23; i++){
+	genPage('page1', i, 'books', 'price', 'asc');	 
+}
 
 function genPage(pgNo, setStart, search, filter, order){
 	console.log(pgNo, setStart, search, filter, order);
-	
-	document.getElementById("listings").innerHTML = ''; // Clear table
 	
 	// TEST QUERY
 	var x = document.getElementById("myAccount").innerHTML;
 	if(x == 'hmartinez21@mail.stmarytx.edu' && search == "books"){
 		var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
-		for(var i = 1; i <= 23; i++){
-			console.log(i);
-			query.startAt(i).limit(2).get().then(function(querySnapshot){
-				querySnapshot.forEach(function(doc){
-					console.log("in query...",i);
-					if(doc.data().sold == "no"){ // Only show unsold listings
-						var imgSrc = "{{site.baseurl}}/Empty.jpg"; // Default image
-						if(doc.data().image1){ imgSrc = doc.data().image1; }
+		query.startAt(setStart).limit(2).get().then(function(querySnapshot){
+			querySnapshot.forEach(function(doc){
+				if(doc.data().sold == "no"){ // Only show unsold listings
+					var imgSrc = "{{site.baseurl}}/Empty.jpg"; // Default image
+					if(doc.data().image1){ imgSrc = doc.data().image1; }
 
-						var card = document.createElement("div");
-						card.setAttribute("class","card-block col-3");
-						card.innerHTML= '<img src="'+imgSrc+'" class="card-img-top img-thumbnail" style="object-fit: contain; height: 12rem;"/>'; 
-						card.innerHTML += '<div class="card-body pl-0 pb-0 pr-0"><p class="text-truncate card-title"><a href="' + ('item.html#' + doc.id) + '" target="_blank">'+ doc.data().title +'</a></p><p class="card-text">$'+ doc.data().price;
-						card.innerHTML += '</p></div>';
+					var card = document.createElement("div");
+					card.setAttribute("class","card-block col-3");
+					card.innerHTML= '<img src="'+imgSrc+'" class="card-img-top img-thumbnail" style="object-fit: contain; height: 12rem;"/>'; 
+					card.innerHTML += '<div class="card-body pl-0 pb-0 pr-0"><p class="text-truncate card-title"><a href="' + ('item.html#' + doc.id) + '" target="_blank">'+ doc.data().title +'</a></p><p class="card-text">$'+ doc.data().price;
+					card.innerHTML += '</p></div>';
 
-						document.getElementById("listings").appendChild(card);
-					}
-				});
-				var breakElement = document.createElement("div"); breakElement.setAttribute("class", "col-8");
-				document.getElementById("listings").appendChild(breakElement);
-				document.getElementById("pageBtns").removeAttribute("hidden"); // Result page buttons
+					document.getElementById("listings").appendChild(card);
+				}
 			});
-		}
+			var breakElement = document.createElement("div"); breakElement.setAttribute("class", "col-8");
+			document.getElementById("listings").appendChild(breakElement);
+			document.getElementById("pageBtns").removeAttribute("hidden"); // Result page buttons
+		});
 	}
 	else{
+		document.getElementById("listings").innerHTML = ''; // Clear table
+		
 		var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
 		query.limit(16).startAt(setStart).get().then(function(querySnapshot){
 			querySnapshot.forEach(function(doc){
