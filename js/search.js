@@ -81,7 +81,8 @@ function genPage(pgNo, setStart, search, filter, order){
 	});
 	
 	$("#paginate.active").removeClass("active");
-	$("#"+pgNo).classList.add("active");
+	//$("#"+pgNo).classList.add("active");
+	console.log("#"+pgNo);
 	//document.getElementById("'"+pgNo+"'").setAttribute("class","active");
 	console.log("'"+pgNo+"'");
 }
