@@ -81,7 +81,7 @@ function genPage(pgNo, setStart, search, filter, order){
 			console.log(i);
 			query.startAt(i).limit(2).get().then(function(querySnapshot){
 				querySnapshot.forEach(function(doc){
-					console.log(i);
+					console.log("in query...",i);
 					if(doc.data().sold == "no"){ // Only show unsold listings
 						var imgSrc = "{{site.baseurl}}/Empty.jpg"; // Default image
 						if(doc.data().image1){ imgSrc = doc.data().image1; }
