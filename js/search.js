@@ -32,8 +32,8 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 				if(i == 1){ pageBtn.setAttribute("class", "btn btn-outline-primary active"); }
 				pageBtn.setAttribute("id", "page"+i);
 				console.log("desc query...", (querySnapshot.size-((i-1)*16)) );
-				if(order == 'desc'){ pageBtn.setAttribute("onclick", "genPage('page"+i+"', "+(querySnapshot.size-((i-1)*16))+", '"+search+"', '"+filter+"', '"+order+"')"); }
-				else{ pageBtn.setAttribute("onclick", "genPage('page"+i+"', "+(((i-1)*16)+1)+", '"+search+"', '"+filter+"', '"+order+"')"); }
+				if(order == 'desc'){ pageBtn.setAttribute("onclick", "genPage('page"+i+"', "+(querySnapshot.size-((i-1)*16))+", '"+search+"', '"+filter+"', '"+order+"')"); console.log("desc...");}
+				else{ pageBtn.setAttribute("onclick", "genPage('page"+i+"', "+(((i-1)*16)+1)+", '"+search+"', '"+filter+"', '"+order+"')"); console.log("asc...");}
 				pageBtn.innerHTML= i+'<input type="radio" name="options">';
 				document.getElementById("paginate").appendChild(pageBtn);
 			}
@@ -77,8 +77,8 @@ function genPage(pgNo, setStart, search, filter, order){
 	var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
 	
 	var x = document.getElementById("myAccount").innerHTML;
-	if(x=="hmartinez21@mail.stmarytx.edu" && order =='desc'){ query.endAt(setStart); }
-	else{ query.startAt(setStart); }
+	if(order =='desc'){ query.endAt(setStart); console.log("desc...page generating...");}
+	else{ query.startAt(setStart); console.log("asc...page generating...");}
 	query.limit(16).get().then(function(querySnapshot){
 		querySnapshot.forEach(function(doc){
 			if(doc.data().sold == "no"){ // Only show unsold listings
