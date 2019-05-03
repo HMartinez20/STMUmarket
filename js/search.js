@@ -75,7 +75,7 @@ function genPage(pgNo, setStart, search, filter, order){
 	var x = document.getElementById("myAccount").innerHTML;
 	if(x == 'hmartinez21@mail.stmarytx.edu'){
 		var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
-		query.startAt(setStart).limitToLast(16).get().then(function(querySnapshot){
+		query.startAt(setStart).limit(16).get().then(function(querySnapshot){
 			querySnapshot.forEach(function(doc){
 				if(doc.data().sold == "no"){ // Only show unsold listings
 					var imgSrc = "{{site.baseurl}}/Empty.jpg"; // Default image
