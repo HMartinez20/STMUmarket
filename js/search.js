@@ -79,5 +79,5 @@ function genPage(pgNo, setStart, search, filter, order){
 	});
 	
 	$("#paginate.active").removeClass("active");
-	$("#"+pgNo).classList.add("active");
+	document.getElementById(pgNo).setAttribute("class","active");//$("#"+pgNo).classList.add("active");
 }
