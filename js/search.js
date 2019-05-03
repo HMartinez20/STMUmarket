@@ -21,7 +21,7 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 	category = search; // Change category to selected category
 	if(search != 'none'){
 		document.getElementById("listings").innerHTML = '';
-		var query = db.collection("items").where("category", "==", search).orderBy(filter, price);
+		var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
 		query.get().then(function(querySnapshot){
 			querySnapshot.forEach(function(doc){
 				if(doc.data().sold == "no"){ // Only show unsold listings
