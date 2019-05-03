@@ -32,7 +32,7 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 			for(var i = 1; i <= noPages; i++){
 				var pageBtn = document.createElement("label");
 				pageBtn.setAttribute("class","btn btn-outline-primary");
-				pageBtn.innerHTML= '<input type="radio" name="options" id="page'+i+'" onclick="genPage("page'+i+'",'+(((i-1)*16)+1)+');"'>
+				pageBtn.innerHTML= i+'<input type="radio" name="options" id="page'+i+'" onclick="genPage("page'+i+'",'+(((i-1)*16)+1)+');"'>
 				document.getElementById("paginate").appendChild(pageBtn);
 			}
 
