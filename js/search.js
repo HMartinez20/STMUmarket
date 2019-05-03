@@ -34,7 +34,10 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 				console.log("page: "+i);
 				var pageBtn = document.createElement("label");
 				pageBtn.setAttribute("class","btn btn-outline-primary");
-				pageBtn.innerHTML= i+'<input type="radio" name="options" id="page'+i+'" onclick="genPage("page'+i+'",'+(((i-1)*16)+1)+');">';
+				pageBtn.id = "page"+i;
+				pageBtn.innerHTML= i+'<input type="radio" name="options" onclick="genPage(';
+				pageBtn.innerHTML= "'page"+i+"'";
+				pageBtn.innerHTML= ','+(((i-1)*16)+1)+');">';
 				document.getElementById("paginate").appendChild(pageBtn);
 			}
 			$("#page1").classList.add("active");
