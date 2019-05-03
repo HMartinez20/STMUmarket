@@ -26,27 +26,20 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 	category = search; // Change category to selected category
 	if(search != 'none'){
 		var query = db.collection("items").where("category", "==", search);
+		document.getElementById("paginate").innerHTML = ''; // Clear page buttns
 		query.get().then(function(querySnapshot){
-			//console.log(querySnapshot.size);
 			var noPages = (querySnapshot.size > 16)? Math.ceil(querySnapshot.size/16)+1: 1;
-			var i;
-			for(i = 1; i <= noPages; i++){
+			console.log(querySnapshot.size, Math.ceil(querySnapshot.size/16)+1, noPages);
+			for(var i = 1; i <= noPages; i++){
 				var pageBtn = document.createElement("label");
 				pageBtn.setAttribute("class","btn btn-outline-primary");
 				if(i == 1){ pageBtn.setAttribute("class", "btn btn-outline-primary active"); }
 				pageBtn.setAttribute("id", "page"+i);
 				pageBtn.setAttribute("onclick", "genPage('page"+i+"', "+(((i-1)*16)+1)+", '"+search+"', '"+filter+"', '"+order+"')");
-				//pageBtn.onclick= "genPage('page"+i+"', "+(((i-1)*16)+1)+", '"+search+"', '"+filter+"', '"+order+"')";
-				//pageBtn.onclick= genPage("page"+i, (((i-1)*16)+1), search, filter, order);
-				//pageBtn.addEventListener("onclick", genPage()); 
 				pageBtn.innerHTML= i+'<input type="radio" name="options">';
 				document.getElementById("paginate").appendChild(pageBtn);
-				
-				console.log("genPage('page"+i+"', "+(((i-1)*16)+1)+", '"+search+"', '"+filter+"', '"+order+"')");
 			}
 		});
-		document.getElementById("listings").innerHTML = ''; // Clear table
-
 		genPage('page1', 1, search, filter, order);
 
 		// Show the appropriate category "badge" as confirmation of category change
@@ -61,9 +54,8 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 
 function genPage(pgNo, setStart, search, filter, order){
 	console.log(pgNo, setStart, search, filter, order);
-	console.log(pgNo);
-	console.log(setStart);
-
+	
+	document.getElementById("listings").innerHTML = ''; // Clear table
 	var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
 	query.limit(16).startAt(setStart).get().then(function(querySnapshot){
 		querySnapshot.forEach(function(doc){
@@ -82,10 +74,4 @@ function genPage(pgNo, setStart, search, filter, order){
 		});
 		document.getElementById("pageBtns").removeAttribute("hidden"); // Result page buttons
 	});
-	
-	//$("#paginate.active").removeClass("active");
-	//$("#"+pgNo).classList.add("active");
-	console.log("#"+pgNo);
-	//document.getElementById("'"+pgNo+"'").setAttribute("class","active");
-	console.log("'"+pgNo+"'");
 }
