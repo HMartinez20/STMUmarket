@@ -26,6 +26,7 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 	category = search; // Change category to selected category
 	var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
 	if(search != 'none'){
+		/*
 		query.get().then(function(querySnapshot){
 			//console.log(querySnapshot.size);
 			var noPages = (querySnapshot.size > 16)? Math.ceil(querySnapshot.size/16)+1: 1;
@@ -40,8 +41,10 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 				document.getElementById("paginate").appendChild(pageBtn);
 			}
 		});
+		*/
 		document.getElementById("listings").innerHTML = ''; // Clear table
-		query.limit(16).get().then(function(querySnapshot){
+		// query.limit(16).get().then(function(querySnapshot){
+		query.get().then(function(querySnapshot){
 			querySnapshot.forEach(function(doc){
 				if(doc.data().sold == "no"){ // Only show unsold listings
 					var imgSrc = "{{site.baseurl}}/Empty.jpg"; // Default image
