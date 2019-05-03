@@ -35,7 +35,9 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 				pageBtn.setAttribute("class","btn btn-outline-primary");
 				if(i == 1){ pageBtn.setAttribute("class", "btn btn-outline-primary active"); }
 				pageBtn.setAttribute("id", "page"+i);
-				pageBtn.onclick= "genPage('page"+i+"', "+(((i-1)*16)+1)+", '"+search+"', '"+filter+"', '"+order+"')";
+				//pageBtn.onclick= "genPage('page"+i+"', "+(((i-1)*16)+1)+", '"+search+"', '"+filter+"', '"+order+"')";
+				pageBtn.onclick= genPage("page"+i, (((i-1)*16)+1), search, filter, order);
+				//pageBtn.addEventListener("onclick", genPage()); 
 				pageBtn.innerHTML= i+'<input type="radio" name="options">';
 				document.getElementById("paginate").appendChild(pageBtn);
 				
