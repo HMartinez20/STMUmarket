@@ -27,13 +27,13 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 	var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
 	if(search != 'none'){
 		query.get().then(function(querySnapshot){
-			console.log(querySnapshot.size);
+			//console.log(querySnapshot.size);
 			var noPages = (querySnapshot.size > 16)? Math.ceil(querySnapshot.size/16)+1: 1;
 			var i;
 			for(i = 1; i <= noPages; i++){
-				console.log("page: "+i);
 				var pageBtn = document.createElement("label");
 				pageBtn.setAttribute("class","btn btn-outline-primary");
+				if(i == 1){ pageBtn.setAttribute("class", "active"); }
 				pageBtn.setAttribute("id", "page"+i);
 				pageBtn.onclick= "genPage('page'"+i+", "+(((i-1)*16)+1)+")";
 				pageBtn.innerHTML= i+'<input type="radio" name="options">';
