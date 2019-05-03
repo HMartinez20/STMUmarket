@@ -13,11 +13,7 @@ function changeFilter(newFilter, newOrder){
 	if(category != "none"){ genListings(category, newFilter, newOrder); }
 }
 
-/*TEST:
-query = query.where(x, '==', y)
-...
-query.get()...
-*/
+//=============================
 
 // Search listings and display based on category and filters
 // On page load, set default search parameters
@@ -32,7 +28,7 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 			console.log(querySnapshot.size, Math.ceil(querySnapshot.size/16), noPages);
 			for(var i = 1; i <= noPages; i++){
 				var pageBtn = document.createElement("label");
-				pageBtn.setAttribute("class","btn btn-outline-primary");
+				pageBtn.setAttribute("class","btn btn-outline-primary hidden");
 				if(i == 1){ pageBtn.setAttribute("class", "btn btn-outline-primary active"); }
 				pageBtn.setAttribute("id", "page"+i);
 				pageBtn.setAttribute("onclick", "genPage('page"+i+"', "+(((i-1)*16)+1)+", '"+search+"', '"+filter+"', '"+order+"')");
@@ -51,6 +47,26 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 		if(badge.hasAttribute("hidden")){ badge.removeAttribute("hidden"); }
 	}
 }
+
+//=============================
+// These functions are for the arrow, page buttons
+
+function prevPage(){
+	console.log($("#paginate.active").id, ($("#paginate.active").id).substring(1));
+}
+
+function nextPage(){
+	
+}
+
+//=============================
+
+
+/*TEST:
+query = query.where(x, '==', y)
+...
+query.get()...
+*/
 
 function genPage(pgNo, setStart, search, filter, order){
 	console.log(pgNo, setStart, search, filter, order);
