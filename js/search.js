@@ -20,6 +20,7 @@ function changeFilter(newFilter, newOrder){
 function genListings(search = 'none', filter = 'price', order = 'asc'){
 	category = search; // Change category to selected category
 	if(search != 'none'){
+		document.getElementById("listings").innerHTML = '';
 		var query = db.collection("items").where("category", "==", search);
 		query.get().then(function(querySnapshot){
 			querySnapshot.forEach(function(doc){
