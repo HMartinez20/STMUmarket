@@ -60,7 +60,7 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 				}
 			});
 			
-			document.getElementById("pageBtns").removeAttribute("hidden"); // Result page buttons
+			//document.getElementById("pageBtns").removeAttribute("hidden"); // Result page buttons
 		});
 
 		// Show the appropriate category "badge" as confirmation of category change
