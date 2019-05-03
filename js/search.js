@@ -21,11 +21,11 @@ query.get()...
 
 // Search listings and display based on category and filters
 // On page load, set default search parameters
-var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
 function genListings(search = 'none', filter = 'price', order = 'asc'){
 	//console.log(search+", "+filter+", "+order);
 	category = search; // Change category to selected category
 	if(search != 'none'){
+		var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
 		query.get().then(function(querySnapshot){
 			//console.log(querySnapshot.size);
 			var noPages = (querySnapshot.size > 16)? Math.ceil(querySnapshot.size/16)+1: 1;
@@ -58,6 +58,7 @@ function genPage(pgNo, setStart){
 	console.log(pgNo);
 	console.log(setStart);
 	
+	var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
 	query.limit(16).startAt(setStart).get().then(function(querySnapshot){
 		querySnapshot.forEach(function(doc){
 			if(doc.data().sold == "no"){ // Only show unsold listings
