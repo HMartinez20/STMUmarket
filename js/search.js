@@ -31,6 +31,7 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 				pageBtn.setAttribute("class","btn btn-outline-primary hidden");
 				if(i == 1){ pageBtn.setAttribute("class", "btn btn-outline-primary active"); }
 				pageBtn.setAttribute("id", "page"+i);
+				console.log("desc query...", (querySnapshot.size-(i*16)));
 				pageBtn.setAttribute("onclick", "genPage('page"+i+"', "+(((i-1)*16)+1)+", '"+search+"', '"+filter+"', '"+order+"')");
 				pageBtn.innerHTML= i+'<input type="radio" name="options">';
 				document.getElementById("paginate").appendChild(pageBtn);
@@ -73,7 +74,11 @@ function genPage(pgNo, setStart, search, filter, order){
 	document.getElementById("listings").innerHTML = ''; // Clear table
 
 	var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
-	query.limit(16).startAt(setStart).get().then(function(querySnapshot){
+	
+	var x = document.getElementById("myAccount").innerHTML;
+	if(x=="hmartinez21@mail.stmarytx.edu" && order =='desc'){ query.endAt(setStart); }
+	else{ query.startAt(setStart); }
+	query.limit(16).get().then(function(querySnapshot){
 		querySnapshot.forEach(function(doc){
 			if(doc.data().sold == "no"){ // Only show unsold listings
 				var imgSrc = "{{site.baseurl}}/Empty.jpg"; // Default image
