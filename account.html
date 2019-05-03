@@ -303,6 +303,7 @@ has js to handle uploading images for new posting
 						listings.innerHTML = "<p>" + postCount + " Listings<p>";
 						/* add a listing card for each listing */
 						snapshot.docs.forEach(doc => {
+							totalSales += doc.data().price;
 							if (postNum % 3==0){ /* start new row */
 								dRow = document.createElement("div");
 								dRow.className = "row";	
