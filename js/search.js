@@ -28,8 +28,8 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 		var query = db.collection("items").where("category", "==", search);
 		document.getElementById("paginate").innerHTML = ''; // Clear page buttns
 		query.get().then(function(querySnapshot){
-			var noPages = (querySnapshot.size > 16)? Math.ceil(querySnapshot.size/16)+1: 1;
-			console.log(querySnapshot.size, Math.ceil(querySnapshot.size/16)+1, noPages);
+			var noPages = (querySnapshot.size > 16)? Math.ceil(querySnapshot.size/16): 1;
+			console.log(querySnapshot.size, Math.ceil(querySnapshot.size/16), noPages);
 			for(var i = 1; i <= noPages; i++){
 				var pageBtn = document.createElement("label");
 				pageBtn.setAttribute("class","btn btn-outline-primary");
@@ -56,6 +56,7 @@ function genPage(pgNo, setStart, search, filter, order){
 	console.log(pgNo, setStart, search, filter, order);
 	
 	document.getElementById("listings").innerHTML = ''; // Clear table
+	
 	var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
 	query.limit(16).startAt(setStart).get().then(function(querySnapshot){
 		querySnapshot.forEach(function(doc){
