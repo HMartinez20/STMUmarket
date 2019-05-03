@@ -28,7 +28,8 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 	if(search != 'none'){
 		query.get().then(function(querySnapshot){
 			console.log(querySnapshot.size);
-			for(var i = 1; i <= (querySnapshot/16)+1; i++){
+			var noPages = (querySnapshot.size > 16)? Math.ceil(querySnapshot/16)+1: 1;
+			for(var i = 1; i <= noPages; i++){
 				var pageBtn = document.createElement("label");
 				pageBtn.setAttribute("class","btn btn-outline-primary");
 				pageBtn.innerHTML= '<input type="radio" name="options" id="page'+i+'" onclick="genPage("page'+i+'",'+(((i-1)*16)+1)+');"'>
