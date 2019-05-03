@@ -25,7 +25,7 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 	//console.log(search+", "+filter+", "+order);
 	category = search; // Change category to selected category
 	if(search != 'none'){
-		var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
+		var query = db.collection("items").where("category", "==", search);
 		query.get().then(function(querySnapshot){
 			//console.log(querySnapshot.size);
 			var noPages = (querySnapshot.size > 16)? Math.ceil(querySnapshot.size/16)+1: 1;
@@ -35,14 +35,14 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 				pageBtn.setAttribute("class","btn btn-outline-primary");
 				if(i == 1){ pageBtn.setAttribute("class", "btn btn-outline-primary active"); }
 				pageBtn.setAttribute("id", "page"+i);
-				pageBtn.onclick= "genPage('page"+i+"', "+(((i-1)*16)+1)+")";
+				pageBtn.onclick= "genPage('page"+i+"', "+(((i-1)*16)+1)+", '"+search+"', '"+filter+"', '"+order+"')";
 				pageBtn.innerHTML= i+'<input type="radio" name="options">';
 				document.getElementById("paginate").appendChild(pageBtn);
 			}
 		});
 		document.getElementById("listings").innerHTML = ''; // Clear table
-		// query.limit(16).get().then(function(querySnapshot){
-		genPage('page1', 1);
+
+		genPage('page1', 1, search, filter, order);
 
 		// Show the appropriate category "badge" as confirmation of category change
 		var badgeArray = ["books","clothing","electronics","furniture","other"];
@@ -54,10 +54,10 @@ function genListings(search = 'none', filter = 'price', order = 'asc'){
 	}
 }
 
-function genPage(pgNo, setStart){
+function genPage(pgNo, setStart, search, filter, order){
 	console.log(pgNo);
 	console.log(setStart);
-	
+
 	var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
 	query.limit(16).startAt(setStart).get().then(function(querySnapshot){
 		querySnapshot.forEach(function(doc){
