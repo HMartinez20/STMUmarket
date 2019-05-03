@@ -76,9 +76,10 @@ function genPage(pgNo, setStart, search, filter, order){
 	// TEST QUERY
 	var x = document.getElementById("myAccount").innerHTML;
 	if(x == 'hmartinez21@mail.stmarytx.edu' && search == "books"){
+		var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
 		for(var i = 1; i <= 23; i++){
-			var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
-			query.limit(4).startAt(i).get().then(function(querySnapshot){
+			console.log(i);
+			query.limit(2).startAt(i).get().then(function(querySnapshot){
 				querySnapshot.forEach(function(doc){
 					if(doc.data().sold == "no"){ // Only show unsold listings
 						var imgSrc = "{{site.baseurl}}/Empty.jpg"; // Default image
