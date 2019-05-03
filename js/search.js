@@ -73,9 +73,9 @@ function genPage(pgNo, setStart, search, filter, order){
 	
 	// TEST QUERY
 	var x = document.getElementById("myAccount").innerHTML;
-	if(x == 'hmartinez21@mail.stmarytx.edu' && search == "books"){
+	if(x == 'hmartinez21@mail.stmarytx.edu'){
 		var query = db.collection("items").where("category", "==", search).orderBy(filter, order);
-		query.startAt(setStart).limit(2).get().then(function(querySnapshot){
+		query.startAt(setStart).limitToLast(16).get().then(function(querySnapshot){
 			querySnapshot.forEach(function(doc){
 				if(doc.data().sold == "no"){ // Only show unsold listings
 					var imgSrc = "{{site.baseurl}}/Empty.jpg"; // Default image
@@ -90,8 +90,6 @@ function genPage(pgNo, setStart, search, filter, order){
 					document.getElementById("listings").appendChild(card);
 				}
 			});
-			var breakElement = document.createElement("div"); breakElement.setAttribute("class", "col-8");breakElement.innerHTML="break";
-			document.getElementById("listings").appendChild(breakElement);
 			document.getElementById("pageBtns").removeAttribute("hidden"); // Result page buttons
 		});
 	}
